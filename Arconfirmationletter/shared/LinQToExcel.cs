@@ -131,11 +131,14 @@ namespace arconfirmationletter
 
             //     xlWorkBook.Close(true, missing, missing);
 
-          
+            xlWorkSheet = null;
+            xlWorkBook = null;
+            xlApp = null;
+
             xlApp.Quit();
-            releaseObject(xlWorkSheet);
-            releaseObject(xlWorkBook);
-            releaseObject(xlApp);
+            //releaseObject(xlWorkSheet);
+            //releaseObject(xlWorkBook);
+            //releaseObject(xlApp);
             return mainDt;
         }
         //-- get string dâttaable
