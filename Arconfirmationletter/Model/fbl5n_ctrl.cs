@@ -202,7 +202,11 @@ namespace arconfirmationletter.Model
                 return;
             }
 
-           
+            if (PostingDateid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột Posting Date", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             for (int rowixd = 0; rowixd < sourceData.Rows.Count; rowixd++)
             {

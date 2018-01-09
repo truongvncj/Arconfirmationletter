@@ -112,7 +112,7 @@ namespace arconfirmationletter
                 //Excel sheet cell has data as "11-30-11" but when i import it convert to "78608".  So i want import those data with data as "11-30-11".  
 
 
-                string x = Convert.ToString(myValues.GetValue(a, 2));
+                string x = Convert.ToString(myValues.GetValue(a,2));  // vừa sửa a2  th   ???/
                 object[] poop = new object[horizontal];
                 //if (x == "11-30-11")
                 //{                    
@@ -131,15 +131,21 @@ namespace arconfirmationletter
 
             //     xlWorkBook.Close(true, missing, missing);
 
-            xlWorkSheet = null;
-            xlWorkBook = null;
-            xlApp = null;
+            //  //  xlWorkSheet = null;
+            //  xlWorkBook = null;
+            //  xlApp = null;
 
             xlApp.Quit();
-            //releaseObject(xlWorkSheet);
-            //releaseObject(xlWorkBook);
-            //releaseObject(xlApp);
+
+
+
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+      
             return mainDt;
+
+
         }
         //-- get string dâttaable
         // Create a new DataTable for every Worksheet
