@@ -1180,7 +1180,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Nếu chúng tôi không nhận được hồi âm của Quý khách để xác nhận những khoản nợ, chúng tôi sẽ xem như Quý khách đồng ý với các khoản nợ nêu rõ trong thư xác nhận công nợ này và trong những lần thông báo và/ hoặc đối chiếu trong tương lai sẽ chỉ căn cứ vào các khoản tiền nợ nêu rõ trong thư xác nhận công nợ này.</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontWeight>Bold</FontWeight>
