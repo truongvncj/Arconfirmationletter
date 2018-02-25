@@ -129,20 +129,40 @@ namespace arconfirmationletter
             // assign table to default data grid view
             //    dataGridView1.DataSource = mainDt;
 
-            //     xlWorkBook.Close(true, missing, missing);
+            //    xlWorkBook.Close(true, missing, missing);
+
+
 
             //  //  xlWorkSheet = null;
             //  xlWorkBook = null;
             //  xlApp = null;
+            //444
+
+
+            //      xlWorkBook.SaveAs(filename, cExcel.XlFileFormat.xlWorkbookDefault, misValue, misValue, misValue, misValue, cExcel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            //  xlWorkBook.SaveAs(filename,cExcel.XlFileFormat.xlWorkbookDefault,)
+            //      xlWorkBook.Close();
+            //   xlWorkBook.clo
+            //  xlRange.clo
 
             xlApp.Quit();
 
+            Utils ut = new Utils();
 
-
-            releaseObject(xlWorkSheet);
-            releaseObject(xlWorkBook);
-            releaseObject(xlApp);
+            ut.ReleaseObject(xlWorkSheet);
+         //   ut.ReleaseObject(xlWorkBook);
+            ut.ReleaseObject(xlApp);
       
+
+            //44
+            //xlApp.Quit();
+
+
+
+            //releaseObject(xlWorkSheet);
+            //releaseObject(xlWorkBook);
+            //releaseObject(xlApp);
+
             return mainDt;
 
 
@@ -460,7 +480,8 @@ namespace arconfirmationletter
 
             cExcel.Worksheet worksheet = (cExcel.Worksheet)sheets.get_Item(1);//Get the reference of second worksheet
 
-      //      ExcelObj.Quit();
+            //      ExcelObj.Quit();
+        //    theWorkbook.Close(true);
 
             return worksheet;
             //  string sheetName =  worksheet.Name;//Get the name of worksheet.
