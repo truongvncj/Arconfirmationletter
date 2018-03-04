@@ -73,9 +73,33 @@ namespace arconfirmationletter
 
 
             cExcel.Application xlApp = new cExcel.Application();
-            cExcel.Workbooks xlWorkBook = null;
+          //  cExcel.Workbooks xlWorkBook = null;
+            // tim  Workbooks
+            //       SetConnectionString();
+            // tim sheetName
+            cExcel.Application ExcelObj = new cExcel.Application();
 
-            cExcel.Worksheet xlWorkSheet = GetworksheetObject(filename);
+            cExcel.Workbook theWorkbook = null;
+
+            //        string strPath = FileName;// "MENTION PATH OF EXCEL FILE HERE";
+            try
+            {
+                theWorkbook = ExcelObj.Workbooks.Open(filename);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Không mở được file excel, please check again", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return null;
+            }
+
+            cExcel.Sheets sheets = theWorkbook.Worksheets;
+
+            cExcel.Worksheet worksheet = (cExcel.Worksheet)sheets.get_Item(1);//Get the reference of second worksheet
+
+
+            // tim  Workbooks
+            cExcel.Worksheet xlWorkSheet = worksheet;// GetworksheetObject(filename);
 
             cExcel.Range xlRange = xlWorkSheet.UsedRange;
 
