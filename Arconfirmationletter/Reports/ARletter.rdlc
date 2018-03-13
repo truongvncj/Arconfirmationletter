@@ -1463,8 +1463,8 @@
                           <Value>=First(Fields!imagesign.Value, "DataSet2")</Value>
                           <MIMEType>image/png</MIMEType>
                           <Sizing>FitProportional</Sizing>
-                          <Top>5.02735in</Top>
-                          <Left>0.1368in</Left>
+                          <Top>4.67318in</Top>
+                          <Left>0.11331in</Left>
                           <Height>0.58333in</Height>
                           <Width>2.07291in</Width>
                           <ZIndex>22</ZIndex>
