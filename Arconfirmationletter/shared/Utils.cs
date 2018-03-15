@@ -705,11 +705,7 @@ namespace arconfirmationletter
                     result_date = DateTime.FromOADate(double.Parse(get_data));
                     return result_date;
                 }
-                //else
-                //{
-                //    return null;
-                //}
-                ////     MessageBox.Show("Lỗi format ngày tháng !");
+               
 
                 result_date = DateTime.ParseExact("01/01/0001", "dd/MM/yyyy", provider);
 
