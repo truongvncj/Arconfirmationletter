@@ -73,18 +73,12 @@ namespace arconfirmationletter
 
 
             cExcel.Application xlApp = new cExcel.Application();
-          //  cExcel.Workbooks xlWorkBook = null;
-            // tim  Workbooks
-            //       SetConnectionString();
-            // tim sheetName
-            cExcel.Application ExcelObj = new cExcel.Application();
-
+      
             cExcel.Workbook theWorkbook = null;
 
-            //        string strPath = FileName;// "MENTION PATH OF EXCEL FILE HERE";
             try
             {
-                theWorkbook = ExcelObj.Workbooks.Open(filename);
+                theWorkbook = xlApp.Workbooks.Open(filename);
             }
             catch (Exception)
             {
@@ -95,14 +89,13 @@ namespace arconfirmationletter
 
             cExcel.Sheets sheets = theWorkbook.Worksheets;
 
-            cExcel.Worksheet worksheet = (cExcel.Worksheet)sheets.get_Item(1);//Get the reference of second worksheet
-
-
-            // tim  Workbooks
-            cExcel.Worksheet xlWorkSheet = worksheet;// GetworksheetObject(filename);
-
+            cExcel.Worksheet xlWorkSheet = (cExcel.Worksheet)sheets.get_Item(1);//Get the reference of second worksheet
+            
             cExcel.Range xlRange = xlWorkSheet.UsedRange;
 
+            #region   xlRange
+
+          
             Array myValues = (Array)xlRange.Cells.Value2;
 
             int vertical = myValues.GetLength(0);
@@ -149,36 +142,22 @@ namespace arconfirmationletter
                 mainDt.Rows.Add(row);
                 //}                
             }
-
-            // assign table to default data grid view
-            //    dataGridView1.DataSource = mainDt;
-
-            //    xlWorkBook.Close(true, missing, missing);
-
-
-
-            //  //  xlWorkSheet = null;
-            //  xlWorkBook = null;
-            //  xlApp = null;
-            //444
-
-
-            //      xlWorkBook.SaveAs(filename, cExcel.XlFileFormat.xlWorkbookDefault, misValue, misValue, misValue, misValue, cExcel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            //  xlWorkBook.SaveAs(filename,cExcel.XlFileFormat.xlWorkbookDefault,)
-            //      xlWorkBook.Close();
-            //   xlWorkBook.clo
-            //  xlRange.clo
-
-            xlApp.Quit();
-
+            #endregion  xlRange
+            
             Utils ut = new Utils();
 
+            xlApp.Quit();
+            ut.ReleaseObject(xlRange);
             ut.ReleaseObject(xlWorkSheet);
-         //   ut.ReleaseObject(xlWorkBook);
+            ut.ReleaseObject(sheets);
+            ut.ReleaseObject(theWorkbook);
             ut.ReleaseObject(xlApp);
 
 
-           // GC.Collect();
+            //  ut.ReleaseObject(xlApp);
+
+          
+            // GC.Collect();
 
 
             //44
