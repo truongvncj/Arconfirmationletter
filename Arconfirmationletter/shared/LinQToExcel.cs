@@ -176,7 +176,10 @@ namespace arconfirmationletter
             ut.ReleaseObject(xlWorkSheet);
          //   ut.ReleaseObject(xlWorkBook);
             ut.ReleaseObject(xlApp);
-      
+
+
+           // GC.Collect();
+
 
             //44
             //xlApp.Quit();
