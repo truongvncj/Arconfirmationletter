@@ -182,9 +182,9 @@ namespace arconfirmationletter.View
 
 
 
-                    Utils ut = new Utils();
+                    //     Utils ut = new Utils();
 
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
                     this.dataGridView1.DataSource = dt;
                     //    dt.Columns.Add("AgreeOrDisAgree", typeof(bool));
                     //        dt.Columns["AgreeOrDisAgree"].DataType =  typeof(bool);
@@ -214,8 +214,8 @@ namespace arconfirmationletter.View
                                where ((int)tblCustomer.Customer).ToString().Contains(inutstring)
                                select tblCustomer;
 
-            Utils ut = new Utils();
-            dt = ut.ToDataTable(dc, rsthisperiod);
+            //    Utils ut = new Utils();
+            dt = Utils.ToDataTable(dc, rsthisperiod);
 
             this.dataGridView1.DataSource = dt;
 
@@ -293,8 +293,8 @@ namespace arconfirmationletter.View
 
 
 
-            Utils ut = new Utils();
-            dt = ut.ToDataTable(db, rsthisperiod);
+            //       Utils ut = new Utils();
+            dt = Utils.ToDataTable(db, rsthisperiod);
 
             this.dataGridView1.DataSource = dt;
             //if (rsthisperiod.Count()>0)
@@ -370,7 +370,7 @@ namespace arconfirmationletter.View
         }
 
 
-     
+
 
         public void Reloadthisbytblbangtonghoptheocodekhachhangchung(string text)
         {
@@ -395,7 +395,7 @@ namespace arconfirmationletter.View
                                    #region  //  CUOI KY ----------------
                                    Account = tblFBL5NthisperiodSum.Account,
                                    Customer_Name = tblFBL5NthisperiodSum.Customer_Name,
-                                   
+
 
                                    FBL5N_amount = tblFBL5NthisperiodSum.FBL5N_amount.GetValueOrDefault(0),
                                    Payment_amount = tblFBL5NthisperiodSum.Payment_amount.GetValueOrDefault(0),
@@ -504,8 +504,8 @@ namespace arconfirmationletter.View
 
             if (rsthisperiod.Count() > 0)
             {
-                Utils ut = new Utils();
-                dt = ut.ToDataTable(dc, rsthisperiod);
+                //    Utils ut = new Utils();
+                dt = Utils.ToDataTable(dc, rsthisperiod);
 
                 this.dataGridView1.DataSource = dt;
 
@@ -611,8 +611,8 @@ namespace arconfirmationletter.View
                                orderby tblFBL5beginbalace.Account
                                select tblFBL5beginbalace;
 
-            Utils ut = new Utils();
-            dt = ut.ToDataTable(dc, rsthisperiod);
+            //   Utils ut = new Utils();
+            dt = Utils.ToDataTable(dc, rsthisperiod);
 
             this.dataGridView1.DataSource = dt;
 
@@ -1012,8 +1012,8 @@ namespace arconfirmationletter.View
 
                                    };
 
-                Utils ut = new Utils();
-                dt = ut.ToDataTable(dc, rsthisperiod);
+                //     Utils ut = new Utils();
+                dt = Utils.ToDataTable(dc, rsthisperiod);
 
                 this.dataGridView1.DataSource = dt;
 
@@ -1154,8 +1154,8 @@ namespace arconfirmationletter.View
 
                                    };
 
-                Utils ut = new Utils();
-                dt = ut.ToDataTable(db, rsthisperiod);
+                //      Utils ut = new Utils();
+                dt = Utils.ToDataTable(db, rsthisperiod);
 
                 this.dataGridView1.DataSource = dt;
 
@@ -1348,7 +1348,7 @@ namespace arconfirmationletter.View
                 string colheadertext = this.dataGridView1.Columns[this.dataGridView1.CurrentCell.ColumnIndex].HeaderText;
                 double codeandgroup = (double)this.dataGridView1.CurrentRow.Cells["Account"].Value;
 
-            
+
                 if (colheadertext == "Reportsend")
                 {
                     #region Reportsend
@@ -1511,8 +1511,8 @@ namespace arconfirmationletter.View
 
                                    };
 
-                Utils ut = new Utils();
-                dt = ut.ToDataTable(dc, rsthisperiod);
+                //   Utils ut = new Utils();
+                dt = Utils.ToDataTable(dc, rsthisperiod);
 
                 this.dataGridView1.DataSource = dt;
 
@@ -1657,8 +1657,8 @@ namespace arconfirmationletter.View
 
                                        };
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                    //    Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -1838,13 +1838,13 @@ namespace arconfirmationletter.View
                                 dataGridView1.ReadOnly = false;
                                 //     dataGridView1.BeginEdit;
                                 //  dataGridView1.UpdateCellValue()
-                          //      if (psdeposiamount != null)
-                            //    {
+                                //      if (psdeposiamount != null)
+                                //    {
 
-                                    dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = -psdeposiamount;
+                                dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = -psdeposiamount;
 
 
-                           //     }
+                                //     }
 
                                 this.Status.Text = "Caculating ...";
                                 Thread tt1 = new Thread(sumtitleGrid);
@@ -2132,51 +2132,51 @@ namespace arconfirmationletter.View
                             // kiểm tra số deposit
                             if (psdeposiamount > 0)
                             {
-                                  psdeposiamount = psdeposiamount * (-1);
+                                psdeposiamount = psdeposiamount * (-1);
 
 
                             }
                             else
                             {
 
-                         
-
-
-                            string connection_string = Utils.getConnectionstr();
-                            string username = Utils.getusername();
-                            // update tại gridview
-                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = psdeposiamount;
-                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["userupdate"].Value = username + "dps_";
-
-
-                            // udapte giá trị trong databasse 
-                            int indexID = int.Parse(dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["id"].Value.ToString());
-
-
-                            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                            var item = (from tblFBL5Nnew in dc.tblFBL5Nnews
-                                        where tblFBL5Nnew.id == indexID
-
-                                        select tblFBL5Nnew).First();
-
-
-                            item.Deposit_amount = psdeposiamount;
-                            item.userupdate = username + "dps_";
-
-
-                            //     item.Fullgood_amount = psunconfirm;
-                            //    item.Empty_Amount_Notmach = psunconfirm;
-                            //  item.Deposit_amount = deposiamount;
-
-                            dc.SubmitChanges();
 
 
 
-                            this.Status.Text = "Caculating ...";
-                            Thread tt1 = new Thread(sumtitleGrid);
+                                string connection_string = Utils.getConnectionstr();
+                                string username = Utils.getusername();
+                                // update tại gridview
+                                dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = psdeposiamount;
+                                dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["userupdate"].Value = username + "dps_";
 
-                            tt1.IsBackground = true;
-                            tt1.Start(new datatoExport() { dataGrid1 = dataGridView1 });
+
+                                // udapte giá trị trong databasse 
+                                int indexID = int.Parse(dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["id"].Value.ToString());
+
+
+                                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                                var item = (from tblFBL5Nnew in dc.tblFBL5Nnews
+                                            where tblFBL5Nnew.id == indexID
+
+                                            select tblFBL5Nnew).First();
+
+
+                                item.Deposit_amount = psdeposiamount;
+                                item.userupdate = username + "dps_";
+
+
+                                //     item.Fullgood_amount = psunconfirm;
+                                //    item.Empty_Amount_Notmach = psunconfirm;
+                                //  item.Deposit_amount = deposiamount;
+
+                                dc.SubmitChanges();
+
+
+
+                                this.Status.Text = "Caculating ...";
+                                Thread tt1 = new Thread(sumtitleGrid);
+
+                                tt1.IsBackground = true;
+                                tt1.Start(new datatoExport() { dataGrid1 = dataGridView1 });
 
                             }
 
@@ -2287,8 +2287,8 @@ namespace arconfirmationletter.View
 
                                        };
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                    //   Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -2471,50 +2471,50 @@ namespace arconfirmationletter.View
                             try
                             {
                                 int idindex = int.Parse(Dtgridview.Rows[Dtgridview.CurrentCell.RowIndex].Cells["id"].Value.ToString());
-                         
-                            //   string connection_string = Utils.getConnectionstr();
-                            //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                            //var item = (from tblFBL5Nnew in db.tblFBL5Nnews
-                            //            where tblFBL5Nnew.id == idindex
 
-                            //            select tblFBL5Nnew).First();
+                                //   string connection_string = Utils.getConnectionstr();
+                                //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                                //var item = (from tblFBL5Nnew in db.tblFBL5Nnews
+                                //            where tblFBL5Nnew.id == idindex
 
-                            //item.Invoice = newvalue;
-                            if (colheadertext == "FBL5N_amount")
-                            {
-                                colheadertext = "[Amount in local currency]";
+                                //            select tblFBL5Nnew).First();
 
-
-                            }
-                            if (colheadertext == "Adj_amount")
-                            {
-                                colheadertext = "Adjusted_amount";
+                                //item.Invoice = newvalue;
+                                if (colheadertext == "FBL5N_amount")
+                                {
+                                    colheadertext = "[Amount in local currency]";
 
 
-                            }
+                                }
+                                if (colheadertext == "Adj_amount")
+                                {
+                                    colheadertext = "Adjusted_amount";
 
 
-
-                            
-                            if (colheadertext.Contains("_"))
-                            {
-                                colheadertext = colheadertext.Replace("_", " ");
-                                string temp = "[" + colheadertext + "]";
-                                colheadertext = temp;
-                            }
-
-                            string sqlquery = @"update tblFBL5Nnew  " +
-                                                "set  tblFBL5Nnew." + colheadertext + "='" + newvalue + "' " +
-                                               "where tblFBL5Nnew.id = " + idindex;
-                            db.ExecuteCommand(sqlquery);
-                            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
-                            //       db.SubmitChanges();
+                                }
 
 
 
 
+                                if (colheadertext.Contains("_"))
+                                {
+                                    colheadertext = colheadertext.Replace("_", " ");
+                                    string temp = "[" + colheadertext + "]";
+                                    colheadertext = temp;
+                                }
 
-                            db.SubmitChanges();
+                                string sqlquery = @"update tblFBL5Nnew  " +
+                                                    "set  tblFBL5Nnew." + colheadertext + "='" + newvalue + "' " +
+                                                   "where tblFBL5Nnew.id = " + idindex;
+                                db.ExecuteCommand(sqlquery);
+                                //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+                                //       db.SubmitChanges();
+
+
+
+
+
+                                db.SubmitChanges();
                             }
                             catch (Exception)
                             {
@@ -2748,10 +2748,10 @@ namespace arconfirmationletter.View
 
                     if (rsthisperiod.Count() > 0)
                     {
-                        Utils ut = new Utils();
+                        //  Utils ut = new Utils();
                         this.dataGridView1.DataSource = rsthisperiod;
                         //   dt.Columns.Add("AgreeOrDisAgree", typeof(bool));
-                        dt = ut.ToDataTable(dc, rsthisperiod);
+                        dt = Utils.ToDataTable(dc, rsthisperiod);
                         //  dt.Columns["AgreeOrDisAgree"].DataType = typeof(bool);
                         //    dt.Columns["AgreeOrDisAgree"].DataType = typeof(BooleanConverter);
                         //     dt.Columns.datat("AgreeOrDisAgree") 
@@ -2862,8 +2862,8 @@ namespace arconfirmationletter.View
 
                                                };
 
-                            Utils ut = new Utils();
-                            dt = ut.ToDataTable(db, rsthisperiod);
+                            //     Utils ut = new Utils();
+                            dt = Utils.ToDataTable(db, rsthisperiod);
 
                             this.dataGridView1.DataSource = dt;
 
@@ -2993,8 +2993,8 @@ namespace arconfirmationletter.View
                                 {
 
 
-                                    Utils ut = new Utils();
-                                    dt = ut.ToDataTable(db, rsthisperiod);
+                                    //     Utils ut = new Utils();
+                                    dt = Utils.ToDataTable(db, rsthisperiod);
 
                                     this.dataGridView1.DataSource = dt;
 
@@ -3119,8 +3119,8 @@ namespace arconfirmationletter.View
                                 {
 
 
-                                    Utils ut = new Utils();
-                                    dt = ut.ToDataTable(db, rsthisperiod);
+                                    //     Utils ut = new Utils();
+                                    dt = Utils.ToDataTable(db, rsthisperiod);
 
                                     this.dataGridView1.DataSource = dt;
 
@@ -3278,8 +3278,8 @@ namespace arconfirmationletter.View
 
                                                };
 
-                            Utils ut = new Utils();
-                            dt = ut.ToDataTable(db, rsthisperiod);
+                            //    Utils ut = new Utils();
+                            dt = Utils.ToDataTable(db, rsthisperiod);
 
                             this.dataGridView1.DataSource = dt;
 
@@ -3404,8 +3404,8 @@ namespace arconfirmationletter.View
                                                    };
                                 if (rsthisperiod.Count() > 0)
                                 {
-                                    Utils ut = new Utils();
-                                    dt = ut.ToDataTable(db, rsthisperiod);
+                                    //   Utils ut = new Utils();
+                                    dt = Utils.ToDataTable(db, rsthisperiod);
 
                                     this.dataGridView1.DataSource = dt;
 
@@ -3528,8 +3528,8 @@ namespace arconfirmationletter.View
                                                    };
                                 if (rsthisperiod.Count() > 0)
                                 {
-                                    Utils ut = new Utils();
-                                    dt = ut.ToDataTable(dc, rsthisperiod);
+                                    //   Utils ut = new Utils();
+                                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                                     this.dataGridView1.DataSource = dt;
 
@@ -3720,14 +3720,14 @@ namespace arconfirmationletter.View
                                 dataGridView1.ReadOnly = false;
                                 //     dataGridView1.BeginEdit;
                                 //  dataGridView1.UpdateCellValue()
-                            //    if (psdeposiamount != null)
-                              //  {
+                                //    if (psdeposiamount != null)
+                                //  {
 
-                                    dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = -psdeposiamount;
+                                dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = -psdeposiamount;
 
-                                    //        dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Empty_Amount"].Value = psepmptyam;
+                                //        dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Empty_Amount"].Value = psepmptyam;
 
-                                    //      dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Empty_Amount_Notmach"].Value = psunconfirm;
+                                //      dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Empty_Amount_Notmach"].Value = psunconfirm;
 
 
                                 //}
@@ -3967,7 +3967,7 @@ namespace arconfirmationletter.View
                         float paymentam = -1;
                         float emptyam = -1;
                         float adjam = -1;
-                 
+
 
                         if (dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Payment_amount"].Value.ToString() == "")
                         {
@@ -4004,7 +4004,7 @@ namespace arconfirmationletter.View
 
 
 
-                        if (paymentam < 0 &&  emptyam ==0 && adjam == 0)
+                        if (paymentam < 0 && emptyam == 0 && adjam == 0)
                         {
 
                             valueinput line = new valueinput("Please input value deposit adj cho khách hàng !");
@@ -4029,10 +4029,10 @@ namespace arconfirmationletter.View
                             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
                             dataGridView1.ReadOnly = false;
                             // kiểm tra số deposit
-                        //    if (psdeposiamount > 0)
-                         //   {
-                                psdeposiamount = psdeposiamount * (-1);
-                          //  }
+                            //    if (psdeposiamount > 0)
+                            //   {
+                            psdeposiamount = psdeposiamount * (-1);
+                            //  }
                             string connection_string = Utils.getConnectionstr();
                             string username = Utils.getusername();
                             // update tại gridview
@@ -4108,7 +4108,7 @@ namespace arconfirmationletter.View
             }
 
 
-//xxxxxx
+            //xxxxxx
             if (this.Text == "BẢNG TÔNG HỢP BÁO CÁO THEO CODE KHÁCH HÀNG")   //f11
             {
 
@@ -4185,8 +4185,8 @@ namespace arconfirmationletter.View
                     {
 
 
-                        Utils ut = new Utils();
-                        dt = ut.ToDataTable(dc, rsthisperiod);
+                        //   Utils ut = new Utils();
+                        dt = Utils.ToDataTable(dc, rsthisperiod);
 
                         this.dataGridView1.DataSource = dt;
 
@@ -4312,7 +4312,7 @@ namespace arconfirmationletter.View
 
 
             }
-//xxxxxx
+            //xxxxxx
 
 
 
@@ -4389,8 +4389,8 @@ namespace arconfirmationletter.View
                                    };
                 if (rsthisperiod.Count() > 0)
                 {
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                    //  Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -4586,8 +4586,8 @@ namespace arconfirmationletter.View
                                    };
                 if (rsthisperiod.Count() > 0)
                 {
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                    //  Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -4713,8 +4713,8 @@ namespace arconfirmationletter.View
 
                                    };
 
-                Utils ut = new Utils();
-                dt = ut.ToDataTable(dc, rsthisperiod);
+                //     Utils ut = new Utils();
+                dt = Utils.ToDataTable(dc, rsthisperiod);
 
                 this.dataGridView1.DataSource = dt;
 
@@ -4982,7 +4982,7 @@ namespace arconfirmationletter.View
             }
 
 
-        
+
 
 
             if (this.Text == "iNPUT DEPOSIT AMOUNTT !" && e.KeyCode == Keys.F11)
@@ -5050,12 +5050,12 @@ namespace arconfirmationletter.View
                 var rsthisperiod = from tblFBL5NthisperiodSum in dc.tblFBL5NthisperiodSums
                                    orderby tblFBL5NthisperiodSum.Account
                                    select new
-                                       {
+                                   {
 
                                        #region  //  CUOI KY ----------------
                                        Account = tblFBL5NthisperiodSum.Account,
                                        Customer_Name = tblFBL5NthisperiodSum.Customer_Name,
-                                       
+
 
                                        FBL5N_amount = tblFBL5NthisperiodSum.FBL5N_amount.GetValueOrDefault(0),
                                        Payment_amount = tblFBL5NthisperiodSum.Payment_amount.GetValueOrDefault(0),
@@ -5150,16 +5150,16 @@ namespace arconfirmationletter.View
 
 
 
-                                       
 
-                                   }  ;
+
+                                   };
 
 
 
                 if (rsthisperiod.Count() > 0)
                 {
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                    //   Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -5190,7 +5190,7 @@ namespace arconfirmationletter.View
                     this.dataGridView1.Columns["RealBalance"].DefaultCellStyle.Format = "N0";
                     this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
                     this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Format = "N0";
-                 
+
 
 
                     this.dataGridView1.Columns["Payment_amountps"].DefaultCellStyle.Format = "N0";
@@ -5210,30 +5210,30 @@ namespace arconfirmationletter.View
                     this.dataGridView1.Columns["Empty_Amountdk"].DefaultCellStyle.Format = "N0";
 
 
-                //    this.dataGridView1.Columns["RealBalance"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["RealBalance"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
 
-                //    this.dataGridView1.Columns["Deposit_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Adj_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Fullgood_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["FBL5N_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Payment_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                ////    this.dataGridView1.Columns["Empty_Amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-
-
-                //    this.dataGridView1.Columns["Deposit_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Adj_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Fullgood_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["FBL5N_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Payment_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Empty_Amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Deposit_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Adj_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Fullgood_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["FBL5N_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Payment_amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    ////    this.dataGridView1.Columns["Empty_Amountdk"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
 
 
-                //    this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                //    this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Deposit_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Adj_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Fullgood_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["FBL5N_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Payment_amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Empty_Amountps"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+
+
+                    //    this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                    //    this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
 
 
 
@@ -5248,7 +5248,7 @@ namespace arconfirmationletter.View
 
             }
 
-      
+
             //
 
 
@@ -5325,8 +5325,8 @@ namespace arconfirmationletter.View
 
                                    };
 
-                Utils ut = new Utils();
-                dt = ut.ToDataTable(dc, rsthisperiod);
+                //   Utils ut = new Utils();
+                dt = Utils.ToDataTable(dc, rsthisperiod);
 
                 this.dataGridView1.DataSource = dt;
 
@@ -5335,7 +5335,7 @@ namespace arconfirmationletter.View
 
                 this.rs = rsthisperiod;
 
-          //      dc = new LinqtoSQLDataContext(connection_string);
+                //      dc = new LinqtoSQLDataContext(connection_string);
                 this.Dtgridview = dataGridView1;
                 this.Status.Text = "Caculating ...";
 
@@ -5446,7 +5446,7 @@ namespace arconfirmationletter.View
 
             // btAutoUpdatedepo
             string connection_string = Utils.getConnectionstr();
-         //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             #region  autoupdatedepositthismonth ra TREN SQL dang viet 
             SqlConnection conn2 = null;
@@ -5468,11 +5468,11 @@ namespace arconfirmationletter.View
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Can not auto update deposit \n" + ex.ToString() ,"Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Stop) ;
+                    MessageBox.Show("Can not auto update deposit \n" + ex.ToString(), "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     return;
 
                 }
-          
+
 
 
 
@@ -5558,8 +5558,8 @@ namespace arconfirmationletter.View
 
                                };
 
-            Utils ut = new Utils();
-            dt = ut.ToDataTable(db, rsthisperiod);
+            //  Utils ut = new Utils();
+            dt = Utils.ToDataTable(db, rsthisperiod);
 
             this.dataGridView1.DataSource = dt;
 
@@ -5612,9 +5612,9 @@ namespace arconfirmationletter.View
 
 
             //shoall
-     //   }
+            //   }
 
 
-    }
+        }
     }
 }

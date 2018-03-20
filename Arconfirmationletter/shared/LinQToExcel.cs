@@ -56,7 +56,7 @@ namespace arconfirmationletter
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
                 obj = null;
             }
-            catch (Exception )
+            catch (Exception)
             {
                 obj = null;
                 //  MessageBox.Show("Unable to release the Object " + ex.ToString());
@@ -66,14 +66,14 @@ namespace arconfirmationletter
                 GC.Collect();
             }
         }
-        public DataTable GetDataFromExcel(string filename)
+        public static DataTable GetDataFromExcel(string filename)
         {
 
             var missing = System.Reflection.Missing.Value;
 
-
+          
             cExcel.Application xlApp = new cExcel.Application();
-      
+
             cExcel.Workbook theWorkbook = null;
 
             try
@@ -86,77 +86,97 @@ namespace arconfirmationletter
                 MessageBox.Show("Không mở được file excel, please check again", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return null;
             }
-
             cExcel.Sheets sheets = theWorkbook.Worksheets;
 
             cExcel.Worksheet xlWorkSheet = (cExcel.Worksheet)sheets.get_Item(1);//Get the reference of second worksheet
-            
+
             cExcel.Range xlRange = xlWorkSheet.UsedRange;
 
-            #region   xlRange
-
-          
-            Array myValues = (Array)xlRange.Cells.Value2;
-
-            int vertical = myValues.GetLength(0);
-            int horizontal = myValues.GetLength(1);
-
-            DataTable mainDt = new DataTable();
-            DataTable MiscDt = new DataTable();
-
-            // must start with index = 1
-            // get header information
-            for (int i = 1; i <= horizontal; i++)
-            {
-                if (myValues.GetValue(1, i) == null)
-                {
-                    mainDt.Columns.Add(new DataColumn(i.ToString()).ToString());
-                }
-                else
-                {
-                    mainDt.Columns.Add(new DataColumn(myValues.GetValue(1, i).ToString()));
-                }
-
-            }
-
-            // Get the row information
-            for (int a = 1; a <= vertical; a++)
+            try
             {
 
 
-                //SEE Below line for QUESTION..
-
-                //Excel sheet cell has data as "11-30-11" but when i import it convert to "78608".  So i want import those data with data as "11-30-11".  
+                #region   xlRange
 
 
-                string x = Convert.ToString(myValues.GetValue(a,2));  // vừa sửa a2  th   ???/
-                object[] poop = new object[horizontal];
-                //if (x == "11-30-11")
-                //{                    
-                for (int b = 1; b <= horizontal; b++)
+                Array myValues = (Array)xlRange.Cells.Value2;
+
+                int vertical = myValues.GetLength(0);
+                int horizontal = myValues.GetLength(1);
+
+                DataTable mainDt = new DataTable();
+                DataTable MiscDt = new DataTable();
+
+                // must start with index = 1
+                // get header information
+                for (int i = 1; i <= horizontal; i++)
                 {
-                    poop[b - 1] = myValues.GetValue(a, b);
+                    if (myValues.GetValue(1, i) == null)
+                    {
+                        mainDt.Columns.Add(new DataColumn(i.ToString()).ToString());
+                    }
+                    else
+                    {
+                        mainDt.Columns.Add(new DataColumn(myValues.GetValue(1, i).ToString()));
+                    }
+
                 }
-                DataRow row = mainDt.NewRow();
-                row.ItemArray = poop;
-                mainDt.Rows.Add(row);
-                //}                
+
+                // Get the row information
+                for (int a = 1; a <= vertical; a++)
+                {
+
+
+                    //SEE Below line for QUESTION..
+
+                    //Excel sheet cell has data as "11-30-11" but when i import it convert to "78608".  So i want import those data with data as "11-30-11".  
+
+
+                    string x = Convert.ToString(myValues.GetValue(a, 2));  // vừa sửa a2  th   ???/
+                    object[] poop = new object[horizontal];
+                    //if (x == "11-30-11")
+                    //{                    
+                    for (int b = 1; b <= horizontal; b++)
+                    {
+                        poop[b - 1] = myValues.GetValue(a, b);
+                    }
+                    DataRow row = mainDt.NewRow();
+                    row.ItemArray = poop;
+                    mainDt.Rows.Add(row);
+                    //}                
+                }
+                #endregion  xlRange
+
+                xlApp.Quit();
+
+             //   Utils.Close_File_Excel();
+
+                Utils.ReleaseObject(xlRange);
+                Utils.ReleaseObject(xlWorkSheet);
+                Utils.ReleaseObject(sheets);
+                Utils.ReleaseObject(theWorkbook);
+                Utils.ReleaseObject(xlApp);
+
+                return mainDt;
             }
-            #endregion  xlRange
-            
-            Utils ut = new Utils();
+            catch (Exception ex)
+            {
 
-            xlApp.Quit();
-            ut.ReleaseObject(xlRange);
-            ut.ReleaseObject(xlWorkSheet);
-            ut.ReleaseObject(sheets);
-            ut.ReleaseObject(theWorkbook);
-            ut.ReleaseObject(xlApp);
+                MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                xlApp.Quit();
 
+                //  Utils ut = new Utils();
+                Utils.ReleaseObject(xlRange);
+                Utils.ReleaseObject(xlWorkSheet);
+                Utils.ReleaseObject(sheets);
+                Utils.ReleaseObject(theWorkbook);
+                Utils.ReleaseObject(xlApp);
+                return null;
+            }
 
             //  ut.ReleaseObject(xlApp);
 
-          
+
             // GC.Collect();
 
 
@@ -169,7 +189,7 @@ namespace arconfirmationletter
             //releaseObject(xlWorkBook);
             //releaseObject(xlApp);
 
-            return mainDt;
+
 
 
         }
@@ -460,39 +480,39 @@ namespace arconfirmationletter
 
 
 
-        public static cExcel.Worksheet GetworksheetObject(string FileName)
-        {
+        //    public static cExcel.Worksheet GetworksheetObject(string FileName)
+        //    {
 
 
-            //       SetConnectionString();
-            // tim sheetName
-            cExcel.Application ExcelObj = new cExcel.Application();
+        //        //       SetConnectionString();
+        //        // tim sheetName
+        //        cExcel.Application ExcelObj = new cExcel.Application();
 
-            cExcel.Workbook theWorkbook = null;
+        //        cExcel.Workbook theWorkbook = null;
 
-    //        string strPath = FileName;// "MENTION PATH OF EXCEL FILE HERE";
-            try
-            {
-                theWorkbook = ExcelObj.Workbooks.Open(FileName);
-            }
-            catch (Exception )
-            {
+        ////        string strPath = FileName;// "MENTION PATH OF EXCEL FILE HERE";
+        //        try
+        //        {
+        //            theWorkbook = ExcelObj.Workbooks.Open(FileName);
+        //        }
+        //        catch (Exception )
+        //        {
 
-                MessageBox.Show("Không mở được file excel, please check again", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return null; 
-            }
-        
-            cExcel.Sheets sheets = theWorkbook.Worksheets;
+        //            MessageBox.Show("Không mở được file excel, please check again", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        //            return null; 
+        //        }
 
-            cExcel.Worksheet worksheet = (cExcel.Worksheet)sheets.get_Item(1);//Get the reference of second worksheet
+        //        cExcel.Sheets sheets = theWorkbook.Worksheets;
 
-            //      ExcelObj.Quit();
-        //    theWorkbook.Close(true);
+        //        cExcel.Worksheet worksheet = (cExcel.Worksheet)sheets.get_Item(1);//Get the reference of second worksheet
 
-            return worksheet;
-            //  string sheetName =  worksheet.Name;//Get the name of worksheet.
-            // return sheetName;
-        }
+        //        //      ExcelObj.Quit();
+        //    //    theWorkbook.Close(true);
+
+        //        return worksheet;
+        //        //  string sheetName =  worksheet.Name;//Get the name of worksheet.
+        //        // return sheetName;
+        //    }
 
 
     }

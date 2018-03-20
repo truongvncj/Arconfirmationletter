@@ -132,9 +132,9 @@ namespace arconfirmationletter.Model
 
             #region  new by datatable
 
-            ExcelProvider ExcelProvide = new ExcelProvider();
+        //    ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
-            System.Data.DataTable sourceData = ExcelProvide.GetDataFromExcel(filename);
+            System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
             System.Data.DataTable batable = new System.Data.DataTable();
 

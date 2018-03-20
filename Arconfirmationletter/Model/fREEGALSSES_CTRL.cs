@@ -244,9 +244,9 @@ namespace arconfirmationletter.Model
             //                         WHERE ( [CUSTOMER] is not null ) ", conn);
 
 
-            ExcelProvider ExcelProvide = new ExcelProvider();
+        //    ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
-            System.Data.DataTable sourceData = ExcelProvide.GetDataFromExcel(filename);
+            System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
             System.Data.DataTable batable = new System.Data.DataTable();
 

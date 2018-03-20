@@ -1045,9 +1045,9 @@ namespace arconfirmationletter.View
             if (rs1 != null && rs2 != null)
             {
 
-                Utils ut = new Utils();
-                var dataset1 = ut.ToDataTable(db, rs1);
-                var dataset2 = ut.ToDataTable(db, rs2);
+            //    Utils ut = new Utils();
+                var dataset1 = Utils.ToDataTable(db, rs1);
+                var dataset2 = Utils.ToDataTable(db, rs2);
                 Reportsview rpt = new Reportsview(dataset1, dataset2, "ARletter.rdlc");
                 rpt.Show();
 
@@ -1080,9 +1080,9 @@ namespace arconfirmationletter.View
             if (rs1 != null && rs2 != null)
             {
                 //      var db = new LinqtoSQLDataContext(connection_string);
-                Utils ut = new Utils();
-                var dataset1 = ut.ToDataTable(db, rs1);
-                var dataset2 = ut.ToDataTable(db, rs2);
+              //  Utils ut = new Utils();
+                var dataset1 = Utils.ToDataTable(db, rs1);
+                var dataset2 = Utils.ToDataTable(db, rs2);
                 Reportsview rpt = new Reportsview(dataset1, dataset2, rptname);
                 rpt.Show();
 
@@ -1310,9 +1310,9 @@ namespace arconfirmationletter.View
             if (rs1 != null && rs2 != null)
             {
                 //      var db = new LinqtoSQLDataContext(connection_string);
-                Utils ut = new Utils();
-                var dataset1 = ut.ToDataTable(db, rs1);
-                var dataset2 = ut.ToDataTable(db, rs2);
+           //     Utils ut = new Utils();
+                var dataset1 = Utils.ToDataTable(db, rs1);
+                var dataset2 = Utils.ToDataTable(db, rs2);
                 Reportsview rpt = new Reportsview(dataset1, dataset2, rptname);
                 rpt.Show();
 
@@ -2822,9 +2822,9 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                 if (rs1 != null && rs2 != null)
                 {
 
-                    Utils ut = new Utils();
-                    var dataset1 = ut.ToDataTable(db, rs1);
-                    var dataset2 = ut.ToDataTable(db, rs2);
+                  //  Utils ut = new Utils();
+                    var dataset1 = Utils.ToDataTable(db, rs1);
+                    var dataset2 = Utils.ToDataTable(db, rs2);
                     Reportsview rpt = new Reportsview(dataset1, dataset2, "ARletter.rdlc");
                     rpt.Show();
 
@@ -2852,9 +2852,9 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                 if (rs1 != null && rs2 != null)
                 {
                     //      var db = new LinqtoSQLDataContext(connection_string);
-                    Utils ut = new Utils();
-                    var dataset1 = ut.ToDataTable(db, rs3);
-                    var dataset2 = ut.ToDataTable(db, rs4);
+                 //   Utils ut = new Utils();
+                    var dataset1 = Utils.ToDataTable(db, rs3);
+                    var dataset2 = Utils.ToDataTable(db, rs4);
                     Reportsview rpt = new Reportsview(dataset1, dataset2, "ARletterdetail.rdlc");
                     rpt.Show();
 
@@ -2884,9 +2884,9 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                 if (rs1 != null && rs2 != null)
                 {
                     //      var db = new LinqtoSQLDataContext(connection_string);
-                    Utils ut = new Utils();
-                    var dataset1 = ut.ToDataTable(db, rs5);
-                    var dataset2 = ut.ToDataTable(db, rs6);
+                 //   Utils ut = new Utils();
+                    var dataset1 = Utils.ToDataTable(db, rs5);
+                    var dataset2 = Utils.ToDataTable(db, rs6);
                     Reportsview rpt = new Reportsview(dataset1, dataset2, "ARCOLrpt.rdlc");
                     rpt.Show();
 
@@ -3489,9 +3489,9 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             if (rs1 != null && rs2 != null)
             {
 
-                Utils ut = new Utils();
-                var dataset1 = ut.ToDataTable(db, rs1);
-                var dataset2 = ut.ToDataTable(db, rs2);
+         //       Utils ut = new Utils();
+                var dataset1 = Utils.ToDataTable(db, rs1);
+                var dataset2 = Utils.ToDataTable(db, rs2);
                 Reportsview rpt = new Reportsview(dataset1, dataset2, "NKAARletter.rdlc");
                 rpt.Show();
 

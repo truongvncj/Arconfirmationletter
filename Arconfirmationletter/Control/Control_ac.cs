@@ -3976,9 +3976,9 @@ namespace arconfirmationletter.Control
             System.Data.DataTable datatable1 = new System.Data.DataTable();
             //
 
-            Utils ul = new Utils();
+          //  Utils ul = new Utils();
 
-            datatable1 = ul.ToDataTable(db, IQuery);
+            datatable1 = Utils.ToDataTable(db, IQuery);
 
 
             //  this.dataGridView2.DataSource =  dataGridView1.DataSource;

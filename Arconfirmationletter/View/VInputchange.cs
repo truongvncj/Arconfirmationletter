@@ -262,8 +262,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tbl_CustomerGroupTemp in dc.tbl_CustomerGroupTemps
                                        select tbl_CustomerGroupTemp;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                  //  Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -293,8 +293,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tbl_ProductlistTMP in dc.tbl_ProductlistTMPs
                                        select tbl_ProductlistTMP;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                //    Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -324,8 +324,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tblCustomerTmp in dc.tblCustomerTmps
                                        select tblCustomerTmp;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                 //   Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -354,8 +354,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tbl_Productlist in dc.tbl_Productlists
                                        select tbl_Productlist;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                 //   Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -383,8 +383,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tbl_CustomerGroup in dc.tbl_CustomerGroups
                                        select tbl_CustomerGroup;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                 //   Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -864,8 +864,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tbl_CustomerGroupTemp in dc.tbl_CustomerGroupTemps
                                        select tbl_CustomerGroupTemp;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                //    Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -895,8 +895,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tbl_ProductlistTMP in dc.tbl_ProductlistTMPs
                                        select tbl_ProductlistTMP;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+               //     Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -926,8 +926,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tblCustomerTmp in dc.tblCustomerTmps
                                        select tblCustomerTmp;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                 //   Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -956,8 +956,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tbl_Productlist in dc.tbl_Productlists
                                        select tbl_Productlist;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                 //   Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -985,8 +985,8 @@ namespace arconfirmationletter.View
                     var rsthisperiod = from tbl_CustomerGroup in dc.tbl_CustomerGroups
                                        select tbl_CustomerGroup;
 
-                    Utils ut = new Utils();
-                    dt = ut.ToDataTable(dc, rsthisperiod);
+                  //  Utils ut = new Utils();
+                    dt = Utils.ToDataTable(dc, rsthisperiod);
 
                     this.dataGridView1.DataSource = dt;
 
@@ -1370,8 +1370,8 @@ namespace arconfirmationletter.View
                         var rsthisperiod = from tbl_CustomerGroupTemp in dc.tbl_CustomerGroupTemps
                                            select tbl_CustomerGroupTemp;
 
-                        Utils ut = new Utils();
-                        dt = ut.ToDataTable(dc, rsthisperiod);
+                     //   Utils ut = new Utils();
+                        dt = Utils.ToDataTable(dc, rsthisperiod);
 
                         this.dataGridView1.DataSource = dt;
 
@@ -1401,8 +1401,8 @@ namespace arconfirmationletter.View
                         var rsthisperiod = from tbl_ProductlistTMP in dc.tbl_ProductlistTMPs
                                            select tbl_ProductlistTMP;
 
-                        Utils ut = new Utils();
-                        dt = ut.ToDataTable(dc, rsthisperiod);
+                 //       Utils ut = new Utils();
+                        dt = Utils.ToDataTable(dc, rsthisperiod);
 
                         this.dataGridView1.DataSource = dt;
 
@@ -1432,8 +1432,8 @@ namespace arconfirmationletter.View
                         var rsthisperiod = from tblCustomerTmp in dc.tblCustomerTmps
                                            select tblCustomerTmp;
 
-                        Utils ut = new Utils();
-                        dt = ut.ToDataTable(dc, rsthisperiod);
+                   //     Utils ut = new Utils();
+                        dt = Utils.ToDataTable(dc, rsthisperiod);
 
                         this.dataGridView1.DataSource = dt;
 
@@ -1462,8 +1462,8 @@ namespace arconfirmationletter.View
                         var rsthisperiod = from tbl_Productlist in dc.tbl_Productlists
                                            select tbl_Productlist;
 
-                        Utils ut = new Utils();
-                        dt = ut.ToDataTable(dc, rsthisperiod);
+                      //  Utils ut = new Utils();
+                        dt = Utils.ToDataTable(dc, rsthisperiod);
 
                         this.dataGridView1.DataSource = dt;
 
@@ -1491,8 +1491,8 @@ namespace arconfirmationletter.View
                         var rsthisperiod = from tbl_CustomerGroup in dc.tbl_CustomerGroups
                                            select tbl_CustomerGroup;
 
-                        Utils ut = new Utils();
-                        dt = ut.ToDataTable(dc, rsthisperiod);
+                     //   Utils ut = new Utils();
+                        dt = Utils.ToDataTable(dc, rsthisperiod);
 
                         this.dataGridView1.DataSource = dt;
 

@@ -143,7 +143,7 @@ namespace arconfirmationletter.Model
 
             ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
-            System.Data.DataTable sourceData = ExcelProvide.GetDataFromExcel(filename);
+            System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
             System.Data.DataTable batable = new System.Data.DataTable();
 
