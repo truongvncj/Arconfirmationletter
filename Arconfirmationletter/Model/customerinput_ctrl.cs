@@ -930,11 +930,26 @@ namespace arconfirmationletter.Model
 
 
 
+                    do
+                    {
+                        
+                            Thread.Sleep(233);
 
+                            try
+                            {
+                                if (t2.IsAlive)
+                                {
+                                    t2.Abort();
+                                }
+                     
+                            }
+                            catch (Exception)
+                            {
+                                Thread.Sleep(233);
+                                //
+                            }
 
-                    Thread.Sleep(1999);
-                    t2.Abort();
-
+                    } while (!t2.IsAlive);
 
                     //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -1028,8 +1043,26 @@ namespace arconfirmationletter.Model
 
 
 
-                    Thread.Sleep(1999);
-                    t2.Abort();
+                    do
+                    {
+
+                        Thread.Sleep(233);
+
+                        try
+                        {
+                            if (t2.IsAlive)
+                            {
+                                t2.Abort();
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            Thread.Sleep(233);
+                            //
+                        }
+
+                    } while (!t2.IsAlive);
 
 
                     //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1119,8 +1152,27 @@ namespace arconfirmationletter.Model
 
 
 
-                    Thread.Sleep(1999);
-                    t2.Abort();
+                    do
+                    {
+
+                        Thread.Sleep(233);
+
+                        try
+                        {
+                            if (t2.IsAlive)
+                            {
+                                t2.Abort();
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            Thread.Sleep(233);
+                            //
+                        }
+
+                    } while (!t2.IsAlive);
+
 
 
                     //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1174,8 +1226,26 @@ namespace arconfirmationletter.Model
 
 
 
-                    Thread.Sleep(1999);
-                    t2.Abort();
+                    do
+                    {
+
+                        Thread.Sleep(233);
+
+                        try
+                        {
+                            if (t2.IsAlive)
+                            {
+                                t2.Abort();
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            Thread.Sleep(233);
+                            //
+                        }
+
+                    } while (!t2.IsAlive);
 
 
                     //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1970,8 +2040,26 @@ namespace arconfirmationletter.Model
 
 
 
-                    Thread.Sleep(1999);
-                    t2.Abort();
+                    do
+                    {
+
+                        Thread.Sleep(233);
+
+                        try
+                        {
+                            if (t2.IsAlive)
+                            {
+                                t2.Abort();
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            Thread.Sleep(233);
+                            //
+                        }
+
+                    } while (!t2.IsAlive);
 
 
                     //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -2359,8 +2447,27 @@ namespace arconfirmationletter.Model
 
 
 
-                    Thread.Sleep(1999);
-                    t2.Abort();
+                    do
+                    {
+
+                        Thread.Sleep(233);
+
+                        try
+                        {
+                            if (t2.IsAlive)
+                            {
+                                t2.Abort();
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            Thread.Sleep(233);
+                            //
+                        }
+
+                    } while (!t2.IsAlive);
+
 
 
                     //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);

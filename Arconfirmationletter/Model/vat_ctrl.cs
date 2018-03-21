@@ -87,8 +87,28 @@ namespace arconfirmationletter.Model
                 {
 
 
-                    Thread.Sleep(1299);
-                    t2.Abort();
+
+                    do
+                    {
+
+                        Thread.Sleep(233);
+
+                        try
+                        {
+                            if (t2.IsAlive)
+                            {
+                                t2.Abort();
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            Thread.Sleep(233);
+                            //
+                        }
+
+                    } while (!t2.IsAlive);
+
                 }
 
                 // check data download
