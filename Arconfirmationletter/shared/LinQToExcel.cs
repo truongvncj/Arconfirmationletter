@@ -151,9 +151,9 @@ namespace arconfirmationletter
 
              //   Utils.Close_File_Excel();
 
-                Utils.ReleaseObject(xlRange);
-                Utils.ReleaseObject(xlWorkSheet);
-                Utils.ReleaseObject(sheets);
+             //   Utils.ReleaseObject(xlRange);
+               // Utils.ReleaseObject(xlWorkSheet);
+               // Utils.ReleaseObject(sheets);
                 Utils.ReleaseObject(theWorkbook);
                 Utils.ReleaseObject(xlApp);
 
@@ -166,9 +166,9 @@ namespace arconfirmationletter
                 xlApp.Quit();
 
                 //  Utils ut = new Utils();
-                Utils.ReleaseObject(xlRange);
-                Utils.ReleaseObject(xlWorkSheet);
-                Utils.ReleaseObject(sheets);
+          //      Utils.ReleaseObject(xlRange);
+            //    Utils.ReleaseObject(xlWorkSheet);
+              //  Utils.ReleaseObject(sheets);
                 Utils.ReleaseObject(theWorkbook);
                 Utils.ReleaseObject(xlApp);
                 return null;

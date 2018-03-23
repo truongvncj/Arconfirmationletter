@@ -290,10 +290,10 @@ namespace arconfirmationletter.Model
                                 dr["Telephone"] = sourceData.Rows[rowixd][Telephoneid].ToString().Trim();
                             }
                         }
-                        catch (Exception )
+                        catch (Exception ex2)
                         {
 
-                            MessageBox.Show("Data có đủ cột nhưng dữ liệu ở dưới bị lost, please check", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(ex2.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
 
@@ -2302,10 +2302,10 @@ namespace arconfirmationletter.Model
 
 
                         }
-                        catch (Exception)
+                        catch (Exception  ex5)
                         {
 
-                            MessageBox.Show("Data có đủ cột nhưng dữ liệu ở dưới bị lost, please check", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(ex5.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
 
@@ -2608,10 +2608,10 @@ namespace arconfirmationletter.Model
 
 
                         }
-                        catch (Exception )
+                        catch (Exception ex3 )
                         {
 
-                            MessageBox.Show("Data có đủ cột nhưng dữ liệu ở dưới bị lost, please check", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(ex3.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
 
