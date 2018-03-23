@@ -875,6 +875,9 @@ namespace arconfirmationletter
             finally
             {
                 GC.Collect();
+
+                GC.WaitForPendingFinalizers();
+
             }
         }
 
