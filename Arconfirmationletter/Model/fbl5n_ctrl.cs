@@ -81,11 +81,12 @@ namespace arconfirmationletter.Model
             batable.Columns.Add("BusinessArea", typeof(string));
             batable.Columns.Add("DocumentNumber", typeof(double));
             batable.Columns.Add("Amountinlocalcurrency", typeof(double));
+            batable.Columns.Add("Deposit", typeof(double));
 
 
+            
 
-
-
+            int Depositid = -1;
             int Accountid = -1;
             int Assignmentid = -1;
             int PostingDateid = -1;
@@ -94,7 +95,7 @@ namespace arconfirmationletter.Model
             int BusinessAreaid = -1;
             int Amountinlocalcurrencyid = -1;
             
-            for (int rowid = 0; rowid < 5; rowid++)
+            for (int rowid = 0; rowid < 20; rowid++)
             {
                 // headindex = 1;
                 for (int columid = 0; columid < sourceData.Columns.Count; columid++)
@@ -107,7 +108,7 @@ namespace arconfirmationletter.Model
                     {
 
                         //    #region setcolum
-                        if (value.Trim()==("Account"))
+                        if (value.Trim()==("Account"))  //Account
                         {
                             Accountid = columid;
                             //  headindex = rowid;
@@ -122,7 +123,7 @@ namespace arconfirmationletter.Model
                         }
 
 
-                        if (value.Trim()==("Posting Date"))
+                        if (value.Trim()==("Pstng Date"))
                         {
 
                             PostingDateid = columid;
@@ -132,13 +133,23 @@ namespace arconfirmationletter.Model
 
                         }
 
+                        if (value.Trim() == ("Deposit"))
+                        {
 
-                        if (value.Trim()==("Document Type")  )
+                            Depositid = columid;
+                            //   headindex = 0;
+
+
+
+                        }
+                        
+
+                        if (value.Trim()==("Typ")  )
                         {
                             DocumentTypeid = columid;
 
                         }
-                        if (value.Trim()==("Document Number")    )
+                        if (value.Trim()==("DocumentNo")    )
                         {
                             DocumentNumberid = columid;
 
@@ -146,12 +157,12 @@ namespace arconfirmationletter.Model
 
 
 
-                        if (value.Trim()==("Amount in local currency")    )
+                        if (value.Trim()==("Amt in loc.cur.")    )
                         {
                             Amountinlocalcurrencyid = columid;
 
                         }
-                        if (value.Trim()==("Business Area")    )
+                        if (value.Trim()==("BusA")    )
                         {
                             BusinessAreaid = columid;
 
@@ -164,11 +175,17 @@ namespace arconfirmationletter.Model
                 }// colum
 
             }// roww off heatder
-
+            
 
             if (Accountid == -1)
             {
                 MessageBox.Show("Dữ liệu thiếu cột Account","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Depositid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột Deposit", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -216,7 +233,7 @@ namespace arconfirmationletter.Model
 
                 //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
                 string Account = sourceData.Rows[rowixd][Accountid].ToString();
-                if (Account != "" && Utils.IsValidnumber(Account))
+                if (Account != "" && Utils.IsValidnumber(Account) && sourceData.Rows[rowixd][DocumentTypeid].ToString().Trim() !="")
                 {
 
                     if (double.Parse(Account) > 0)
@@ -229,8 +246,9 @@ namespace arconfirmationletter.Model
                         dr["DocumentNumber"] = double.Parse(sourceData.Rows[rowixd][DocumentNumberid].ToString());//.Trim();
                         dr["Amountinlocalcurrency"] = double.Parse(sourceData.Rows[rowixd][Amountinlocalcurrencyid].ToString());//.Trim();
                         dr["BusinessArea"] = sourceData.Rows[rowixd][BusinessAreaid].ToString().Trim();
+                        dr["Deposit"] = double.Parse(sourceData.Rows[rowixd][Depositid].ToString().Trim());
 
-
+                        
 
 
                         batable.Rows.Add(dr);
@@ -261,9 +279,9 @@ namespace arconfirmationletter.Model
                 bulkCopy.ColumnMappings.Add("[DocumentNumber]", "[Document Number]");
                 bulkCopy.ColumnMappings.Add("[BusinessArea]", "[Business Area]");
                 bulkCopy.ColumnMappings.Add("[Amountinlocalcurrency]", "[Amount in local currency]");
+                bulkCopy.ColumnMappings.Add("[Deposit]", "[Deposit]");
 
-                
-                
+
                 try
                 {
                     bulkCopy.WriteToServer(batable);

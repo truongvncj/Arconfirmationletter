@@ -63,6 +63,9 @@ namespace arconfirmationletter
     partial void Inserttbl_FreGlass(tbl_FreGlass instance);
     partial void Updatetbl_FreGlass(tbl_FreGlass instance);
     partial void Deletetbl_FreGlass(tbl_FreGlass instance);
+    partial void Inserttbl_FreGlassCleartemp(tbl_FreGlassCleartemp instance);
+    partial void Updatetbl_FreGlassCleartemp(tbl_FreGlassCleartemp instance);
+    partial void Deletetbl_FreGlassCleartemp(tbl_FreGlassCleartemp instance);
     partial void Inserttbl_LetterForlow(tbl_LetterForlow instance);
     partial void Updatetbl_LetterForlow(tbl_LetterForlow instance);
     partial void Deletetbl_LetterForlow(tbl_LetterForlow instance);
@@ -120,10 +123,13 @@ namespace arconfirmationletter
     partial void InserttblNKAArletterRpt(tblNKAArletterRpt instance);
     partial void UpdatetblNKAArletterRpt(tblNKAArletterRpt instance);
     partial void DeletetblNKAArletterRpt(tblNKAArletterRpt instance);
+    partial void InserttblNKAdetailDirectUp(tblNKAdetailDirectUp instance);
+    partial void UpdatetblNKAdetailDirectUp(tblNKAdetailDirectUp instance);
+    partial void DeletetblNKAdetailDirectUp(tblNKAdetailDirectUp instance);
     #endregion
 		
 		public LinqtoSQLDataContext() : 
-				base(global::arconfirmationletter.Properties.Settings.Default.ARconfirmationletterConnectionString1, mappingSource)
+				base(global::arconfirmationletter.Properties.Settings.Default.ARconfirmationletterConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -245,6 +251,14 @@ namespace arconfirmationletter
 			get
 			{
 				return this.GetTable<tbl_FreGlass>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_FreGlassCleartemp> tbl_FreGlassCleartemps
+		{
+			get
+			{
+				return this.GetTable<tbl_FreGlassCleartemp>();
 			}
 		}
 		
@@ -4017,6 +4031,188 @@ namespace arconfirmationletter
 					this._CUSTOMERgroupcode = value;
 					this.SendPropertyChanged("CUSTOMERgroupcode");
 					this.OnCUSTOMERgroupcodeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_FreGlassCleartemp")]
+	public partial class tbl_FreGlassCleartemp : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<double> _CUSTOMER;
+		
+		private string _SALORG;
+		
+		private System.Nullable<double> _COL_Amount;
+		
+		private System.Nullable<double> _COL_Quantity;
+		
+		private string _Remarks;
+		
+		private int _id;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCUSTOMERChanging(System.Nullable<double> value);
+    partial void OnCUSTOMERChanged();
+    partial void OnSALORGChanging(string value);
+    partial void OnSALORGChanged();
+    partial void OnCOL_AmountChanging(System.Nullable<double> value);
+    partial void OnCOL_AmountChanged();
+    partial void OnCOL_QuantityChanging(System.Nullable<double> value);
+    partial void OnCOL_QuantityChanged();
+    partial void OnRemarksChanging(string value);
+    partial void OnRemarksChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
+		
+		public tbl_FreGlassCleartemp()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CUSTOMER", DbType="Float")]
+		public System.Nullable<double> CUSTOMER
+		{
+			get
+			{
+				return this._CUSTOMER;
+			}
+			set
+			{
+				if ((this._CUSTOMER != value))
+				{
+					this.OnCUSTOMERChanging(value);
+					this.SendPropertyChanging();
+					this._CUSTOMER = value;
+					this.SendPropertyChanged("CUSTOMER");
+					this.OnCUSTOMERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALORG", DbType="NVarChar(255)")]
+		public string SALORG
+		{
+			get
+			{
+				return this._SALORG;
+			}
+			set
+			{
+				if ((this._SALORG != value))
+				{
+					this.OnSALORGChanging(value);
+					this.SendPropertyChanging();
+					this._SALORG = value;
+					this.SendPropertyChanged("SALORG");
+					this.OnSALORGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[COL Amount]", Storage="_COL_Amount", DbType="Float")]
+		public System.Nullable<double> COL_Amount
+		{
+			get
+			{
+				return this._COL_Amount;
+			}
+			set
+			{
+				if ((this._COL_Amount != value))
+				{
+					this.OnCOL_AmountChanging(value);
+					this.SendPropertyChanging();
+					this._COL_Amount = value;
+					this.SendPropertyChanged("COL_Amount");
+					this.OnCOL_AmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[COL Quantity]", Storage="_COL_Quantity", DbType="Float")]
+		public System.Nullable<double> COL_Quantity
+		{
+			get
+			{
+				return this._COL_Quantity;
+			}
+			set
+			{
+				if ((this._COL_Quantity != value))
+				{
+					this.OnCOL_QuantityChanging(value);
+					this.SendPropertyChanging();
+					this._COL_Quantity = value;
+					this.SendPropertyChanged("COL_Quantity");
+					this.OnCOL_QuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(255)")]
+		public string Remarks
+		{
+			get
+			{
+				return this._Remarks;
+			}
+			set
+			{
+				if ((this._Remarks != value))
+				{
+					this.OnRemarksChanging(value);
+					this.SendPropertyChanging();
+					this._Remarks = value;
+					this.SendPropertyChanged("Remarks");
+					this.OnRemarksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
@@ -8468,7 +8664,9 @@ namespace arconfirmationletter
 		
 		private System.Nullable<double> _Amount_in_local_currency;
 		
-		private System.Nullable<bool> _Completed_use;
+		private System.Nullable<double> _Deposit;
+		
+		private bool _Completed_use;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -8490,7 +8688,9 @@ namespace arconfirmationletter
     partial void OnBusiness_AreaChanged();
     partial void OnAmount_in_local_currencyChanging(System.Nullable<double> value);
     partial void OnAmount_in_local_currencyChanged();
-    partial void OnCompleted_useChanging(System.Nullable<bool> value);
+    partial void OnDepositChanging(System.Nullable<double> value);
+    partial void OnDepositChanged();
+    partial void OnCompleted_useChanging(bool value);
     partial void OnCompleted_useChanged();
     #endregion
 		
@@ -8659,8 +8859,28 @@ namespace arconfirmationletter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Completed use]", Storage="_Completed_use", DbType="Bit")]
-		public System.Nullable<bool> Completed_use
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deposit", DbType="Float")]
+		public System.Nullable<double> Deposit
+		{
+			get
+			{
+				return this._Deposit;
+			}
+			set
+			{
+				if ((this._Deposit != value))
+				{
+					this.OnDepositChanging(value);
+					this.SendPropertyChanging();
+					this._Deposit = value;
+					this.SendPropertyChanged("Deposit");
+					this.OnDepositChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Completed use]", Storage="_Completed_use", DbType="Bit NOT NULL")]
+		public bool Completed_use
 		{
 			get
 			{
@@ -13568,8 +13788,10 @@ namespace arconfirmationletter
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblNKAdetailDirectUp")]
-	public partial class tblNKAdetailDirectUp
+	public partial class tblNKAdetailDirectUp : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Nullable<double> _Account;
 		
@@ -13605,8 +13827,53 @@ namespace arconfirmationletter
 		
 		private string _REMARK;
 		
+		private int _id;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAccountChanging(System.Nullable<double> value);
+    partial void OnAccountChanged();
+    partial void OnGroupChanging(string value);
+    partial void OnGroupChanged();
+    partial void OnGroup_LetterChanging(string value);
+    partial void OnGroup_LetterChanged();
+    partial void OnName_letterChanging(string value);
+    partial void OnName_letterChanged();
+    partial void OnAssignmentChanging(string value);
+    partial void OnAssignmentChanged();
+    partial void OnDocument_TypeChanging(string value);
+    partial void OnDocument_TypeChanged();
+    partial void OnDocument_NumberChanging(System.Nullable<double> value);
+    partial void OnDocument_NumberChanged();
+    partial void OnDocument_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDocument_DateChanged();
+    partial void OnBusiness_AreaChanging(string value);
+    partial void OnBusiness_AreaChanged();
+    partial void OnPF_Inv_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPF_Inv_DateChanged();
+    partial void OnInvoice_Registration_No_Changing(string value);
+    partial void OnInvoice_Registration_No_Changed();
+    partial void OnPF_Inv_NumberChanging(string value);
+    partial void OnPF_Inv_NumberChanged();
+    partial void OnContent___VATChanging(System.Nullable<double> value);
+    partial void OnContent___VATChanged();
+    partial void OnExtended_ReferenceChanging(string value);
+    partial void OnExtended_ReferenceChanged();
+    partial void OnNet_due_dateChanging(System.Nullable<System.DateTime> value);
+    partial void OnNet_due_dateChanged();
+    partial void OnArrears_after_net_due_dateChanging(System.Nullable<double> value);
+    partial void OnArrears_after_net_due_dateChanged();
+    partial void OnREMARKChanging(string value);
+    partial void OnREMARKChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
+		
 		public tblNKAdetailDirectUp()
 		{
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account", DbType="Float")]
@@ -13620,7 +13887,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Account != value))
 				{
+					this.OnAccountChanging(value);
+					this.SendPropertyChanging();
 					this._Account = value;
+					this.SendPropertyChanged("Account");
+					this.OnAccountChanged();
 				}
 			}
 		}
@@ -13636,7 +13907,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Group != value))
 				{
+					this.OnGroupChanging(value);
+					this.SendPropertyChanging();
 					this._Group = value;
+					this.SendPropertyChanged("Group");
+					this.OnGroupChanged();
 				}
 			}
 		}
@@ -13652,7 +13927,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Group_Letter != value))
 				{
+					this.OnGroup_LetterChanging(value);
+					this.SendPropertyChanging();
 					this._Group_Letter = value;
+					this.SendPropertyChanged("Group_Letter");
+					this.OnGroup_LetterChanged();
 				}
 			}
 		}
@@ -13668,7 +13947,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Name_letter != value))
 				{
+					this.OnName_letterChanging(value);
+					this.SendPropertyChanging();
 					this._Name_letter = value;
+					this.SendPropertyChanged("Name_letter");
+					this.OnName_letterChanged();
 				}
 			}
 		}
@@ -13684,7 +13967,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Assignment != value))
 				{
+					this.OnAssignmentChanging(value);
+					this.SendPropertyChanging();
 					this._Assignment = value;
+					this.SendPropertyChanged("Assignment");
+					this.OnAssignmentChanged();
 				}
 			}
 		}
@@ -13700,7 +13987,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Document_Type != value))
 				{
+					this.OnDocument_TypeChanging(value);
+					this.SendPropertyChanging();
 					this._Document_Type = value;
+					this.SendPropertyChanged("Document_Type");
+					this.OnDocument_TypeChanged();
 				}
 			}
 		}
@@ -13716,7 +14007,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Document_Number != value))
 				{
+					this.OnDocument_NumberChanging(value);
+					this.SendPropertyChanging();
 					this._Document_Number = value;
+					this.SendPropertyChanged("Document_Number");
+					this.OnDocument_NumberChanged();
 				}
 			}
 		}
@@ -13732,7 +14027,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Document_Date != value))
 				{
+					this.OnDocument_DateChanging(value);
+					this.SendPropertyChanging();
 					this._Document_Date = value;
+					this.SendPropertyChanged("Document_Date");
+					this.OnDocument_DateChanged();
 				}
 			}
 		}
@@ -13748,7 +14047,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Business_Area != value))
 				{
+					this.OnBusiness_AreaChanging(value);
+					this.SendPropertyChanging();
 					this._Business_Area = value;
+					this.SendPropertyChanged("Business_Area");
+					this.OnBusiness_AreaChanged();
 				}
 			}
 		}
@@ -13764,7 +14067,11 @@ namespace arconfirmationletter
 			{
 				if ((this._PF_Inv_Date != value))
 				{
+					this.OnPF_Inv_DateChanging(value);
+					this.SendPropertyChanging();
 					this._PF_Inv_Date = value;
+					this.SendPropertyChanged("PF_Inv_Date");
+					this.OnPF_Inv_DateChanged();
 				}
 			}
 		}
@@ -13780,7 +14087,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Invoice_Registration_No_ != value))
 				{
+					this.OnInvoice_Registration_No_Changing(value);
+					this.SendPropertyChanging();
 					this._Invoice_Registration_No_ = value;
+					this.SendPropertyChanged("Invoice_Registration_No_");
+					this.OnInvoice_Registration_No_Changed();
 				}
 			}
 		}
@@ -13796,7 +14107,11 @@ namespace arconfirmationletter
 			{
 				if ((this._PF_Inv_Number != value))
 				{
+					this.OnPF_Inv_NumberChanging(value);
+					this.SendPropertyChanging();
 					this._PF_Inv_Number = value;
+					this.SendPropertyChanged("PF_Inv_Number");
+					this.OnPF_Inv_NumberChanged();
 				}
 			}
 		}
@@ -13812,7 +14127,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Content___VAT != value))
 				{
+					this.OnContent___VATChanging(value);
+					this.SendPropertyChanging();
 					this._Content___VAT = value;
+					this.SendPropertyChanged("Content___VAT");
+					this.OnContent___VATChanged();
 				}
 			}
 		}
@@ -13828,7 +14147,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Extended_Reference != value))
 				{
+					this.OnExtended_ReferenceChanging(value);
+					this.SendPropertyChanging();
 					this._Extended_Reference = value;
+					this.SendPropertyChanged("Extended_Reference");
+					this.OnExtended_ReferenceChanged();
 				}
 			}
 		}
@@ -13844,7 +14167,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Net_due_date != value))
 				{
+					this.OnNet_due_dateChanging(value);
+					this.SendPropertyChanging();
 					this._Net_due_date = value;
+					this.SendPropertyChanged("Net_due_date");
+					this.OnNet_due_dateChanged();
 				}
 			}
 		}
@@ -13860,7 +14187,11 @@ namespace arconfirmationletter
 			{
 				if ((this._Arrears_after_net_due_date != value))
 				{
+					this.OnArrears_after_net_due_dateChanging(value);
+					this.SendPropertyChanging();
 					this._Arrears_after_net_due_date = value;
+					this.SendPropertyChanged("Arrears_after_net_due_date");
+					this.OnArrears_after_net_due_dateChanged();
 				}
 			}
 		}
@@ -13876,8 +14207,52 @@ namespace arconfirmationletter
 			{
 				if ((this._REMARK != value))
 				{
+					this.OnREMARKChanging(value);
+					this.SendPropertyChanging();
 					this._REMARK = value;
+					this.SendPropertyChanged("REMARK");
+					this.OnREMARKChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

@@ -13,6 +13,7 @@ using arconfirmationletter.Control;
 
 using System.Threading;
 using System.Data.SqlClient;
+using arconfirmationletter.View;
 //using System.Collections.Generic;
 //using System.Linq;
 
@@ -3755,7 +3756,74 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             }
         }
+
+        private void uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //  bool kq;
+            fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
+
+            DialogResult kq1 = MessageBox.Show("Update file clear glasses ? ", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            switch (kq1)
+            {
+                case DialogResult.None:
+                    break;
+                case DialogResult.OK:
+
+
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                case DialogResult.Abort:
+                    break;
+                case DialogResult.Retry:
+                    break;
+                case DialogResult.Ignore:
+                    break;
+                case DialogResult.Yes:
+
+
+
+                    //this.updateNewAllToolStripMenuItem1.Enabled = false;
+
+                    //this.reportsToolStripMenuItem.Enabled = false;
+                    md.clearFeeglasseeinputtemp();
+
+
+                         // var rs = md.vatsetlect_all();
+                    //        Viewtable viewtbl = new Viewtable(rs, "VAT ZFI data uploaded ");
+
+                    string connection_string = Utils.getConnectionstr();
+
+                    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+                    var rs = from FreGlassClear in db.tbl_FreGlassCleartemps
+                             select FreGlassClear;
+
+
+                    Viewtable Viewtable = new Viewtable(rs, db, "Clear FressGlasses Progarme upload ", 11, DateTime.Today, DateTime.Today);
+
+
+
+
+
+
+
+
+
+
+
+                    break;
+                case DialogResult.No:
+                    break;
+                default:
+                    break;
+            }
+
+
+
         }
+    }
 
 
 

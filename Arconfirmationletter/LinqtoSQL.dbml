@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ARconfirmationletter" Class="LinqtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-8D4F853\SQLEXPRESS;Initial Catalog=ARconfirmationletter;Persist Security Info=True;User ID=sa" SettingsObjectName="arconfirmationletter.Properties.Settings" SettingsPropertyName="ARconfirmationletterConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=HAN-L-3PFF7H2;Initial Catalog=ARconfirmationletter;Persist Security Info=True;User ID=sa" SettingsObjectName="arconfirmationletter.Properties.Settings" SettingsPropertyName="ARconfirmationletterConnectionString3" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_ARdetalheaderRpt" Member="tbl_ARdetalheaderRpts">
     <Type Name="tbl_ARdetalheaderRpt">
       <Column Name="custcodeGRoup" Type="System.Double" DbType="Float" CanBeNull="true" />
@@ -179,6 +179,16 @@
       <Column Name="PERNO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CUSTOMERgroupcode" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_FreGlassCleartemp" Member="tbl_FreGlassCleartemps">
+    <Type Name="tbl_FreGlassCleartemp">
+      <Column Name="CUSTOMER" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SALORG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[COL Amount]" Member="COL_Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[COL Quantity]" Member="COL_Quantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_LetterForlow" Member="tbl_LetterForlows">
@@ -410,7 +420,8 @@
       <Column Name="[Document Number]" Member="Document_Number" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="[Business Area]" Member="Business_Area" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="[Amount in local currency]" Member="Amount_in_local_currency" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Completed use]" Member="Completed_use" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Deposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Completed use]" Member="Completed_use" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tblFBL5Nnew" Member="tblFBL5Nnews">
@@ -656,6 +667,7 @@
       <Column Name="[Net due date]" Member="Net_due_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="[Arrears after net due date]" Member="Arrears_after_net_due_date" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="REMARK" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

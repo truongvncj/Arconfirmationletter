@@ -626,137 +626,7 @@ namespace arconfirmationletter.View
 
         }
 
-        //public void Reloadthisbytonghopkhachhangsend(string text)
-        //{
-
-
-        //    #region // show  rieng fileterr all
-        //    System.Data.DataTable dt = new System.Data.DataTable();
-
-        //    string connection_string = Utils.getConnectionstr();
-        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-        //    var rsthisperiod = from tblFBL5NthisperiodSum in dc.tblFBL5NthisperiodSums
-        //                       where ((int)tblFBL5NthisperiodSum.Account).ToString().Contains(text)
-        //                                                 && ((from tblCustomer in dc.tblCustomers
-        //                                                      where tblCustomer.Reportsend == true
-        //                                                      select tblCustomer.Customer).Contains(tblFBL5NthisperiodSum.Account))
-        //                       orderby tblFBL5NthisperiodSum.Account
-        //                       select new
-        //                       {
-        //                           Account = tblFBL5NthisperiodSum.Account,//    tblFBL5Nnew.Account,
-        //                           Customer_Name = tblFBL5NthisperiodSum.Customer_Name,// g.Select(gg => gg.Customer_Name).FirstOrDefault(),//tblFBL5Nnew.name,
-        //                           FBL5N_amount = tblFBL5NthisperiodSum.FBL5N_amount,//g.Sum(gg => gg.FBL5N_amount.GetValueOrDefault(0)),
-
-        //                           Payment_amount = tblFBL5NthisperiodSum.Payment_amount,//g.Sum(gg => gg.Payment_amount.GetValueOrDefault(0)),
-        //                           Adj_amount = tblFBL5NthisperiodSum.Adj_amount,// g.Sum(gg => gg.Adj_amount.GetValueOrDefault(0)),
-
-        //                           Fullgood_amount = tblFBL5NthisperiodSum.Fullgood_amount,//g.Sum(gg => gg.Fullgood_amount.GetValueOrDefault(0)), //   tblFBL5Nnew.Fullgood_amount,
-        //                           RealBalance = tblFBL5NthisperiodSum.RealBalance,//g.Sum(gg => gg.RealBalance.GetValueOrDefault(0)), //   tblFBL5Nnew.Fullgood_amount,
-        //                                                                           //Empty_Amountps = g.Sum(gg => gg.Empty_Amountps.GetValueOrDefault(0)), //    tblFBL5Nnew.Empty_Amount,
-        //                           Deposit_amount = tblFBL5NthisperiodSum.Deposit_amount,//g.Sum(gg => gg.Deposit_amount.GetValueOrDefault(0)),//                                       tblFBL5Nnew.Deposit_amount,
-        //                                                                                 //  Deposit_amountps = g.Sum(gg => gg.Deposit_amountps.GetValueOrDefault(0)),//      
-        //                           Empty_Amount = tblFBL5NthisperiodSum.Empty_Amount,//g.Sum(gg => gg.Empty_Amount.GetValueOrDefault(0)),//  
-
-        //                           Binhpmicc02 = tblFBL5NthisperiodSum.Binhpmicc02,//g.Sum(gg => gg.Binhpmicc02.GetValueOrDefault(0)),
-        //                           binhpmix9l = tblFBL5NthisperiodSum.binhpmix9l,// g.Sum(gg => gg.binhpmix9l.GetValueOrDefault(0)),
-        //                           Chaivothuong = tblFBL5NthisperiodSum.Chaivothuong,//g.Sum(gg => gg.Chaivothuong.GetValueOrDefault(0)),
-        //                           Chaivo1lit = tblFBL5NthisperiodSum.Chaivo1lit,//g.Sum(gg => gg.Chaivo1lit.GetValueOrDefault(0)),
-        //                           joy20l = tblFBL5NthisperiodSum.joy20l,//g.Sum(gg => gg.joy20l.GetValueOrDefault(0)),
-
-
-        //                           Ketnhua1lit = tblFBL5NthisperiodSum.Ketnhua1lit,// g.Sum(gg => gg.Ketnhua1lit.GetValueOrDefault(0)),
-
-        //                           Ketnhuathuong = tblFBL5NthisperiodSum.Ketnhuathuong,// g.Sum(gg => gg.Ketnhuathuong.GetValueOrDefault(0)),
-        //                           Ketvolit = tblFBL5NthisperiodSum.Ketvolit,// g.Sum(gg => gg.Ketvolit.GetValueOrDefault(0)),
-
-        //                           Ketvothuong = tblFBL5NthisperiodSum.Ketvothuong,//g.Sum(gg => gg.Ketvothuong.GetValueOrDefault(0)),
-
-        //                           paletnhua = tblFBL5NthisperiodSum.paletnhua,//g.Sum(gg => gg.paletnhua.GetValueOrDefault(0)),
-
-        //                           palletgo = tblFBL5NthisperiodSum.palletgo,//g.Sum(gg => gg.palletgo.GetValueOrDefault(0)),
-
-        //                           Reportsend = tblFBL5NthisperiodSum.Reportsend,
-
-
-        //                           Region = tblFBL5NthisperiodSum.Region,
-
-
-        //                       };//tblFBL5NthisperiodSum;// tblFBL5NthisperiodSum.;
-
-
-        //    if (rsthisperiod.Count() > 0)
-        //    {
-        //        Utils ut = new Utils();
-        //        dt = ut.ToDataTable(dc, rsthisperiod);
-
-        //        this.dataGridView1.DataSource = dt;
-
-
-        //        this.db = dc;
-
-        //        this.rs = rsthisperiod;
-
-        //        //    dc = new LinqtoSQLDataContext(connection_string);
-        //        this.Dtgridview = dataGridView1;
-        //        this.Status.Text = "Caculating ...";
-        //        Thread tt1 = new Thread(sumtitleGrid);
-
-        //        tt1.IsBackground = true;
-        //        tt1.Start(new datatoExport() { dataGrid1 = dataGridView1 });
-
-
-
-
-
-
-        //        this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
-        //        this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Format = "N0";
-        //        this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Format = "N0";
-        //        this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Format = "N0";
-        //        this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Format = "N0";
-        //        this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Format = "N0";
-        //        this.dataGridView1.Columns["RealBalance"].DefaultCellStyle.Format = "N0";
-
-
-        //        this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-        //        this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-        //        this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-        //        this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-        //        this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-        //        this.dataGridView1.Columns["RealBalance"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-        //                                                                                                                        //    this.dataGridView1.Columns["FBL5N_amount_Dau_Ky"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-        //        this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-
-
-        //        //tblFBL5NthisperiodSum tb = new tblFBL5NthisperiodSum();
-        //        //tb.Reportsend
-
-
-
-        //        this.dataGridView1.Columns["Region"].DisplayIndex = 0;
-        //        this.dataGridView1.Columns["Account"].DisplayIndex = 1;
-        //        this.dataGridView1.Columns["Customer_Name"].DisplayIndex = 2;
-
-        //        this.dataGridView1.Columns["FBL5N_amount"].DisplayIndex = 3;
-        //        this.dataGridView1.Columns["RealBalance"].DisplayIndex = 4;
-        //        this.dataGridView1.Columns["Reportsend"].DisplayIndex = 5;
-        //        this.dataGridView1.Columns["Deposit_amount"].DisplayIndex = 6;
-        //        this.dataGridView1.Columns["Adj_amount"].DisplayIndex = 7;
-
-        //        this.dataGridView1.Columns["Payment_amount"].DisplayIndex = 8;
-        //        this.dataGridView1.Columns["Fullgood_amount"].DisplayIndex = 9;
-
-
-        //        this.dataGridView1.Columns["Empty_Amount"].DisplayIndex = 10;
-
-
-        //    }
-
-        //    #endregion // show all
-
-        //}
-
+     
 
         private void getData(List<ComboboxItem> dataCollection)
         {
@@ -874,6 +744,7 @@ namespace arconfirmationletter.View
 
             this.btSendlistUpdate.Visible = false;
             this.bt_listunsend.Visible = false;
+            btpostclear.Visible = false;
 
             this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
                                                                                                             //  this.lb_totalrecord.ForeColor = Color.Chocolate;
@@ -883,6 +754,12 @@ namespace arconfirmationletter.View
 
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(Control_KeyPress);
 
+
+            if (viewcode == 11) // post clear glasses
+            {
+                btpostclear.Visible = true;
+
+            }
 
             if (fornname == "LIST CUSTOMER MAKE REPORTS")
             {
@@ -903,20 +780,7 @@ namespace arconfirmationletter.View
 
                 this.lb_seach.Visible = true;
 
-                //DataGridViewCheckBoxColumn myCheckedColumn = new DataGridViewCheckBoxColumn()
-                //{
-                //    Name = "AgreeOrDisAgree",
-                //    FalseValue = 0,
-                //    TrueValue = 1,
-                //    Visible = true
-                //};
-                //  this.dataGridView1.c("AgreeOrDisAgree") as DataGridViewCheckBoxColumn;
-                // add the new column to your dataGridView 
-                //this.dataGridView1.Columns.Add(myCheckedColumn);
-                // this.dataGridView1.DataGridViewCheckBoxColumn 
-                //       this.dataGridView1.Columns
-                //      dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                // this.dataGridView1.Columns("AgreeOrDisAgree").Cast(System.Boolean);
+              
             }
 
             string line = this.Text;

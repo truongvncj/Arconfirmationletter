@@ -243,6 +243,28 @@ namespace arconfirmationletter.Control
             #endregion
 
 
+            #region q8 List các document có deposit trong fbl5n  không có trong tblEDLP
+
+            var q8 = from fbl5n in dc.tblFBL5Ns
+                     where fbl5n.Deposit != 0 && !(from tblEDLP in dc.tblEDLPs
+                                                   select tblEDLP.Invoice_Doc_Nr
+                                       ).Contains(fbl5n.Document_Number)
+
+                     select fbl5n;
+
+
+            if (q8.Count() != 0)
+            {
+
+                Viewtable viewtbl = new Viewtable(q8, dc, "List các document có trong fbl5n deposit không có trong tblEDLP  ! Please check !", 1, DateTime.Today, DateTime.Today);
+
+                viewtbl.Visible = false;
+                viewtbl.ShowDialog();
+                return false;
+            }
+
+            #endregion List các document có trong tblEDLP không có trong VAT
+
 
             #region q List các document có trong bảng VAT không có trong bảng FBL5N !
             //---
@@ -524,7 +546,7 @@ namespace arconfirmationletter.Control
 
 
 
-            if (q.Count() + q2.Count() + q3.Count() + q4.Count() + q5.Count() + q7.Count() + q6.Count() == 0) //  + q9.Count() 
+            if (q.Count() + q2.Count() + q3.Count() + q4.Count() + q5.Count() + q7.Count() + q6.Count() + q8.Count() == 0) //  + q9.Count() 
             {
                 //  MessageBox.Show("Great!, Data Ready for AR Confirmation reports !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;

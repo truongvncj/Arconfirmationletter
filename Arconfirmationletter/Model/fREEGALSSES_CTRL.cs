@@ -31,6 +31,21 @@ namespace arconfirmationletter.Model
         }
 
 
+        public bool deleteallClearFreglassestemp()
+        {
+            string connection_string = Utils.getConnectionstr();
+            var db = new LinqtoSQLDataContext(connection_string);
+            //    var rs = from tbl_FreGlass in db.tbl_FreGlasses
+            //              select tbl_FreGlass;
+
+            db.ExecuteCommand("DELETE FROM tbl_FreGlassCleartemp");
+            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+            db.SubmitChanges();
+
+            return true;
+        }
+
+
         public IQueryable Fregalssessetlect_all(LinqtoSQLDataContext db)
         {
 
@@ -124,7 +139,7 @@ namespace arconfirmationletter.Model
 
         }
 
-        private void showwait()
+        public void showwait()
         {
             View.Caculating wat = new View.Caculating();
             wat.ShowDialog();
@@ -431,6 +446,276 @@ namespace arconfirmationletter.Model
         }
 
 
+        private void importClearFreglassessexcel(object obj)
+        {
+            string connection_string = Utils.getConnectionstr();
 
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+            fREEGALSSES_CTRL Rm = new fREEGALSSES_CTRL();
+
+            bool kq = Rm.deleteallClearFreglassestemp();
+
+            datainportF inf = (datainportF)obj;
+
+            string filename = inf.filename;
+            //OleDbCommand command = new OleDbCommand(
+            //              @"SELECT [CUSTOMER], [SALORG],[COLAMT],[PERNO]
+            //                         FROM [Sheet1$]
+            //                         WHERE ( [CUSTOMER] is not null ) ", conn);
+
+
+            //    ExcelProvider ExcelProvide = new ExcelProvider();
+            //#endregion
+            System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
+
+            System.Data.DataTable batable = new System.Data.DataTable();
+
+            batable.Columns.Add("CUSTOMER", typeof(double));
+            batable.Columns.Add("SALORG", typeof(string));
+            batable.Columns.Add("COLAmount", typeof(double));
+            batable.Columns.Add("COLQuantity", typeof(double));
+            batable.Columns.Add("Remarks", typeof(string));
+
+
+
+           
+
+            int CUSTOMERid = -1;
+            int SALORGid = -1;
+            int COLAmountid = -1;
+            int COLQuantityid = -1;
+            int Remarksid = -1;
+
+            for (int rowid = 0; rowid < 5; rowid++)
+            {
+                // headindex = 1;
+                for (int columid = 0; columid < sourceData.Columns.Count; columid++)
+                {
+                    #region
+                    string value = sourceData.Rows[rowid][columid].ToString();
+                    //            MessageBox.Show(value +":"+ rowid);
+
+                    if (value != null && value != "")
+                    {
+
+                        //    #region setcolum
+                        if (value.Trim() == ("CUSTOMER"))
+                        {
+                            CUSTOMERid = columid;
+                            //  headindex = rowid;
+                        }
+
+                        if (value.Trim() == ("SALORG"))
+                        {
+
+                            SALORGid = columid;
+                            //    headindex = 0;
+
+                        }
+
+
+                        if (value.Trim() == ("COL Amount"))
+                        {
+
+                            COLAmountid = columid;
+                            //   headindex = 0;
+
+
+
+                        }
+
+
+                        if (value.Trim() == ("COL Quantity"))
+                        {
+                            COLQuantityid = columid;
+
+                        }
+
+
+                        if (value.Trim() == ("Remarks"))
+                        {
+                            Remarksid = columid;
+
+                        }
+
+
+                    }
+                    #endregion
+
+
+                }// colum
+
+            }// roww off heatder
+
+
+       
+
+            if (CUSTOMERid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột CUSTOMER", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (SALORGid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột SALORG", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (COLAmountid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột COL Amount", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            if (COLQuantityid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột COL Quantity", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Remarksid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột Remarks", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            for (int rowixd = 0; rowixd < sourceData.Rows.Count; rowixd++)
+            {
+
+                #region
+
+
+                //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
+                string CUSTOMERvl = sourceData.Rows[rowixd][CUSTOMERid].ToString();
+                if (CUSTOMERvl != "" && Utils.IsValidnumber(CUSTOMERvl))
+                {
+
+                    if (double.Parse(CUSTOMERvl) > 0)
+                    {
+                        DataRow dr = batable.NewRow();
+                        dr["CUSTOMER"] = double.Parse(sourceData.Rows[rowixd][CUSTOMERid].ToString());//.Trim();
+                        dr["SALORG"] = sourceData.Rows[rowixd][SALORGid].ToString().Trim();
+                        dr["COLAmount"] = double.Parse(sourceData.Rows[rowixd][COLAmountid].ToString()); //sourceData.Rows[rowixd][COLAmountid].ToString().Trim();//  Utils.chageExceldatetoData(sourceData.Rows[rowixd][PERNOid].ToString());
+                        dr["COLQuantity"] = double.Parse(sourceData.Rows[rowixd][COLQuantityid].ToString());//.Trim();//sourceData.Rows[rowixd][COLAMTid].ToString().Trim();
+                        dr["Remarks"] = sourceData.Rows[rowixd][Remarksid].ToString().Trim();//  Utils.chageExceldatetoData(sourceData.Rows[rowixd][PERNOid].ToString());
+               
+
+                        batable.Rows.Add(dr);
+
+
+
+
+                    }
+
+                }
+
+                #endregion
+
+                //    Utils util = new Utils();
+
+
+                //---------------fill data
+            }
+            string destConnString = Utils.getConnectionstr();
+            using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
+            {
+
+                bulkCopy.DestinationTableName = "tbl_FreGlassCleartemp";
+                // Write from the source to the destination.
+                bulkCopy.ColumnMappings.Add("CUSTOMER", "[CUSTOMER]");
+                bulkCopy.ColumnMappings.Add("SALORG", "[SALORG]");
+                bulkCopy.ColumnMappings.Add("COLAmount", "[COL Amount]");
+                bulkCopy.ColumnMappings.Add("COLQuantity", "[COL Quantity]");
+                bulkCopy.ColumnMappings.Add("Remarks", "[Remarks]");
+
+              
+
+
+                try
+                {
+                    bulkCopy.WriteToServer(batable);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), "Thông báo lỗi Bulk Copy !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Thread.CurrentThread.Abort();
+                }
+
+            }
+        }
+
+
+        public void clearFeeglasseeinputtemp()
+        {
+            //      BackgroundWorker backgroundWorker1;
+            //   CultureInfo provider = CultureInfo.InvariantCulture;
+            //     backgroundWorker1 = new BackgroundWorker();
+
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open Excel File Clear Free Glasses excel";
+            theDialog.Filter = "Excel files|*.xlsx; *.xls";
+            theDialog.InitialDirectory = @"C:\";
+            if (theDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filename = theDialog.FileName.ToString();
+
+
+                Thread t1 = new Thread(importClearFreglassessexcel);
+                t1.IsBackground = true;
+                t1.Start(new datainportF() { filename = filename });
+
+                Thread t2 = new Thread(showwait);
+                t2.Start();
+                //   autoEvent.WaitOne(); //join
+                t1.Join();
+                if (t1.ThreadState != ThreadState.Running)
+                {
+
+
+
+
+                    do
+                    {
+
+                        Thread.Sleep(233);
+
+                        try
+                        {
+                            if (t2.IsAlive)
+                            {
+                                t2.Abort();
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            Thread.Sleep(233);
+                            //
+                        }
+
+                    } while (!t2.IsAlive);
+
+                }
+
+
+
+
+
+
+            }
+
+
+            // MessageBox.Show(theDialog.FileName.ToString());
+            //    return true;
+
+            //    
+
+
+            // throw new NotImplementedException();
+        }
     }
 }
