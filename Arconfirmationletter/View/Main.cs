@@ -1045,7 +1045,7 @@ namespace arconfirmationletter.View
             if (rs1 != null && rs2 != null)
             {
 
-            //    Utils ut = new Utils();
+                //    Utils ut = new Utils();
                 var dataset1 = Utils.ToDataTable(db, rs1);
                 var dataset2 = Utils.ToDataTable(db, rs2);
                 Reportsview rpt = new Reportsview(dataset1, dataset2, "ARletter.rdlc");
@@ -1080,7 +1080,7 @@ namespace arconfirmationletter.View
             if (rs1 != null && rs2 != null)
             {
                 //      var db = new LinqtoSQLDataContext(connection_string);
-              //  Utils ut = new Utils();
+                //  Utils ut = new Utils();
                 var dataset1 = Utils.ToDataTable(db, rs1);
                 var dataset2 = Utils.ToDataTable(db, rs2);
                 Reportsview rpt = new Reportsview(dataset1, dataset2, rptname);
@@ -1310,7 +1310,7 @@ namespace arconfirmationletter.View
             if (rs1 != null && rs2 != null)
             {
                 //      var db = new LinqtoSQLDataContext(connection_string);
-           //     Utils ut = new Utils();
+                //     Utils ut = new Utils();
                 var dataset1 = Utils.ToDataTable(db, rs1);
                 var dataset2 = Utils.ToDataTable(db, rs2);
                 Reportsview rpt = new Reportsview(dataset1, dataset2, rptname);
@@ -1740,7 +1740,63 @@ namespace arconfirmationletter.View
                 var rs2 = from tblFBL5Nnew in dc.tblFBL5Nnews
                           where tblFBL5Nnew.Posting_Date >= fromdate && tblFBL5Nnew.Posting_Date <= todate
                           && tblFBL5Nnew.Account == custcode
-                          select tblFBL5Nnew;
+                          // select tblFBL5Nnew;
+
+                          select new
+
+
+                          {
+                              tblFBL5Nnew.codeGroup,
+
+                              //         check = tblFBL5Nnewthisperiod.Account.ToString(),
+                              Sorg = tblFBL5Nnew.Business_Area,
+                              tblFBL5Nnew.Account,
+                              Customer_Name = tblFBL5Nnew.name,
+
+                              //     tblFBL5Nnewthisperiod.COL_value,
+
+                              tblFBL5Nnew.Posting_Date,
+                              tblFBL5Nnew.Assignment,
+                              tblFBL5Nnew.Document_Number,
+
+                              FBL5N_amount = tblFBL5Nnew.Amount_in_local_currency,
+
+
+                              tblFBL5Nnew.Payment_amount,
+                              Adj_amount = tblFBL5Nnew.Adjusted_amount,
+
+                              //    tblFBL5Nnewthisperiod.Invoice_Amount,
+                              tblFBL5Nnew.Fullgood_amount,
+                              tblFBL5Nnew.Empty_Amount,
+                              tblFBL5Nnew.Deposit_amount,
+
+
+                              Invoice_date = tblFBL5Nnew.Formula_invoice_date,
+                              //       Invoice =   tblFBL5Nnewthisperiod.Invoice_Registration + " " + tblFBL5Nnewthisperiod.Invoice_Number,
+
+                              tblFBL5Nnew.Invoice,
+                              //    tblFBL5Nnewthisperiod.Vat_amount,
+                              Type = tblFBL5Nnew.Document_Type,
+                              tblFBL5Nnew.Binhpmicc02,
+                              tblFBL5Nnew.binhpmix9l,
+                              tblFBL5Nnew.Chaivothuong,
+                              tblFBL5Nnew.Chaivo1lit,
+                              tblFBL5Nnew.joy20l,
+                              tblFBL5Nnew.Ketnhua1lit,
+                              tblFBL5Nnew.Ketnhuathuong,
+                              tblFBL5Nnew.Ketvolit,
+                              tblFBL5Nnew.Ketvothuong,
+                              tblFBL5Nnew.paletnhua,
+                              tblFBL5Nnew.palletgo,
+                              tblFBL5Nnew.userupdate,
+                              tblFBL5Nnew.id,
+                              //   tblFBL5Nnewthisperiod.Empty_Amount_Notmach,
+
+
+                          };
+
+            
+
 
 
                 Viewtable viewtbl = new Viewtable(rs2, dc, "VIEWLIST DATABASE UPLOADED ON SYSYEM FROM-" + fromdate.Day + "/" + fromdate.Month + "/" + fromdate.Year + " -TO- " + todate.Day + "/" + todate.Month + "/" + todate.Year, 1, fromdate, todate); //view loại 5 là có fromdatetodate
@@ -2831,7 +2887,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                 if (rs1 != null && rs2 != null)
                 {
 
-                  //  Utils ut = new Utils();
+                    //  Utils ut = new Utils();
                     var dataset1 = Utils.ToDataTable(db, rs1);
                     var dataset2 = Utils.ToDataTable(db, rs2);
                     Reportsview rpt = new Reportsview(dataset1, dataset2, "ARletter.rdlc");
@@ -2861,7 +2917,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                 if (rs1 != null && rs2 != null)
                 {
                     //      var db = new LinqtoSQLDataContext(connection_string);
-                 //   Utils ut = new Utils();
+                    //   Utils ut = new Utils();
                     var dataset1 = Utils.ToDataTable(db, rs3);
                     var dataset2 = Utils.ToDataTable(db, rs4);
                     Reportsview rpt = new Reportsview(dataset1, dataset2, "ARletterdetail.rdlc");
@@ -2893,7 +2949,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                 if (rs1 != null && rs2 != null)
                 {
                     //      var db = new LinqtoSQLDataContext(connection_string);
-                 //   Utils ut = new Utils();
+                    //   Utils ut = new Utils();
                     var dataset1 = Utils.ToDataTable(db, rs5);
                     var dataset2 = Utils.ToDataTable(db, rs6);
                     Reportsview rpt = new Reportsview(dataset1, dataset2, "ARCOLrpt.rdlc");
@@ -3498,7 +3554,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             if (rs1 != null && rs2 != null)
             {
 
-         //       Utils ut = new Utils();
+                //       Utils ut = new Utils();
                 var dataset1 = Utils.ToDataTable(db, rs1);
                 var dataset2 = Utils.ToDataTable(db, rs2);
                 Reportsview rpt = new Reportsview(dataset1, dataset2, "NKAARletter.rdlc");
@@ -3517,10 +3573,10 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             PrintOption.ShowDialog();
 
 
-            DateTime todate =   PrintOption.todate;
+            DateTime todate = PrintOption.todate;
             DateTime returndate = PrintOption.returndate;
 
-            Boolean choice  =        PrintOption.choice;
+            Boolean choice = PrintOption.choice;
 
             if (choice)
             {
@@ -3616,7 +3672,90 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "SUMARY DATA", 1, DateTime.Today, DateTime.Today);
         }
-    }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+            fromdateandcode fromtochoice = new View.fromdateandcode();
+            Control_ac ctrac = new Control_ac();
+
+            fromtochoice.ShowDialog();
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            //  var db = new LinqtoSQLDataContext(connection_string);
+            //      LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+            db.CommandTimeout = 0;
+
+
+
+
+            DateTime fromdate = fromtochoice.tungay;
+            DateTime todate = fromtochoice.denngay;
+            double custcode = fromtochoice.custcode;
+
+            bool choice = fromtochoice.chon;
+
+
+
+
+            if (choice == true)
+            {
+
+
+                #region update EMPTY TO DEPOSTI AMOUNT
+                SqlConnection conn2 = null;
+                SqlDataReader rdr1 = null;
+
+                string destConnString = Utils.getConnectionstr();
+                try
+                {
+
+                    conn2 = new SqlConnection(destConnString);
+                    conn2.Open();
+                    SqlCommand cmd1 = new SqlCommand("UploademptyToDepositAmount", conn2);
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.CommandTimeout = 0;
+                         cmd1.Parameters.Add("@fromdate", SqlDbType.DateTime).Value = fromdate;
+                       cmd1.Parameters.Add("@todate", SqlDbType.DateTime).Value = todate;
+                        cmd1.Parameters.Add("@custcode", SqlDbType.Float).Value = custcode;
+
+                    rdr1 = cmd1.ExecuteReader();
+
+
+
+                    //       rdr1 = cmd1.ExecuteReader();
+
+                }
+                finally
+                {
+                    if (conn2 != null)
+                    {
+                        conn2.Close();
+                    }
+                    if (rdr1 != null)
+                    {
+                        rdr1.Close();
+                    }
+                }
+                   MessageBox.Show("Mass balance empty to deposit amount done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                #endregion
+
+
+
+
+
+
+
+
+
+            }
+        }
+        }
 
 
 

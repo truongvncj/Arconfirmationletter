@@ -952,77 +952,17 @@ namespace arconfirmationletter.View
                 System.Data.DataTable dt = new System.Data.DataTable();
 
 
-                string connection_string = Utils.getConnectionstr();
-                //      UpdateDatagridview
-
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                dc.CommandTimeout = 0;
-                var rsthisperiod = from tblFBL5Nnew in dc.tblFBL5Nnews
-                                   where tblFBL5Nnew.Posting_Date >= fromdate && tblFBL5Nnew.Posting_Date <= todate
-                                   select new
-
-
-                                   {
-                                       tblFBL5Nnew.codeGroup,
-
-                                       //         check = tblFBL5Nnewthisperiod.Account.ToString(),
-                                       Sorg = tblFBL5Nnew.Business_Area,
-                                       tblFBL5Nnew.Account,
-                                       Customer_Name = tblFBL5Nnew.name,
-
-                                       //     tblFBL5Nnewthisperiod.COL_value,
-
-                                       tblFBL5Nnew.Posting_Date,
-                                       tblFBL5Nnew.Assignment,
-                                       tblFBL5Nnew.Document_Number,
-
-                                       FBL5N_amount = tblFBL5Nnew.Amount_in_local_currency,
-
-
-                                       tblFBL5Nnew.Payment_amount,
-                                       Adj_amount = tblFBL5Nnew.Adjusted_amount,
-
-                                       //    tblFBL5Nnewthisperiod.Invoice_Amount,
-                                       tblFBL5Nnew.Fullgood_amount,
-                                       tblFBL5Nnew.Empty_Amount,
-                                       tblFBL5Nnew.Deposit_amount,
-
-
-                                       Invoice_date = tblFBL5Nnew.Formula_invoice_date,
-                                       //       Invoice =   tblFBL5Nnewthisperiod.Invoice_Registration + " " + tblFBL5Nnewthisperiod.Invoice_Number,
-
-                                       tblFBL5Nnew.Invoice,
-                                       //    tblFBL5Nnewthisperiod.Vat_amount,
-                                       Type = tblFBL5Nnew.Document_Type,
-                                       tblFBL5Nnew.Binhpmicc02,
-                                       tblFBL5Nnew.binhpmix9l,
-                                       tblFBL5Nnew.Chaivothuong,
-                                       tblFBL5Nnew.Chaivo1lit,
-                                       tblFBL5Nnew.joy20l,
-                                       tblFBL5Nnew.Ketnhua1lit,
-                                       tblFBL5Nnew.Ketnhuathuong,
-                                       tblFBL5Nnew.Ketvolit,
-                                       tblFBL5Nnew.Ketvothuong,
-                                       tblFBL5Nnew.paletnhua,
-                                       tblFBL5Nnew.palletgo,
-                                       tblFBL5Nnew.userupdate,
-                                       tblFBL5Nnew.id,
-                                       //   tblFBL5Nnewthisperiod.Empty_Amount_Notmach,
-
-
-                                   };
 
                 //     Utils ut = new Utils();
-                dt = Utils.ToDataTable(dc, rsthisperiod);
+                dt = Utils.ToDataTable(db, this.rs);
 
                 this.dataGridView1.DataSource = dt;
 
 
-                this.db = dc;
+               // this.db = dc;
 
-                this.rs = rsthisperiod;
-
-                dc = new LinqtoSQLDataContext(connection_string);
+         
+             //   dc = new LinqtoSQLDataContext(connection_string);
                 this.Dtgridview = dataGridView1;
                 this.Status.Text = "Caculating ...";
 
