@@ -17,6 +17,7 @@ namespace arconfirmationletter.View
         public double tocode { get; set; }
 
         public string groupsending { get; set; }
+
         public List<Viewtable.ComboboxItem> Getcomboudata()
         {
 
@@ -122,7 +123,7 @@ namespace arconfirmationletter.View
         {
             InitializeComponent();
             this.choice = 0;
-            this.cb_printall.CheckState = CheckState.Checked;
+         //   this.cb_printall.CheckState = CheckState.Checked;
             this.cb_groupprit.CheckState = CheckState.Unchecked;
             this.cb_onlycode.CheckState = CheckState.Unchecked;
             this.cb_fromcodetocode.CheckState = CheckState.Unchecked;
@@ -215,7 +216,7 @@ namespace arconfirmationletter.View
             {
                 this.cb_onlycode.CheckState = CheckState.Unchecked;
                 this.cb_fromcodetocode.CheckState = CheckState.Unchecked;
-                this.cb_printall.CheckState = CheckState.Unchecked;
+             //   this.cb_printall.CheckState = CheckState.Unchecked;
             }
 
 
@@ -235,7 +236,7 @@ namespace arconfirmationletter.View
             {
                 this.cb_groupprit.CheckState = CheckState.Unchecked;
                 this.cb_fromcodetocode.CheckState = CheckState.Unchecked;
-                this.cb_printall.CheckState = CheckState.Unchecked;
+      //          this.cb_printall.CheckState = CheckState.Unchecked;
             }
 
 
@@ -249,7 +250,7 @@ namespace arconfirmationletter.View
             {
                 this.cb_onlycode.CheckState = CheckState.Unchecked;
                 this.cb_groupprit.CheckState = CheckState.Unchecked;
-                this.cb_printall.CheckState = CheckState.Unchecked;
+      //          this.cb_printall.CheckState = CheckState.Unchecked;
             }
 
 
@@ -319,14 +320,14 @@ namespace arconfirmationletter.View
             //     public float onlycode { get; set; }
             //     public float fromcode { get; set; }
             //     public float tocode { get; set; }
-            if (cb_printall.CheckState == CheckState.Checked)
-            {
-                this.choice = 4;
+            //if (cb_printall.CheckState == CheckState.Checked)
+            //{
+            //    this.choice = 4;
 
-                this.Close();
+            //    this.Close();
 
-                //       MessageBox.Show(this.groupsending);
-            }
+            //    //       MessageBox.Show(this.groupsending);
+            //}
 
 
             if (cb_groupprit.CheckState == CheckState.Checked)
@@ -423,13 +424,13 @@ namespace arconfirmationletter.View
 
         private void cb_printall_CheckStateChanged(object sender, EventArgs e)
         {
-            if (this.cb_printall.CheckState == CheckState.Checked)
-            {
-                this.cb_onlycode.CheckState = CheckState.Unchecked;
-                this.cb_groupprit.CheckState = CheckState.Unchecked;
-                //    this.cb_printall.CheckState = CheckState.Unchecked;
-                this.cb_fromcodetocode.CheckState = CheckState.Unchecked;
-            }
+            //if (this.cb_printall.CheckState == CheckState.Checked)
+            //{
+            //    this.cb_onlycode.CheckState = CheckState.Unchecked;
+            //    this.cb_groupprit.CheckState = CheckState.Unchecked;
+            //    //    this.cb_printall.CheckState = CheckState.Unchecked;
+            //    this.cb_fromcodetocode.CheckState = CheckState.Unchecked;
+            //}
         }
     }
 }

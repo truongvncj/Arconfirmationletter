@@ -1704,7 +1704,7 @@ namespace arconfirmationletter.View
 
 
 
-            fromdate fromtochoice = new View.fromdate();
+            fromdateandcode fromtochoice = new View.fromdateandcode();
             Control_ac ctrac = new Control_ac();
 
             fromtochoice.ShowDialog();
@@ -1722,6 +1722,8 @@ namespace arconfirmationletter.View
 
             DateTime fromdate = fromtochoice.tungay;
             DateTime todate = fromtochoice.denngay;
+            double custcode = fromtochoice.custcode;
+
             bool choice = fromtochoice.chon;
 
 
@@ -1733,8 +1735,11 @@ namespace arconfirmationletter.View
 
 
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                dc.CommandTimeout = 0;
+
                 var rs2 = from tblFBL5Nnew in dc.tblFBL5Nnews
                           where tblFBL5Nnew.Posting_Date >= fromdate && tblFBL5Nnew.Posting_Date <= todate
+                          && tblFBL5Nnew.Account == custcode
                           select tblFBL5Nnew;
 
 
@@ -1826,7 +1831,7 @@ namespace arconfirmationletter.View
         {
 
 
-            fromdate fromtochoice = new View.fromdate();
+            fromdateandcode fromtochoice = new View.fromdateandcode();
             Control_ac ctrac = new Control_ac();
 
             fromtochoice.ShowDialog();
@@ -1838,12 +1843,15 @@ namespace arconfirmationletter.View
             //      LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
             LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+            db.CommandTimeout = 0;
 
 
 
 
             DateTime fromdate = fromtochoice.tungay;
             DateTime todate = fromtochoice.denngay;
+            double custcode = fromtochoice.custcode;
+
             bool choice = fromtochoice.chon;
 
 
@@ -1857,6 +1865,7 @@ namespace arconfirmationletter.View
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
                 var rs2 = from tblFBL5Nnew in dc.tblFBL5Nnews
                           where tblFBL5Nnew.Posting_Date >= fromdate && tblFBL5Nnew.Posting_Date <= todate
+                           && tblFBL5Nnew.Account == custcode
                           select tblFBL5Nnew;
 
 

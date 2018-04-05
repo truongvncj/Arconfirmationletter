@@ -28,6 +28,18 @@ namespace arconfirmationletter.Model
             return rs;
 
         }
+
+        public static string getNamecustomer(double codekhachang)
+        {
+            string connection_string = Utils.getConnectionstr();
+            var db = new LinqtoSQLDataContext(connection_string);
+            string name = (from tblCustomer in db.tblCustomers
+                           where tblCustomer.Customer == codekhachang
+                           select tblCustomer.Name_1).FirstOrDefault();
+
+            return name;
+
+        }
         public void deleteunuselistcustomer()
         {
 
@@ -94,7 +106,7 @@ namespace arconfirmationletter.Model
 
             #region  new by datatable
 
-       //     ExcelProvider ExcelProvide = new ExcelProvider();
+            //     ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
             System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
@@ -430,7 +442,7 @@ namespace arconfirmationletter.Model
 
             #region  new by datatable
 
-      //      ExcelProvider ExcelProvide = new ExcelProvider();
+            //      ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
             System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
@@ -445,7 +457,7 @@ namespace arconfirmationletter.Model
 
             batable.Columns.Add("Customer", typeof(double));
 
-         //   batable.Columns.Add("Customer", typeof(double));
+            //   batable.Columns.Add("Customer", typeof(double));
             batable.Columns.Add("Sorg", typeof(string));
             batable.Columns.Add("Name", typeof(string));
 
@@ -578,7 +590,7 @@ namespace arconfirmationletter.Model
 
 
                         }
-                        catch (Exception )
+                        catch (Exception)
                         {
 
                             MessageBox.Show("Data có đủ cột nhưng dữ liệu ở dưới bị lost, please check", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -691,20 +703,20 @@ namespace arconfirmationletter.Model
             string filename = inf.filename;
 
 
-            
+
 
 
 
             #region  new by datatable
 
-        //    ExcelProvider ExcelProvide = new ExcelProvider();
+            //    ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
             System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
             System.Data.DataTable batable = new System.Data.DataTable();
 
 
-          
+
             batable.Columns.Add("Customer", typeof(double));
 
 
@@ -759,10 +771,10 @@ namespace arconfirmationletter.Model
 
                 //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
                 string DocumentNoVal = sourceData.Rows[rowixd][Customerid].ToString();
-                if (DocumentNoVal != "" && Utils.IsValidnumber(DocumentNoVal)  && DocumentNoVal != null )
+                if (DocumentNoVal != "" && Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != null)
                 {
 
-                    if (double.Parse(DocumentNoVal) > 0 && double.Parse(DocumentNoVal) <  99999999)
+                    if (double.Parse(DocumentNoVal) > 0 && double.Parse(DocumentNoVal) < 99999999)
                     {
 
 
@@ -777,12 +789,12 @@ namespace arconfirmationletter.Model
 
 
                             //dr["Customer"] = double.Parse(DocumentNoVal);
-                          //  dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
+                            //  dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
 
                             dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
 
                         }
-                        catch (Exception )
+                        catch (Exception)
                         {
 
                             MessageBox.Show("Data có đủ cột nhưng dữ liệu ở dưới bị lost, please check", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -932,22 +944,22 @@ namespace arconfirmationletter.Model
 
                     do
                     {
-                        
-                            Thread.Sleep(233);
 
-                            try
+                        Thread.Sleep(233);
+
+                        try
+                        {
+                            if (t2.IsAlive)
                             {
-                                if (t2.IsAlive)
-                                {
-                                    t2.Abort();
-                                }
-                     
+                                t2.Abort();
                             }
-                            catch (Exception)
-                            {
-                                Thread.Sleep(233);
-                                //
-                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            Thread.Sleep(233);
+                            //
+                        }
 
                     } while (!t2.IsAlive);
 
@@ -1382,7 +1394,7 @@ namespace arconfirmationletter.Model
 
             #region  new by datatable
 
-         //   ExcelProvider ExcelProvide = new ExcelProvider();
+            //   ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
             System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
@@ -1757,7 +1769,7 @@ namespace arconfirmationletter.Model
                 #region
 
 
-             
+
                 //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
                 string DocumentNoVal = sourceData.Rows[rowixd][Accountid].ToString();
                 if (DocumentNoVal != "" && Utils.IsValidnumber(DocumentNoVal))
@@ -1791,8 +1803,8 @@ namespace arconfirmationletter.Model
                             }
 
 
-                             DocumentNoVal = sourceData.Rows[rowixd][Fullgood_amountid].ToString();
-                            if (Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != "" )
+                            DocumentNoVal = sourceData.Rows[rowixd][Fullgood_amountid].ToString();
+                            if (Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != "")
                             {
                                 dr["Fullgood_amount"] = double.Parse(sourceData.Rows[rowixd][Fullgood_amountid].ToString());
                             }
@@ -1926,7 +1938,7 @@ namespace arconfirmationletter.Model
                         catch (Exception ex)
                         {
 
-                            MessageBox.Show("Data có đủ cột nhưng lõi,please check" +ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Data có đủ cột nhưng lõi,please check" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
 
@@ -2134,7 +2146,7 @@ namespace arconfirmationletter.Model
 
             #region  new by datatable
 
-         //   ExcelProvider ExcelProvide = new ExcelProvider();
+            //   ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
             System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
@@ -2285,7 +2297,7 @@ namespace arconfirmationletter.Model
                                     MessageBox.Show("data : " + sourceData.Rows[rowixd][Customerid].ToString().Trim(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     //throw;
                                 }
-                              
+
                             }
                             //dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
                             if (sourceData.Rows[rowixd][Nameid].ToString().Length > 255)
@@ -2302,7 +2314,7 @@ namespace arconfirmationletter.Model
 
 
                         }
-                        catch (Exception  ex5)
+                        catch (Exception ex5)
                         {
 
                             MessageBox.Show(ex5.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -2337,9 +2349,9 @@ namespace arconfirmationletter.Model
             {
                 bulkCopy.DestinationTableName = "tbl_Unsendlist";
                 // Write from the source to the destination.
-            bulkCopy.ColumnMappings.Add("Sorg", "Sorg");
-            bulkCopy.ColumnMappings.Add("Customer", "Customer");
-               bulkCopy.ColumnMappings.Add("Name", "Name");
+                bulkCopy.ColumnMappings.Add("Sorg", "Sorg");
+                bulkCopy.ColumnMappings.Add("Customer", "Customer");
+                bulkCopy.ColumnMappings.Add("Name", "Name");
                 //   bulkCopy.ColumnMappings.Add("Address", "[Address]");
                 //    bulkCopy.ColumnMappings.Add("Telephone 1", "[Telephone 1]");
 
@@ -2494,12 +2506,12 @@ namespace arconfirmationletter.Model
             string filename = inf.filename;
 
 
-         
+
 
 
             #region  new by datatable
 
-        //    ExcelProvider ExcelProvide = new ExcelProvider();
+            //    ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
             System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
@@ -2513,7 +2525,7 @@ namespace arconfirmationletter.Model
 
 
             int Customerid = -1;
-            int   GroupNAmeid = -1;
+            int GroupNAmeid = -1;
 
 
 
@@ -2575,7 +2587,7 @@ namespace arconfirmationletter.Model
                 if (DocumentNoVal != "" && Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != null)
                 {
 
-                    if (double.Parse(DocumentNoVal) > 0 )
+                    if (double.Parse(DocumentNoVal) > 0)
                     {
 
 
@@ -2608,7 +2620,7 @@ namespace arconfirmationletter.Model
 
 
                         }
-                        catch (Exception ex3 )
+                        catch (Exception ex3)
                         {
 
                             MessageBox.Show(ex3.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

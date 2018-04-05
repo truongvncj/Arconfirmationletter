@@ -40,7 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cb_printall = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +149,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cb_printall);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.input_tocode);
@@ -167,19 +165,6 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
-            // 
-            // cb_printall
-            // 
-            this.cb_printall.AutoSize = true;
-            this.cb_printall.Enabled = false;
-            this.cb_printall.Location = new System.Drawing.Point(2, 259);
-            this.cb_printall.Name = "cb_printall";
-            this.cb_printall.Size = new System.Drawing.Size(60, 17);
-            this.cb_printall.TabIndex = 13;
-            this.cb_printall.TabStop = false;
-            this.cb_printall.Text = "Print all";
-            this.cb_printall.UseVisualStyleBackColor = true;
-            this.cb_printall.CheckStateChanged += new System.EventHandler(this.cb_printall_CheckStateChanged);
             // 
             // PrintLetterOption
             // 
@@ -213,6 +198,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox cb_printall;
     }
 }
