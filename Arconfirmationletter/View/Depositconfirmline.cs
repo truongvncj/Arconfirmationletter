@@ -743,6 +743,9 @@ namespace arconfirmationletter.View
                             item.Deposit_amount = -psdeposiamount;
 
 
+                            //       item.Deposit_amount = psdeposiamount;
+                            item.Empty_Amount = psepmptyam;
+
 
                             //    item.Empty_Amount = psepmptyam;
                             item.Empty_Amount_Notmach = psunconfirm;
@@ -792,6 +795,8 @@ namespace arconfirmationletter.View
 
                             item.Deposit_amount = -psdeposiamount;
 
+                     //       item.Deposit_amount = psdeposiamount;
+                            item.Payment_amount = psepmptyam;
 
 
                             //     item.Fullgood_amount = psunconfirm;
