@@ -482,7 +482,7 @@ namespace arconfirmationletter.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (viewcode ==1)
+            if (viewcode == 1)
             {
                 #region
                 bool kq = Utils.IsValidnumber(this.txconfimr.Text.ToString());
@@ -497,7 +497,7 @@ namespace arconfirmationletter.View
 
                         #region tacts vu
 
-                        
+
                         if (this.header == "Empty_Amount" && Utils.IsValidnumber(this.txconfimr.Text.ToString()))
                         {
 
@@ -524,26 +524,26 @@ namespace arconfirmationletter.View
                             psunconfirm = int.Parse(this.lb_uncofirm.Text.ToString());
 
 
-                         //   if (psdeposiamount != null)
-                           // {
+                            //   if (psdeposiamount != null)
+                            // {
 
-                                string connection_string = Utils.getConnectionstr();
-                                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                                var item = (from tblFBL5Nnewthisperiod in dc.tblFBL5Nnewthisperiods
-                                            where tblFBL5Nnewthisperiod.id == this.idindex
+                            string connection_string = Utils.getConnectionstr();
+                            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                            var item = (from tblFBL5Nnewthisperiod in dc.tblFBL5Nnewthisperiods
+                                        where tblFBL5Nnewthisperiod.id == this.idindex
 
-                                            select tblFBL5Nnewthisperiod).First();
-
-
-                                item.Deposit_amount = -psdeposiamount;
+                                        select tblFBL5Nnewthisperiod).First();
 
 
+                            item.Deposit_amount = -psdeposiamount;
 
-                                //    item.Empty_Amount = psepmptyam;
-                                item.Empty_Amount_Notmach = psunconfirm;
-                                //  item.Deposit_amount = deposiamount;
 
-                                dc.SubmitChanges();
+
+                            //    item.Empty_Amount = psepmptyam;
+                            item.Empty_Amount_Notmach = psunconfirm;
+                            //  item.Deposit_amount = deposiamount;
+
+                            dc.SubmitChanges();
 
                             //}
 
@@ -574,28 +574,28 @@ namespace arconfirmationletter.View
 
                             psunconfirm = int.Parse(this.lb_uncofirm.Text.ToString());
 
-                       //     if (psdeposiamount != null)
-                         //   {
-                                string connection_string = Utils.getConnectionstr();
+                            //     if (psdeposiamount != null)
+                            //   {
+                            string connection_string = Utils.getConnectionstr();
 
-                                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                                var item = (from tblFBL5Nnewthisperiod in dc.tblFBL5Nnewthisperiods
-                                            where tblFBL5Nnewthisperiod.id == this.idindex
+                            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                            var item = (from tblFBL5Nnewthisperiod in dc.tblFBL5Nnewthisperiods
+                                        where tblFBL5Nnewthisperiod.id == this.idindex
 
-                                            select tblFBL5Nnewthisperiod).First();
-
-
-                                item.Deposit_amount = -psdeposiamount;
+                                        select tblFBL5Nnewthisperiod).First();
 
 
+                            item.Deposit_amount = -psdeposiamount;
 
-                                //     item.Fullgood_amount = psunconfirm;
-                                //    item.Empty_Amount_Notmach = psunconfirm;
-                                //  item.Deposit_amount = deposiamount;
 
-                                dc.SubmitChanges();
 
-                           // }
+                            //     item.Fullgood_amount = psunconfirm;
+                            //    item.Empty_Amount_Notmach = psunconfirm;
+                            //  item.Deposit_amount = deposiamount;
+
+                            dc.SubmitChanges();
+
+                            // }
 
                             #endregion
 
@@ -621,28 +621,28 @@ namespace arconfirmationletter.View
 
                             psunconfirm = int.Parse(this.lb_uncofirm.Text.ToString());
 
-                     //       if (psdeposiamount != null)
-                       //     {
-                                string connection_string = Utils.getConnectionstr();
+                            //       if (psdeposiamount != null)
+                            //     {
+                            string connection_string = Utils.getConnectionstr();
 
-                                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                                var item = (from tblFBL5Nnewthisperiod in dc.tblFBL5Nnewthisperiods
-                                            where tblFBL5Nnewthisperiod.id == this.idindex
+                            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                            var item = (from tblFBL5Nnewthisperiod in dc.tblFBL5Nnewthisperiods
+                                        where tblFBL5Nnewthisperiod.id == this.idindex
 
-                                            select tblFBL5Nnewthisperiod).First();
-
-
-                                item.Deposit_amount = -psdeposiamount;
-                                //   item.Fullgood_amount = item.Fullgood_amount - psdeposiamount;
+                                        select tblFBL5Nnewthisperiod).First();
 
 
-                                //     item.Fullgood_amount = psunconfirm;
-                                //    item.Empty_Amount_Notmach = psunconfirm;
-                                //  item.Deposit_amount = deposiamount;
+                            item.Deposit_amount = -psdeposiamount;
+                            //   item.Fullgood_amount = item.Fullgood_amount - psdeposiamount;
 
-                                dc.SubmitChanges();
 
-                         //   }
+                            //     item.Fullgood_amount = psunconfirm;
+                            //    item.Empty_Amount_Notmach = psunconfirm;
+                            //  item.Deposit_amount = deposiamount;
+
+                            dc.SubmitChanges();
+
+                            //   }
 
                             #endregion
 
@@ -660,7 +660,7 @@ namespace arconfirmationletter.View
                         this.txconfimr.Focus();
                     }
 
-               
+
 
 
 
@@ -729,28 +729,28 @@ namespace arconfirmationletter.View
                             psunconfirm = double.Parse(this.lb_uncofirm.Text.ToString());
 
 
-                      //      if (psdeposiamount != null)
-                        //    {
+                            //      if (psdeposiamount != null)
+                            //    {
 
-                                string connection_string = Utils.getConnectionstr();
-                                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                                var item = (from tblFBL5Nnew in dc.tblFBL5Nnews
-                                            where tblFBL5Nnew.id == this.idindex
+                            string connection_string = Utils.getConnectionstr();
+                            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                            var item = (from tblFBL5Nnew in dc.tblFBL5Nnews
+                                        where tblFBL5Nnew.id == this.idindex
 
-                                            select tblFBL5Nnew).First();
-
-
-                                item.Deposit_amount = -psdeposiamount;
+                                        select tblFBL5Nnew).First();
 
 
+                            item.Deposit_amount = -psdeposiamount;
 
-                                //    item.Empty_Amount = psepmptyam;
-                                item.Empty_Amount_Notmach = psunconfirm;
-                                //  item.Deposit_amount = deposiamount;
 
-                                dc.SubmitChanges();
 
-                         //   }
+                            //    item.Empty_Amount = psepmptyam;
+                            item.Empty_Amount_Notmach = psunconfirm;
+                            //  item.Deposit_amount = deposiamount;
+
+                            dc.SubmitChanges();
+
+                            //   }
 
                             #endregion
 
@@ -779,28 +779,28 @@ namespace arconfirmationletter.View
 
                             psunconfirm = double.Parse(this.lb_uncofirm.Text.ToString());
 
-                          //  if (psdeposiamount != null)
-                        //    {
-                                string connection_string = Utils.getConnectionstr();
+                            //  if (psdeposiamount != null)
+                            //    {
+                            string connection_string = Utils.getConnectionstr();
 
-                                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                                var item = (from tblFBL5Nnew in dc.tblFBL5Nnews
-                                            where tblFBL5Nnew.id == this.idindex
+                            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                            var item = (from tblFBL5Nnew in dc.tblFBL5Nnews
+                                        where tblFBL5Nnew.id == this.idindex
 
-                                            select tblFBL5Nnew).First();
-
-
-                                item.Deposit_amount = -psdeposiamount;
+                                        select tblFBL5Nnew).First();
 
 
+                            item.Deposit_amount = -psdeposiamount;
 
-                                //     item.Fullgood_amount = psunconfirm;
-                                //    item.Empty_Amount_Notmach = psunconfirm;
-                                //  item.Deposit_amount = deposiamount;
 
-                                dc.SubmitChanges();
 
-                           // }
+                            //     item.Fullgood_amount = psunconfirm;
+                            //    item.Empty_Amount_Notmach = psunconfirm;
+                            //  item.Deposit_amount = deposiamount;
+
+                            dc.SubmitChanges();
+
+                            // }
 
                             #endregion
 
@@ -826,26 +826,26 @@ namespace arconfirmationletter.View
 
                             psunconfirm = double.Parse(this.lb_uncofirm.Text.ToString());
 
-                          //  if (psdeposiamount != null)
+                            //  if (psdeposiamount != null)
                             //{
-                                string connection_string = Utils.getConnectionstr();
+                            string connection_string = Utils.getConnectionstr();
 
-                                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                                var item = (from tblFBL5Nnew in dc.tblFBL5Nnews
-                                            where tblFBL5Nnew.id == this.idindex
+                            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                            var item = (from tblFBL5Nnew in dc.tblFBL5Nnews
+                                        where tblFBL5Nnew.id == this.idindex
 
-                                            select tblFBL5Nnew).First();
-
-
-                                item.Deposit_amount = psdeposiamount;
+                                        select tblFBL5Nnew).First();
 
 
+                            item.Deposit_amount = psdeposiamount;
+                            item.Adjusted_amount = psepmptyam;
 
-                                //     item.Fullgood_amount = psunconfirm;
-                                //    item.Empty_Amount_Notmach = psunconfirm;
-                                //  item.Deposit_amount = deposiamount;
 
-                                dc.SubmitChanges();
+                            //     item.Fullgood_amount = psunconfirm;
+                            //    item.Empty_Amount_Notmach = psunconfirm;
+                            //  item.Deposit_amount = deposiamount;
+
+                            dc.SubmitChanges();
 
                             //}
 

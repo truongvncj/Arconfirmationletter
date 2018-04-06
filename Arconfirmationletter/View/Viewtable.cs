@@ -1620,6 +1620,8 @@ namespace arconfirmationletter.View
                                             dataGridView1.ReadOnly = false;
 
                                             dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = psdeposiamount;
+                                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Adjusted_amount"].Value = Adj_amount;
+
                                             dataGridView1.ReadOnly = true;
                                             // upvao sể vẻ
 
