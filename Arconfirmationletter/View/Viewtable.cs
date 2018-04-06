@@ -750,7 +750,7 @@ namespace arconfirmationletter.View
 
             this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
                                                                                                             //  this.lb_totalrecord.ForeColor = Color.Chocolate;
-            this.Show();
+            this.ShowDialog();
             this.KeyPreview = true;
             //dataGridView1.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dataGridView1_EditingControlShowing);
 
@@ -1237,7 +1237,7 @@ namespace arconfirmationletter.View
 
                 if (colheadertext == "Deposit_amount")
                 {
-                  //  MessageBox.Show("ok");
+                    //  MessageBox.Show("ok");
 
                     valueinput valueinput = new valueinput("Plese input new  Deposit amount value: ");
 
@@ -1251,7 +1251,7 @@ namespace arconfirmationletter.View
 
                         if (Utils.IsValidnumber(newvalue))
                         {
-                            if ((double.Parse(newvalue) % 38000) !=0)
+                            if ((double.Parse(newvalue) % 38000) != 0)
                             {
 
                                 MessageBox.Show("Số tiền update vào phải chia hết cho 38000 VND, please recheck !");
@@ -1260,7 +1260,7 @@ namespace arconfirmationletter.View
                             }
                             dataGridView1.ReadOnly = false;
                             dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = newvalue;
-                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Ketvothuong"].Value = (double.Parse(newvalue)/38000);
+                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Ketvothuong"].Value = (double.Parse(newvalue) / 38000);
 
                             dataGridView1.ReadOnly = true;
 
@@ -1355,7 +1355,7 @@ namespace arconfirmationletter.View
                     if (kq)
                     {
 
-                        if (newvalue !="")
+                        if (newvalue != "")
                         {
                             dataGridView1.ReadOnly = false;
                             dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Remark"].Value = newvalue;
@@ -1401,6 +1401,275 @@ namespace arconfirmationletter.View
             //     DateTime fromdate;
             //     DateTime todate;
 
+            if (this.viewcode == 13) // afeter vẻyfy  adj
+            {
+
+
+                string colheadertext = this.dataGridView1.Columns[this.dataGridView1.CurrentCell.ColumnIndex].HeaderText;
+
+          //      bbb
+
+
+
+                if (colheadertext == "Empty_Amount")// nếu kích ô empty 
+                {
+
+
+                    #region newu la cot empty amounny
+
+
+                    if (dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["id"].Value != null && dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Empty_Amount"].Value != null)
+                    {
+                        int indexID = int.Parse(dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["id"].Value.ToString());
+
+
+                        if (dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Empty_Amount"].Value != DBNull.Value && dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Empty_Amount"].Value.ToString() != "")
+                        {
+
+                            if (int.Parse(dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Empty_Amount"].Value.ToString()) != 0)
+                            {
+                                Depositconfirmline line = new Depositconfirmline(indexID, "Empty_Amount", 2);
+
+
+
+
+                                line.ShowDialog();
+
+                                #region            //        update view
+                                double psepmptyam = line.psepmptyam;
+
+                                double psdeposiamount = line.psdeposiamount;
+
+
+                                double psunconfirm = line.psunconfirm;
+
+                                //     this.Activate();
+
+
+                                dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+                                dataGridView1.ReadOnly = false;
+
+
+                                dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = -psdeposiamount;
+                                dataGridView1.ReadOnly = true;
+                                // upvaof server
+
+
+
+
+
+                                // up voar ser ver
+
+
+                            }
+
+
+                            #endregion      //        update view
+
+
+
+                        }
+
+
+
+                    }
+
+
+
+
+
+
+                    #endregion newu la cot empty amounny
+
+
+
+                }
+
+
+                if (colheadertext == "Payment_amount")// nếu kích payment amount
+                {
+
+
+                    #region newu la cot : Payment_amount
+
+
+                    if (dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["id"].Value != null && dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Payment_amount"].Value != null)
+                    {
+                        int indexID = int.Parse(dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["id"].Value.ToString());
+
+
+                        if (dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Payment_amount"].Value != DBNull.Value && dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Payment_amount"].Value.ToString() != "")
+                        {
+
+                            if (float.Parse(dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Payment_amount"].Value.ToString()) <= 0)
+                            {
+                                Depositconfirmline line = new Depositconfirmline(indexID, "Payment_amount", 2);
+
+
+                                //?????
+
+                                line.ShowDialog();
+
+                                #region            //        update view
+                                double payment = line.psepmptyam;
+
+                                double psdeposiamount = line.psdeposiamount;
+
+
+                                double psunconfirm = line.psunconfirm;
+
+                                //     dataGridView1.BeginEdit;
+                                //  dataGridView1.UpdateCellValue()
+                                if (payment + psdeposiamount + psunconfirm != 0)
+                                {
+                                    dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+                                    dataGridView1.ReadOnly = false;
+
+                                    dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = -psdeposiamount;
+                                    dataGridView1.ReadOnly = true;
+                                    // upvao sêrver
+
+
+
+                                    // upvaro server
+
+                                }
+
+
+
+
+                            }
+
+
+                            // change veiew totlal:
+
+                            // this.lb_tongamount.Text = tongamount.ToString();
+                            //    this.lb_tongdeposit.Text = (double.Parse( tongdeposit.ToString()) + psdeposiamount).to;
+                            //   this.lb_unmaching.Text = unmaching.ToString();
+                            //   this.lb_sumempty.Text = sumempty.ToString();
+                            //change view toatla
+
+                            #endregion      //        update view
+
+
+
+                        }
+
+
+
+                    }
+
+
+
+
+
+
+                    #endregion newu la cot empty amounny
+
+
+
+                }
+
+
+                if (colheadertext == "Adjusted_amount")// nếu kích payment amount
+                {
+
+                    try
+                    {
+
+                        #region newu la cot : Adj_amount
+
+
+                        if (dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["id"].Value != null && dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Adjusted_amount"].Value != null)
+                        {
+                            int indexID = int.Parse(dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["id"].Value.ToString());
+
+
+                            Username user = new Username();
+                            //  Boolean right = user.right;
+
+                            if (user.depostfromadjamount)
+                            {
+
+                                if (dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Adjusted_amount"].Value != DBNull.Value && dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Adjusted_amount"].Value.ToString() != "")
+                                {
+
+                                    if (float.Parse(dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Adjusted_amount"].Value.ToString()) != 0)
+                                    {
+                                        Depositconfirmline line = new Depositconfirmline(indexID, "Adj_amount", 2);
+
+
+                                        //?????
+
+                                        line.ShowDialog();
+
+                                        #region            //        update view
+
+                                        double Adj_amount = line.psepmptyam;
+
+                                        double psdeposiamount = line.psdeposiamount;
+
+
+                                        double psunconfirm = line.psunconfirm;
+
+
+                                        if (Adj_amount + psdeposiamount + psunconfirm != 0)
+                                        {
+
+                                            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+                                            dataGridView1.ReadOnly = false;
+
+                                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = psdeposiamount;
+                                            dataGridView1.ReadOnly = true;
+                                            // upvao sể vẻ
+
+
+                                            // upvao sể evrr
+
+
+                                        }
+
+
+                                    }
+
+
+
+                                    #endregion      //        update view
+
+
+
+                                }
+
+                            }
+
+
+
+
+
+                        }
+
+
+
+
+
+
+                        #endregion newu la cot empty amounny
+
+
+                    }
+                    catch (Exception)
+                    {
+
+                        //   throw;
+                    }
+
+
+                }
+
+
+
+
+            }
 
             if (parts.Count() >= 4 && this.viewcode == 1)
             {
@@ -1537,7 +1806,6 @@ namespace arconfirmationletter.View
                 #endregion
 
             }
-
 
 
             if (parts.Count() >= 4 && this.viewcode == 2) //reinput deposit code==2; edit dataser vẻ code ==7
@@ -1722,8 +1990,9 @@ namespace arconfirmationletter.View
 
 
                         db.SubmitChanges();
-                        #endregion
+
                     }
+                    #endregion
                 }
                 //   valueinput();
                 if (colheadertext == "Invoice")// nếu kích ô empty 
@@ -1870,12 +2139,12 @@ namespace arconfirmationletter.View
                                 line.ShowDialog();
 
                                 #region            //        update view
-                                float payment = line.psepmptyam;
+                                double payment = line.psepmptyam;
 
-                                float psdeposiamount = line.psdeposiamount;
+                                double psdeposiamount = line.psdeposiamount;
 
 
-                                float psunconfirm = line.psunconfirm;
+                                double psunconfirm = line.psunconfirm;
 
                                 dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
                                 dataGridView1.ReadOnly = false;
@@ -1967,12 +2236,12 @@ namespace arconfirmationletter.View
 
                                         #region            //        update view
 
-                                        float Adj_amount = line.psepmptyam;
+                                        double Adj_amount = line.psepmptyam;
 
-                                        float psdeposiamount = line.psdeposiamount;
+                                        double psdeposiamount = line.psdeposiamount;
 
 
-                                        float psunconfirm = line.psunconfirm;
+                                        double psunconfirm = line.psunconfirm;
 
                                         dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
                                         dataGridView1.ReadOnly = false;
@@ -3756,12 +4025,12 @@ namespace arconfirmationletter.View
                                 line.ShowDialog();
 
                                 #region            //        update view
-                                float payment = line.psepmptyam;
+                                double payment = line.psepmptyam;
 
-                                float psdeposiamount = line.psdeposiamount;
+                                double psdeposiamount = line.psdeposiamount;
 
 
-                                float psunconfirm = line.psunconfirm;
+                                double psunconfirm = line.psunconfirm;
 
                                 dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
                                 dataGridView1.ReadOnly = false;
@@ -3851,12 +4120,12 @@ namespace arconfirmationletter.View
 
                                     #region            //        update view
 
-                                    float Adj_amount = line.psepmptyam;
+                                    double Adj_amount = line.psepmptyam;
 
-                                    float psdeposiamount = line.psdeposiamount;
+                                    double psdeposiamount = line.psdeposiamount;
 
 
-                                    float psunconfirm = line.psunconfirm;
+                                    double psunconfirm = line.psunconfirm;
 
                                     dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
                                     dataGridView1.ReadOnly = false;

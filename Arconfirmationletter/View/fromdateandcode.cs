@@ -107,5 +107,10 @@ namespace arconfirmationletter.View
 
             }
         }
+
+        private void lbname_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

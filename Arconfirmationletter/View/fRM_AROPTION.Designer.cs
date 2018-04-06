@@ -37,7 +37,9 @@
             this.datelinePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.pik_fromdate = new System.Windows.Forms.DateTimePicker();
-            this.Regioncheck = new System.Windows.Forms.CheckBox();
+            this.lbname = new System.Windows.Forms.Label();
+            this.txtcode = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -66,7 +68,7 @@
             // 
             // bt_okthuchien
             // 
-            this.bt_okthuchien.Location = new System.Drawing.Point(156, 184);
+            this.bt_okthuchien.Location = new System.Drawing.Point(158, 268);
             this.bt_okthuchien.Name = "bt_okthuchien";
             this.bt_okthuchien.Size = new System.Drawing.Size(97, 27);
             this.bt_okthuchien.TabIndex = 4;
@@ -78,7 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(24, 15);
+            this.label3.Location = new System.Drawing.Point(13, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(229, 18);
             this.label3.TabIndex = 5;
@@ -111,7 +113,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 46);
+            this.label1.Location = new System.Drawing.Point(12, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 19);
             this.label1.TabIndex = 15;
@@ -130,16 +132,33 @@
             this.pik_fromdate.TabIndex = 14;
             this.pik_fromdate.Value = new System.DateTime(2015, 11, 22, 11, 48, 31, 0);
             // 
-            // Regioncheck
+            // lbname
             // 
-            this.Regioncheck.AutoSize = true;
-            this.Regioncheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Regioncheck.Location = new System.Drawing.Point(122, 155);
-            this.Regioncheck.Name = "Regioncheck";
-            this.Regioncheck.Size = new System.Drawing.Size(130, 19);
-            this.Regioncheck.TabIndex = 16;
-            this.Regioncheck.Text = "By Region (Yes/no)";
-            this.Regioncheck.UseVisualStyleBackColor = true;
+            this.lbname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbname.Location = new System.Drawing.Point(20, 214);
+            this.lbname.Name = "lbname";
+            this.lbname.Size = new System.Drawing.Size(311, 22);
+            this.lbname.TabIndex = 18;
+            this.lbname.Text = "Name";
+            // 
+            // txtcode
+            // 
+            this.txtcode.Location = new System.Drawing.Point(122, 185);
+            this.txtcode.Name = "txtcode";
+            this.txtcode.Size = new System.Drawing.Size(133, 20);
+            this.txtcode.TabIndex = 17;
+            this.txtcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcode_KeyPress);
+            this.txtcode.Leave += new System.EventHandler(this.txtcode_Leave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(20, 185);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 17);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Code";
             // 
             // fRM_AROPTION
             // 
@@ -148,8 +167,10 @@
             this.AutoScrollMargin = new System.Drawing.Size(10, 10);
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(286, 224);
-            this.Controls.Add(this.Regioncheck);
+            this.ClientSize = new System.Drawing.Size(350, 321);
+            this.Controls.Add(this.lbname);
+            this.Controls.Add(this.txtcode);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pik_fromdate);
             this.Controls.Add(this.label6);
@@ -180,6 +201,8 @@
         private System.Windows.Forms.DateTimePicker datelinePicker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker pik_fromdate;
-        private System.Windows.Forms.CheckBox Regioncheck;
+        private System.Windows.Forms.Label lbname;
+        private System.Windows.Forms.TextBox txtcode;
+        private System.Windows.Forms.Label label4;
     }
 }

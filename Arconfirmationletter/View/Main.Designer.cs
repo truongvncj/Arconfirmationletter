@@ -395,8 +395,8 @@
             this.toolStripSeparator14,
             this.cLOSETHISPRERIODToolStripMenuItem,
             this.toolStripSeparator6,
-            this.toolStripMenuItem4,
             this.rEEDITDEPOSITVERIFYToolStripMenuItem,
+            this.toolStripMenuItem4,
             this.vIEWALLDATABASEONSERVERToolStripMenuItem,
             this.toolStripSeparator12,
             this.uNBLOCKDEPOSITVERIFYToolStripMenuItem,
@@ -677,10 +677,11 @@
             // 
             // toolStripMenuItem4
             // 
-            this.toolStripMenuItem4.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.toolStripMenuItem4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(304, 26);
-            this.toolStripMenuItem4.Text = "  ";
+            this.toolStripMenuItem4.Text = "DEPOSIT CHANGE AFTER CLOSE";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // rEEDITDEPOSITVERIFYToolStripMenuItem
             // 
@@ -731,7 +732,7 @@
             // 
             // toolStripMenuItem3
             // 
-            this.toolStripMenuItem3.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.toolStripMenuItem3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(304, 26);
             this.toolStripMenuItem3.Text = "MASS BALANCE DEPOSIT AMOUNT";
@@ -942,7 +943,7 @@
             this.rEPORTSMAKEToolStripMenuItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(0)));
             this.rEPORTSMAKEToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("rEPORTSMAKEToolStripMenuItem1.Image")));
             this.rEPORTSMAKEToolStripMenuItem1.Name = "rEPORTSMAKEToolStripMenuItem1";
-            this.rEPORTSMAKEToolStripMenuItem1.Size = new System.Drawing.Size(294, 24);
+            this.rEPORTSMAKEToolStripMenuItem1.Size = new System.Drawing.Size(298, 26);
             this.rEPORTSMAKEToolStripMenuItem1.Text = "MAKE REPORTS ";
             this.rEPORTSMAKEToolStripMenuItem1.Click += new System.EventHandler(this.rEPORTSMAKEToolStripMenuItem1_Click);
             // 

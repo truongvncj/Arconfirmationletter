@@ -14,8 +14,8 @@ namespace arconfirmationletter.View
 
 
 
-   
-  
+
+
     public partial class fRM_AROPTION : Form
     {
 
@@ -33,28 +33,28 @@ namespace arconfirmationletter.View
                      where tblCustomer.Reportsend == true
                      select tblCustomer;
 
-                    
+
             string drowdowvalue = "";
-            if (rs.Count()>0)
-            {
-
-       
-            foreach (var item in rs)
+            if (rs.Count() > 0)
             {
 
 
-                drowdowvalue = item.Customer.ToString() + " " + item.Name_1;
+                foreach (var item in rs)
+                {
 
 
-                Viewtable.ComboboxItem itemcb = new Viewtable.ComboboxItem();
-                itemcb.Text = drowdowvalue;
-                itemcb.Value = item.Customer.ToString();
+                    drowdowvalue = item.Customer.ToString() + " " + item.Name_1;
+
+
+                    Viewtable.ComboboxItem itemcb = new Viewtable.ComboboxItem();
+                    itemcb.Text = drowdowvalue;
+                    itemcb.Value = item.Customer.ToString();
 
 
 
-                dataCollection.Add(itemcb);
-               
-            }
+                    dataCollection.Add(itemcb);
+
+                }
 
                 return dataCollection;
             }
@@ -69,30 +69,28 @@ namespace arconfirmationletter.View
         public DateTime todate { get; set; }
         public bool choice { get; set; }
         public bool byregion { get; set; }
-     //   public bool onlycheckbook { get; set; }
-     //   public double  onlycode { get; set; }
-    public fRM_AROPTION ()//(string rptname)
+        public double custcode { get; set; }
+
+        
+        //   public bool onlycheckbook { get; set; }
+        //   public double  onlycode { get; set; }
+        public fRM_AROPTION()//(string rptname)
         {
             InitializeComponent();
-           this.pik_fromdate.Value = DateTime.Today;
+            this.pik_fromdate.Value = DateTime.Today;
             this.pk_todate.Value = DateTime.Today;
             this.datelinePicker1.Value = DateTime.Today.AddDays(15);
 
             this.returndate = this.datelinePicker1.Value;
-           this.fromdate =   this.pik_fromdate.Value;
+            this.fromdate = this.pik_fromdate.Value;
             this.todate = this.pk_todate.Value;
-          var  Check = CheckState.Checked;
-        //    this.onlycode = -1;
+        //    var Check = CheckState.Checked;
+            //    this.onlycode = -1;
             this.choice = false;
-         
-            if (this.Regioncheck.CheckState == Check)
-            {
-                this.byregion = true;
-            }
-            else
-            {
-                this.byregion = false;
-            }
+            this.custcode = 0;
+
+            this.byregion = false;
+
 
 
 
@@ -115,15 +113,20 @@ namespace arconfirmationletter.View
                 this.todate = this.pk_todate.Value;
                 this.returndate = this.datelinePicker1.Value;
 
-                var Check = CheckState.Checked;
-                if (this.Regioncheck.CheckState == Check)
+                //     var Check = CheckState.Checked;
+
+                if (Utils.IsValidnumber(txtcode.Text.ToString()))
                 {
-                    this.byregion = true;
+                    this.custcode = double.Parse(txtcode.Text.ToString());
+
                 }
                 else
                 {
-                    this.byregion = false;
+                    this.custcode = 0;
                 }
+
+                this.byregion = false;
+
 
 
 
@@ -176,6 +179,37 @@ namespace arconfirmationletter.View
 
                 pik_fromdate.Focus();
             }
+        }
+
+        private void txtcode_Leave(object sender, EventArgs e)
+        {
+            if (!Utils.IsValidnumber(txtcode.Text))
+            {
+                //  MessageBox.Show("Code khác hàng phải là số !");
+                MessageBox.Show("Code khác hàng phải là số !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                txtcode.Text = "";
+                return;
+
+            }
+            else
+            {
+                lbname.Text = Model.customerinput_ctrl.getNamecustomer(double.Parse(txtcode.Text));
+            }
+
+
+        }
+
+        private void txtcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                pik_fromdate.Focus();
+
+
+            }
+
+
         }
     }
 }

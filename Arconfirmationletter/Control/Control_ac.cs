@@ -2999,6 +2999,560 @@ namespace arconfirmationletter.Control
 
         }
 
+        public void ARlettermakebyGroupcode2Onlycode(LinqtoSQLDataContext db, DateTime fromdate, DateTime todate, DateTime returndate, double onlycode)
+        {
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            dc.CommandTimeout = 0;
+
+            List<tbl_ColdetailRpt> tbl_ColdetailRptlist = new List<tbl_ColdetailRpt>();
+            List<tbl_ArletterdetailRpt> tbl_ArletterdetailRptlist = new List<tbl_ArletterdetailRpt>();
+            List<tbl_ARdetalheaderRpt> tbl_ARdetalheaderRptlist = new List<tbl_ARdetalheaderRpt>();
+
+            List<tbl_ArletterRpt> tbl_ArletterRptlist = new List<tbl_ArletterRpt>();
+
+
+
+
+            #region  updateCustgoupinListcustmakeRptVN ra TREN SQL dang viet 
+            SqlConnection conn2 = null;
+            SqlDataReader rdr1 = null;
+
+            string destConnString = Utils.getConnectionstr();
+            try
+            {
+
+                conn2 = new SqlConnection(destConnString);
+                conn2.Open();
+                SqlCommand cmd1 = new SqlCommand("updateCustgoupinListcustmakeRptVNO_Onlycode", conn2);
+                cmd1.CommandType = CommandType.StoredProcedure;
+                cmd1.CommandTimeout = 0;
+                   cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+                try
+                {
+                    rdr1 = cmd1.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("ERRor run: updateCustgoupinListcustmakeRptVN \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+                //       rdr1 = cmd1.ExecuteReader();
+
+            }
+            finally
+            {
+                if (conn2 != null)
+                {
+                    conn2.Close();
+                }
+                if (rdr1 != null)
+                {
+                    rdr1.Close();
+                }
+            }
+            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            #endregion
+
+
+
+            #region // xóa ar belance begine temp cu để chuẩn bị cái mới
+            //  LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            try
+            {
+                dc.CommandTimeout = 0;
+                dc.ExecuteCommand("DELETE FROM tblFBL5beginbalaceTemp");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRor run: tblFBL5beginbalaceTemp \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+            dc.SubmitChanges();
+            #endregion
+
+
+
+            #region // xóa data AR letter data reports cũ
+
+
+
+            //var rs2 = from tbl_ArletterRpt in db.tbl_ArletterRpts
+            //          select tbl_ArletterRpt;
+
+
+            //db.tbl_ArletterRpts.DeleteAllOnSubmit(rs2);
+
+            //db.SubmitChanges();
+            #region // XÓA toàn bộ tbl_ArletterRpt
+            dc.CommandTimeout = 0;
+            try
+            {
+                dc.ExecuteCommand("DELETE FROM tbl_ArletterRpt");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERRor run: tblFBL5beginbalaceTemp \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+
+            dc.SubmitChanges();
+            #endregion
+
+            #endregion        //   xóa data AR letter
+
+
+            #region // xóa ar header cdata reports cũ
+            //var rs6 = from tbl_ARdetalheaderRpt in db.tbl_ARdetalheaderRpts
+            //          select tbl_ARdetalheaderRpt;
+            //db.tbl_ARdetalheaderRpts.DeleteAllOnSubmit(rs6);
+            //db.SubmitChanges();
+
+
+            #region // XÓA toàn bộ tbl_ARdetalheaderRpt
+            try
+            {
+                dc.CommandTimeout = 0;
+                dc.ExecuteCommand("DELETE FROM tbl_ARdetalheaderRpt");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERRor delete: tbl_ARdetalheaderRpt \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+            dc.SubmitChanges();
+            #endregion
+            #endregion// xóa ddataa cũ sau do update data mới
+
+
+            #region // xóa col cũ data reports cũ
+            //var rs7 = from tbl_ColdetailRpt in db.tbl_ColdetailRpts
+            //          select tbl_ColdetailRpt;
+            //db.tbl_ColdetailRpts.DeleteAllOnSubmit(rs7);
+            //db.SubmitChanges();
+
+
+            #region // XÓA toàn bộ tbl_ColdetailRpt
+            dc.CommandTimeout = 0;
+            try
+            {
+                dc.ExecuteCommand("DELETE FROM tbl_ColdetailRpt");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERRor delete: tbl_ColdetailRpt \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+            dc.SubmitChanges();
+            #endregion
+
+
+
+
+            #endregion// xóa ddataa cũ sau do update data mới
+
+
+            #region // xóa ddataadetail datatbl_ArletterdetailRpt cũ
+            //var rs3 = from tbl_ArletterdetailRpt in db.tbl_ArletterdetailRpts
+            //          select tbl_ArletterdetailRpt;
+            //db.tbl_ArletterdetailRpts.DeleteAllOnSubmit(rs3);
+            //db.SubmitChanges();
+
+
+
+
+
+            #region // XÓA toàn bộ tbl_ArletterdetailRpt ok
+            dc.CommandTimeout = 0;
+            try
+            {
+                dc.ExecuteCommand("DELETE FROM tbl_ArletterdetailRpt");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERRor delete: tbl_ArletterdetailRpt \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+            dc.SubmitChanges();
+            #endregion
+
+            #endregion// xóa ddataa cũ sau do update data mới
+
+
+            #region update updatebeginBalacegruop_Onlycode viet ok
+            //   SqlConnection conn2 = null;
+            //   SqlDataReader rdr1 = null;
+
+            //  string destConnString = Utils.getConnectionstr();
+            try
+            {
+
+                conn2 = new SqlConnection(destConnString);
+                conn2.Open();
+                SqlCommand cmd1 = new SqlCommand("updatebeginBalacegruop_Onlycode", conn2);
+                cmd1.CommandTimeout = 0;
+                cmd1.CommandType = CommandType.StoredProcedure;
+                cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+
+
+                dc.CommandTimeout = 0;
+
+                try
+                {
+                    rdr1 = cmd1.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("ERRor make: updatebeginBalacegruop \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+                //       rdr1 = cmd1.ExecuteReader();
+
+            }
+            finally
+            {
+                if (conn2 != null)
+                {
+                    conn2.Close();
+                }
+                if (rdr1 != null)
+                {
+                    rdr1.Close();
+                }
+            }
+            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            #endregion
+
+
+
+
+            #region update update Fbl5nnew  customer group để lọc ra để lọc ra TREN SQL dang viet  ok
+            //   SqlConnection conn2 = null;
+            //   SqlDataReader rdr1 = null;
+
+
+            // Create the connection.
+            using (SqlConnection connection = new SqlConnection(destConnString))
+            {
+                // Open the connection.
+                connection.Open();
+
+                // Create the command.
+                using (SqlCommand command = new SqlCommand("updaFBL5nreportsBalacegroupVN_Onlycode", connection))
+                {
+                    // Set the command type.
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.CommandTimeout = 0;
+                    // Add the parameter.
+                    SqlParameter parameter = command.Parameters.Add("@todate",
+                        System.Data.SqlDbType.DateTime);
+                    command.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+
+                    // Set the value.
+                    parameter.Value = todate;
+
+                    // Make the call.
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("ERRor make: updatebeginBalacegruop \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+
+
+
+
+
+            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            #endregion
+
+
+     
+
+            #region update  update Freglasess  customer group để lọc ra trên sql ok
+            //    SqlConnection conn2 = null;
+            //   SqlDataReader rdr1 = null;
+
+            //   string destConnString = Utils.getConnectionstr();
+            try
+            {
+
+                conn2 = new SqlConnection(destConnString);
+                conn2.Open();
+                SqlCommand cmd1 = new SqlCommand("updateFreglasessgroupVN_onlycode", conn2);
+                cmd1.CommandTimeout = 0;
+                cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+                try
+                {
+                    rdr1 = cmd1.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("ERRor make: updateFreglasessgroupVN \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+                //       rdr1 = cmd1.ExecuteReader();
+
+            }
+            finally
+            {
+                if (conn2 != null)
+                {
+                    conn2.Close();
+                }
+                if (rdr1 != null)
+                {
+                    rdr1.Close();
+                }
+            }
+            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            #endregion
+
+
+
+
+            #region  // tính bàng tbl_ArletterRptra trên sql ok
+
+            try
+            {
+
+                conn2 = new SqlConnection(destConnString);
+                conn2.Open();
+                SqlCommand cmd1 = new SqlCommand("tbl_ArletterRptcaculationinserts_Onlycode", conn2);
+                cmd1.CommandType = CommandType.StoredProcedure;
+
+                cmd1.Parameters.Add("@returndate", SqlDbType.Date).Value = returndate;
+                cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
+                cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
+                cmd1.Parameters.Add("@byregion", SqlDbType.Int).Value = 0;
+                cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+
+                cmd1.CommandTimeout = 0;
+                try
+                {
+                    rdr1 = cmd1.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("ERRor make: tbl_ArletterRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+                //       rdr1 = cmd1.ExecuteReader();
+
+            }
+            finally
+            {
+                if (conn2 != null)
+                {
+                    conn2.Close();
+                }
+                if (rdr1 != null)
+                {
+                    rdr1.Close();
+                }
+            }
+            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            #endregion old
+
+
+            #region  //  //tính bảng tbl_ArletterdetailRpt tren sql ok
+
+            try
+            {
+
+                conn2 = new SqlConnection(destConnString);
+                conn2.Open();
+                SqlCommand cmd1 = new SqlCommand("tbl_ArletterdetailRptcaculationinserts_onlycode", conn2);
+                cmd1.CommandType = CommandType.StoredProcedure;
+
+                cmd1.Parameters.Add("@returndate", SqlDbType.Date).Value = returndate;
+                cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
+                cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
+                cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+
+                cmd1.CommandTimeout = 0;
+
+                try
+                {
+                    rdr1 = cmd1.ExecuteReader();
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("ERRor make: tbl_ArletterdetailRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+                //       rdr1 = cmd1.ExecuteReader();
+
+            }
+            finally
+            {
+                if (conn2 != null)
+                {
+                    conn2.Close();
+                }
+                if (rdr1 != null)
+                {
+                    rdr1.Close();
+                }
+            }
+            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            #endregion
+
+
+            #region  //  tính bảng   tbl_ARdetalheaderRpt  tren sql ok
+
+            try
+            {
+
+                conn2 = new SqlConnection(destConnString);
+                conn2.Open();
+                SqlCommand cmd1 = new SqlCommand("tbl_ARdetalheaderRptcaculationinserts_onlycode", conn2);
+                cmd1.CommandType = CommandType.StoredProcedure;
+
+                cmd1.Parameters.Add("@returndate", SqlDbType.Date).Value = returndate;
+                cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
+                cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
+                cmd1.Parameters.Add("@byregion", SqlDbType.Int).Value = 0;
+                cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+
+                cmd1.CommandTimeout = 0;
+
+                try
+                {
+                    rdr1 = cmd1.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("ERRor make: tbl_ARdetalheaderRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+                //       rdr1 = cmd1.ExecuteReader();
+
+            }
+            finally
+            {
+                if (conn2 != null)
+                {
+                    conn2.Close();
+                }
+                if (rdr1 != null)
+                {
+                    rdr1.Close();
+                }
+            }
+            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            #endregion
+
+
+
+            #region  //  tính bảng  tbl_Coldetail tren sql ok
+
+            try
+            {
+
+                conn2 = new SqlConnection(destConnString);
+                conn2.Open();
+                SqlCommand cmd1 = new SqlCommand("tbl_ColdetailRptcaculationinserts_onlycode", conn2);
+                cmd1.CommandType = CommandType.StoredProcedure;
+
+                cmd1.Parameters.Add("@returndate", SqlDbType.Date).Value = returndate;
+                cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
+                cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
+                cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+
+                cmd1.CommandTimeout = 0;
+                try
+                {
+                    rdr1 = cmd1.ExecuteReader();
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("ERRor make: tbl_ColdetailRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+                //       rdr1 = cmd1.ExecuteReader();
+
+            }
+            finally
+            {
+                if (conn2 != null)
+                {
+                    conn2.Close();
+                }
+                if (rdr1 != null)
+                {
+                    rdr1.Close();
+                }
+            }
+            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            #endregion
+
+
+
+
+
+
+            //throw new NotImplementedException();
+        }
+
         public void ARlettermakebyGroupcodeRegion(LinqtoSQLDataContext db, DateTime fromdate, DateTime todate, DateTime returndate)
         {
             string connection_string = Utils.getConnectionstr();

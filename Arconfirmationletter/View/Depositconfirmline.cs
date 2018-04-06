@@ -15,10 +15,10 @@ namespace arconfirmationletter.View
     {
 
         public int idindex { get; set; }
-        public int psepmptyam { get; set; } //= int.Parse(this.lb_uncofirm.Text.ToString());
-        public int psdeposiamount { get; set; }// = int.Parse(this.txconfimr.Text.ToString()); //deposiamount + deposiamount
+        public double psepmptyam { get; set; } //= int.Parse(this.lb_uncofirm.Text.ToString());
+        public double psdeposiamount { get; set; }// = int.Parse(this.txconfimr.Text.ToString()); //deposiamount + deposiamount
 
-        public int psunconfirm { get; set; } //= int.Parse(this.lb_uncofirm.Text.ToString());
+        public double psunconfirm { get; set; } //= int.Parse(this.lb_uncofirm.Text.ToString());
 
         public int viewcode { get; set; } //= int.Parse(this.lb_uncofirm.Text.ToString());
 
@@ -715,18 +715,18 @@ namespace arconfirmationletter.View
 
                             int Docno = int.Parse(this.lb_Docno.Text.ToString());
 
-                            psepmptyam = int.Parse(this.lb_uncofirm.Text.ToString());
+                            psepmptyam = double.Parse(this.lb_uncofirm.Text.ToString());
 
                             if (this.txconfimr.Text.ToString() != null && this.txconfimr.Text.ToString() != "")
                             {
 
-                                psdeposiamount = -int.Parse(this.txconfimr.Text.ToString());
+                                psdeposiamount = -double.Parse(this.txconfimr.Text.ToString());
 
 
                             }
 
 
-                            psunconfirm = int.Parse(this.lb_uncofirm.Text.ToString());
+                            psunconfirm = double.Parse(this.lb_uncofirm.Text.ToString());
 
 
                       //      if (psdeposiamount != null)
@@ -769,15 +769,15 @@ namespace arconfirmationletter.View
 
                             int Docno = int.Parse(this.lb_Docno.Text.ToString());
 
-                            psepmptyam = int.Parse(this.lb_uncofirm.Text.ToString());
+                            psepmptyam = double.Parse(this.lb_uncofirm.Text.ToString());
 
                             if (this.txconfimr.Text.ToString() != null && this.txconfimr.Text.ToString() != "")
                             {
-                                psdeposiamount = int.Parse(this.txconfimr.Text.ToString());
+                                psdeposiamount = double.Parse(this.txconfimr.Text.ToString());
                             }
 
 
-                            psunconfirm = int.Parse(this.lb_uncofirm.Text.ToString());
+                            psunconfirm = double.Parse(this.lb_uncofirm.Text.ToString());
 
                           //  if (psdeposiamount != null)
                         //    {
@@ -816,15 +816,15 @@ namespace arconfirmationletter.View
 
                             int Docno = int.Parse(this.lb_Docno.Text.ToString());
 
-                            psepmptyam = int.Parse(this.lb_uncofirm.Text.ToString());
+                            psepmptyam = double.Parse(this.lb_uncofirm.Text.ToString());
 
                             if (this.txconfimr.Text.ToString() != null && this.txconfimr.Text.ToString() != "")
                             {
-                                psdeposiamount = int.Parse(this.txconfimr.Text.ToString());
+                                psdeposiamount = double.Parse(this.txconfimr.Text.ToString());
                             }
 
 
-                            psunconfirm = int.Parse(this.lb_uncofirm.Text.ToString());
+                            psunconfirm = double.Parse(this.lb_uncofirm.Text.ToString());
 
                           //  if (psdeposiamount != null)
                             //{
@@ -837,7 +837,7 @@ namespace arconfirmationletter.View
                                             select tblFBL5Nnew).First();
 
 
-                                item.Deposit_amount = -psdeposiamount;
+                                item.Deposit_amount = psdeposiamount;
 
 
 
@@ -889,8 +889,8 @@ namespace arconfirmationletter.View
 
 
 
-            this.txconfimr.Text = ((trackBar1.Value * int.Parse((this.lb_emptyrtamount.Text))) / 10).ToString();
-            this.lb_uncofirm.Text = (int.Parse(this.lb_emptyrtamount.Text) - int.Parse(this.txconfimr.Text)).ToString();   // - 
+            this.txconfimr.Text = ((trackBar1.Value * double.Parse((this.lb_emptyrtamount.Text))) / 10).ToString();
+            this.lb_uncofirm.Text = (double.Parse(this.lb_emptyrtamount.Text) - double.Parse(this.txconfimr.Text)).ToString();   // - 
 
 
 
@@ -959,7 +959,7 @@ namespace arconfirmationletter.View
                     double confirmamount = double.Parse((this.txconfimr.Text).ToString());
                     if (totalamount * confirmamount < 0)
                     {
-                        string txtpsdeposiamount = (int.Parse(this.txconfimr.Text.ToString()) * (-1)).ToString();
+                        string txtpsdeposiamount = (double.Parse(this.txconfimr.Text.ToString()) * (-1)).ToString();
 
                         this.txconfimr.Text = txtpsdeposiamount;
 

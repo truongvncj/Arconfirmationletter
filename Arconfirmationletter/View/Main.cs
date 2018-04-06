@@ -1796,7 +1796,7 @@ namespace arconfirmationletter.View
 
                           };
 
-            
+
 
 
 
@@ -2177,6 +2177,16 @@ namespace arconfirmationletter.View
 
         }
 
+        class RunreportsOnlyCode
+        {
+            public LinqtoSQLDataContext dc { get; set; }
+            public DateTime fromdate { get; set; }
+            public DateTime todate { get; set; }
+            public DateTime returndate { get; set; }
+            public double onlyCode { get; set; }
+
+
+        }
 
         class Runreports
         {
@@ -2188,6 +2198,35 @@ namespace arconfirmationletter.View
 
         }
 
+
+
+        static void ReportVNRunOnecode(object objextRPt)
+        {
+
+            RunreportsOnlyCode dat = (RunreportsOnlyCode)objextRPt;
+            LinqtoSQLDataContext db = dat.dc;
+            DateTime fromdate = dat.fromdate;
+            DateTime todate = dat.todate;
+            DateTime returndate = dat.returndate;
+            double onlycode = dat.onlyCode;
+
+            Control_ac ctrac = new Control_ac();
+            try
+            {
+                ctrac.ARlettermakebyGroupcode2Onlycode(db, fromdate, todate, returndate, onlycode);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERRor run: make ARlettermakebyGroupcode2 \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
+
+
+        }
 
         static void ReportVNRun(object objextRPt)
         {
@@ -2265,10 +2304,284 @@ namespace arconfirmationletter.View
             DateTime returndate = fromoptiong.returndate;
             bool regionby = fromoptiong.byregion;
             bool choice = fromoptiong.choice;
-            //    double onlycode = fromoptiong.onlycode;
-            //     bool onlycodechoi = fromoptiong.onlycheckbook;
+            double onlycode = fromoptiong.custcode;
 
-            if (choice == true)
+
+            //     bool onlycodechoi = fromoptiong.onlycheckbook;
+            if (choice == true && onlycode != 0)  // chi tạo báo cáo 1 code
+            {
+                #region    // kiểm tra xem có số dư đầu kỳ không nếu không có bật ra bản thêm vào và kết thúc
+
+                //    db.SubmitChanges();
+
+                //    db.CommandTimeout = 10000;
+                var q13 = from tblCustomer in db.tblCustomers
+                          where tblCustomer.Customer == onlycode && !(from tblFBL5beginbalace in db.tblFBL5beginbalaces
+                                                                      select tblFBL5beginbalace.Account.ToString() + tblFBL5beginbalace.Business_Area).Contains(tblCustomer.Customer.ToString() + tblCustomer.SOrg)
+                          //  orderby tblCustomer.Customer
+                          group tblCustomer by new
+                          {
+                              tblCustomer.Customer,
+                              tblCustomer.SOrg,
+                          }
+                         into g
+                          select g;
+
+
+
+                if (q13.Count() > 0)
+
+                {
+
+
+                    #region mở update số dư dầu kỳ khi codegroupkhoong co trong so du dau ky nếu không có bắn ra bàng không có
+
+
+
+                    foreach (var item in q13)
+                    {
+
+
+                        var slqtext = @"insert into  tblFBL5beginbalaceTemp ( Account, [Business Area],[Amount in local currency],
+ Binhpmicc02,binhpmix9l,Chaivo1lit,Chaivothuong,[Deposit amount],[Adjusted amount],[Empty Amount],[Empty Amount Notmach],
+[Fullgood amount],joy20l,Ketnhua1lit,Ketnhuathuong,paletnhua,palletgo,[Payment amount] ) 
+
+values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
+ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
+
+
+                        db.CommandTimeout = 0;
+
+                        try
+                        {
+                            db.ExecuteCommand(slqtext);
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show("ERRor insert : tblFBL5beginbalaceTemp \n" + slqtext + "\n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+
+                        db.SubmitChanges();
+
+
+
+                    }
+
+
+
+                    var typeff = typeof(tblFBL5beginbalaceTemp);
+
+                    //     LinqtoSQLDataContext dbx = new LinqtoSQLDataContext(connection_string);
+
+
+                    View.VInputchange inputcdata = new View.VInputchange("MASTER BEGIN BALACE ", "LIST CUST NOT HAVE BEGIN BALACE, PLEASE CHECK ! ", db, "tblFBL5beginbalace", "tblFBL5beginbalaceTemp", typeff, "id", "id");
+                    inputcdata.Show();// = false;
+                    inputcdata.Focus();
+
+
+                    #endregion mở update số dư dầu kỳ khi codegroupkhoong co trong so du dau ky
+
+
+
+                }
+
+                //  MessageBox.Show("ok");
+
+                #endregion  // kiểm tra xem có so du dau ky không
+
+                if (q13.Count() == 0)
+                {
+                    #region nếu không có số dư đủ thì thực hiện
+
+                    if (regionby == false && choice == true)
+                    {
+                        LinqtoSQLDataContext dbx = new LinqtoSQLDataContext(connection_string);
+                        Thread t1 = new Thread(ReportVNRunOnecode);
+                        t1.IsBackground = true;
+                        t1.Start(new RunreportsOnlyCode() { dc = dbx, fromdate = fromdate, todate = todate, returndate = returndate, onlyCode = onlycode });
+
+                        Thread t2 = new Thread(showwait);
+                        t2.Start();
+
+                        t1.Join();
+                        if (t1.ThreadState != ThreadState.Running)
+
+                        {
+
+
+
+                            Thread.Sleep(2999);
+
+                            t2.Abort();
+
+
+
+
+
+
+                        }
+
+                        // ctrac.ARlettermakebyGroupcode2(db, fromdate, todate);
+
+                    }
+
+
+                    #endregion nếu không có số dư đủ thì thực hiện
+                }
+
+
+         //   make reports luon   eDITLISTCUSTMAKEREPORTSToolStripMenuItem_Click
+
+                #region  updatepriterinvoice grouppriter
+                SqlConnection conn2 = null;
+                SqlDataReader rdr1 = null;
+
+                string destConnString = Utils.getConnectionstr();
+                try
+                {
+
+                    conn2 = new SqlConnection(destConnString);
+                    conn2.Open();
+                    SqlCommand cmd1 = new SqlCommand("updategroupprintletterOnlycodeChoice", conn2);
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+
+                    try
+                    {
+                        rdr1 = cmd1.ExecuteReader();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("error  updategroupprintletterChoice \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
+
+
+                    //       rdr1 = cmd1.ExecuteReader();
+
+                }
+                finally
+                {
+                    if (conn2 != null)
+                    {
+                        conn2.Close();
+                    }
+                    if (rdr1 != null)
+                    {
+                        rdr1.Close();
+                    }
+                }
+                //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                #endregion
+
+
+                #region print invoce
+
+
+          //      string connection_string = Utils.getConnectionstr();
+
+             //   var db = new LinqtoSQLDataContext(connection_string);
+
+             //   Control_ac ctrac = new Control_ac();
+
+                rs1 = ctrac.ARletterdataset1(db);
+                rs2 = ctrac.ARletterdataset2(db);
+
+
+
+
+
+                if (rs1 != null && rs2 != null)
+                {
+
+                    //  Utils ut = new Utils();
+                    var dataset1 = Utils.ToDataTable(db, rs1);
+                    var dataset2 = Utils.ToDataTable(db, rs2);
+                    Reportsview rpt = new Reportsview(dataset1, dataset2, "ARletter.rdlc");
+                    rpt.Show();
+
+                }
+
+
+                #endregion
+
+                #region print detail
+
+                //   string connection_string = Utils.getConnectionstr();
+
+                //    var db = new LinqtoSQLDataContext(connection_string);
+                //     var db = new LinqtoSQLDataContext(connection_string);
+
+
+                //   string rptname = "ARletterdetail.rdlc";
+                //      string rptname = "SubARletterdetail.rdlc";
+                //    Control_ac ctrac = new Control_ac();
+
+                var rs3 = ctrac.letterdetaildataset1(db);
+                var rs4 = ctrac.letterdetaildataset2(db);
+
+
+                if (rs1 != null && rs2 != null)
+                {
+                    //      var db = new LinqtoSQLDataContext(connection_string);
+                    //   Utils ut = new Utils();
+                    var dataset1 = Utils.ToDataTable(db, rs3);
+                    var dataset2 = Utils.ToDataTable(db, rs4);
+                    Reportsview rpt = new Reportsview(dataset1, dataset2, "ARletterdetail.rdlc");
+                    rpt.Show();
+
+                }
+
+                #endregion
+
+                #region print col
+                //     string connection_string = Utils.getConnectionstr();
+
+                //  var db = new LinqtoSQLDataContext(connection_string);
+                //    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+
+
+                //  var db = new LinqtoSQLDataContext(connection_string);
+
+
+                //   string rptname3 = "ARCOLrpt.rdlc";
+                //      string rptname = "SubARletterdetail.rdlc";
+                //      Control_ac ctrac = new Control_ac();
+
+                var rs5 = ctrac.ARcoldataset1(db);
+                var rs6 = ctrac.ARcoldataset2(db);
+
+
+                if (rs1 != null && rs2 != null)
+                {
+                    //      var db = new LinqtoSQLDataContext(connection_string);
+                    //   Utils ut = new Utils();
+                    var dataset1 = Utils.ToDataTable(db, rs5);
+                    var dataset2 = Utils.ToDataTable(db, rs6);
+                    Reportsview rpt = new Reportsview(dataset1, dataset2, "ARCOLrpt.rdlc");
+                    rpt.Show();
+
+
+
+                }
+
+
+
+                #endregion
+
+            }
+
+
+
+
+
+            if (choice == true && onlycode == 0)  /// với nhiều coed
             {
 
 
@@ -2476,6 +2789,11 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
             }
+
+
+
+
+
 
         }
 
@@ -3720,9 +4038,9 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                     SqlCommand cmd1 = new SqlCommand("UploademptyToDepositAmount", conn2);
                     cmd1.CommandType = CommandType.StoredProcedure;
                     cmd1.CommandTimeout = 0;
-                         cmd1.Parameters.Add("@fromdate", SqlDbType.DateTime).Value = fromdate;
-                       cmd1.Parameters.Add("@todate", SqlDbType.DateTime).Value = todate;
-                        cmd1.Parameters.Add("@custcode", SqlDbType.Float).Value = custcode;
+                    cmd1.Parameters.Add("@fromdate", SqlDbType.DateTime).Value = fromdate;
+                    cmd1.Parameters.Add("@todate", SqlDbType.DateTime).Value = todate;
+                    cmd1.Parameters.Add("@custcode", SqlDbType.Float).Value = custcode;
 
                     rdr1 = cmd1.ExecuteReader();
 
@@ -3742,7 +4060,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                         rdr1.Close();
                     }
                 }
-                   MessageBox.Show("Mass balance empty to deposit amount done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mass balance empty to deposit amount done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 #endregion
 
@@ -3791,7 +4109,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                     md.clearFeeglasseeinputtemp();
 
 
-                         // var rs = md.vatsetlect_all();
+                    // var rs = md.vatsetlect_all();
                     //        Viewtable viewtbl = new Viewtable(rs, "VAT ZFI data uploaded ");
 
                     string connection_string = Utils.getConnectionstr();
@@ -3830,12 +4148,63 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
             var rs = from tblFBL5Nnew in db.tblFBL5Nnews
-                     where tblFBL5Nnew.Document_Type =="COL"
+                     where tblFBL5Nnew.Document_Type == "COL"
                      select tblFBL5Nnew;
 
 
             Viewtable Viewtable = new Viewtable(rs, db, "List FressGlasses Progarme ", 12, DateTime.Today, DateTime.Today);
 
+
+
+
+
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            fromdateandcode fromtochoice = new View.fromdateandcode();
+            Control_ac ctrac = new Control_ac();
+
+            fromtochoice.ShowDialog();
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            //  var db = new LinqtoSQLDataContext(connection_string);
+            //      LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+            db.CommandTimeout = 0;
+
+
+
+
+            DateTime fromdate = fromtochoice.tungay;
+            DateTime todate = fromtochoice.denngay;
+            double custcode = fromtochoice.custcode;
+
+            bool choice = fromtochoice.chon;
+
+
+
+
+            if (choice == true)
+            {
+
+                var rs = from tblFBL5Nnew in db.tblFBL5Nnews
+                         where tblFBL5Nnew.Posting_Date >= fromdate
+                         && tblFBL5Nnew.Posting_Date <= todate
+                      && tblFBL5Nnew.Account == custcode
+                         select tblFBL5Nnew;
+
+
+                Viewtable Viewtable = new Viewtable(rs, db, "REdo Deposit veryfy of Close Priod by Click on Adj Amount, Empty Amount to move to Deposit Amount", 13, DateTime.Today, DateTime.Today);
+
+                //    Viewtable.ShowDialog();
+
+
+
+            }
 
 
 
