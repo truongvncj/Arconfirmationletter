@@ -626,7 +626,7 @@ namespace arconfirmationletter.View
 
         }
 
-     
+
 
         private void getData(List<ComboboxItem> dataCollection)
         {
@@ -745,6 +745,8 @@ namespace arconfirmationletter.View
             this.btSendlistUpdate.Visible = false;
             this.bt_listunsend.Visible = false;
             btpostclear.Visible = false;
+            lb_seach.Visible = false;
+
 
             this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
                                                                                                             //  this.lb_totalrecord.ForeColor = Color.Chocolate;
@@ -780,7 +782,7 @@ namespace arconfirmationletter.View
 
                 this.lb_seach.Visible = true;
 
-              
+
             }
 
             string line = this.Text;
@@ -809,7 +811,6 @@ namespace arconfirmationletter.View
                 //   fromdate.Day + "/" + fromdate.Month + "/" + fromdate.Year + " -TO- " + todate.Day + "/" + todate.Month + "/" + todate.Year);
 
 
-                this.lb_seach.Text = "F5-DETAIL/ F12-SUM/ F3-SEACH";
 
 
                 #region // show all
@@ -823,10 +824,10 @@ namespace arconfirmationletter.View
                 this.dataGridView1.DataSource = dt;
 
 
-               // this.db = dc;
+                // this.db = dc;
 
-         
-             //   dc = new LinqtoSQLDataContext(connection_string);
+
+                //   dc = new LinqtoSQLDataContext(connection_string);
                 this.Dtgridview = dataGridView1;
                 this.Status.Text = "Caculating ...";
 
@@ -1217,6 +1218,170 @@ namespace arconfirmationletter.View
 
 
                     #endregion
+
+                }
+
+
+            }
+
+
+
+            if (this.viewcode == 12)   //12 là update freegalses view edit
+            {
+
+                //  this.Text = "iNPUT DEPOSIT AMOUNTT !";
+                string colheadertext = this.dataGridView1.Columns[this.dataGridView1.CurrentCell.ColumnIndex].HeaderText.Trim();
+                double code = (double)this.dataGridView1.CurrentRow.Cells["Account"].Value;
+                int id = (int)this.dataGridView1.CurrentRow.Cells["id"].Value;
+
+
+                if (colheadertext == "Deposit_amount")
+                {
+                  //  MessageBox.Show("ok");
+
+                    valueinput valueinput = new valueinput("Plese input new  Deposit amount value: ");
+
+                    valueinput.ShowDialog();
+                    string newvalue = valueinput.valuetext;
+                    string headfield = valueinput.field;
+                    bool kq = valueinput.kq;
+
+                    if (kq)
+                    {
+
+                        if (Utils.IsValidnumber(newvalue))
+                        {
+                            if ((double.Parse(newvalue) % 38000) !=0)
+                            {
+
+                                MessageBox.Show("Số tiền update vào phải chia hết cho 38000 VND, please recheck !");
+                                return;
+
+                            }
+                            dataGridView1.ReadOnly = false;
+                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = newvalue;
+                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Ketvothuong"].Value = (double.Parse(newvalue)/38000);
+
+                            dataGridView1.ReadOnly = true;
+
+
+                            var rs6 = from tblFBL5Nnew in db.tblFBL5Nnews
+                                      where tblFBL5Nnew.id == id // && tblFBL5NthisperiodSum.Region == region
+                                      select tblFBL5Nnew;
+
+                            foreach (var item in rs6)
+                            {
+                                item.Deposit_amount = double.Parse(newvalue);
+                                item.Ketvothuong = int.Parse((double.Parse(newvalue) / 38000).ToString());
+                                item.userupdate = Utils.getusername();
+                            }
+
+                            db.SubmitChanges();
+
+
+
+                        }
+                    }
+
+
+                }
+
+
+
+                if (colheadertext == "Ketvothuong")
+                {
+                    //  MessageBox.Show("ok");
+
+                    valueinput valueinput = new valueinput("Plese input new số lượng két vỏ thường mới: ");
+
+                    valueinput.ShowDialog();
+                    string newvalue = valueinput.valuetext;
+                    string headfield = valueinput.field;
+                    bool kq = valueinput.kq;
+
+                    if (kq)
+                    {
+
+                        if ((double.Parse(newvalue) % 1) != 0)
+                        {
+
+                            MessageBox.Show("Số vỏ  phải là số nguyên, please recheck !");
+                            return;
+
+                        }
+                        if (Utils.IsValidnumber(newvalue))
+                        {
+                            dataGridView1.ReadOnly = false;
+                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Deposit_amount"].Value = (double.Parse(newvalue) * 38000);
+                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Ketvothuong"].Value = newvalue;
+
+
+                            dataGridView1.ReadOnly = true;
+
+
+
+                            var rs6 = from tblFBL5Nnew in db.tblFBL5Nnews
+                                      where tblFBL5Nnew.id == id // && tblFBL5NthisperiodSum.Region == region
+                                      select tblFBL5Nnew;
+
+                            foreach (var item in rs6)
+                            {
+                                item.Deposit_amount = (double.Parse(newvalue) * 38000);
+                                item.Ketvothuong = int.Parse(newvalue);
+                                item.userupdate = Utils.getusername();
+                            }
+
+                            db.SubmitChanges();
+
+
+
+
+
+                        }
+                    }
+
+                }
+                if (colheadertext == "Remark")
+                {
+                    //  MessageBox.Show("ok");
+
+                    valueinput valueinput = new valueinput("Plese input new remark ");
+
+                    valueinput.ShowDialog();
+                    string newvalue = valueinput.valuetext;
+                    string headfield = valueinput.field;
+                    bool kq = valueinput.kq;
+
+                    if (kq)
+                    {
+
+                        if (newvalue !="")
+                        {
+                            dataGridView1.ReadOnly = false;
+                            dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Remark"].Value = newvalue;
+                            dataGridView1.ReadOnly = true;
+
+
+                            var rs6 = from tblFBL5Nnew in db.tblFBL5Nnews
+                                      where tblFBL5Nnew.id == id // && tblFBL5NthisperiodSum.Region == region
+                                      select tblFBL5Nnew;
+
+                            foreach (var item in rs6)
+                            {
+                                item.Remark = newvalue.Trim();
+                                item.userupdate = Utils.getusername();
+                            }
+
+                            db.SubmitChanges();
+
+
+
+
+
+
+
+                        }
+                    }
 
                 }
 
@@ -5417,6 +5582,111 @@ namespace arconfirmationletter.View
 
             //shoall
             //   }
+
+
+        }
+
+        private void btpostclear_Click(object sender, EventArgs e)
+        {
+            View.DatePicker datefrom = new View.DatePicker("Select posting date: ");
+            datefrom.ShowDialog();
+            DateTime postingdate = datefrom.valuedate;
+            bool kq = datefrom.kq;
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            // xxx
+
+            #region q List các document só tieefn và so vo khac nhau
+            //---
+            var q = from tbl_FreGlassCleartemp in dc.tbl_FreGlassCleartemps
+                    where tbl_FreGlassCleartemp.COL_Amount / tbl_FreGlassCleartemp.COL_Quantity != 38000
+                    //Tương đương từ khóa NOT IN trong SQL
+                    select tbl_FreGlassCleartemp;
+
+
+
+            if (q.Count() != 0)
+            {
+
+                Viewtable viewtbl = new Viewtable(q, dc, "List các document số cOL amount / COL Quantity khác 38000, please recheck ! Upload không thành công ! ", 1, DateTime.Today, DateTime.Today);
+                return;
+            }
+
+            #endregion q "List các document có trong bảng VAT không có trong bảng FBL5N !
+
+
+
+            if (kq == true && q.Count() == 0)
+            {
+
+
+                #region  autoupdatedepositthismonth ra TREN SQL dang viet 
+                SqlConnection conn2 = null;
+                SqlDataReader rdr1 = null;
+                string username = Utils.getusername().Trim();
+                //   string destConnString = Utils.getConnectionstr();
+                try
+                {
+
+                    conn2 = new SqlConnection(connection_string);
+                    conn2.Open();
+                    SqlCommand cmd1 = new SqlCommand("UpdateClearGlasses", conn2);
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.Add("@postingdate", SqlDbType.DateTime).Value = postingdate;
+                    cmd1.Parameters.Add("@name", SqlDbType.NVarChar).Value = username;
+
+
+
+                    try
+                    {
+                        rdr1 = cmd1.ExecuteReader();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Can Not Upload clear Glasses  \n" + ex.ToString(), "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        return;
+
+                    }
+
+
+
+
+                    //       rdr1 = cmd1.ExecuteReader();
+
+                }
+                finally
+                {
+                    if (conn2 != null)
+                    {
+                        conn2.Close();
+                    }
+                    if (rdr1 != null)
+                    {
+                        rdr1.Close();
+                    }
+                }
+                //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                #endregion
+
+                MessageBox.Show("Auto update deposit done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                //    string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+                var rs = from FreGlassClear in db.tbl_FreGlassCleartemps
+                         select FreGlassClear;
+
+
+                this.dataGridView1.DataSource = rs;
+
+
+            }
+
 
 
         }

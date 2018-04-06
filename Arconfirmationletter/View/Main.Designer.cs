@@ -613,6 +613,7 @@
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
             this.toolStripMenuItem15.Size = new System.Drawing.Size(279, 22);
             this.toolStripMenuItem15.Text = "EDIT CLEAR FREEGLASS";
+            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
             // toolStripSeparator1
             // 

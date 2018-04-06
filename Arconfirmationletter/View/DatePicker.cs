@@ -19,6 +19,7 @@ namespace arconfirmationletter.View
             InitializeComponent();
             this.kq = false;
             this.field = headcolum;
+            lbtext.Text = headcolum;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace arconfirmationletter.View
         private void button2_Click(object sender, EventArgs e)
         {
           //  this.valuedate = DateTime..;
-            this.kq = true;
+            this.kq = false;
             //   this.field = this.label1.Text;
             this.Hide();
         }

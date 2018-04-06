@@ -32,6 +32,7 @@ namespace arconfirmationletter.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Viewtable));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btpostclear = new System.Windows.Forms.Button();
             this.btAutoUpdatedepo = new System.Windows.Forms.Button();
             this.bt_sendinggroup = new System.Windows.Forms.Button();
             this.btSendlistUpdate = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@ namespace arconfirmationletter.View
             this.lb_tongamount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btpostclear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.Pl_endview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -80,6 +80,17 @@ namespace arconfirmationletter.View
             this.panel1.Size = new System.Drawing.Size(1348, 471);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btpostclear
+            // 
+            this.btpostclear.Location = new System.Drawing.Point(739, 7);
+            this.btpostclear.Name = "btpostclear";
+            this.btpostclear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btpostclear.Size = new System.Drawing.Size(148, 21);
+            this.btpostclear.TabIndex = 9;
+            this.btpostclear.Text = "Post Clear FressGlasses on Letter";
+            this.btpostclear.UseVisualStyleBackColor = true;
+            this.btpostclear.Click += new System.EventHandler(this.btpostclear_Click);
             // 
             // btAutoUpdatedepo
             // 
@@ -326,16 +337,6 @@ namespace arconfirmationletter.View
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // btpostclear
-            // 
-            this.btpostclear.Location = new System.Drawing.Point(739, 7);
-            this.btpostclear.Name = "btpostclear";
-            this.btpostclear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btpostclear.Size = new System.Drawing.Size(148, 21);
-            this.btpostclear.TabIndex = 9;
-            this.btpostclear.Text = "Post Clear FressGlasses on Letter";
-            this.btpostclear.UseVisualStyleBackColor = true;
             // 
             // Viewtable
             // 

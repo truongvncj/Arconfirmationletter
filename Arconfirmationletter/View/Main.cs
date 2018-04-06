@@ -3823,6 +3823,24 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
         }
+
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+            var rs = from tblFBL5Nnew in db.tblFBL5Nnews
+                     where tblFBL5Nnew.Document_Type =="COL"
+                     select tblFBL5Nnew;
+
+
+            Viewtable Viewtable = new Viewtable(rs, db, "List FressGlasses Progarme ", 12, DateTime.Today, DateTime.Today);
+
+
+
+
+
+        }
     }
 
 
