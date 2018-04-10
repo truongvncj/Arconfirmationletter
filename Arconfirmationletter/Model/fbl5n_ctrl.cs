@@ -9,6 +9,7 @@ using System.Data.OleDb;
 using System.Threading;
 using System.Data.SqlClient;
 using System.Data;
+using arconfirmationletter.shared;
 
 namespace arconfirmationletter.Model
 {
@@ -240,12 +241,12 @@ namespace arconfirmationletter.Model
                     {
                         DataRow dr = batable.NewRow();
                         dr["Account"] = double.Parse(sourceData.Rows[rowixd][Accountid].ToString());//.Trim();
-                        dr["Assignment"] = sourceData.Rows[rowixd][Assignmentid].ToString().Trim();
+                        dr["Assignment"] = sourceData.Rows[rowixd][Assignmentid].ToString().Truncate(225).Trim();
                         dr["PostingDate"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][PostingDateid].ToString());
-                        dr["DocumentType"] = sourceData.Rows[rowixd][DocumentTypeid].ToString().Trim();
+                        dr["DocumentType"] = sourceData.Rows[rowixd][DocumentTypeid].ToString().Truncate(225).Trim();
                         dr["DocumentNumber"] = double.Parse(sourceData.Rows[rowixd][DocumentNumberid].ToString());//.Trim();
                         dr["Amountinlocalcurrency"] = double.Parse(sourceData.Rows[rowixd][Amountinlocalcurrencyid].ToString());//.Trim();
-                        dr["BusinessArea"] = sourceData.Rows[rowixd][BusinessAreaid].ToString().Trim();
+                        dr["BusinessArea"] = sourceData.Rows[rowixd][BusinessAreaid].ToString().Truncate(225).Trim();
                         dr["Deposit"] = double.Parse(sourceData.Rows[rowixd][Depositid].ToString().Trim());
 
                         

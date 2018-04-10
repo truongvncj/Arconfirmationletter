@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using arconfirmationletter.shared;
 
 namespace arconfirmationletter.Model
 {
@@ -261,7 +262,7 @@ namespace arconfirmationletter.Model
                       
                         try
                         {
-                            dr["Remark"] = sourceData.Rows[rowixd][Remarkid].ToString().Trim();
+                            dr["Remark"] = sourceData.Rows[rowixd][Remarkid].ToString().Truncate(225).Trim();
 
                             dr["DocumentNo"] = double.Parse(sourceData.Rows[rowixd][DocumentNoid].ToString());
 

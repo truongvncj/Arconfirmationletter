@@ -10,6 +10,8 @@ using System.Threading;
 using System.Data.OleDb;
 using System.Data;
 using System.Data.SqlClient;
+using arconfirmationletter.shared;
+
 
 namespace arconfirmationletter.Model
 {
@@ -394,7 +396,7 @@ namespace arconfirmationletter.Model
 
                         DataRow dr = batable.NewRow();
 
-                        dr["InvoiceRegistrationNumber"] = sourceData.Rows[rowixd][InvoiceRegistrationNumber].ToString().Trim();
+                        dr["InvoiceRegistrationNumber"] = sourceData.Rows[rowixd][InvoiceRegistrationNumber].ToString().Truncate(225).Trim();
                     
                         if (sourceData.Rows[rowixd][InvoiceNumber].ToString()!="" && Utils.IsValidnumber(sourceData.Rows[rowixd][InvoiceNumber].ToString()))
                         {
@@ -413,9 +415,9 @@ namespace arconfirmationletter.Model
                             dr["VATAmount"] = double.Parse(sourceData.Rows[rowixd][VATAmount].ToString());
 
                             dr["CustomerNumber"] = double.Parse(sourceData.Rows[rowixd][CustomerNumber].ToString());//.Trim();
-                            dr["CustomerName"] = sourceData.Rows[rowixd][CustomerName].ToString().Trim();
+                            dr["CustomerName"] = sourceData.Rows[rowixd][CustomerName].ToString().Truncate(225).Trim() ;
 
-                            dr["StreetAddress"] = sourceData.Rows[rowixd][StreetAddress].ToString().Trim();
+                            dr["StreetAddress"] = sourceData.Rows[rowixd][StreetAddress].ToString().Truncate(225).Trim();
 
 
                         }
