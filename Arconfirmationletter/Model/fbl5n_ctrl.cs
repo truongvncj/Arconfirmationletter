@@ -247,9 +247,17 @@ namespace arconfirmationletter.Model
                         dr["DocumentNumber"] = double.Parse(sourceData.Rows[rowixd][DocumentNumberid].ToString());//.Trim();
                         dr["Amountinlocalcurrency"] = double.Parse(sourceData.Rows[rowixd][Amountinlocalcurrencyid].ToString());//.Trim();
                         dr["BusinessArea"] = sourceData.Rows[rowixd][BusinessAreaid].ToString().Truncate(225).Trim();
-                        dr["Deposit"] = double.Parse(sourceData.Rows[rowixd][Depositid].ToString().Trim());
 
-                        
+                        if (Utils.IsValidnumber(sourceData.Rows[rowixd][Depositid].ToString().Trim()))
+                        {
+                            dr["Deposit"] = double.Parse(sourceData.Rows[rowixd][Depositid].ToString().Trim());
+
+                        }
+                        else
+                        {
+                            dr["Deposit"] = 0;
+                        }
+
 
 
                         batable.Rows.Add(dr);
