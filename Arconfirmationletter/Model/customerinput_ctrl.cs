@@ -930,82 +930,19 @@ namespace arconfirmationletter.Model
 
                 //      ThreadPool.QueueUserWorkItem(new WaitCallback(importsexcel)); //join
 
-                // sina
-                // dynamic_cast<AutoResetEvent*>(stateInfo)->Set();
-                // ((AutoResetEvent)stateInfo).Set();
-                Thread t2 = new Thread(showwait);
-                t2.Start();
-                //   autoEvent.WaitOne(); //join
-                t1.Join();
+
+                View.Caculating wat = new View.Caculating();
+                wat.ShowDialog();
+
+
+
                 if (t1.ThreadState != ThreadState.Running)
                 {
+                    wat.Close();
 
 
-
-                    do
-                    {
-
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
-
-                    //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                //#region updateCustgoupinListcust
-
-
-                //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                //var qr = from tblCustomer in dc.tblCustomers
-                //             //  where tblCustomer.Reportsend == true
-                //         select tblCustomer;
-                ////------------//
-                //foreach (var tblCustomer in qr)
-                //{
-
-                //    var qr2 = (from tbl_CustomerGroup in dc.tbl_CustomerGroups
-                //               where tbl_CustomerGroup.Customercode == tblCustomer.Customer && 
-                //               select tbl_CustomerGroup).FirstOrDefault();
-
-
-                //    if (qr2 != null)
-                //    {
-                //        tblCustomer.Cusromergroup = qr2.Customergropcode;
-
-
-                //    }
-
-
-                //    if (qr2 == null)
-                //    {
-                //        tblCustomer.Cusromergroup = tblCustomer.Customer;
-
-                //    }
-
-
-
-                //    dc.SubmitChanges();
-
-
-
-                //}
-
-                //#endregion updateCustgoupinListcust
 
 
             }
@@ -1042,84 +979,18 @@ namespace arconfirmationletter.Model
                 //      ThreadPool.QueueUserWorkItem(new WaitCallback(importsexcel)); //join
 
                 // sina
-                // dynamic_cast<AutoResetEvent*>(stateInfo)->Set();
-                // ((AutoResetEvent)stateInfo).Set();
-                Thread t2 = new Thread(showwait);
-                t2.Start();
-                //   autoEvent.WaitOne(); //join
-                t1.Join();
+
+                View.Caculating wat = new View.Caculating();
+                wat.ShowDialog();
+
+
+
                 if (t1.ThreadState != ThreadState.Running)
                 {
+                    wat.Close();
 
 
-
-
-
-                    do
-                    {
-
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
-
-
-                    //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                //#region updateCustgoupinListcust
-
-
-                //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                //var qr = from tblCustomer in dc.tblCustomers
-                //             //  where tblCustomer.Reportsend == true
-                //         select tblCustomer;
-                ////------------//
-                //foreach (var tblCustomer in qr)
-                //{
-
-                //    var qr2 = (from tbl_CustomerGroup in dc.tbl_CustomerGroups
-                //               where tbl_CustomerGroup.Customercode == tblCustomer.Customer && 
-                //               select tbl_CustomerGroup).FirstOrDefault();
-
-
-                //    if (qr2 != null)
-                //    {
-                //        tblCustomer.Cusromergroup = qr2.Customergropcode;
-
-
-                //    }
-
-
-                //    if (qr2 == null)
-                //    {
-                //        tblCustomer.Cusromergroup = tblCustomer.Customer;
-
-                //    }
-
-
-
-                //    dc.SubmitChanges();
-
-
-
-                //}
-
-                //#endregion updateCustgoupinListcust
 
 
             }
@@ -1156,41 +1027,18 @@ namespace arconfirmationletter.Model
                 Thread t2 = new Thread(showwait);
                 t2.Start();
                 //   autoEvent.WaitOne(); //join
-                t1.Join();
+
+                View.Caculating wat = new View.Caculating();
+                wat.ShowDialog();
+
+
+
                 if (t1.ThreadState != ThreadState.Running)
                 {
+                    wat.Close();
 
 
-
-
-
-                    do
-                    {
-
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
-
-
-
-                    //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-
 
 
             }
@@ -1224,85 +1072,19 @@ namespace arconfirmationletter.Model
 
                 //      ThreadPool.QueueUserWorkItem(new WaitCallback(importsexcel)); //join
 
-                // sina
-                // dynamic_cast<AutoResetEvent*>(stateInfo)->Set();
-                // ((AutoResetEvent)stateInfo).Set();
-                Thread t2 = new Thread(showwait);
-                t2.Start();
-                //   autoEvent.WaitOne(); //join
-                t1.Join();
+
+                View.Caculating wat = new View.Caculating();
+                wat.ShowDialog();
+
+
+
                 if (t1.ThreadState != ThreadState.Running)
                 {
+                    wat.Close();
 
 
-
-
-
-                    do
-                    {
-
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
-
-
-                    //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                //#region updateCustgoupinListcust
-
-
-                //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                //var qr = from tblCustomer in dc.tblCustomers
-                //             //  where tblCustomer.Reportsend == true
-                //         select tblCustomer;
-                ////------------//
-                //foreach (var tblCustomer in qr)
-                //{
-
-                //    var qr2 = (from tbl_CustomerGroup in dc.tbl_CustomerGroups
-                //               where tbl_CustomerGroup.Customercode == tblCustomer.Customer && 
-                //               select tbl_CustomerGroup).FirstOrDefault();
-
-
-                //    if (qr2 != null)
-                //    {
-                //        tblCustomer.Cusromergroup = qr2.Customergropcode;
-
-
-                //    }
-
-
-                //    if (qr2 == null)
-                //    {
-                //        tblCustomer.Cusromergroup = tblCustomer.Customer;
-
-                //    }
-
-
-
-                //    dc.SubmitChanges();
-
-
-
-                //}
-
-                //#endregion updateCustgoupinListcust
 
 
             }
@@ -2036,87 +1818,20 @@ namespace arconfirmationletter.Model
                 t1.IsBackground = true;
                 t1.Start(new datainportF() { filename = filename });
 
-                //      ThreadPool.QueueUserWorkItem(new WaitCallback(importsexcel)); //join
 
-                // sina
-                // dynamic_cast<AutoResetEvent*>(stateInfo)->Set();
-                // ((AutoResetEvent)stateInfo).Set();
-                Thread t2 = new Thread(showwait);
-                t2.Start();
-                //   autoEvent.WaitOne(); //join
-                t1.Join();
+                View.Caculating wat = new View.Caculating();
+                wat.ShowDialog();
+
+
+
                 if (t1.ThreadState != ThreadState.Running)
                 {
+                    wat.Close();
 
 
-
-
-
-                    do
-                    {
-
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
-
-
-                    //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                //#region updateCustgoupinListcust
 
-
-                //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                //var qr = from tblCustomer in dc.tblCustomers
-                //             //  where tblCustomer.Reportsend == true
-                //         select tblCustomer;
-                ////------------//
-                //foreach (var tblCustomer in qr)
-                //{
-
-                //    var qr2 = (from tbl_CustomerGroup in dc.tbl_CustomerGroups
-                //               where tbl_CustomerGroup.Customercode == tblCustomer.Customer && 
-                //               select tbl_CustomerGroup).FirstOrDefault();
-
-
-                //    if (qr2 != null)
-                //    {
-                //        tblCustomer.Cusromergroup = qr2.Customergropcode;
-
-
-                //    }
-
-
-                //    if (qr2 == null)
-                //    {
-                //        tblCustomer.Cusromergroup = tblCustomer.Customer;
-
-                //    }
-
-
-
-                //    dc.SubmitChanges();
-
-
-
-                //}
-
-                //#endregion updateCustgoupinListcust
 
 
             }
@@ -2443,47 +2158,20 @@ namespace arconfirmationletter.Model
                 t1.IsBackground = true;
                 t1.Start(new datainportF() { filename = filename });
 
-                //      ThreadPool.QueueUserWorkItem(new WaitCallback(importsexcel)); //join
 
-                // sina
-                // dynamic_cast<AutoResetEvent*>(stateInfo)->Set();
-                // ((AutoResetEvent)stateInfo).Set();
-                Thread t2 = new Thread(showwait);
-                t2.Start();
-                //   autoEvent.WaitOne(); //join
-                t1.Join();
+
+                View.Caculating wat = new View.Caculating();
+                wat.ShowDialog();
+
+
+
                 if (t1.ThreadState != ThreadState.Running)
                 {
+                    wat.Close();
 
 
-
-
-
-                    do
-                    {
-
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
-
-
-
-                    //    MessageBox.Show("Upload Customer done !", "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
 
 
 

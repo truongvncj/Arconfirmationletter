@@ -410,39 +410,20 @@ namespace arconfirmationletter.Model
                 t1.IsBackground = true;
                 t1.Start(new datainportF() { filename = filename });
 
-                Thread t2 = new Thread(showwait);
-                t2.Start();
-                //   autoEvent.WaitOne(); //join
-                t1.Join();
+
+
+                View.Caculating wat = new View.Caculating();
+                wat.ShowDialog();
+
+
+
                 if (t1.ThreadState != ThreadState.Running)
                 {
+                    wat.Close();
 
 
-
-                    do
-                    {
-
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
-
-
-                    //    MessageBox.Show("Upload Customer done !", "Thông báo Upload Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
 
 
 

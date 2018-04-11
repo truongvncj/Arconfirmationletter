@@ -45,7 +45,7 @@ namespace arconfirmationletter.Model
             }
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             db.SubmitChanges();
-            
+
             return true;
         }
 
@@ -69,7 +69,7 @@ namespace arconfirmationletter.Model
 
 
 
-      //      ExcelProvider ExcelProvide = new ExcelProvider();
+            //      ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
             System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
@@ -85,7 +85,7 @@ namespace arconfirmationletter.Model
             batable.Columns.Add("Deposit", typeof(double));
 
 
-            
+
 
             int Depositid = -1;
             int Accountid = -1;
@@ -95,7 +95,7 @@ namespace arconfirmationletter.Model
             int DocumentNumberid = -1;
             int BusinessAreaid = -1;
             int Amountinlocalcurrencyid = -1;
-            
+
             for (int rowid = 0; rowid < 20; rowid++)
             {
                 // headindex = 1;
@@ -109,13 +109,13 @@ namespace arconfirmationletter.Model
                     {
 
                         //    #region setcolum
-                        if (value.Trim()==("Account"))  //Account
+                        if (value.Trim() == ("Account"))  //Account
                         {
                             Accountid = columid;
                             //  headindex = rowid;
                         }
 
-                        if (value.Trim()==("Assignment"))
+                        if (value.Trim() == ("Assignment"))
                         {
 
                             Assignmentid = columid;
@@ -124,7 +124,7 @@ namespace arconfirmationletter.Model
                         }
 
 
-                        if (value.Trim()==("Pstng Date"))
+                        if (value.Trim() == ("Pstng Date"))
                         {
 
                             PostingDateid = columid;
@@ -143,14 +143,14 @@ namespace arconfirmationletter.Model
 
 
                         }
-                        
 
-                        if (value.Trim()==("Typ")  )
+
+                        if (value.Trim() == ("Typ"))
                         {
                             DocumentTypeid = columid;
 
                         }
-                        if (value.Trim()==("DocumentNo")    )
+                        if (value.Trim() == ("DocumentNo"))
                         {
                             DocumentNumberid = columid;
 
@@ -158,12 +158,12 @@ namespace arconfirmationletter.Model
 
 
 
-                        if (value.Trim()==("Amt in loc.cur.")    )
+                        if (value.Trim() == ("Amt in loc.cur."))
                         {
                             Amountinlocalcurrencyid = columid;
 
                         }
-                        if (value.Trim()==("BusA")    )
+                        if (value.Trim() == ("BusA"))
                         {
                             BusinessAreaid = columid;
 
@@ -176,11 +176,11 @@ namespace arconfirmationletter.Model
                 }// colum
 
             }// roww off heatder
-            
+
 
             if (Accountid == -1)
             {
-                MessageBox.Show("Dữ liệu thiếu cột Account","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dữ liệu thiếu cột Account", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -234,7 +234,7 @@ namespace arconfirmationletter.Model
 
                 //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
                 string Account = sourceData.Rows[rowixd][Accountid].ToString();
-                if (Account != "" && Utils.IsValidnumber(Account) && sourceData.Rows[rowixd][DocumentTypeid].ToString().Trim() !="")
+                if (Account != "" && Utils.IsValidnumber(Account) && sourceData.Rows[rowixd][DocumentTypeid].ToString().Trim() != "")
                 {
 
                     if (double.Parse(Account) > 0)
@@ -307,214 +307,192 @@ namespace arconfirmationletter.Model
 
 
 
-        
-    }
+
+        }
 
 
 
-    //private void importsexcelold(object obj)
-    //{
-    //    string connection_string = Utils.getConnectionstr();
-    //    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+        //private void importsexcelold(object obj)
+        //{
+        //    string connection_string = Utils.getConnectionstr();
+        //    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
-    //    //     List<tblFBL5N> fbl5n_ctrllist = new List<tblFBL5N>();
-    //    fbl5n_ctrl md = new fbl5n_ctrl();
+        //    //     List<tblFBL5N> fbl5n_ctrllist = new List<tblFBL5N>();
+        //    fbl5n_ctrl md = new fbl5n_ctrl();
 
-    //    bool kq = md.deleteFbl5n();
+        //    bool kq = md.deleteFbl5n();
 
-    //    datainportF inf = (datainportF)obj;
+        //    datainportF inf = (datainportF)obj;
 
-    //    string filename = inf.filename;
+        //    string filename = inf.filename;
 
-    //    string connectionString = "";
-    //    if (filename.Contains(".xlsx") || filename.Contains(".XLSX"))
-    //    {
-    //        connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filename + ";" + "Extended Properties=Excel 12.0;";
-    //    }
-    //    else
-    //    {
-    //        connectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source= " + filename + ";" + "Extended Properties=Excel 8.0;";
-    //    }
+        //    string connectionString = "";
+        //    if (filename.Contains(".xlsx") || filename.Contains(".XLSX"))
+        //    {
+        //        connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filename + ";" + "Extended Properties=Excel 12.0;";
+        //    }
+        //    else
+        //    {
+        //        connectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source= " + filename + ";" + "Extended Properties=Excel 8.0;";
+        //    }
 
-    //    //------
-    //    //---------------fill data
+        //    //------
+        //    //---------------fill data
 
-    //    System.Data.DataTable sourceData = new System.Data.DataTable();
-    //    using (OleDbConnection conn =
-    //                           new OleDbConnection(connectionString))
-    //    {
-    //        try
-    //        {
-    //            conn.Open();
-    //        }
-    //        catch (Exception ex)
-    //        {
+        //    System.Data.DataTable sourceData = new System.Data.DataTable();
+        //    using (OleDbConnection conn =
+        //                           new OleDbConnection(connectionString))
+        //    {
+        //        try
+        //        {
+        //            conn.Open();
+        //        }
+        //        catch (Exception ex)
+        //        {
 
-    //            MessageBox.Show(ex.ToString(), "Thông báo lỗi Open conext !", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    //        }
-
-
-    //        // Get the data from the source table as a SqlDataReader.
-    //        OleDbCommand command = new OleDbCommand(
-    //                            @"SELECT [Account], [Assignment],[Posting Date],[Document Type],
-    //                                [Document Number], [Business Area], [Amount in local currency] FROM [Sheet1$]
-    //                                 WHERE ( [Posting Date] is not null  ) AND ISNUMERIC ([Account])", conn); //
+        //            MessageBox.Show(ex.ToString(), "Thông báo lỗi Open conext !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
 
 
-    //        OleDbDataAdapter adapter = new OleDbDataAdapter(command);
-    //        adapter.FillSchema(sourceData, SchemaType.Source);
-    //        sourceData.Columns["Posting Date"].DataType = typeof(DateTime);
-    //        //sourceData.Columns["Invoice Doc Nr"].DataType = typeof(float);
-    //        //sourceData.Columns["Billed Qty"].DataType = typeof(float);
-    //        //sourceData.Columns["Cond Value"].DataType = typeof(float);
-    //        //sourceData.Columns["Sales Org"].DataType = typeof(string);
-    //        //sourceData.Columns["Cust Name"].DataType = typeof(string);
-    //        //sourceData.Columns["Outbound Delivery"].DataType = typeof(string);
-    //        //sourceData.Columns["Mat Group"].DataType = typeof(string);
-    //        //sourceData.Columns["Mat Group Text"].DataType = typeof(string);
-    //        //sourceData.Columns["UoM"].DataType = typeof(string);
+        //        // Get the data from the source table as a SqlDataReader.
+        //        OleDbCommand command = new OleDbCommand(
+        //                            @"SELECT [Account], [Assignment],[Posting Date],[Document Type],
+        //                                [Document Number], [Business Area], [Amount in local currency] FROM [Sheet1$]
+        //                                 WHERE ( [Posting Date] is not null  ) AND ISNUMERIC ([Account])", conn); //
 
 
-    //        try
-    //        {
-
-    //            adapter.Fill(sourceData);
-    //        }
-    //        catch (Exception ex)
-    //        {
-
-    //            MessageBox.Show(ex.ToString(), "Thông báo lỗi Fill !", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    //        }
-
-    //        conn.Close();
-    //    }
-
-    //    //    Utils util = new Utils();
-    //    string destConnString = Utils.getConnectionstr();
-
-    //    //---------------fill data
+        //        OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+        //        adapter.FillSchema(sourceData, SchemaType.Source);
+        //        sourceData.Columns["Posting Date"].DataType = typeof(DateTime);
+        //        //sourceData.Columns["Invoice Doc Nr"].DataType = typeof(float);
+        //        //sourceData.Columns["Billed Qty"].DataType = typeof(float);
+        //        //sourceData.Columns["Cond Value"].DataType = typeof(float);
+        //        //sourceData.Columns["Sales Org"].DataType = typeof(string);
+        //        //sourceData.Columns["Cust Name"].DataType = typeof(string);
+        //        //sourceData.Columns["Outbound Delivery"].DataType = typeof(string);
+        //        //sourceData.Columns["Mat Group"].DataType = typeof(string);
+        //        //sourceData.Columns["Mat Group Text"].DataType = typeof(string);
+        //        //sourceData.Columns["UoM"].DataType = typeof(string);
 
 
-    //    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
-    //    {
+        //        try
+        //        {
 
-    //        bulkCopy.DestinationTableName = "tblFBL5N";
-    //        // Write from the source to the destination.
-    //        bulkCopy.ColumnMappings.Add("[Account]", "[Account]");
-    //        bulkCopy.ColumnMappings.Add("[Assignment]", "[Assignment]");
-    //        bulkCopy.ColumnMappings.Add("[Posting Date]", "[Posting Date]");
-    //        bulkCopy.ColumnMappings.Add("[Document Type]", "[Document Type]");
-    //        bulkCopy.ColumnMappings.Add("[Document Number]", "[Document Number]");
-    //        bulkCopy.ColumnMappings.Add("[Business Area]", "[Business Area]");
-    //        bulkCopy.ColumnMappings.Add("[Amount in local currency]", "[Amount in local currency]");
+        //            adapter.Fill(sourceData);
+        //        }
+        //        catch (Exception ex)
+        //        {
 
+        //            MessageBox.Show(ex.ToString(), "Thông báo lỗi Fill !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
 
+        //        conn.Close();
+        //    }
 
+        //    //    Utils util = new Utils();
+        //    string destConnString = Utils.getConnectionstr();
 
-    //        #region   tìm id
-    //        //   "Account"
-    //        //    "Assignment"
-    //        //    "Posting Date"
-    //        //  "Document Type"
-    //        //     "Document Number"
-    //        //   "Business Area"
-    //        //     "Amount in local currency"
+        //    //---------------fill data
 
 
-    //        #endregion
+        //    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
+        //    {
+
+        //        bulkCopy.DestinationTableName = "tblFBL5N";
+        //        // Write from the source to the destination.
+        //        bulkCopy.ColumnMappings.Add("[Account]", "[Account]");
+        //        bulkCopy.ColumnMappings.Add("[Assignment]", "[Assignment]");
+        //        bulkCopy.ColumnMappings.Add("[Posting Date]", "[Posting Date]");
+        //        bulkCopy.ColumnMappings.Add("[Document Type]", "[Document Type]");
+        //        bulkCopy.ColumnMappings.Add("[Document Number]", "[Document Number]");
+        //        bulkCopy.ColumnMappings.Add("[Business Area]", "[Business Area]");
+        //        bulkCopy.ColumnMappings.Add("[Amount in local currency]", "[Amount in local currency]");
 
 
 
 
-    //        try
-    //        {
-    //            bulkCopy.WriteToServer(sourceData);
-    //        }
-    //        catch (Exception ex)
-    //        {
+        //        #region   tìm id
+        //        //   "Account"
+        //        //    "Assignment"
+        //        //    "Posting Date"
+        //        //  "Document Type"
+        //        //     "Document Number"
+        //        //   "Business Area"
+        //        //     "Amount in local currency"
 
-    //            MessageBox.Show(ex.ToString(), "Thông báo lỗi Bulk Copy !", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    //            Thread.CurrentThread.Abort();
-    //        }
 
-    //    }
-    //}
+        //        #endregion
 
 
 
 
-    private void showwait()
-    {
-        View.Caculating wat = new View.Caculating();
-        wat.ShowDialog();
+        //        try
+        //        {
+        //            bulkCopy.WriteToServer(sourceData);
+        //        }
+        //        catch (Exception ex)
+        //        {
+
+        //            MessageBox.Show(ex.ToString(), "Thông báo lỗi Bulk Copy !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            Thread.CurrentThread.Abort();
+        //        }
+
+        //    }
+        //}
 
 
-    }
-
-    public void Fbl5n_input2()
-    {
 
 
-        //   CultureInfo provider = CultureInfo.InvariantCulture;
+        //private void showwait()
+        //{
+        //    View.Caculating wat = new View.Caculating();
+        //    wat.ShowDialog();
 
-        OpenFileDialog theDialog = new OpenFileDialog();
-        theDialog.Title = "Open Excel File FBL5n excel";
-        theDialog.Filter = "Excel files|*.xlsx; *.xls";
-        theDialog.InitialDirectory = @"C:\";
-        if (theDialog.ShowDialog() == DialogResult.OK)
+
+        //}
+
+        public void Fbl5n_input2()
         {
 
 
-            string filename = theDialog.FileName.ToString();
+            //   CultureInfo provider = CultureInfo.InvariantCulture;
 
-            Thread t1 = new Thread(importsexcel);
-            t1.IsBackground = true;
-            t1.Start(new datainportF() { filename = filename });
-
-            Thread t2 = new Thread(showwait);
-            t2.Start();
-            //   autoEvent.WaitOne(); //join
-            t1.Join();
-            if (t1.ThreadState != ThreadState.Running)
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open Excel File FBL5n excel";
+            theDialog.Filter = "Excel files|*.xlsx; *.xls";
+            theDialog.InitialDirectory = @"C:\";
+            if (theDialog.ShowDialog() == DialogResult.OK)
             {
 
 
+                string filename = theDialog.FileName.ToString();
 
-                    do
-                    {
+                Thread t1 = new Thread(importsexcel);
+                t1.IsBackground = true;
+                t1.Start(new datainportF() { filename = filename });
 
-                        Thread.Sleep(233);
 
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
+                View.Caculating wat = new View.Caculating();
+                wat.ShowDialog();
 
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
 
-                    } while (!t2.IsAlive);
+
+                if (t1.ThreadState != ThreadState.Running)
+                {
+                    wat.Close();
+
 
                 }
 
 
+
+                //  return true;
+
+
+
             }
 
+        }
 
-
-        //  return true;
-
-
-
-    }
-
-
-
-} // en class
+    } // en class
 } // endname space

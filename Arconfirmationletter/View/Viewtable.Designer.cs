@@ -64,26 +64,19 @@ namespace arconfirmationletter.View
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.btpostclear);
-            this.panel1.Controls.Add(this.btAutoUpdatedepo);
-            this.panel1.Controls.Add(this.bt_sendinggroup);
-            this.panel1.Controls.Add(this.btSendlistUpdate);
-            this.panel1.Controls.Add(this.lb_seach);
-            this.panel1.Controls.Add(this.bt_listunsend);
             this.panel1.Controls.Add(this.statussum);
             this.panel1.Controls.Add(this.lb_totalrecord);
-            this.panel1.Controls.Add(this.bt_exporttoex);
             this.panel1.Controls.Add(this.Pl_endview);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(4, -2);
+            this.panel1.Location = new System.Drawing.Point(4, 41);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1348, 471);
+            this.panel1.Size = new System.Drawing.Size(1348, 428);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btpostclear
             // 
-            this.btpostclear.Location = new System.Drawing.Point(739, 7);
+            this.btpostclear.Location = new System.Drawing.Point(746, 13);
             this.btpostclear.Name = "btpostclear";
             this.btpostclear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btpostclear.Size = new System.Drawing.Size(148, 21);
@@ -94,7 +87,7 @@ namespace arconfirmationletter.View
             // 
             // btAutoUpdatedepo
             // 
-            this.btAutoUpdatedepo.Location = new System.Drawing.Point(124, 7);
+            this.btAutoUpdatedepo.Location = new System.Drawing.Point(131, 13);
             this.btAutoUpdatedepo.Name = "btAutoUpdatedepo";
             this.btAutoUpdatedepo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btAutoUpdatedepo.Size = new System.Drawing.Size(119, 21);
@@ -105,7 +98,7 @@ namespace arconfirmationletter.View
             // 
             // bt_sendinggroup
             // 
-            this.bt_sendinggroup.Location = new System.Drawing.Point(365, 6);
+            this.bt_sendinggroup.Location = new System.Drawing.Point(372, 12);
             this.bt_sendinggroup.Name = "bt_sendinggroup";
             this.bt_sendinggroup.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.bt_sendinggroup.Size = new System.Drawing.Size(124, 22);
@@ -116,7 +109,7 @@ namespace arconfirmationletter.View
             // 
             // btSendlistUpdate
             // 
-            this.btSendlistUpdate.Location = new System.Drawing.Point(247, 7);
+            this.btSendlistUpdate.Location = new System.Drawing.Point(254, 13);
             this.btSendlistUpdate.Name = "btSendlistUpdate";
             this.btSendlistUpdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btSendlistUpdate.Size = new System.Drawing.Size(112, 21);
@@ -130,7 +123,7 @@ namespace arconfirmationletter.View
             this.lb_seach.AutoSize = true;
             this.lb_seach.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_seach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lb_seach.Location = new System.Drawing.Point(616, 9);
+            this.lb_seach.Location = new System.Drawing.Point(623, 15);
             this.lb_seach.Name = "lb_seach";
             this.lb_seach.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lb_seach.Size = new System.Drawing.Size(117, 16);
@@ -140,7 +133,7 @@ namespace arconfirmationletter.View
             // 
             // bt_listunsend
             // 
-            this.bt_listunsend.Location = new System.Drawing.Point(495, 7);
+            this.bt_listunsend.Location = new System.Drawing.Point(502, 13);
             this.bt_listunsend.Name = "bt_listunsend";
             this.bt_listunsend.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.bt_listunsend.Size = new System.Drawing.Size(115, 21);
@@ -153,7 +146,7 @@ namespace arconfirmationletter.View
             // 
             this.statussum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.statussum.AutoSize = true;
-            this.statussum.Location = new System.Drawing.Point(0, 452);
+            this.statussum.Location = new System.Drawing.Point(0, 409);
             this.statussum.Name = "statussum";
             this.statussum.Size = new System.Drawing.Size(70, 13);
             this.statussum.TabIndex = 1;
@@ -165,7 +158,7 @@ namespace arconfirmationletter.View
             this.lb_totalrecord.AutoSize = true;
             this.lb_totalrecord.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_totalrecord.ForeColor = System.Drawing.Color.Red;
-            this.lb_totalrecord.Location = new System.Drawing.Point(67, 452);
+            this.lb_totalrecord.Location = new System.Drawing.Point(67, 409);
             this.lb_totalrecord.Name = "lb_totalrecord";
             this.lb_totalrecord.Size = new System.Drawing.Size(13, 14);
             this.lb_totalrecord.TabIndex = 2;
@@ -173,7 +166,7 @@ namespace arconfirmationletter.View
             // 
             // bt_exporttoex
             // 
-            this.bt_exporttoex.Location = new System.Drawing.Point(4, 7);
+            this.bt_exporttoex.Location = new System.Drawing.Point(11, 13);
             this.bt_exporttoex.Name = "bt_exporttoex";
             this.bt_exporttoex.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.bt_exporttoex.Size = new System.Drawing.Size(114, 20);
@@ -199,7 +192,7 @@ namespace arconfirmationletter.View
             this.Pl_endview.Controls.Add(this.lb_tongamount);
             this.Pl_endview.Controls.Add(this.label1);
             this.Pl_endview.ForeColor = System.Drawing.Color.Black;
-            this.Pl_endview.Location = new System.Drawing.Point(102, 450);
+            this.Pl_endview.Location = new System.Drawing.Point(102, 407);
             this.Pl_endview.Name = "Pl_endview";
             this.Pl_endview.Size = new System.Drawing.Size(1236, 19);
             this.Pl_endview.TabIndex = 1;
@@ -328,10 +321,10 @@ namespace arconfirmationletter.View
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 31);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.Size = new System.Drawing.Size(1342, 412);
+            this.dataGridView1.Size = new System.Drawing.Size(1342, 397);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.VirtualMode = true;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -343,7 +336,14 @@ namespace arconfirmationletter.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 481);
+            this.Controls.Add(this.btpostclear);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lb_seach);
+            this.Controls.Add(this.btAutoUpdatedepo);
+            this.Controls.Add(this.bt_sendinggroup);
+            this.Controls.Add(this.bt_exporttoex);
+            this.Controls.Add(this.btSendlistUpdate);
+            this.Controls.Add(this.bt_listunsend);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Viewtable";
@@ -360,6 +360,7 @@ namespace arconfirmationletter.View
             this.Pl_endview.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

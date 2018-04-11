@@ -736,9 +736,13 @@ namespace arconfirmationletter.View
             this.viewcode = viewcode;
             this.rs = rs;
             this.lb_seach.Text = "F3 TÌM KIẾM";
+
             this.bt_sendinggroup.Visible = false;
             this.lb_seach.Visible = false;
             this.Pl_endview.Visible = false;
+
+
+
             this.Text = fornname;
             this.btAutoUpdatedepo.Visible = false;
 
@@ -747,6 +751,21 @@ namespace arconfirmationletter.View
             btpostclear.Visible = false;
             lb_seach.Visible = false;
 
+
+            if (viewcode == 1)//fornname == "LIST CUSTOMER MAKE REPORTS")
+            {
+
+                this.bt_listunsend.Visible = true;
+                this.btSendlistUpdate.Visible = true;
+
+                this.bt_sendinggroup.Visible = true;
+
+                //  btSendlistUpdate
+
+
+
+
+            }
 
             this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
                                                                                                             //  this.lb_totalrecord.ForeColor = Color.Chocolate;
@@ -763,20 +782,7 @@ namespace arconfirmationletter.View
 
             }
 
-            if (fornname == "LIST CUSTOMER MAKE REPORTS")
-            {
 
-                this.bt_listunsend.Visible = true;
-                this.btSendlistUpdate.Visible = true;
-
-                this.bt_sendinggroup.Visible = true;
-
-                //  btSendlistUpdate
-
-
-
-
-            }
             if (this.Text == "LETTER RETURN STATUS UPDATE" || this.Text == "Update Customer make reports !" || this.Text == "LIST BEGIN BALANCE !")//22222222
             {
 
@@ -1024,6 +1030,8 @@ namespace arconfirmationletter.View
 
             }
 
+            #endregion // update lai data
+
             //    this.bt_inputfrex.Visible = true;
             //   this.Pl_endview.Visible = true;
 
@@ -1033,7 +1041,6 @@ namespace arconfirmationletter.View
             }
 
 
-            #endregion // update lai data
 
         }
         //  Update Customer make reports !
@@ -1407,7 +1414,7 @@ namespace arconfirmationletter.View
 
                 string colheadertext = this.dataGridView1.Columns[this.dataGridView1.CurrentCell.ColumnIndex].HeaderText;
 
-          //      bbb
+                //      bbb
 
 
 

@@ -84,34 +84,22 @@ namespace arconfirmationletter.Model
                 Thread t2 = new Thread(showwait);
                 t2.Start();
                 //   autoEvent.WaitOne(); //join
-                t1.Join();
+
+
+
+                View.Caculating wat = new View.Caculating();
+                wat.ShowDialog();
+
+
+
                 if (t1.ThreadState != ThreadState.Running)
                 {
+                    wat.Close();
 
-
-
-                    do
-                    {
-
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
 
                 }
+
+
 
                 // check data download
                 string connection_string = Utils.getConnectionstr();
