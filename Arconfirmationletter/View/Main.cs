@@ -410,7 +410,7 @@ namespace arconfirmationletter.View
             fbl5n_ctrl md = new fbl5n_ctrl();
             var rs = md.fbl5nsetlect_all(db);
 
-            Viewtable viewtbl = new Viewtable(rs, db, "FBL5n data", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "FBL5n data", 100, DateTime.Today, DateTime.Today);
             //     viewtbl.Visible = false;
             //       viewtbl.Show();
         }
@@ -431,7 +431,7 @@ namespace arconfirmationletter.View
             var rs = md.customersetlect_all(db);
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER DATA", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER DATA", 100, DateTime.Today, DateTime.Today);
             //     viewtbl.Show();
 
         }
@@ -485,7 +485,7 @@ namespace arconfirmationletter.View
             LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
             vat_ctrl md = new vat_ctrl();
             var rs = md.vatsetlect_all(db);
-            Viewtable viewtbl = new Viewtable(rs, db, "VAT ZFI data uploaded ", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "VAT ZFI data uploaded ", 100, DateTime.Today, DateTime.Today);
             //    viewtbl.Show();
 
         }
@@ -1105,7 +1105,7 @@ namespace arconfirmationletter.View
                      select tbl_ArletterRpt;
 
 
-            Viewtable viewtbl = new Viewtable(rs, db, "Letter data reports", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "Letter data reports", 100, DateTime.Today, DateTime.Today);
             //   viewtbl.Show();
 
 
@@ -1146,7 +1146,7 @@ namespace arconfirmationletter.View
 
             edlpinput_ctrl md = new edlpinput_ctrl();
             var rs = md.Edlpsetlect_all(db);
-            Viewtable viewtbl = new Viewtable(rs, db, "EDLP data uploaded ", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "EDLP data uploaded ", 100, DateTime.Today, DateTime.Today);
             //   viewtbl.Show();
 
         }
@@ -1548,7 +1548,7 @@ namespace arconfirmationletter.View
 
             Remarks md = new Remarks();
             var rs = md.Remarksetlect_all(db);
-            Viewtable viewtbl = new Viewtable(rs, db, "LIST OF UPDAD REMARKS  ", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "LIST OF UPDAD REMARKS  ", 100, DateTime.Today, DateTime.Today);
             //    viewtbl.Show();
 
         }
@@ -1564,7 +1564,7 @@ namespace arconfirmationletter.View
 
             fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
             var rs = md.Fregalssessetlect_all(db);
-            Viewtable viewtbl = new Viewtable(rs, db, "LIST OF REEGALSSES TABLE ", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "LIST OF REEGALSSES TABLE ", 100, DateTime.Today, DateTime.Today);
             //   viewtbl.Show();
 
 
@@ -1821,7 +1821,7 @@ namespace arconfirmationletter.View
                      select tbl_ArletterdetailRpt;
 
 
-            Viewtable viewtbl = new Viewtable(rs, db, "Letter data detail reporst", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "Letter data detail reporst", 100, DateTime.Today, DateTime.Today);
             viewtbl.Show();
 
         }
@@ -1840,7 +1840,7 @@ namespace arconfirmationletter.View
                      select tbl_ColdetailRpt;
 
 
-            Viewtable viewtbl = new Viewtable(rs, db, "Letter COL detail reporst", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "Letter COL detail reporst", 100, DateTime.Today, DateTime.Today);
             //    viewtbl.Show();
 
         }
@@ -2840,7 +2840,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                 // fbl5n_ctrl md = new fbl5n_ctrl();
                 //var rs = md.fbl5nsetlect_all();
 
-                Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "LIST BEGIN BALANCE !", 1, DateTime.Today, DateTime.Today);
+                Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "LIST BEGIN BALANCE !", 100, DateTime.Today, DateTime.Today);
                 //   viewtbl.Visible = false;
                 // viewtbl.Show();
 
@@ -3466,7 +3466,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                      select tbl_unuserCustomer;
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER UNSEND LIST", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER UNSEND LIST", 100, DateTime.Today, DateTime.Today);
             //     viewtbl.Show();
 
         }

@@ -591,6 +591,7 @@ namespace arconfirmationletter.Model
                 t1.IsBackground = true;
                 t1.Start(new datainportF() { filename = filename });
 
+
                 Thread t2 = new Thread(showwait);
                 t2.Start();
                 //   autoEvent.WaitOne(); //join
@@ -598,31 +599,13 @@ namespace arconfirmationletter.Model
                 if (t1.ThreadState != ThreadState.Running)
                 {
 
-
-
-                    do
+                    if (t2.ThreadState == ThreadState.Running)
                     {
+                        t2.Abort();
 
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
+                    }
 
                 }
-
 
             }
 
@@ -892,31 +875,13 @@ namespace arconfirmationletter.Model
                 if (t1.ThreadState != ThreadState.Running)
                 {
 
-
-
-                    do
+                    if (t2.ThreadState == ThreadState.Running)
                     {
+                        t2.Abort();
 
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
+                    }
 
                 }
-
 
             }
 

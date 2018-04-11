@@ -443,13 +443,16 @@ namespace arconfirmationletter.Model
 
 
 
-        //private void showwait()
-        //{
-        //    View.Caculating wat = new View.Caculating();
-        //    wat.ShowDialog();
+        private void showwait()
+        {
+             View.Caculating wat = new View.Caculating();
+
+//            View.Caculating wat = (View.Caculating)obj;
+
+            wat.ShowDialog();
 
 
-        //}
+        }
 
         public void Fbl5n_input2()
         {
@@ -472,27 +475,27 @@ namespace arconfirmationletter.Model
                 t1.Start(new datainportF() { filename = filename });
 
 
-                View.Caculating wat = new View.Caculating();
-                wat.ShowDialog();
 
 
-
+                Thread t2 = new Thread(showwait);
+                t2.Start();
+                //   autoEvent.WaitOne(); //join
+                t1.Join();
                 if (t1.ThreadState != ThreadState.Running)
                 {
-                    wat.Close();
 
+                    if (t2.ThreadState == ThreadState.Running)
+                    {
+                        t2.Abort();
+
+                    }
 
                 }
 
 
-
-                //  return true;
-
-
-
             }
 
-        }
+            }
 
     } // en class
 } // endname space

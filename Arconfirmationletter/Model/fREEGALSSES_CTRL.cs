@@ -670,20 +670,20 @@ namespace arconfirmationletter.Model
 
 
 
-                View.Caculating wat = new View.Caculating();
-                wat.ShowDialog();
-
-
-
+                Thread t2 = new Thread(showwait);
+                t2.Start();
+                //   autoEvent.WaitOne(); //join
+                t1.Join();
                 if (t1.ThreadState != ThreadState.Running)
                 {
-                    wat.Close();
 
+                    if (t2.ThreadState == ThreadState.Running)
+                    {
+                        t2.Abort();
+
+                    }
 
                 }
-
-
-
 
 
 
