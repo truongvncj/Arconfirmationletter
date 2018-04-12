@@ -1009,7 +1009,7 @@ namespace arconfirmationletter.View
 
 
 
-            Viewtable viewtbl = new Viewtable(rs, db, "List of product", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rs, db, "List of product", 100, DateTime.Today, DateTime.Today);
             //      viewtbl.Show();
 
 
