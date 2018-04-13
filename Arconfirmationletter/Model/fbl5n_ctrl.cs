@@ -102,7 +102,17 @@ namespace arconfirmationletter.Model
                 for (int columid = 0; columid < sourceData.Columns.Count; columid++)
                 {
                     #region
-                    string value = sourceData.Rows[rowid][columid].ToString();
+                    string value = "";
+                    try
+                    {
+                        value = sourceData.Rows[rowid][columid].ToString();
+
+                    }
+                    catch (Exception)
+                    {
+                        value = "";
+                        //  throw;
+                    }
                     //            MessageBox.Show(value +":"+ rowid);
 
                     if (value != null && value != "")
@@ -310,149 +320,50 @@ namespace arconfirmationletter.Model
 
         }
 
-
-
-        //private void importsexcelold(object obj)
-        //{
-        //    string connection_string = Utils.getConnectionstr();
-        //    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
-        //    //     List<tblFBL5N> fbl5n_ctrllist = new List<tblFBL5N>();
-        //    fbl5n_ctrl md = new fbl5n_ctrl();
-
-        //    bool kq = md.deleteFbl5n();
-
-        //    datainportF inf = (datainportF)obj;
-
-        //    string filename = inf.filename;
-
-        //    string connectionString = "";
-        //    if (filename.Contains(".xlsx") || filename.Contains(".XLSX"))
-        //    {
-        //        connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filename + ";" + "Extended Properties=Excel 12.0;";
-        //    }
-        //    else
-        //    {
-        //        connectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source= " + filename + ";" + "Extended Properties=Excel 8.0;";
-        //    }
-
-        //    //------
-        //    //---------------fill data
-
-        //    System.Data.DataTable sourceData = new System.Data.DataTable();
-        //    using (OleDbConnection conn =
-        //                           new OleDbConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            conn.Open();
-        //        }
-        //        catch (Exception ex)
-        //        {
-
-        //            MessageBox.Show(ex.ToString(), "Thông báo lỗi Open conext !", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-
-
-        //        // Get the data from the source table as a SqlDataReader.
-        //        OleDbCommand command = new OleDbCommand(
-        //                            @"SELECT [Account], [Assignment],[Posting Date],[Document Type],
-        //                                [Document Number], [Business Area], [Amount in local currency] FROM [Sheet1$]
-        //                                 WHERE ( [Posting Date] is not null  ) AND ISNUMERIC ([Account])", conn); //
-
-
-        //        OleDbDataAdapter adapter = new OleDbDataAdapter(command);
-        //        adapter.FillSchema(sourceData, SchemaType.Source);
-        //        sourceData.Columns["Posting Date"].DataType = typeof(DateTime);
-        //        //sourceData.Columns["Invoice Doc Nr"].DataType = typeof(float);
-        //        //sourceData.Columns["Billed Qty"].DataType = typeof(float);
-        //        //sourceData.Columns["Cond Value"].DataType = typeof(float);
-        //        //sourceData.Columns["Sales Org"].DataType = typeof(string);
-        //        //sourceData.Columns["Cust Name"].DataType = typeof(string);
-        //        //sourceData.Columns["Outbound Delivery"].DataType = typeof(string);
-        //        //sourceData.Columns["Mat Group"].DataType = typeof(string);
-        //        //sourceData.Columns["Mat Group Text"].DataType = typeof(string);
-        //        //sourceData.Columns["UoM"].DataType = typeof(string);
-
-
-        //        try
-        //        {
-
-        //            adapter.Fill(sourceData);
-        //        }
-        //        catch (Exception ex)
-        //        {
-
-        //            MessageBox.Show(ex.ToString(), "Thông báo lỗi Fill !", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-
-        //        conn.Close();
-        //    }
-
-        //    //    Utils util = new Utils();
-        //    string destConnString = Utils.getConnectionstr();
-
-        //    //---------------fill data
-
-
-        //    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
-        //    {
-
-        //        bulkCopy.DestinationTableName = "tblFBL5N";
-        //        // Write from the source to the destination.
-        //        bulkCopy.ColumnMappings.Add("[Account]", "[Account]");
-        //        bulkCopy.ColumnMappings.Add("[Assignment]", "[Assignment]");
-        //        bulkCopy.ColumnMappings.Add("[Posting Date]", "[Posting Date]");
-        //        bulkCopy.ColumnMappings.Add("[Document Type]", "[Document Type]");
-        //        bulkCopy.ColumnMappings.Add("[Document Number]", "[Document Number]");
-        //        bulkCopy.ColumnMappings.Add("[Business Area]", "[Business Area]");
-        //        bulkCopy.ColumnMappings.Add("[Amount in local currency]", "[Amount in local currency]");
-
-
-
-
-        //        #region   tìm id
-        //        //   "Account"
-        //        //    "Assignment"
-        //        //    "Posting Date"
-        //        //  "Document Type"
-        //        //     "Document Number"
-        //        //   "Business Area"
-        //        //     "Amount in local currency"
-
-
-        //        #endregion
-
-
-
-
-        //        try
-        //        {
-        //            bulkCopy.WriteToServer(sourceData);
-        //        }
-        //        catch (Exception ex)
-        //        {
-
-        //            MessageBox.Show(ex.ToString(), "Thông báo lỗi Bulk Copy !", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            Thread.CurrentThread.Abort();
-        //        }
-
-        //    }
-        //}
-
-
-
-
-        private void showwait()
+        class datashowwait
         {
-             View.Caculating wat = new View.Caculating();
 
-//            View.Caculating wat = (View.Caculating)obj;
+            public View.Caculating wat { get; set; }
 
-            wat.ShowDialog();
+            public int actionf { get; set; }
+        }
+
+
+
+        private void showwait(object obj)
+        {
+            // View.Caculating wat = new View.Caculating();
+
+            //            View.Caculating wat = (View.Caculating)obj;
+            datashowwait obshow = (datashowwait)obj;
+
+            View.Caculating wat = obshow.wat;
+
+            int actionshow = obshow.actionf;
+
+            if (actionshow == 1)  // show
+            {
+                wat.ShowDialog();
+            }
+
+            //if (actionshow == 2)  // close
+            //{
+            //    wat.Close();
+            //}
+
+
+            //    datainportF inf = (datainportF)obj;
+
+
+
+            //     string filename = inf.filename;
 
 
         }
+
+        // ThreadProclose
+
+
 
         public void Fbl5n_input2()
         {
@@ -476,26 +387,26 @@ namespace arconfirmationletter.Model
 
 
 
-
+                View.Caculating wat = new View.Caculating();
                 Thread t2 = new Thread(showwait);
-                t2.Start();
-                //   autoEvent.WaitOne(); //join
+                t2.Start(new datashowwait() { wat = wat, actionf = 1 });
+
+
                 t1.Join();
                 if (t1.ThreadState != ThreadState.Running)
                 {
 
-                    if (t2.ThreadState == ThreadState.Running)
-                    {
                         t2.Abort();
 
-                    }
+
+                
 
                 }
 
 
             }
 
-            }
+        }
 
     } // en class
 } // endname space

@@ -35,7 +35,11 @@ namespace arconfirmationletter.View
 
         }
 
-    
+        private void ThreadProclose()
+        {
+            this.Close();
+        }
+
 
         private void pictureBox1_LoadCompleted(object sender, AsyncCompletedEventArgs e)
         {
