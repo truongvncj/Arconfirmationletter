@@ -598,8 +598,25 @@ namespace arconfirmationletter.Model
                         DataRow dr = batable.NewRow();
                         dr["CUSTOMER"] = double.Parse(sourceData.Rows[rowixd][CUSTOMERid].ToString());//.Trim();
                         dr["SALORG"] = sourceData.Rows[rowixd][SALORGid].ToString().Trim();
-                        dr["COLAmount"] = double.Parse(sourceData.Rows[rowixd][COLAmountid].ToString()); //sourceData.Rows[rowixd][COLAmountid].ToString().Trim();//  Utils.chageExceldatetoData(sourceData.Rows[rowixd][PERNOid].ToString());
-                        dr["COLQuantity"] = double.Parse(sourceData.Rows[rowixd][COLQuantityid].ToString());//.Trim();//sourceData.Rows[rowixd][COLAMTid].ToString().Trim();
+                        if (Utils.IsValidnumber(sourceData.Rows[rowixd][COLAmountid].ToString()))
+                        {
+                            dr["COLAmount"] = double.Parse(sourceData.Rows[rowixd][COLAmountid].ToString()); //sourceData.Rows[rowixd][COLAmountid].ToString().Trim();//  Utils.chageExceldatetoData(sourceData.Rows[rowixd][PERNOid].ToString());
+
+                        }
+                        else
+                        {
+                            dr["COLAmount"] = 0;
+                        }
+
+                        if (Utils.IsValidnumber(sourceData.Rows[rowixd][COLQuantityid].ToString()))
+                        {
+                            dr["COLQuantity"] = double.Parse(sourceData.Rows[rowixd][COLQuantityid].ToString());//.Trim();//sourceData.Rows[rowixd][COLAMTid].ToString().Trim();
+
+                        }
+                        else
+                        {
+                            dr["COLQuantity"] = 0;
+                        }
                         dr["Remarks"] = sourceData.Rows[rowixd][Remarksid].ToString().Trim();//  Utils.chageExceldatetoData(sourceData.Rows[rowixd][PERNOid].ToString());
                
 
