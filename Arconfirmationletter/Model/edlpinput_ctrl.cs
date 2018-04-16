@@ -63,7 +63,7 @@ namespace arconfirmationletter.Model
 
 
 
-      //      ExcelProvider ExcelProvide = new ExcelProvider();
+            //      ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
             System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
@@ -146,7 +146,7 @@ namespace arconfirmationletter.Model
 
                         }
 
-                        if (value.Trim()==("Invoice Doc Nr"))
+                        if (value.Trim() == ("Invoice Doc Nr"))
                         {
 
                             InvoiceDocNr = columid;
@@ -157,12 +157,12 @@ namespace arconfirmationletter.Model
                         }
 
 
-                        if (value.Trim()==("Outbound Delivery"))
+                        if (value.Trim() == ("Outbound Delivery"))
                         {
                             OutboundDelivery = columid;
 
                         }
-                        if (value.Trim()==("Mat Number"))
+                        if (value.Trim() == ("Mat Number"))
                         {
                             MatNumber = columid;
 
@@ -170,7 +170,7 @@ namespace arconfirmationletter.Model
 
 
 
-                        if (value.Trim()==("Mat Text"))
+                        if (value.Trim() == ("Mat Text"))
                         {
                             MatText = columid;
 
@@ -186,17 +186,17 @@ namespace arconfirmationletter.Model
                             CondValue = columid;
 
                         }
-                        if (value.Trim()==("Mat Group"))
+                        if (value.Trim() == ("Mat Group"))
                         {
                             MatGroup = columid;
 
                         }
-                        if (value.Trim()==("Mat Group Text"))
+                        if (value.Trim() == ("Mat Group Text"))
                         {
                             MatGroupText = columid;
 
                         }
-                        if (value.Trim()==("UoM"))
+                        if (value.Trim() == ("UoM"))
                         {
                             UoM = columid;
 
@@ -307,13 +307,27 @@ namespace arconfirmationletter.Model
                         dr["Soldto"] = double.Parse(sourceData.Rows[rowixd][Soldto].ToString());
                         dr["SalesOrg"] = sourceData.Rows[rowixd][SalesOrg].ToString().Trim();
                         dr["CustName"] = sourceData.Rows[rowixd][CustName].ToString().Trim();
+                        if (Utils.IsValidnumber(sourceData.Rows[rowixd][InvoiceDocNr].ToString()))
+                        {
+                            dr["InvoiceDocNr"] = double.Parse(sourceData.Rows[rowixd][InvoiceDocNr].ToString());
+
+                        }
+
                         dr["InvoiceDocNr"] = double.Parse(sourceData.Rows[rowixd][InvoiceDocNr].ToString());
                         dr["OutboundDelivery"] = sourceData.Rows[rowixd][OutboundDelivery].ToString().Trim();
                         dr["MatNumber"] = sourceData.Rows[rowixd][MatNumber].ToString().Trim();
                         dr["MatText"] = sourceData.Rows[rowixd][MatText].ToString().Trim();
+                        if (Utils.IsValidnumber(sourceData.Rows[rowixd][BilledQty].ToString()))
+                        {
+                            dr["BilledQty"] = double.Parse(sourceData.Rows[rowixd][BilledQty].ToString());
 
-                        dr["BilledQty"] = double.Parse(sourceData.Rows[rowixd][BilledQty].ToString());
-                        dr["CondValue"] = double.Parse(sourceData.Rows[rowixd][CondValue].ToString());
+                        }
+
+                        if (Utils.IsValidnumber(sourceData.Rows[rowixd][CondValue].ToString()))
+                        {
+                            dr["CondValue"] = double.Parse(sourceData.Rows[rowixd][CondValue].ToString());
+
+                        }
 
                         dr["MatGroup"] = sourceData.Rows[rowixd][MatGroup].ToString().Trim();
                         dr["MatGroupText"] = sourceData.Rows[rowixd][MatGroupText].ToString().Trim();

@@ -254,8 +254,26 @@ namespace arconfirmationletter.Model
                         dr["Assignment"] = sourceData.Rows[rowixd][Assignmentid].ToString().Truncate(225).Trim();
                         dr["PostingDate"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][PostingDateid].ToString());
                         dr["DocumentType"] = sourceData.Rows[rowixd][DocumentTypeid].ToString().Truncate(225).Trim();
-                        dr["DocumentNumber"] = double.Parse(sourceData.Rows[rowixd][DocumentNumberid].ToString());//.Trim();
-                        dr["Amountinlocalcurrency"] = double.Parse(sourceData.Rows[rowixd][Amountinlocalcurrencyid].ToString());//.Trim();
+
+                        if (Utils.IsValidnumber(sourceData.Rows[rowixd][DocumentNumberid].ToString()))
+                        {
+                            dr["DocumentNumber"] = double.Parse(sourceData.Rows[rowixd][DocumentNumberid].ToString());//.Trim();
+
+                        }
+                        else
+                        {
+                            dr["DocumentNumber"] = 0;
+                        }
+
+                        if (Utils.IsValidnumber(sourceData.Rows[rowixd][Amountinlocalcurrencyid].ToString()))
+                        {
+                            dr["Amountinlocalcurrency"] = double.Parse(sourceData.Rows[rowixd][Amountinlocalcurrencyid].ToString());//.Trim();
+
+                        }
+                        else
+                        {
+                            dr["Amountinlocalcurrency"] = 0;
+                        }
                         dr["BusinessArea"] = sourceData.Rows[rowixd][BusinessAreaid].ToString().Truncate(225).Trim();
 
                         if (Utils.IsValidnumber(sourceData.Rows[rowixd][Depositid].ToString().Trim()))
@@ -396,10 +414,10 @@ namespace arconfirmationletter.Model
                 if (t1.ThreadState != ThreadState.Running)
                 {
 
-                        t2.Abort();
+                    t2.Abort();
 
 
-                
+
 
                 }
 

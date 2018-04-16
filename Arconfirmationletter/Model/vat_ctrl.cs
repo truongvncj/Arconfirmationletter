@@ -410,6 +410,7 @@ namespace arconfirmationletter.Model
                         {
 
                             MessageBox.Show("Data có đủ cột nhưng dữ liệu ở dưới bị lost, please check", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                    
 
