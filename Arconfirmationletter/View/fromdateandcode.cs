@@ -36,17 +36,18 @@ namespace arconfirmationletter.View
             {
                 custcode = double.Parse(txtcode.Text);
             }
-            if (lbname.Text == "")
+            if (txtcode.Text == "")
+            {
+                custcode = 0;
+            }
+            if (custcode == -1)
             {
                 MessageBox.Show("Please recheck the customer code !","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
 
-            if ( txtcode.Text == "")
-            {
-                custcode = 0;
-            }
+       
 
             if (tungay <= denngay && custcode != -1)
             {
