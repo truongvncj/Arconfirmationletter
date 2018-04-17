@@ -767,6 +767,12 @@ namespace arconfirmationletter.View
 
             }
 
+            if (viewcode == 11) // post clear glasses
+            {
+                btpostclear.Visible = true;
+
+            }
+
             this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
                                                                                                             //  this.lb_totalrecord.ForeColor = Color.Chocolate;
             this.ShowDialog();

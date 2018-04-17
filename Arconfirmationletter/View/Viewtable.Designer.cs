@@ -32,15 +32,8 @@ namespace arconfirmationletter.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Viewtable));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btpostclear = new System.Windows.Forms.Button();
-            this.btAutoUpdatedepo = new System.Windows.Forms.Button();
-            this.bt_sendinggroup = new System.Windows.Forms.Button();
-            this.btSendlistUpdate = new System.Windows.Forms.Button();
-            this.lb_seach = new System.Windows.Forms.Label();
-            this.bt_listunsend = new System.Windows.Forms.Button();
             this.statussum = new System.Windows.Forms.Label();
             this.lb_totalrecord = new System.Windows.Forms.Label();
-            this.bt_exporttoex = new System.Windows.Forms.Button();
             this.Pl_endview = new System.Windows.Forms.Panel();
             this.lbpayment = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,6 +47,13 @@ namespace arconfirmationletter.View
             this.lb_tongamount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btpostclear = new System.Windows.Forms.Button();
+            this.btAutoUpdatedepo = new System.Windows.Forms.Button();
+            this.bt_sendinggroup = new System.Windows.Forms.Button();
+            this.btSendlistUpdate = new System.Windows.Forms.Button();
+            this.lb_seach = new System.Windows.Forms.Label();
+            this.bt_listunsend = new System.Windows.Forms.Button();
+            this.bt_exporttoex = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.Pl_endview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,74 +73,6 @@ namespace arconfirmationletter.View
             this.panel1.Size = new System.Drawing.Size(1348, 428);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // btpostclear
-            // 
-            this.btpostclear.Location = new System.Drawing.Point(746, 13);
-            this.btpostclear.Name = "btpostclear";
-            this.btpostclear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btpostclear.Size = new System.Drawing.Size(148, 21);
-            this.btpostclear.TabIndex = 9;
-            this.btpostclear.Text = "Post Clear FressGlasses on Letter";
-            this.btpostclear.UseVisualStyleBackColor = true;
-            this.btpostclear.Click += new System.EventHandler(this.btpostclear_Click);
-            // 
-            // btAutoUpdatedepo
-            // 
-            this.btAutoUpdatedepo.Location = new System.Drawing.Point(131, 13);
-            this.btAutoUpdatedepo.Name = "btAutoUpdatedepo";
-            this.btAutoUpdatedepo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btAutoUpdatedepo.Size = new System.Drawing.Size(119, 21);
-            this.btAutoUpdatedepo.TabIndex = 8;
-            this.btAutoUpdatedepo.Text = "Auto Update Deposit";
-            this.btAutoUpdatedepo.UseVisualStyleBackColor = true;
-            this.btAutoUpdatedepo.Click += new System.EventHandler(this.btAutoUpdatedepo_Click);
-            // 
-            // bt_sendinggroup
-            // 
-            this.bt_sendinggroup.Location = new System.Drawing.Point(372, 12);
-            this.bt_sendinggroup.Name = "bt_sendinggroup";
-            this.bt_sendinggroup.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.bt_sendinggroup.Size = new System.Drawing.Size(124, 22);
-            this.bt_sendinggroup.TabIndex = 7;
-            this.bt_sendinggroup.Text = "Upload Sending Group";
-            this.bt_sendinggroup.UseVisualStyleBackColor = true;
-            this.bt_sendinggroup.Click += new System.EventHandler(this.bt_sendinggroup_Click);
-            // 
-            // btSendlistUpdate
-            // 
-            this.btSendlistUpdate.Location = new System.Drawing.Point(254, 13);
-            this.btSendlistUpdate.Name = "btSendlistUpdate";
-            this.btSendlistUpdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btSendlistUpdate.Size = new System.Drawing.Size(112, 21);
-            this.btSendlistUpdate.TabIndex = 5;
-            this.btSendlistUpdate.Text = "List Send Upload";
-            this.btSendlistUpdate.UseVisualStyleBackColor = true;
-            this.btSendlistUpdate.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // lb_seach
-            // 
-            this.lb_seach.AutoSize = true;
-            this.lb_seach.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_seach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lb_seach.Location = new System.Drawing.Point(623, 15);
-            this.lb_seach.Name = "lb_seach";
-            this.lb_seach.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lb_seach.Size = new System.Drawing.Size(117, 16);
-            this.lb_seach.TabIndex = 6;
-            this.lb_seach.Text = "F3: Seach Code";
-            this.lb_seach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // bt_listunsend
-            // 
-            this.bt_listunsend.Location = new System.Drawing.Point(502, 13);
-            this.bt_listunsend.Name = "bt_listunsend";
-            this.bt_listunsend.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.bt_listunsend.Size = new System.Drawing.Size(115, 21);
-            this.bt_listunsend.TabIndex = 4;
-            this.bt_listunsend.Text = "List Unsend Upload";
-            this.bt_listunsend.UseVisualStyleBackColor = true;
-            this.bt_listunsend.Click += new System.EventHandler(this.bt_listunsend_Click);
             // 
             // statussum
             // 
@@ -163,17 +95,6 @@ namespace arconfirmationletter.View
             this.lb_totalrecord.Size = new System.Drawing.Size(13, 14);
             this.lb_totalrecord.TabIndex = 2;
             this.lb_totalrecord.Text = "0";
-            // 
-            // bt_exporttoex
-            // 
-            this.bt_exporttoex.Location = new System.Drawing.Point(11, 13);
-            this.bt_exporttoex.Name = "bt_exporttoex";
-            this.bt_exporttoex.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.bt_exporttoex.Size = new System.Drawing.Size(114, 20);
-            this.bt_exporttoex.TabIndex = 3;
-            this.bt_exporttoex.Text = "Export to Excel";
-            this.bt_exporttoex.UseVisualStyleBackColor = true;
-            this.bt_exporttoex.Click += new System.EventHandler(this.bt_exporttoex_Click);
             // 
             // Pl_endview
             // 
@@ -330,6 +251,85 @@ namespace arconfirmationletter.View
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // btpostclear
+            // 
+            this.btpostclear.Location = new System.Drawing.Point(1027, 12);
+            this.btpostclear.Name = "btpostclear";
+            this.btpostclear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btpostclear.Size = new System.Drawing.Size(201, 21);
+            this.btpostclear.TabIndex = 9;
+            this.btpostclear.Text = "Post Clear FressGlasses on Letter";
+            this.btpostclear.UseVisualStyleBackColor = true;
+            this.btpostclear.Click += new System.EventHandler(this.btpostclear_Click);
+            // 
+            // btAutoUpdatedepo
+            // 
+            this.btAutoUpdatedepo.Location = new System.Drawing.Point(131, 10);
+            this.btAutoUpdatedepo.Name = "btAutoUpdatedepo";
+            this.btAutoUpdatedepo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btAutoUpdatedepo.Size = new System.Drawing.Size(119, 21);
+            this.btAutoUpdatedepo.TabIndex = 8;
+            this.btAutoUpdatedepo.Text = "Auto Update Deposit";
+            this.btAutoUpdatedepo.UseVisualStyleBackColor = true;
+            this.btAutoUpdatedepo.Click += new System.EventHandler(this.btAutoUpdatedepo_Click);
+            // 
+            // bt_sendinggroup
+            // 
+            this.bt_sendinggroup.Location = new System.Drawing.Point(372, 9);
+            this.bt_sendinggroup.Name = "bt_sendinggroup";
+            this.bt_sendinggroup.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.bt_sendinggroup.Size = new System.Drawing.Size(124, 22);
+            this.bt_sendinggroup.TabIndex = 7;
+            this.bt_sendinggroup.Text = "Upload Sending Group";
+            this.bt_sendinggroup.UseVisualStyleBackColor = true;
+            this.bt_sendinggroup.Click += new System.EventHandler(this.bt_sendinggroup_Click);
+            // 
+            // btSendlistUpdate
+            // 
+            this.btSendlistUpdate.Location = new System.Drawing.Point(254, 10);
+            this.btSendlistUpdate.Name = "btSendlistUpdate";
+            this.btSendlistUpdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btSendlistUpdate.Size = new System.Drawing.Size(112, 21);
+            this.btSendlistUpdate.TabIndex = 5;
+            this.btSendlistUpdate.Text = "List Send Upload";
+            this.btSendlistUpdate.UseVisualStyleBackColor = true;
+            this.btSendlistUpdate.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // lb_seach
+            // 
+            this.lb_seach.AutoSize = true;
+            this.lb_seach.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_seach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lb_seach.Location = new System.Drawing.Point(623, 12);
+            this.lb_seach.Name = "lb_seach";
+            this.lb_seach.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lb_seach.Size = new System.Drawing.Size(117, 16);
+            this.lb_seach.TabIndex = 6;
+            this.lb_seach.Text = "F3: Seach Code";
+            this.lb_seach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // bt_listunsend
+            // 
+            this.bt_listunsend.Location = new System.Drawing.Point(502, 9);
+            this.bt_listunsend.Name = "bt_listunsend";
+            this.bt_listunsend.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.bt_listunsend.Size = new System.Drawing.Size(115, 21);
+            this.bt_listunsend.TabIndex = 4;
+            this.bt_listunsend.Text = "List Unsend Upload";
+            this.bt_listunsend.UseVisualStyleBackColor = true;
+            this.bt_listunsend.Click += new System.EventHandler(this.bt_listunsend_Click);
+            // 
+            // bt_exporttoex
+            // 
+            this.bt_exporttoex.Location = new System.Drawing.Point(11, 11);
+            this.bt_exporttoex.Name = "bt_exporttoex";
+            this.bt_exporttoex.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.bt_exporttoex.Size = new System.Drawing.Size(114, 20);
+            this.bt_exporttoex.TabIndex = 3;
+            this.bt_exporttoex.Text = "Export to Excel";
+            this.bt_exporttoex.UseVisualStyleBackColor = true;
+            this.bt_exporttoex.Click += new System.EventHandler(this.bt_exporttoex_Click);
             // 
             // Viewtable
             // 
