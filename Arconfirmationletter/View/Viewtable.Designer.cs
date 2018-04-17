@@ -254,6 +254,7 @@ namespace arconfirmationletter.View
             // 
             // btpostclear
             // 
+            this.btpostclear.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btpostclear.Location = new System.Drawing.Point(1027, 12);
             this.btpostclear.Name = "btpostclear";
             this.btpostclear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -265,6 +266,7 @@ namespace arconfirmationletter.View
             // 
             // btAutoUpdatedepo
             // 
+            this.btAutoUpdatedepo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btAutoUpdatedepo.Location = new System.Drawing.Point(131, 10);
             this.btAutoUpdatedepo.Name = "btAutoUpdatedepo";
             this.btAutoUpdatedepo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -276,6 +278,7 @@ namespace arconfirmationletter.View
             // 
             // bt_sendinggroup
             // 
+            this.bt_sendinggroup.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bt_sendinggroup.Location = new System.Drawing.Point(372, 9);
             this.bt_sendinggroup.Name = "bt_sendinggroup";
             this.bt_sendinggroup.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -287,6 +290,7 @@ namespace arconfirmationletter.View
             // 
             // btSendlistUpdate
             // 
+            this.btSendlistUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btSendlistUpdate.Location = new System.Drawing.Point(254, 10);
             this.btSendlistUpdate.Name = "btSendlistUpdate";
             this.btSendlistUpdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -298,6 +302,7 @@ namespace arconfirmationletter.View
             // 
             // lb_seach
             // 
+            this.lb_seach.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lb_seach.AutoSize = true;
             this.lb_seach.Font = new System.Drawing.Font("Perpetua Titling MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_seach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -311,6 +316,7 @@ namespace arconfirmationletter.View
             // 
             // bt_listunsend
             // 
+            this.bt_listunsend.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bt_listunsend.Location = new System.Drawing.Point(502, 9);
             this.bt_listunsend.Name = "bt_listunsend";
             this.bt_listunsend.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -322,6 +328,7 @@ namespace arconfirmationletter.View
             // 
             // bt_exporttoex
             // 
+            this.bt_exporttoex.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bt_exporttoex.Location = new System.Drawing.Point(11, 11);
             this.bt_exporttoex.Name = "bt_exporttoex";
             this.bt_exporttoex.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

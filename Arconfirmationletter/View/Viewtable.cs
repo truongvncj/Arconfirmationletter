@@ -5882,27 +5882,27 @@ namespace arconfirmationletter.View
 
             // xxx
 
-            #region q List các document só tieefn và so vo khac nhau
-            //---
-            var q = from tbl_FreGlassCleartemp in dc.tbl_FreGlassCleartemps
-                    where tbl_FreGlassCleartemp.COL_Amount / tbl_FreGlassCleartemp.COL_Quantity != 38000
-                    //Tương đương từ khóa NOT IN trong SQL
-                    select tbl_FreGlassCleartemp;
+            //#region q List các document só tieefn và so vo khac nhau
+            ////---
+            //var q = from tbl_FreGlassCleartemp in dc.tbl_FreGlassCleartemps
+            //        where tbl_FreGlassCleartemp.COL_Amount / tbl_FreGlassCleartemp.COL_Quantity != 38000
+            //        //Tương đương từ khóa NOT IN trong SQL
+            //        select tbl_FreGlassCleartemp;
 
 
 
-            if (q.Count() != 0)
-            {
+            //if (q.Count() != 0)
+            //{
 
-                Viewtable viewtbl = new Viewtable(q, dc, "List các document số cOL amount / COL Quantity khác 38000, please recheck ! Upload không thành công ! ", 1, DateTime.Today, DateTime.Today);
-                return;
-            }
+            //    Viewtable viewtbl = new Viewtable(q, dc, "List các document số cOL amount / COL Quantity khác 38000, please recheck ! Upload không thành công ! ", 1, DateTime.Today, DateTime.Today);
+            //    return;
+            //}
 
-            #endregion q "List các document có trong bảng VAT không có trong bảng FBL5N !
+            //#endregion q "List các document có trong bảng VAT không có trong bảng FBL5N !
 
 
 
-            if (kq == true && q.Count() == 0)
+            if (kq == true )
             {
 
 
