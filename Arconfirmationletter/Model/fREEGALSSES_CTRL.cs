@@ -715,5 +715,56 @@ namespace arconfirmationletter.Model
 
             // throw new NotImplementedException();
         }
-    }
+
+        public void deletewrongclearFeeglasseeinput()
+        {
+
+
+            View.DatePicker datefrom = new View.DatePicker("Select old posting date: ");
+            datefrom.ShowDialog();
+            DateTime postingdate = datefrom.valuedate;
+            bool kq = datefrom.kq;
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+          
+
+
+            if (kq == true)
+            {
+
+                var wrong = from b in dc.tblFBL5Nnews
+                            where b.Document_Type == "COL"
+                            && b.name == Utils.getusername()
+                            && b.Posting_Date == postingdate
+                            select b;
+
+                if (wrong.Count()>0)
+                {
+                    dc.tblFBL5Nnews.DeleteAllOnSubmit(wrong);
+                    dc.SubmitChanges();
+                    MessageBox.Show("Done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show("There are no data to delete !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+            //  throw new NotImplementedException();
+        }
+        }
 }
