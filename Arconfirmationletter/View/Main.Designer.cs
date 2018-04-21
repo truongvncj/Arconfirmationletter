@@ -86,6 +86,7 @@
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteWrongClearFreeGalassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dataCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNPUTPERIODDEPOSITAMOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -149,7 +150,6 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.lblocate = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.deleteWrongClearFreeGalassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -392,16 +392,16 @@
             this.dataCheckToolStripMenuItem,
             this.iNPUTPERIODDEPOSITAMOUNTToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
             this.toolStripSeparator14,
             this.cLOSETHISPRERIODToolStripMenuItem,
             this.toolStripSeparator6,
-            this.rEEDITDEPOSITVERIFYToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.toolStripMenuItem4,
-            this.vIEWALLDATABASEONSERVERToolStripMenuItem,
             this.toolStripSeparator12,
+            this.rEEDITDEPOSITVERIFYToolStripMenuItem,
             this.uNBLOCKDEPOSITVERIFYToolStripMenuItem,
             this.toolStripSeparator11,
+            this.vIEWALLDATABASEONSERVERToolStripMenuItem,
             this.eDITALLDATABASEToolStripMenuItem,
             this.toolStripSeparator13,
             this.toolStripMenuItem3,
@@ -617,6 +617,13 @@
             this.toolStripMenuItem15.Text = "EDIT CLEAR FREEGLASS";
             this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
+            // deleteWrongClearFreeGalassToolStripMenuItem
+            // 
+            this.deleteWrongClearFreeGalassToolStripMenuItem.Name = "deleteWrongClearFreeGalassToolStripMenuItem";
+            this.deleteWrongClearFreeGalassToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.deleteWrongClearFreeGalassToolStripMenuItem.Text = "Delete Wrong ClearFreeGalass";
+            this.deleteWrongClearFreeGalassToolStripMenuItem.Click += new System.EventHandler(this.deleteWrongClearFreeGalassToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -655,7 +662,8 @@
             this.toolStripMenuItem2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(304, 26);
-            this.toolStripMenuItem2.Text = "  ";
+            this.toolStripMenuItem2.Text = "VIEW BALANCE ";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripSeparator14
             // 
@@ -1140,13 +1148,6 @@
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 26;
             this.label2.Text = "Region: ";
-            // 
-            // deleteWrongClearFreeGalassToolStripMenuItem
-            // 
-            this.deleteWrongClearFreeGalassToolStripMenuItem.Name = "deleteWrongClearFreeGalassToolStripMenuItem";
-            this.deleteWrongClearFreeGalassToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
-            this.deleteWrongClearFreeGalassToolStripMenuItem.Text = "Delete Wrong ClearFreeGalass";
-            this.deleteWrongClearFreeGalassToolStripMenuItem.Click += new System.EventHandler(this.deleteWrongClearFreeGalassToolStripMenuItem_Click);
             // 
             // Main
             // 

@@ -1730,7 +1730,7 @@ namespace arconfirmationletter.View
 
 
 
-            if (choice == true )
+            if (choice == true)
             {
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
                 dc.CommandTimeout = 0;
@@ -1740,7 +1740,7 @@ namespace arconfirmationletter.View
                     #region  chọn 1 coed
 
 
-             
+
                     var rs2 = from tblFBL5Nnew in dc.tblFBL5Nnews
                               where tblFBL5Nnew.Posting_Date >= fromdate && tblFBL5Nnew.Posting_Date <= todate
                               && tblFBL5Nnew.Account == custcode
@@ -1801,9 +1801,9 @@ namespace arconfirmationletter.View
 
 
                     #endregion chon 1 code
-                   Viewtable viewtbl = new Viewtable(rs2, dc, "VIEWLIST DATABASE UPLOADED ON SYSYEM FROM-" + fromdate.Day + "/" + fromdate.Month + "/" + fromdate.Year + " -TO- " + todate.Day + "/" + todate.Month + "/" + todate.Year, 100, fromdate, todate); //view loại 5 là có fromdatetodate
+                    Viewtable viewtbl = new Viewtable(rs2, dc, "VIEWLIST DATABASE UPLOADED ON SYSYEM FROM-" + fromdate.Day + "/" + fromdate.Month + "/" + fromdate.Year + " -TO- " + todate.Day + "/" + todate.Month + "/" + todate.Year, 100, fromdate, todate); //view loại 5 là có fromdatetodate
 
-                //   viewtbl.Show();
+                    //   viewtbl.Show();
 
 
                 }
@@ -1813,10 +1813,10 @@ namespace arconfirmationletter.View
                     #region  chọn 1 coed
 
 
-              
+
                     var rs2 = from tblFBL5Nnew in dc.tblFBL5Nnews
                               where tblFBL5Nnew.Posting_Date >= fromdate && tblFBL5Nnew.Posting_Date <= todate
-                           //   && tblFBL5Nnew.Account == custcode
+                              //   && tblFBL5Nnew.Account == custcode
                               // select tblFBL5Nnew;
 
                               select new
@@ -1876,7 +1876,7 @@ namespace arconfirmationletter.View
                     #endregion chon 1 code
                     Viewtable viewtbl = new Viewtable(rs2, dc, "VIEWLIST DATABASE UPLOADED ON SYSYEM FROM-" + fromdate.Day + "/" + fromdate.Month + "/" + fromdate.Year + " -TO- " + todate.Day + "/" + todate.Month + "/" + todate.Year, 100, fromdate, todate); //view loại 5 là có fromdatetodate
 
-                //    viewtbl.Show();
+                    //    viewtbl.Show();
 
                 }
 
@@ -1991,7 +1991,7 @@ namespace arconfirmationletter.View
 
 
 
-            if (choice == true && custcode !=0)
+            if (choice == true && custcode != 0)
             {
 
 
@@ -2509,7 +2509,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                 }
 
 
-         //   make reports luon   eDITLISTCUSTMAKEREPORTSToolStripMenuItem_Click
+                //   make reports luon   eDITLISTCUSTMAKEREPORTSToolStripMenuItem_Click
 
                 #region  updatepriterinvoice grouppriter
                 SqlConnection conn2 = null;
@@ -2560,11 +2560,11 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                 #region print invoce
 
 
-          //      string connection_string = Utils.getConnectionstr();
+                //      string connection_string = Utils.getConnectionstr();
 
-             //   var db = new LinqtoSQLDataContext(connection_string);
+                //   var db = new LinqtoSQLDataContext(connection_string);
 
-             //   Control_ac ctrac = new Control_ac();
+                //   Control_ac ctrac = new Control_ac();
 
                 rs1 = ctrac.ARletterdataset1(db);
                 rs2 = ctrac.ARletterdataset2(db);
@@ -4351,8 +4351,30 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             }
 
         }
-    }
 
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            View.DatePicker datefrom = new View.DatePicker("Select balace date: ");
+            datefrom.ShowDialog();
+            DateTime postingdate = datefrom.valuedate;
+            bool kq = datefrom.kq;
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+
+
+            if (kq == true)
+            {
+
+
+
+
+
+            }
+        }
+    }
 
 
 }
