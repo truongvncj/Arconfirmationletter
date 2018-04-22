@@ -2437,6 +2437,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                         {
 
                             MessageBox.Show("ERRor insert : tblFBL5beginbalaceTemp \n" + slqtext + "\n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
 
 
@@ -2456,7 +2457,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                     View.VInputchange inputcdata = new View.VInputchange("MASTER BEGIN BALACE ", "LIST CUST NOT HAVE BEGIN BALACE, PLEASE CHECK ! ", db, "tblFBL5beginbalace", "tblFBL5beginbalaceTemp", typeff, "id", "id");
                     inputcdata.Show();// = false;
                     inputcdata.Focus();
-
+                    return;
 
                     #endregion mở update số dư dầu kỳ khi codegroupkhoong co trong so du dau ky
 
@@ -2533,6 +2534,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                     {
 
                         MessageBox.Show("error  updategroupprintletterChoice \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
 
 
@@ -4389,7 +4391,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                         //@balancedate datetime,
                         //@username nvarchar(50)
-                        
+
                         cmd1.Parameters.Add("@balancedate", SqlDbType.Date).Value = balancedate;
                         cmd1.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
                         cmd1.CommandTimeout = 0;
@@ -4424,7 +4426,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                     #endregion
 
-                
+
                 }
                 else // là only code
                 {
@@ -4506,28 +4508,30 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                           group p by p.Account into h
                           select new
                           {
-                          Account =    h.Key,
+                              Account = h.Key,
 
-                              Adjusted_amount = h.Sum(m => m.Adjusted_amount),
                               Amount_in_local_currency = h.Sum(m => m.Amount_in_local_currency),
+                              Payment_amount = h.Sum(m => m.Payment_amount),
+                              Adjusted_amount = h.Sum(m => m.Adjusted_amount),
+                              Fullgood_amount = h.Sum(m => m.Fullgood_amount),
+                              Invoice_Amount = h.Sum(m => m.Invoice_Amount),
+
+                              Deposit_amount = h.Sum(m => m.Deposit_amount),
+
+                              Ketvothuong = h.Sum(m => m.Ketvothuong),
+                              paletnhua = h.Sum(m => m.paletnhua),
+                              palletgo = h.Sum(m => m.palletgo),
 
                               Binhpmicc02 = h.Sum(m => m.Binhpmicc02),
                               binhpmix9l = h.Sum(m => m.binhpmix9l),
                               Chaivo1lit = h.Sum(m => m.Chaivo1lit),
                               Chaivothuong = h.Sum(m => m.Chaivothuong),
-                              Deposit_amount = h.Sum(m => m.Deposit_amount),
                               //    Document_Number = h.Sum(m => m.Document_Number),
-                              Fullgood_amount = h.Sum(m => m.Fullgood_amount),
-                              Invoice_Amount = h.Sum(m => m.Invoice_Amount),
                               joy20l = h.Sum(m => m.joy20l),
+                              Ketvolit = h.Sum(m => m.Ketvolit),
                               Ketnhua1lit = h.Sum(m => m.Ketnhua1lit),
                               Ketnhuathuong = h.Sum(m => m.Ketnhuathuong),
-                              Ketvolit = h.Sum(m => m.Ketvolit),
-                              Ketvothuong = h.Sum(m => m.Ketvothuong),
-                              paletnhua = h.Sum(m => m.paletnhua),
-                              palletgo = h.Sum(m => m.palletgo),
-                              Payment_amount = h.Sum(m => m.Payment_amount),
-                         
+
 
 
 
@@ -4536,7 +4540,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
                 #endregion
-                Viewtable viewtbl = new Viewtable(rs2, dc, "BALANCE VIEW REPORTS AT: " + balancedate.ToShortDateString() , 100,DateTime.Today,DateTime.Today ); //view loại 100 view bình thường là có fromdatetodate
+                Viewtable viewtbl = new Viewtable(rs2, dc, "BALANCE VIEW REPORTS AT: " + balancedate.ToShortDateString(), 100, DateTime.Today, DateTime.Today); //view loại 100 view bình thường là có fromdatetodate
 
 
 

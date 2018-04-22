@@ -740,8 +740,8 @@ namespace arconfirmationletter.Model
             {
 
                 var wrong = from b in dc.tblFBL5Nnews
-                            where b.Document_Type == "COL"
-                            && b.name == Utils.getusername()
+                            where b.Document_Type.Trim() == "COL"
+                            && b.userupdate == Utils.getusername()
                             && b.Posting_Date == postingdate
                             select b;
 

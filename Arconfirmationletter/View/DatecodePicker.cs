@@ -21,6 +21,8 @@ namespace arconfirmationletter.View
             this.kq = false;
             this.field = headcolum;
             lbtext.Text = headcolum;
+            dateTimePicker1.Value = DateTime.Today;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
