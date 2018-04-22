@@ -20,8 +20,8 @@ namespace arconfirmationletter.Model
         {
             string connection_string = Utils.getConnectionstr();
             var db = new LinqtoSQLDataContext(connection_string);
-        //    var rs = from tbl_FreGlass in db.tbl_FreGlasses
-       //              select tbl_FreGlass;
+            //    var rs = from tbl_FreGlass in db.tbl_FreGlasses
+            //              select tbl_FreGlass;
 
             db.ExecuteCommand("DELETE FROM tbl_FreGlass");
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
@@ -90,38 +90,25 @@ namespace arconfirmationletter.Model
                 t1.IsBackground = true;
                 t1.Start(new datainportF() { filename = filename });
 
+
+                View.Caculating wat = new View.Caculating();
                 Thread t2 = new Thread(showwait);
-                t2.Start();
-                //   autoEvent.WaitOne(); //join
+                t2.Start(new datashowwait() { wat = wat });
+
+
                 t1.Join();
                 if (t1.ThreadState != ThreadState.Running)
                 {
 
+                    // t2.Abort();
+
+                    wat.Invoke(wat.myDelegate);
 
 
-
-                    do
-                    {
-
-                        Thread.Sleep(233);
-
-                        try
-                        {
-                            if (t2.IsAlive)
-                            {
-                                t2.Abort();
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-                            Thread.Sleep(233);
-                            //
-                        }
-
-                    } while (!t2.IsAlive);
 
                 }
+
+
 
 
 
@@ -139,14 +126,29 @@ namespace arconfirmationletter.Model
 
         }
 
-        public void showwait()
+        class datashowwait
         {
-            View.Caculating wat = new View.Caculating();
-            wat.ShowDialog();
+
+            public View.Caculating wat { get; set; }
 
 
         }
 
+
+
+        private void showwait(object obj)
+        {
+            // View.Caculating wat = new View.Caculating();
+
+            //            View.Caculating wat = (View.Caculating)obj;
+            datashowwait obshow = (datashowwait)obj;
+
+            View.Caculating wat = obshow.wat;
+
+            wat.ShowDialog();
+
+
+        }
 
         //private void importFreglassessexcel2(object obj)
         //{
@@ -197,7 +199,7 @@ namespace arconfirmationletter.Model
         //                             FROM [Sheet1$]
         //                             WHERE ( [CUSTOMER] is not null ) ", conn);
 
-               
+
         //        OleDbDataAdapter adapter = new OleDbDataAdapter(command);
         //        //  adapter.FillSchema(sourceData, SchemaType.Source);
         //        //     sourceData.Columns["Posting Date"].DataType = typeof(DateTime);
@@ -241,7 +243,7 @@ namespace arconfirmationletter.Model
         //        bulkCopy.ColumnMappings.Add("[SALORG]", "[SALORG]");
         //        bulkCopy.ColumnMappings.Add("[COLAMT]", "[COLAMT]");
         //        bulkCopy.ColumnMappings.Add("[PERNO]", "[PERNO]");
-                
+
 
 
 
@@ -279,7 +281,7 @@ namespace arconfirmationletter.Model
             //                         WHERE ( [CUSTOMER] is not null ) ", conn);
 
 
-        //    ExcelProvider ExcelProvide = new ExcelProvider();
+            //    ExcelProvider ExcelProvide = new ExcelProvider();
             //#endregion
             System.Data.DataTable sourceData = ExcelProvider.GetDataFromExcel(filename);
 
@@ -289,7 +291,7 @@ namespace arconfirmationletter.Model
             batable.Columns.Add("SALORG", typeof(string));
             batable.Columns.Add("PERNO", typeof(string));
             batable.Columns.Add("COLAMT", typeof(double));
-          
+
 
 
 
@@ -298,7 +300,7 @@ namespace arconfirmationletter.Model
             int SALORGid = -1;
             int PERNOid = -1;
             int COLAMTid = -1;
-       
+
             for (int rowid = 0; rowid < 5; rowid++)
             {
                 // headindex = 1;
@@ -345,7 +347,7 @@ namespace arconfirmationletter.Model
                         }
 
 
-                
+
 
                     }
                     #endregion
@@ -380,7 +382,7 @@ namespace arconfirmationletter.Model
                 return;
             }
 
-       
+
 
 
             for (int rowixd = 0; rowixd < sourceData.Rows.Count; rowixd++)
@@ -413,7 +415,7 @@ namespace arconfirmationletter.Model
                 #endregion
 
                 //    Utils util = new Utils();
-            
+
 
                 //---------------fill data
             }
@@ -479,7 +481,7 @@ namespace arconfirmationletter.Model
 
 
 
-           
+
 
             int CUSTOMERid = -1;
             int SALORGid = -1;
@@ -549,7 +551,7 @@ namespace arconfirmationletter.Model
             }// roww off heatder
 
 
-       
+
 
             if (CUSTOMERid == -1)
             {
@@ -568,7 +570,7 @@ namespace arconfirmationletter.Model
                 MessageBox.Show("Dữ liệu thiếu cột COL Amount", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             if (COLQuantityid == -1)
             {
                 MessageBox.Show("Dữ liệu thiếu cột COL Quantity", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -618,7 +620,7 @@ namespace arconfirmationletter.Model
                             dr["COLQuantity"] = 0;
                         }
                         dr["Remarks"] = sourceData.Rows[rowixd][Remarksid].ToString().Trim();//  Utils.chageExceldatetoData(sourceData.Rows[rowixd][PERNOid].ToString());
-               
+
 
                         batable.Rows.Add(dr);
 
@@ -648,7 +650,7 @@ namespace arconfirmationletter.Model
                 bulkCopy.ColumnMappings.Add("COLQuantity", "[COL Quantity]");
                 bulkCopy.ColumnMappings.Add("Remarks", "[Remarks]");
 
-              
+
 
 
                 try
@@ -687,20 +689,23 @@ namespace arconfirmationletter.Model
 
 
 
+                View.Caculating wat = new View.Caculating();
                 Thread t2 = new Thread(showwait);
-                t2.Start();
-                //   autoEvent.WaitOne(); //join
+                t2.Start(new datashowwait() { wat = wat });
+
+
                 t1.Join();
                 if (t1.ThreadState != ThreadState.Running)
                 {
 
-                    if (t2.ThreadState == ThreadState.Running)
-                    {
-                        t2.Abort();
+                    // t2.Abort();
 
-                    }
+                    wat.Invoke(wat.myDelegate);
+
+
 
                 }
+
 
 
 
@@ -728,7 +733,7 @@ namespace arconfirmationletter.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-          
+
 
 
             if (kq == true)
@@ -740,7 +745,7 @@ namespace arconfirmationletter.Model
                             && b.Posting_Date == postingdate
                             select b;
 
-                if (wrong.Count()>0)
+                if (wrong.Count() > 0)
                 {
                     dc.tblFBL5Nnews.DeleteAllOnSubmit(wrong);
                     dc.SubmitChanges();
@@ -766,5 +771,5 @@ namespace arconfirmationletter.Model
 
             //  throw new NotImplementedException();
         }
-        }
+    }
 }

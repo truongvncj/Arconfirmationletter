@@ -111,6 +111,9 @@ namespace arconfirmationletter
     partial void InserttblFBL5Nnew(tblFBL5Nnew instance);
     partial void UpdatetblFBL5Nnew(tblFBL5Nnew instance);
     partial void DeletetblFBL5Nnew(tblFBL5Nnew instance);
+    partial void InserttblFBL5NnewRptbalance(tblFBL5NnewRptbalance instance);
+    partial void UpdatetblFBL5NnewRptbalance(tblFBL5NnewRptbalance instance);
+    partial void DeletetblFBL5NnewRptbalance(tblFBL5NnewRptbalance instance);
     partial void InserttblFBL5Nnewthisperiod(tblFBL5Nnewthisperiod instance);
     partial void UpdatetblFBL5Nnewthisperiod(tblFBL5Nnewthisperiod instance);
     partial void DeletetblFBL5Nnewthisperiod(tblFBL5Nnewthisperiod instance);
@@ -387,6 +390,14 @@ namespace arconfirmationletter
 			get
 			{
 				return this.GetTable<tblFBL5Nnew>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblFBL5NnewRptbalance> tblFBL5NnewRptbalances
+		{
+			get
+			{
+				return this.GetTable<tblFBL5NnewRptbalance>();
 			}
 		}
 		
@@ -9773,6 +9784,596 @@ namespace arconfirmationletter
 					this._Tempmark = value;
 					this.SendPropertyChanged("Tempmark");
 					this.OnTempmarkChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFBL5NnewRptbalance")]
+	public partial class tblFBL5NnewRptbalance : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private double _Account;
+		
+		private System.Nullable<System.DateTime> _Posting_Date;
+		
+		private System.Nullable<double> _Document_Number;
+		
+		private System.Nullable<double> _Amount_in_local_currency;
+		
+		private System.Nullable<double> _Invoice_Amount;
+		
+		private System.Nullable<double> _Fullgood_amount;
+		
+		private System.Nullable<double> _Deposit_amount;
+		
+		private System.Nullable<double> _Payment_amount;
+		
+		private System.Nullable<double> _Adjusted_amount;
+		
+		private System.Nullable<double> _codeGroup;
+		
+		private System.Nullable<int> _Ketvothuong;
+		
+		private System.Nullable<int> _Chaivothuong;
+		
+		private System.Nullable<int> _Ketvolit;
+		
+		private System.Nullable<int> _Chaivo1lit;
+		
+		private System.Nullable<int> _Ketnhuathuong;
+		
+		private System.Nullable<int> _Ketnhua1lit;
+		
+		private System.Nullable<int> _joy20l;
+		
+		private System.Nullable<int> _Binhpmicc02;
+		
+		private System.Nullable<int> _binhpmix9l;
+		
+		private System.Nullable<int> _palletgo;
+		
+		private System.Nullable<int> _paletnhua;
+		
+		private string _username;
+		
+		private int _id;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAccountChanging(double value);
+    partial void OnAccountChanged();
+    partial void OnPosting_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPosting_DateChanged();
+    partial void OnDocument_NumberChanging(System.Nullable<double> value);
+    partial void OnDocument_NumberChanged();
+    partial void OnAmount_in_local_currencyChanging(System.Nullable<double> value);
+    partial void OnAmount_in_local_currencyChanged();
+    partial void OnInvoice_AmountChanging(System.Nullable<double> value);
+    partial void OnInvoice_AmountChanged();
+    partial void OnFullgood_amountChanging(System.Nullable<double> value);
+    partial void OnFullgood_amountChanged();
+    partial void OnDeposit_amountChanging(System.Nullable<double> value);
+    partial void OnDeposit_amountChanged();
+    partial void OnPayment_amountChanging(System.Nullable<double> value);
+    partial void OnPayment_amountChanged();
+    partial void OnAdjusted_amountChanging(System.Nullable<double> value);
+    partial void OnAdjusted_amountChanged();
+    partial void OncodeGroupChanging(System.Nullable<double> value);
+    partial void OncodeGroupChanged();
+    partial void OnKetvothuongChanging(System.Nullable<int> value);
+    partial void OnKetvothuongChanged();
+    partial void OnChaivothuongChanging(System.Nullable<int> value);
+    partial void OnChaivothuongChanged();
+    partial void OnKetvolitChanging(System.Nullable<int> value);
+    partial void OnKetvolitChanged();
+    partial void OnChaivo1litChanging(System.Nullable<int> value);
+    partial void OnChaivo1litChanged();
+    partial void OnKetnhuathuongChanging(System.Nullable<int> value);
+    partial void OnKetnhuathuongChanged();
+    partial void OnKetnhua1litChanging(System.Nullable<int> value);
+    partial void OnKetnhua1litChanged();
+    partial void Onjoy20lChanging(System.Nullable<int> value);
+    partial void Onjoy20lChanged();
+    partial void OnBinhpmicc02Changing(System.Nullable<int> value);
+    partial void OnBinhpmicc02Changed();
+    partial void Onbinhpmix9lChanging(System.Nullable<int> value);
+    partial void Onbinhpmix9lChanged();
+    partial void OnpalletgoChanging(System.Nullable<int> value);
+    partial void OnpalletgoChanged();
+    partial void OnpaletnhuaChanging(System.Nullable<int> value);
+    partial void OnpaletnhuaChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
+		
+		public tblFBL5NnewRptbalance()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account", DbType="Float NOT NULL")]
+		public double Account
+		{
+			get
+			{
+				return this._Account;
+			}
+			set
+			{
+				if ((this._Account != value))
+				{
+					this.OnAccountChanging(value);
+					this.SendPropertyChanging();
+					this._Account = value;
+					this.SendPropertyChanged("Account");
+					this.OnAccountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Posting Date]", Storage="_Posting_Date", DbType="Date")]
+		public System.Nullable<System.DateTime> Posting_Date
+		{
+			get
+			{
+				return this._Posting_Date;
+			}
+			set
+			{
+				if ((this._Posting_Date != value))
+				{
+					this.OnPosting_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Posting_Date = value;
+					this.SendPropertyChanged("Posting_Date");
+					this.OnPosting_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Document Number]", Storage="_Document_Number", DbType="Float")]
+		public System.Nullable<double> Document_Number
+		{
+			get
+			{
+				return this._Document_Number;
+			}
+			set
+			{
+				if ((this._Document_Number != value))
+				{
+					this.OnDocument_NumberChanging(value);
+					this.SendPropertyChanging();
+					this._Document_Number = value;
+					this.SendPropertyChanged("Document_Number");
+					this.OnDocument_NumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Amount in local currency]", Storage="_Amount_in_local_currency", DbType="Float")]
+		public System.Nullable<double> Amount_in_local_currency
+		{
+			get
+			{
+				return this._Amount_in_local_currency;
+			}
+			set
+			{
+				if ((this._Amount_in_local_currency != value))
+				{
+					this.OnAmount_in_local_currencyChanging(value);
+					this.SendPropertyChanging();
+					this._Amount_in_local_currency = value;
+					this.SendPropertyChanged("Amount_in_local_currency");
+					this.OnAmount_in_local_currencyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Invoice Amount]", Storage="_Invoice_Amount", DbType="Float")]
+		public System.Nullable<double> Invoice_Amount
+		{
+			get
+			{
+				return this._Invoice_Amount;
+			}
+			set
+			{
+				if ((this._Invoice_Amount != value))
+				{
+					this.OnInvoice_AmountChanging(value);
+					this.SendPropertyChanging();
+					this._Invoice_Amount = value;
+					this.SendPropertyChanged("Invoice_Amount");
+					this.OnInvoice_AmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Fullgood amount]", Storage="_Fullgood_amount", DbType="Float")]
+		public System.Nullable<double> Fullgood_amount
+		{
+			get
+			{
+				return this._Fullgood_amount;
+			}
+			set
+			{
+				if ((this._Fullgood_amount != value))
+				{
+					this.OnFullgood_amountChanging(value);
+					this.SendPropertyChanging();
+					this._Fullgood_amount = value;
+					this.SendPropertyChanged("Fullgood_amount");
+					this.OnFullgood_amountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Deposit amount]", Storage="_Deposit_amount", DbType="Float")]
+		public System.Nullable<double> Deposit_amount
+		{
+			get
+			{
+				return this._Deposit_amount;
+			}
+			set
+			{
+				if ((this._Deposit_amount != value))
+				{
+					this.OnDeposit_amountChanging(value);
+					this.SendPropertyChanging();
+					this._Deposit_amount = value;
+					this.SendPropertyChanged("Deposit_amount");
+					this.OnDeposit_amountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Payment amount]", Storage="_Payment_amount", DbType="Float")]
+		public System.Nullable<double> Payment_amount
+		{
+			get
+			{
+				return this._Payment_amount;
+			}
+			set
+			{
+				if ((this._Payment_amount != value))
+				{
+					this.OnPayment_amountChanging(value);
+					this.SendPropertyChanging();
+					this._Payment_amount = value;
+					this.SendPropertyChanged("Payment_amount");
+					this.OnPayment_amountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Adjusted amount]", Storage="_Adjusted_amount", DbType="Float")]
+		public System.Nullable<double> Adjusted_amount
+		{
+			get
+			{
+				return this._Adjusted_amount;
+			}
+			set
+			{
+				if ((this._Adjusted_amount != value))
+				{
+					this.OnAdjusted_amountChanging(value);
+					this.SendPropertyChanging();
+					this._Adjusted_amount = value;
+					this.SendPropertyChanged("Adjusted_amount");
+					this.OnAdjusted_amountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codeGroup", DbType="Float")]
+		public System.Nullable<double> codeGroup
+		{
+			get
+			{
+				return this._codeGroup;
+			}
+			set
+			{
+				if ((this._codeGroup != value))
+				{
+					this.OncodeGroupChanging(value);
+					this.SendPropertyChanging();
+					this._codeGroup = value;
+					this.SendPropertyChanged("codeGroup");
+					this.OncodeGroupChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ketvothuong", DbType="Int")]
+		public System.Nullable<int> Ketvothuong
+		{
+			get
+			{
+				return this._Ketvothuong;
+			}
+			set
+			{
+				if ((this._Ketvothuong != value))
+				{
+					this.OnKetvothuongChanging(value);
+					this.SendPropertyChanging();
+					this._Ketvothuong = value;
+					this.SendPropertyChanged("Ketvothuong");
+					this.OnKetvothuongChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chaivothuong", DbType="Int")]
+		public System.Nullable<int> Chaivothuong
+		{
+			get
+			{
+				return this._Chaivothuong;
+			}
+			set
+			{
+				if ((this._Chaivothuong != value))
+				{
+					this.OnChaivothuongChanging(value);
+					this.SendPropertyChanging();
+					this._Chaivothuong = value;
+					this.SendPropertyChanged("Chaivothuong");
+					this.OnChaivothuongChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ketvolit", DbType="Int")]
+		public System.Nullable<int> Ketvolit
+		{
+			get
+			{
+				return this._Ketvolit;
+			}
+			set
+			{
+				if ((this._Ketvolit != value))
+				{
+					this.OnKetvolitChanging(value);
+					this.SendPropertyChanging();
+					this._Ketvolit = value;
+					this.SendPropertyChanged("Ketvolit");
+					this.OnKetvolitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chaivo1lit", DbType="Int")]
+		public System.Nullable<int> Chaivo1lit
+		{
+			get
+			{
+				return this._Chaivo1lit;
+			}
+			set
+			{
+				if ((this._Chaivo1lit != value))
+				{
+					this.OnChaivo1litChanging(value);
+					this.SendPropertyChanging();
+					this._Chaivo1lit = value;
+					this.SendPropertyChanged("Chaivo1lit");
+					this.OnChaivo1litChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ketnhuathuong", DbType="Int")]
+		public System.Nullable<int> Ketnhuathuong
+		{
+			get
+			{
+				return this._Ketnhuathuong;
+			}
+			set
+			{
+				if ((this._Ketnhuathuong != value))
+				{
+					this.OnKetnhuathuongChanging(value);
+					this.SendPropertyChanging();
+					this._Ketnhuathuong = value;
+					this.SendPropertyChanged("Ketnhuathuong");
+					this.OnKetnhuathuongChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ketnhua1lit", DbType="Int")]
+		public System.Nullable<int> Ketnhua1lit
+		{
+			get
+			{
+				return this._Ketnhua1lit;
+			}
+			set
+			{
+				if ((this._Ketnhua1lit != value))
+				{
+					this.OnKetnhua1litChanging(value);
+					this.SendPropertyChanging();
+					this._Ketnhua1lit = value;
+					this.SendPropertyChanged("Ketnhua1lit");
+					this.OnKetnhua1litChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_joy20l", DbType="Int")]
+		public System.Nullable<int> joy20l
+		{
+			get
+			{
+				return this._joy20l;
+			}
+			set
+			{
+				if ((this._joy20l != value))
+				{
+					this.Onjoy20lChanging(value);
+					this.SendPropertyChanging();
+					this._joy20l = value;
+					this.SendPropertyChanged("joy20l");
+					this.Onjoy20lChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Binhpmicc02", DbType="Int")]
+		public System.Nullable<int> Binhpmicc02
+		{
+			get
+			{
+				return this._Binhpmicc02;
+			}
+			set
+			{
+				if ((this._Binhpmicc02 != value))
+				{
+					this.OnBinhpmicc02Changing(value);
+					this.SendPropertyChanging();
+					this._Binhpmicc02 = value;
+					this.SendPropertyChanged("Binhpmicc02");
+					this.OnBinhpmicc02Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_binhpmix9l", DbType="Int")]
+		public System.Nullable<int> binhpmix9l
+		{
+			get
+			{
+				return this._binhpmix9l;
+			}
+			set
+			{
+				if ((this._binhpmix9l != value))
+				{
+					this.Onbinhpmix9lChanging(value);
+					this.SendPropertyChanging();
+					this._binhpmix9l = value;
+					this.SendPropertyChanged("binhpmix9l");
+					this.Onbinhpmix9lChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_palletgo", DbType="Int")]
+		public System.Nullable<int> palletgo
+		{
+			get
+			{
+				return this._palletgo;
+			}
+			set
+			{
+				if ((this._palletgo != value))
+				{
+					this.OnpalletgoChanging(value);
+					this.SendPropertyChanging();
+					this._palletgo = value;
+					this.SendPropertyChanged("palletgo");
+					this.OnpalletgoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_paletnhua", DbType="Int")]
+		public System.Nullable<int> paletnhua
+		{
+			get
+			{
+				return this._paletnhua;
+			}
+			set
+			{
+				if ((this._paletnhua != value))
+				{
+					this.OnpaletnhuaChanging(value);
+					this.SendPropertyChanging();
+					this._paletnhua = value;
+					this.SendPropertyChanged("paletnhua");
+					this.OnpaletnhuaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}

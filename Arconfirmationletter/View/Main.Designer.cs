@@ -91,16 +91,16 @@
             this.dataCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNPUTPERIODDEPOSITAMOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.cLOSETHISPRERIODToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.rEEDITDEPOSITVERIFYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.vIEWALLDATABASEONSERVERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.rEEDITDEPOSITVERIFYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uNBLOCKDEPOSITVERIFYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.vIEWALLDATABASEONSERVERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eDITALLDATABASEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -657,14 +657,6 @@
             this.toolStripMenuItem1.Text = "TEMP CLOSE THIS PRERIOD";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(304, 26);
-            this.toolStripMenuItem2.Text = "VIEW BALANCE ";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
@@ -685,13 +677,14 @@
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(301, 6);
             // 
-            // rEEDITDEPOSITVERIFYToolStripMenuItem
+            // toolStripMenuItem2
             // 
-            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Name = "rEEDITDEPOSITVERIFYToolStripMenuItem";
-            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Size = new System.Drawing.Size(304, 26);
-            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Text = "RE_EDIT DEPOSIT VERIFY";
-            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Click += new System.EventHandler(this.rEEDITDEPOSITVERIFYToolStripMenuItem_Click);
+            this.toolStripMenuItem2.BackColor = System.Drawing.Color.Gold;
+            this.toolStripMenuItem2.Image = global::arconfirmationletter.Properties.Resources.th5YSKEK6I1;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(304, 26);
+            this.toolStripMenuItem2.Text = "VIEW BALANCE ";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -701,18 +694,18 @@
             this.toolStripMenuItem4.Text = "DEPOSIT CHANGE AFTER CLOSE";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
-            // vIEWALLDATABASEONSERVERToolStripMenuItem
-            // 
-            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Name = "vIEWALLDATABASEONSERVERToolStripMenuItem";
-            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Size = new System.Drawing.Size(304, 26);
-            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Text = "VIEW DATABASE";
-            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Click += new System.EventHandler(this.vIEWALLDATABASEONSERVERToolStripMenuItem_Click);
-            // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(301, 6);
+            // 
+            // rEEDITDEPOSITVERIFYToolStripMenuItem
+            // 
+            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Name = "rEEDITDEPOSITVERIFYToolStripMenuItem";
+            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Size = new System.Drawing.Size(304, 26);
+            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Text = "RE_EDIT DEPOSIT VERIFY";
+            this.rEEDITDEPOSITVERIFYToolStripMenuItem.Click += new System.EventHandler(this.rEEDITDEPOSITVERIFYToolStripMenuItem_Click);
             // 
             // uNBLOCKDEPOSITVERIFYToolStripMenuItem
             // 
@@ -726,6 +719,14 @@
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(301, 6);
+            // 
+            // vIEWALLDATABASEONSERVERToolStripMenuItem
+            // 
+            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Name = "vIEWALLDATABASEONSERVERToolStripMenuItem";
+            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Size = new System.Drawing.Size(304, 26);
+            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Text = "VIEW DATABASE";
+            this.vIEWALLDATABASEONSERVERToolStripMenuItem.Click += new System.EventHandler(this.vIEWALLDATABASEONSERVERToolStripMenuItem_Click);
             // 
             // eDITALLDATABASEToolStripMenuItem
             // 

@@ -96,7 +96,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Caculating ...";
             this.Load += new System.EventHandler(this.Caculating_Load);
-            this.Shown += new System.EventHandler(this.Caculating_Shown);
+       //     this.Shown += new System.EventHandler(this.Caculating_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

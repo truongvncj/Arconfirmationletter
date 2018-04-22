@@ -12,33 +12,28 @@ namespace arconfirmationletter.View
     public partial class Caculating : Form
     {
 
-     //   public delegate void CloseFormDelegate();
-      //  public CloseFormDelegate myDelegate;
-       public bool coplshow { get; set; }
-       public bool Isdone()
+        //   public delegate void CloseFormDelegate();
+        //  public CloseFormDelegate myDelegate;
+        public void CloseMyForm()
         {
-          if (coplshow == true)
-            { 
-            return true;
-            }else
-            {
-                return false;
-            }
-
+            this.Close();
         }
+        public delegate void CloseFormDelegate();
+        public CloseFormDelegate myDelegate;
+
+     
 
         public Caculating()
         {
             InitializeComponent();
 
-           
+            myDelegate = new CloseFormDelegate(CloseMyForm);
 
         }
 
-        private void ThreadProclose()
-        {
-            this.Close();
-        }
+
+        //    this.Invoke(this.myDelegate);
+
 
 
         private void pictureBox1_LoadCompleted(object sender, AsyncCompletedEventArgs e)
@@ -52,9 +47,6 @@ namespace arconfirmationletter.View
 
         }
 
-        private void Caculating_Shown(object sender, EventArgs e)
-        {
-            this.coplshow = true;
-        }
+      
     }
 }

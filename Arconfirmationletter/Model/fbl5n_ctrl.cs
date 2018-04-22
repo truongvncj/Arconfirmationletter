@@ -343,7 +343,7 @@ namespace arconfirmationletter.Model
 
             public View.Caculating wat { get; set; }
 
-            public int actionf { get; set; }
+
         }
 
 
@@ -357,24 +357,7 @@ namespace arconfirmationletter.Model
 
             View.Caculating wat = obshow.wat;
 
-            int actionshow = obshow.actionf;
-
-            if (actionshow == 1)  // show
-            {
-                wat.ShowDialog();
-            }
-
-            //if (actionshow == 2)  // close
-            //{
-            //    wat.Close();
-            //}
-
-
-            //    datainportF inf = (datainportF)obj;
-
-
-
-            //     string filename = inf.filename;
+            wat.ShowDialog();
 
 
         }
@@ -407,15 +390,16 @@ namespace arconfirmationletter.Model
 
                 View.Caculating wat = new View.Caculating();
                 Thread t2 = new Thread(showwait);
-                t2.Start(new datashowwait() { wat = wat, actionf = 1 });
+                t2.Start(new datashowwait() { wat = wat });
 
 
                 t1.Join();
                 if (t1.ThreadState != ThreadState.Running)
                 {
 
-                    t2.Abort();
+                    // t2.Abort();
 
+                    wat.Invoke(wat.myDelegate);
 
 
 

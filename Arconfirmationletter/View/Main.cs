@@ -4356,10 +4356,10 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
         {
             View.DatecodePicker datefrom = new View.DatecodePicker("Select balace date: ");
             datefrom.ShowDialog();
-            DateTime postingdate = datefrom.valuedate;
+            DateTime balancedate = datefrom.valuedate;
             bool kq = datefrom.kq;
             double custcode = datefrom.code;
-
+            string username = Utils.getusername();
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -4369,6 +4369,176 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             if (kq == true)
             {
+                SqlConnection conn2 = null;
+                SqlDataReader rdr1 = null;
+
+                string destConnString = Utils.getConnectionstr();
+                dc.CommandTimeout = 0;
+
+                if (custcode == 0) // là chạy tất
+                {
+                    #region  //  tính bảng  tbl_Coldetail tren sql
+
+                    try
+                    {
+
+                        conn2 = new SqlConnection(destConnString);
+                        conn2.Open();
+                        SqlCommand cmd1 = new SqlCommand("insertviewbalanceRpt", conn2);
+                        cmd1.CommandType = CommandType.StoredProcedure;
+
+                        //@balancedate datetime,
+                        //@username nvarchar(50)
+                        
+                        cmd1.Parameters.Add("@balancedate", SqlDbType.Date).Value = balancedate;
+                        cmd1.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
+                        cmd1.CommandTimeout = 0;
+                        try
+                        {
+                            rdr1 = cmd1.ExecuteReader();
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show("ERRor make: balance view data \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+
+
+                        //       rdr1 = cmd1.ExecuteReader();
+
+                    }
+                    finally
+                    {
+                        if (conn2 != null)
+                        {
+                            conn2.Close();
+                        }
+                        if (rdr1 != null)
+                        {
+                            rdr1.Close();
+                        }
+                    }
+                    //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    #endregion
+
+                
+                }
+                else // là only code
+                {
+
+                    #region  //  tính bảng  insertviewbalanceRptOnlycode tren sql
+
+                    try
+                    {
+
+                        conn2 = new SqlConnection(destConnString);
+                        conn2.Open();
+                        SqlCommand cmd1 = new SqlCommand("insertviewbalanceRptOnlycode", conn2);
+                        cmd1.CommandType = CommandType.StoredProcedure;
+
+                        //@balancedate datetime,
+                        //@username nvarchar(50)
+                        cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = custcode;
+                        cmd1.Parameters.Add("@balancedate", SqlDbType.Date).Value = balancedate;
+                        cmd1.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
+                        cmd1.CommandTimeout = 0;
+                        try
+                        {
+                            rdr1 = cmd1.ExecuteReader();
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show("ERRor make: balance view data \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+
+
+                        //       rdr1 = cmd1.ExecuteReader();
+
+                    }
+                    finally
+                    {
+                        if (conn2 != null)
+                        {
+                            conn2.Close();
+                        }
+                        if (rdr1 != null)
+                        {
+                            rdr1.Close();
+                        }
+                    }
+                    //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    #endregion
+
+
+                }
+
+                // view balance''
+
+                #region  chọn 1 coed
+
+                //var q3 = (from tblEDLP in dc.tblEDLPs
+                //          group tblEDLP by tblEDLP.Invoice_Doc_Nr into OD//Tương đương GROUP BY trong SQL
+                //          orderby OD.Key
+                //          where !(from tblVat in dc.tblVats
+                //                  select tblVat.SAP_Invoice_Number).Contains(OD.Key)
+
+                //          select new
+                //          {
+                //              Document_Number = OD.Key,
+                //              Name = OD.Select(m => m.Cust_Name).FirstOrDefault(),
+                //              Value_Count = OD.Sum(m => m.Cond_Value)
+
+
+
+
+                //          });
+
+
+                var rs2 = from p in dc.tblFBL5NnewRptbalances
+                          where p.username == username
+                          group p by p.Account into h
+                          select new
+                          {
+                          Account =    h.Key,
+
+                              Adjusted_amount = h.Sum(m => m.Adjusted_amount),
+                              Amount_in_local_currency = h.Sum(m => m.Amount_in_local_currency),
+
+                              Binhpmicc02 = h.Sum(m => m.Binhpmicc02),
+                              binhpmix9l = h.Sum(m => m.binhpmix9l),
+                              Chaivo1lit = h.Sum(m => m.Chaivo1lit),
+                              Chaivothuong = h.Sum(m => m.Chaivothuong),
+                              Deposit_amount = h.Sum(m => m.Deposit_amount),
+                              //    Document_Number = h.Sum(m => m.Document_Number),
+                              Fullgood_amount = h.Sum(m => m.Fullgood_amount),
+                              Invoice_Amount = h.Sum(m => m.Invoice_Amount),
+                              joy20l = h.Sum(m => m.joy20l),
+                              Ketnhua1lit = h.Sum(m => m.Ketnhua1lit),
+                              Ketnhuathuong = h.Sum(m => m.Ketnhuathuong),
+                              Ketvolit = h.Sum(m => m.Ketvolit),
+                              Ketvothuong = h.Sum(m => m.Ketvothuong),
+                              paletnhua = h.Sum(m => m.paletnhua),
+                              palletgo = h.Sum(m => m.palletgo),
+                              Payment_amount = h.Sum(m => m.Payment_amount),
+                         
+
+
+
+
+                          };
+
+
+                #endregion
+                Viewtable viewtbl = new Viewtable(rs2, dc, "BALANCE VIEW REPORTS AT: " + balancedate.ToShortDateString() , 100,DateTime.Today,DateTime.Today ); //view loại 100 view bình thường là có fromdatetodate
+
+
 
 
 

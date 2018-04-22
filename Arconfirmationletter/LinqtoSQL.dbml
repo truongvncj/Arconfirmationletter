@@ -463,6 +463,33 @@
       <Column Name="Tempmark" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.tblFBL5NnewRptbalance" Member="tblFBL5NnewRptbalances">
+    <Type Name="tblFBL5NnewRptbalance">
+      <Column Name="Account" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="[Posting Date]" Member="Posting_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="[Document Number]" Member="Document_Number" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Amount in local currency]" Member="Amount_in_local_currency" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Invoice Amount]" Member="Invoice_Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Fullgood amount]" Member="Fullgood_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Deposit amount]" Member="Deposit_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Payment amount]" Member="Payment_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Adjusted amount]" Member="Adjusted_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="codeGroup" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Ketvothuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Chaivothuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ketvolit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Chaivo1lit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ketnhuathuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ketnhua1lit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="joy20l" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Binhpmicc02" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="binhpmix9l" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="palletgo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="paletnhua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.tblFBL5Nnewthisperiod" Member="tblFBL5Nnewthisperiods">
     <Type Name="tblFBL5Nnewthisperiod">
       <Column Name="Account" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
