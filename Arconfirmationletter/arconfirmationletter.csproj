@@ -156,6 +156,12 @@
     <Compile Include="View\Caculating.Designer.cs">
       <DependentUpon>Caculating.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\DatecodePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DatecodePicker.Designer.cs">
+      <DependentUpon>DatecodePicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DatePicker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     <EmbeddedResource Include="View\Caculating.resx">
       <DependentUpon>Caculating.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DatecodePicker.resx">
+      <DependentUpon>DatecodePicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DatePicker.resx">
       <DependentUpon>DatePicker.cs</DependentUpon>

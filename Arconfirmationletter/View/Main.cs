@@ -4354,10 +4354,12 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            View.DatePicker datefrom = new View.DatePicker("Select balace date: ");
+            View.DatecodePicker datefrom = new View.DatecodePicker("Select balace date: ");
             datefrom.ShowDialog();
             DateTime postingdate = datefrom.valuedate;
             bool kq = datefrom.kq;
+            double custcode = datefrom.code;
+
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -4373,6 +4375,12 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
             }
+
+
+
+
+
+
         }
     }
 
