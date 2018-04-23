@@ -257,10 +257,10 @@ namespace arconfirmationletter.Model
 
                         try
                         {
-                            if (sourceData.Rows[rowixd][Organizationid].ToString().Length > 255)
+                            if (sourceData.Rows[rowixd][Organizationid].ToString().Length > 200)
                             {
 
-                                dr["SalesOrganization"] = sourceData.Rows[rowixd][Organizationid].ToString().Trim().Substring(0, 255);
+                                dr["SalesOrganization"] = sourceData.Rows[rowixd][Organizationid].ToString().Trim().Substring(0, 200);
 
                             }
                             else
@@ -272,9 +272,9 @@ namespace arconfirmationletter.Model
                             dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
 
                             //dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
-                            if (sourceData.Rows[rowixd][Nameid].ToString().Length > 255)
+                            if (sourceData.Rows[rowixd][Nameid].ToString().Length > 200)
                             {
-                                dr["Name"] = sourceData.Rows[rowixd][Nameid].ToString().Trim().Substring(0, 255);
+                                dr["Name"] = sourceData.Rows[rowixd][Nameid].ToString().Trim().Substring(0, 200);
 
                             }
                             else
@@ -284,18 +284,18 @@ namespace arconfirmationletter.Model
 
 
 
-                            if (sourceData.Rows[rowixd][Addressid].ToString().Length > 255)
+                            if (sourceData.Rows[rowixd][Addressid].ToString().Length > 200)
                             {
-                                dr["Address"] = sourceData.Rows[rowixd][Addressid].ToString().Trim().Substring(0, 255);
+                                dr["Address"] = sourceData.Rows[rowixd][Addressid].ToString().Trim().Substring(0, 200);
                             }
                             else
                             {
                                 dr["Address"] = sourceData.Rows[rowixd][Addressid].ToString().Trim();
                             }
 
-                            if (sourceData.Rows[rowixd][Telephoneid].ToString().Length > 255)
+                            if (sourceData.Rows[rowixd][Telephoneid].ToString().Length > 200)
                             {
-                                dr["Telephone"] = sourceData.Rows[rowixd][Telephoneid].ToString().Trim().Substring(0, 255);
+                                dr["Telephone"] = sourceData.Rows[rowixd][Telephoneid].ToString().Trim().Substring(0, 200);
                             }
                             else
                             {
@@ -577,9 +577,9 @@ namespace arconfirmationletter.Model
                             dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
 
                             //dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
-                            if (sourceData.Rows[rowixd][Nameid].ToString().Length > 225)
+                            if (sourceData.Rows[rowixd][Nameid].ToString().Length > 200)
                             {
-                                dr["Name"] = sourceData.Rows[rowixd][Nameid].ToString().Trim().Substring(0, 225);
+                                dr["Name"] = sourceData.Rows[rowixd][Nameid].ToString().Trim().Substring(0, 200);
 
                             }
                             else
@@ -2017,10 +2017,10 @@ namespace arconfirmationletter.Model
 
                         try
                         {
-                            if (sourceData.Rows[rowixd][Organizationid].ToString().Length > 255)
+                            if (sourceData.Rows[rowixd][Organizationid].ToString().Length > 200)
                             {
 
-                                dr["Sorg"] = sourceData.Rows[rowixd][Organizationid].ToString().Trim().Substring(0, 255);
+                                dr["Sorg"] = sourceData.Rows[rowixd][Organizationid].ToString().Trim().Substring(0, 200);
 
                             }
                             else
@@ -2045,9 +2045,9 @@ namespace arconfirmationletter.Model
 
                             }
                             //dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
-                            if (sourceData.Rows[rowixd][Nameid].ToString().Length > 255)
+                            if (sourceData.Rows[rowixd][Nameid].ToString().Length > 200)
                             {
-                                dr["Name"] = sourceData.Rows[rowixd][Nameid].ToString().Trim().Substring(0, 255);
+                                dr["Name"] = sourceData.Rows[rowixd][Nameid].ToString().Trim().Substring(0, 200);
 
                             }
                             else
@@ -2327,10 +2327,10 @@ namespace arconfirmationletter.Model
 
                             dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
 
-                            if (sourceData.Rows[rowixd][GroupNAmeid].ToString().Length > 225)
+                            if (sourceData.Rows[rowixd][GroupNAmeid].ToString().Length > 200)
                             {
 
-                                dr["GroupNAme"] = sourceData.Rows[rowixd][GroupNAmeid].ToString().Trim().Substring(0, 225);
+                                dr["GroupNAme"] = sourceData.Rows[rowixd][GroupNAmeid].ToString().Trim().Substring(0, 200);
 
                             }
                             else
