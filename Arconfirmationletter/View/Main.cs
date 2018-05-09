@@ -412,7 +412,7 @@ namespace arconfirmationletter.View
 
             Viewtable viewtbl = new Viewtable(rs, db, "FBL5n data", 100, DateTime.Today, DateTime.Today);
             //     viewtbl.Visible = false;
-            //       viewtbl.Show();
+                viewtbl.Show();
         }
 
         private void viewCustomerDataToolStripMenuItem_Click(object sender, EventArgs e)
@@ -486,7 +486,7 @@ namespace arconfirmationletter.View
             vat_ctrl md = new vat_ctrl();
             var rs = md.vatsetlect_all(db);
             Viewtable viewtbl = new Viewtable(rs, db, "VAT ZFI data uploaded ", 100, DateTime.Today, DateTime.Today);
-            //    viewtbl.Show();
+            viewtbl.Show();
 
         }
 
@@ -1106,7 +1106,7 @@ namespace arconfirmationletter.View
 
 
             Viewtable viewtbl = new Viewtable(rs, db, "Letter data reports", 100, DateTime.Today, DateTime.Today);
-            //   viewtbl.Show();
+             viewtbl.Show();
 
 
 
@@ -1147,7 +1147,7 @@ namespace arconfirmationletter.View
             edlpinput_ctrl md = new edlpinput_ctrl();
             var rs = md.Edlpsetlect_all(db);
             Viewtable viewtbl = new Viewtable(rs, db, "EDLP data uploaded ", 100, DateTime.Today, DateTime.Today);
-            //   viewtbl.Show();
+            viewtbl.Show();
 
         }
 
@@ -1565,7 +1565,7 @@ namespace arconfirmationletter.View
             fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
             var rs = md.Fregalssessetlect_all(db);
             Viewtable viewtbl = new Viewtable(rs, db, "LIST OF REEGALSSES TABLE ", 100, DateTime.Today, DateTime.Today);
-            //   viewtbl.Show();
+             viewtbl.Show();
 
 
 
@@ -1918,7 +1918,7 @@ namespace arconfirmationletter.View
 
 
             Viewtable viewtbl = new Viewtable(rs, db, "Letter COL detail reporst", 100, DateTime.Today, DateTime.Today);
-            //    viewtbl.Show();
+               viewtbl.Show();
 
         }
 
@@ -2070,9 +2070,9 @@ namespace arconfirmationletter.View
 
 
             IQueryable rsthisperiod = null;
-            Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "iNPUT DEPOSIT AMOUNTT !", 1, DateTime.Today, DateTime.Today); // màn hình inpot data có mas2
-            viewtbl.Visible = false;
-            viewtbl.ShowDialog();
+            Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "iNPUT DEPOSIT AMOUNTT !", 100, DateTime.Today, DateTime.Today); // màn hình inpot data có mas2
+       //     viewtbl.Visible = false;
+          viewtbl.ShowDialog();
             //    viewtbl.Activate();
             //  }
 
@@ -2890,7 +2890,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             var typeff = typeof(tbl_Temp);
 
             VInputchange inputcdata = new VInputchange("", "USERNAME AND PASSWORD CONFIG ! ", dc, "tbl_Temp", "tbl_Temp", typeff, "id", "id");
-            inputcdata.Visible = false;
+        //    inputcdata.Visible = false;
             inputcdata.ShowDialog();
         }
 
@@ -3407,7 +3407,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                 Viewtable viewtbl = new Viewtable(rs, db, "LETTER RETURN STATUS UPDATE", 1, DateTime.Today, DateTime.Today);
                 //      viewtbl.Visible = false;
-                //     viewtbl.Show();
+                 viewtbl.Show();
 
 
 
@@ -3546,7 +3546,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER UNSEND LIST", 100, DateTime.Today, DateTime.Today);
-            //     viewtbl.Show();
+               viewtbl.Show();
 
         }
 
@@ -3859,7 +3859,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             var typeff = typeof(tblNKACustomer);
 
             VInputchange inputcdata = new VInputchange("", "LIST MASTER DATA CUSTOMER ", dc, "tblNKACustomer", "tblNKACustomer", typeff, "id", "id");
-            inputcdata.Visible = false;
+       //     inputcdata.Visible = false;
             inputcdata.ShowDialog();
         }
 
@@ -3913,7 +3913,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER DATA", 1, DateTime.Today, DateTime.Today);
-            //     viewtbl.Show();
+               viewtbl.Show();
         }
 
         private void vIEWCUSTOMERToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3926,7 +3926,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER DATA", 1, DateTime.Today, DateTime.Today);
-            //     viewtbl.Show();
+               viewtbl.Show();
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -4042,7 +4042,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "SUMARY DATA", 1, DateTime.Today, DateTime.Today);
-
+            viewtbl.Show();
         }
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
@@ -4056,6 +4056,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "SUMARY DATA", 1, DateTime.Today, DateTime.Today);
+            viewtbl.Show();
         }
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
@@ -4069,6 +4070,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "SUMARY DATA", 1, DateTime.Today, DateTime.Today);
+            viewtbl.Show();
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -4200,7 +4202,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                     Viewtable Viewtable = new Viewtable(rs, db, "Clear FressGlasses Progarme upload ", 11, DateTime.Today, DateTime.Today);
 
-
+                    Viewtable.Show();
 
 
 
@@ -4233,7 +4235,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             Viewtable Viewtable = new Viewtable(rs, db, "List FressGlasses Progarme ", 12, DateTime.Today, DateTime.Today);
 
-
+            Viewtable.Show();
 
 
 
@@ -4279,7 +4281,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                 Viewtable Viewtable = new Viewtable(rs, db, "REdo Deposit veryfy of Close Priod by Click on Adj Amount, Empty Amount to move to Deposit Amount", 13, DateTime.Today, DateTime.Today);
 
-                //    Viewtable.ShowDialog();
+                Viewtable.ShowDialog();
 
 
 
@@ -4541,7 +4543,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                 #endregion
                 Viewtable viewtbl = new Viewtable(rs2, dc, "BALANCE VIEW REPORTS AT: " + balancedate.ToShortDateString(), 100, DateTime.Today, DateTime.Today); //view loại 100 view bình thường là có fromdatetodate
-
+                viewtbl.ShowDialog();
 
 
 
