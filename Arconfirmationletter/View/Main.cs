@@ -1549,7 +1549,7 @@ namespace arconfirmationletter.View
             Remarks md = new Remarks();
             var rs = md.Remarksetlect_all(db);
             Viewtable viewtbl = new Viewtable(rs, db, "LIST OF UPDAD REMARKS  ", 100, DateTime.Today, DateTime.Today);
-            //    viewtbl.Show();
+            viewtbl.Show();
 
         }
 
@@ -1565,7 +1565,7 @@ namespace arconfirmationletter.View
             fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
             var rs = md.Fregalssessetlect_all(db);
             Viewtable viewtbl = new Viewtable(rs, db, "LIST OF REEGALSSES TABLE ", 100, DateTime.Today, DateTime.Today);
-             viewtbl.Show();
+            viewtbl.Show();
 
 
 
