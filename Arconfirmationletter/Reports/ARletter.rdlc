@@ -70,8 +70,11 @@
                               <Top>0.51251in</Top>
                               <Left>0.01181in</Left>
                               <Height>0.19027in</Height>
-                              <Width>6.47027in</Width>
+                              <Width>6.42901in</Width>
                               <ZIndex>1</ZIndex>
+                              <Visibility>
+                                <Hidden>true</Hidden>
+                              </Visibility>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -103,8 +106,11 @@
                               <Top>0.50973in</Top>
                               <Left>3.66125in</Left>
                               <Height>0.20694in</Height>
-                              <Width>0.36458in</Width>
+                              <Width>0.32332in</Width>
                               <ZIndex>2</ZIndex>
+                              <Visibility>
+                                <Hidden>true</Hidden>
+                              </Visibility>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -137,8 +143,11 @@
                               <Top>0.50556in</Top>
                               <Left>1.66667in</Left>
                               <Height>0.22222in</Height>
-                              <Width>1.96264in</Width>
+                              <Width>1.92138in</Width>
                               <ZIndex>3</ZIndex>
+                              <Visibility>
+                                <Hidden>true</Hidden>
+                              </Visibility>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -173,6 +182,9 @@
                               <Height>0.21251in</Height>
                               <Width>5.51416in</Width>
                               <ZIndex>4</ZIndex>
+                              <Visibility>
+                                <Hidden>true</Hidden>
+                              </Visibility>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -204,8 +216,11 @@
                               <Top>0.25139in</Top>
                               <Left>0.01181in</Left>
                               <Height>0.19723in</Height>
-                              <Width>1.25in</Width>
+                              <Width>1.20874in</Width>
                               <ZIndex>5</ZIndex>
+                              <Visibility>
+                                <Hidden>true</Hidden>
+                              </Visibility>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -270,8 +285,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
+                              <Top>0.0375in</Top>
                               <Left>3.62972in</Left>
-                              <Height>0.23056in</Height>
+                              <Height>0.20764in</Height>
                               <Width>0.48958in</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
@@ -291,7 +307,29 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>(Xin quý khách vui lòng tham khảo bảng kê chi tiết công nợ tiền nước, tiền cược vỏ và công nợ vỏ đính kèm thư)</Value>
+                                      <Value>(Xin quý khách vui lòng tham khảo bảng kê chi tiết công nợ tiền nước đính kèm thư, </Value>
+                                      <Style>
+                                        <FontFamily>Times New Roman</FontFamily>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>hiện </Value>
+                                      <Style>
+                                        <FontFamily>times New Roman</FontFamily>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>nay công ty chúng tôi đang tiến hành đối chiếu vỏ chai/pallet nên tạm thời ngừng xác nhận số vỏ chai/ pallet. Sau khi hoàn tất việc đối chiếu, chúng tôi sẽ gửi thông tin chính xác đến quý khách hàng </Value>
+                                      <Style>
+                                        <FontStyle>Normal</FontStyle>
+                                        <FontFamily>times New Roman</FontFamily>
+                                        <FontWeight>Normal</FontWeight>
+                                        <TextDecoration>None</TextDecoration>
+                                        <Color>#000000</Color>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>)</Value>
                                       <Style>
                                         <FontFamily>Times New Roman</FontFamily>
                                       </Style>
@@ -301,8 +339,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.73055in</Top>
-                              <Height>0.23055in</Height>
+                              <Top>0.33472in</Top>
+                              <Height>0.56388in</Height>
                               <Width>7.10333in</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
