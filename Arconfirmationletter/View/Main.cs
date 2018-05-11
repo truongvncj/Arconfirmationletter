@@ -432,7 +432,7 @@ namespace arconfirmationletter.View
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER DATA", 100, DateTime.Today, DateTime.Today);
-            //     viewtbl.Show();
+             viewtbl.Show();
 
         }
 
@@ -1010,7 +1010,7 @@ namespace arconfirmationletter.View
 
 
             Viewtable viewtbl = new Viewtable(rs, db, "List of product", 100, DateTime.Today, DateTime.Today);
-            //      viewtbl.Show();
+              viewtbl.Show();
 
 
 
@@ -1679,7 +1679,7 @@ namespace arconfirmationletter.View
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rsCust2, dc, "LIST CUSTOMER MAKE REPORTS", 1, DateTime.Today, DateTime.Today);
-            //    viewtbl.Show();
+            viewtbl.Show();
 
 
         }
@@ -2921,7 +2921,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                 Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "LIST BEGIN BALANCE !", 100, DateTime.Today, DateTime.Today);
                 //   viewtbl.Visible = false;
-                // viewtbl.Show();
+               viewtbl.Show();
 
             }
 
