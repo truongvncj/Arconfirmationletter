@@ -124,10 +124,12 @@ namespace arconfirmationletter.View
             if (user.uploadBeginbalance)
             {
                 this.beginingBalanceToolStripMenuItem1.Visible = true;
+                eDITBEGINBALANCEToolStripMenuItem.Visible = true;
             }
             else
             {
                 this.beginingBalanceToolStripMenuItem1.Visible = false;
+                eDITBEGINBALANCEToolStripMenuItem.Visible = false;
             }
 
             // endyearPackdata
@@ -4554,6 +4556,24 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
 
+
+
+
+        }
+
+        private void eDITBEGINBALANCEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //      
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var typeff = typeof(tblFBL5beginbalace);
+
+            VInputchange inputcdata = new VInputchange("", "Begin balance FBL5n", dc, "tblFBL5beginbalace", "tblFBL5beginbalace", typeff, "id", "id");
+            inputcdata.Visible = false;
+            inputcdata.ShowDialog();
 
 
 

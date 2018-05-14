@@ -43,7 +43,6 @@
     <Type Name="tbl_ArletterdetailRpt">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="PostingDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DocNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="InvoiceAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Paymentamount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Adjamount" Type="System.Double" DbType="Float" CanBeNull="true" />
@@ -52,6 +51,7 @@
       <Column Name="amountinloca" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="prt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Hideprint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DocNumber" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_ArletterRpt" Member="tbl_ArletterRpts">

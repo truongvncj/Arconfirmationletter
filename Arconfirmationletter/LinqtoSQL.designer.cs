@@ -1280,8 +1280,6 @@ namespace arconfirmationletter
 		
 		private System.Nullable<System.DateTime> _PostingDate;
 		
-		private string _DocNumber;
-		
 		private System.Nullable<double> _InvoiceAmount;
 		
 		private System.Nullable<double> _Paymentamount;
@@ -1298,6 +1296,8 @@ namespace arconfirmationletter
 		
 		private System.Nullable<bool> _Hideprint;
 		
+		private string _DocNumber;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1306,8 +1306,6 @@ namespace arconfirmationletter
     partial void OnidChanged();
     partial void OnPostingDateChanging(System.Nullable<System.DateTime> value);
     partial void OnPostingDateChanged();
-    partial void OnDocNumberChanging(string value);
-    partial void OnDocNumberChanged();
     partial void OnInvoiceAmountChanging(System.Nullable<double> value);
     partial void OnInvoiceAmountChanged();
     partial void OnPaymentamountChanging(System.Nullable<double> value);
@@ -1324,6 +1322,8 @@ namespace arconfirmationletter
     partial void OnprtChanged();
     partial void OnHideprintChanging(System.Nullable<bool> value);
     partial void OnHideprintChanged();
+    partial void OnDocNumberChanging(string value);
+    partial void OnDocNumberChanged();
     #endregion
 		
 		public tbl_ArletterdetailRpt()
@@ -1367,26 +1367,6 @@ namespace arconfirmationletter
 					this._PostingDate = value;
 					this.SendPropertyChanged("PostingDate");
 					this.OnPostingDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="NVarChar(50)")]
-		public string DocNumber
-		{
-			get
-			{
-				return this._DocNumber;
-			}
-			set
-			{
-				if ((this._DocNumber != value))
-				{
-					this.OnDocNumberChanging(value);
-					this.SendPropertyChanging();
-					this._DocNumber = value;
-					this.SendPropertyChanged("DocNumber");
-					this.OnDocNumberChanged();
 				}
 			}
 		}
@@ -1547,6 +1527,26 @@ namespace arconfirmationletter
 					this._Hideprint = value;
 					this.SendPropertyChanged("Hideprint");
 					this.OnHideprintChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocNumber", DbType="NVarChar(225)")]
+		public string DocNumber
+		{
+			get
+			{
+				return this._DocNumber;
+			}
+			set
+			{
+				if ((this._DocNumber != value))
+				{
+					this.OnDocNumberChanging(value);
+					this.SendPropertyChanging();
+					this._DocNumber = value;
+					this.SendPropertyChanged("DocNumber");
+					this.OnDocNumberChanged();
 				}
 			}
 		}
