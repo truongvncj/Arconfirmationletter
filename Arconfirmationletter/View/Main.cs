@@ -1803,7 +1803,7 @@ namespace arconfirmationletter.View
                     #endregion chon 1 code
                     Viewtable viewtbl = new Viewtable(rs2, dc, "VIEWLIST DATABASE UPLOADED ON SYSYEM FROM-" + fromdate.Day + "/" + fromdate.Month + "/" + fromdate.Year + " -TO- " + todate.Day + "/" + todate.Month + "/" + todate.Year, 100, fromdate, todate); //view loại 5 là có fromdatetodate
 
-                    //   viewtbl.Show();
+                     viewtbl.Show();
 
 
                 }
@@ -1876,7 +1876,7 @@ namespace arconfirmationletter.View
                     #endregion chon 1 code
                     Viewtable viewtbl = new Viewtable(rs2, dc, "VIEWLIST DATABASE UPLOADED ON SYSYEM FROM-" + fromdate.Day + "/" + fromdate.Month + "/" + fromdate.Year + " -TO- " + todate.Day + "/" + todate.Month + "/" + todate.Year, 100, fromdate, todate); //view loại 5 là có fromdatetodate
 
-                    //    viewtbl.Show();
+                   viewtbl.Show();
 
                 }
 
