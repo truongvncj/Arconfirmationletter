@@ -849,6 +849,7 @@ namespace arconfirmationletter.View
 
                 tt1.IsBackground = true;
                 tt1.Start(new datatoExport() { dataGrid1 = dataGridView1 });
+
                 // this.dataGridView1.Columns["Customer_Name"].Width = 240;
 
                 //this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Format = "N0";
@@ -2464,6 +2465,8 @@ namespace arconfirmationletter.View
 
             if (this.viewcode == 7)
             {
+
+
 
                 string colheadertext = this.dataGridView1.Columns[this.dataGridView1.CurrentCell.ColumnIndex].HeaderText;
 
