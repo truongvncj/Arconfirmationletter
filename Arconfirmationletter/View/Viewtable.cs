@@ -851,37 +851,37 @@ namespace arconfirmationletter.View
                 tt1.Start(new datatoExport() { dataGrid1 = dataGridView1 });
                 // this.dataGridView1.Columns["Customer_Name"].Width = 240;
 
-                this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
 
 
-                this.dataGridView1.Columns["codeGroup"].DisplayIndex = 1;
-                this.dataGridView1.Columns["Sorg"].DisplayIndex = 0;
-                //  this.dataGridView1.Columns["Customer_Name"].DisplayIndex = 1;
-                this.dataGridView1.Columns["Account"].DisplayIndex = 2;
-                this.dataGridView1.Columns["Customer_Name"].DisplayIndex = 3;
-                this.dataGridView1.Columns["Document_Number"].DisplayIndex = 4;
-                this.dataGridView1.Columns["Assignment"].DisplayIndex = 5;
-                this.dataGridView1.Columns["Posting_Date"].DisplayIndex = 6;
-                this.dataGridView1.Columns["Invoice_date"].DisplayIndex = 7;
-                this.dataGridView1.Columns["Invoice"].DisplayIndex = 8;
-                this.dataGridView1.Columns["Payment_amount"].DisplayIndex = 9;
-                this.dataGridView1.Columns["Fullgood_amount"].DisplayIndex = 10;
-                this.dataGridView1.Columns["Adj_amount"].DisplayIndex = 11;
-                this.dataGridView1.Columns["Empty_Amount"].DisplayIndex = 12;
-                this.dataGridView1.Columns["Deposit_amount"].DisplayIndex = 13;
-                this.dataGridView1.Columns["FBL5N_amount"].DisplayIndex = 14;
-                this.dataGridView1.Columns["Type"].DisplayIndex = 15;
+                //this.dataGridView1.Columns["codeGroup"].DisplayIndex = 1;
+                //this.dataGridView1.Columns["Sorg"].DisplayIndex = 0;
+                ////  this.dataGridView1.Columns["Customer_Name"].DisplayIndex = 1;
+                //this.dataGridView1.Columns["Account"].DisplayIndex = 2;
+                //this.dataGridView1.Columns["Customer_Name"].DisplayIndex = 3;
+                //this.dataGridView1.Columns["Document_Number"].DisplayIndex = 4;
+                //this.dataGridView1.Columns["Assignment"].DisplayIndex = 5;
+                //this.dataGridView1.Columns["Posting_Date"].DisplayIndex = 6;
+                //this.dataGridView1.Columns["Invoice_date"].DisplayIndex = 7;
+                //this.dataGridView1.Columns["Invoice"].DisplayIndex = 8;
+                //this.dataGridView1.Columns["Payment_amount"].DisplayIndex = 9;
+                //this.dataGridView1.Columns["Fullgood_amount"].DisplayIndex = 10;
+                //this.dataGridView1.Columns["Adj_amount"].DisplayIndex = 11;
+                //this.dataGridView1.Columns["Empty_Amount"].DisplayIndex = 12;
+                //this.dataGridView1.Columns["Deposit_amount"].DisplayIndex = 13;
+                //this.dataGridView1.Columns["FBL5N_amount"].DisplayIndex = 14;
+                //this.dataGridView1.Columns["Type"].DisplayIndex = 15;
 
                 //   }
                 #endregion // show all
@@ -996,36 +996,36 @@ namespace arconfirmationletter.View
                 tt1.Start(new datatoExport() { dataGrid1 = dataGridView1 });
                 //     this.dataGridView1.Columns["Customer_Name"].Width = 240;
 
-                this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Format = "N0";
-                this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-                this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Format = "N0";
+                //this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+                //this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
 
 
-                this.dataGridView1.Columns["codeGroup"].DisplayIndex = 1;
-                this.dataGridView1.Columns["Sorg"].DisplayIndex = 0;
-                this.dataGridView1.Columns["Account"].DisplayIndex = 2;
-                this.dataGridView1.Columns["Customer_Name"].DisplayIndex = 3;
-                this.dataGridView1.Columns["Document_Number"].DisplayIndex = 4;
-                this.dataGridView1.Columns["Assignment"].DisplayIndex = 5;
-                this.dataGridView1.Columns["Posting_Date"].DisplayIndex = 6;
-                this.dataGridView1.Columns["Invoice_date"].DisplayIndex = 7;
-                this.dataGridView1.Columns["Invoice"].DisplayIndex = 8;
-                this.dataGridView1.Columns["Payment_amount"].DisplayIndex = 9;
-                this.dataGridView1.Columns["Fullgood_amount"].DisplayIndex = 10;
-                this.dataGridView1.Columns["Adj_amount"].DisplayIndex = 11;
-                this.dataGridView1.Columns["Empty_Amount"].DisplayIndex = 12;
-                this.dataGridView1.Columns["Deposit_amount"].DisplayIndex = 13;
-                this.dataGridView1.Columns["FBL5N_amount"].DisplayIndex = 14;
-                this.dataGridView1.Columns["Type"].DisplayIndex = 15;
+                //this.dataGridView1.Columns["codeGroup"].DisplayIndex = 1;
+                //this.dataGridView1.Columns["Sorg"].DisplayIndex = 0;
+                //this.dataGridView1.Columns["Account"].DisplayIndex = 2;
+                //this.dataGridView1.Columns["Customer_Name"].DisplayIndex = 3;
+                //this.dataGridView1.Columns["Document_Number"].DisplayIndex = 4;
+                //this.dataGridView1.Columns["Assignment"].DisplayIndex = 5;
+                //this.dataGridView1.Columns["Posting_Date"].DisplayIndex = 6;
+                //this.dataGridView1.Columns["Invoice_date"].DisplayIndex = 7;
+                //this.dataGridView1.Columns["Invoice"].DisplayIndex = 8;
+                //this.dataGridView1.Columns["Payment_amount"].DisplayIndex = 9;
+                //this.dataGridView1.Columns["Fullgood_amount"].DisplayIndex = 10;
+                //this.dataGridView1.Columns["Adj_amount"].DisplayIndex = 11;
+                //this.dataGridView1.Columns["Empty_Amount"].DisplayIndex = 12;
+                //this.dataGridView1.Columns["Deposit_amount"].DisplayIndex = 13;
+                //this.dataGridView1.Columns["FBL5N_amount"].DisplayIndex = 14;
+                //this.dataGridView1.Columns["Type"].DisplayIndex = 15;
 
 
 

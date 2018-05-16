@@ -2012,6 +2012,15 @@ namespace arconfirmationletter.View
 
 
             }
+            else
+            {
+                if (custcode == 0)
+                {
+                    MessageBox.Show("Please choose one code !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+
         }
 
         private void uploadFreeGlassToolStripMenuItem_Click(object sender, EventArgs e)
