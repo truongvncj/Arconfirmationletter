@@ -2690,6 +2690,10 @@ namespace arconfirmationletter.View
                     || colheadertext == "Payment_amount"
                     || colheadertext == "Adj_amount"
                     || colheadertext == "Fullgood_amount"
+                      || colheadertext == "Invoice_Amount"
+
+
+
                     || colheadertext == "Empty_Amount"
                     || colheadertext == "Deposit_amount"
                     || colheadertext == "Binhpmicc02"

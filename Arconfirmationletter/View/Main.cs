@@ -2025,7 +2025,7 @@ namespace arconfirmationletter.View
                               tblFBL5Nnew.Payment_amount,
                               Adj_amount = tblFBL5Nnew.Adjusted_amount,
 
-                              //    tblFBL5Nnewthisperiod.Invoice_Amount,
+                              tblFBL5Nnew.Invoice_Amount,
                               tblFBL5Nnew.Fullgood_amount,
                               tblFBL5Nnew.Empty_Amount,
                               tblFBL5Nnew.Deposit_amount,
