@@ -126,7 +126,7 @@ namespace arconfirmationletter.Control
 
                 //     LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
                 View.VInputchange inputcdata = new View.VInputchange("MASTER DATA CUSTOMER ", "LIST CUST IN VATOUT BUT NOT IN CUST MASTER", db, "tblCustomer", "tblCustomerTmp", typeff, "id", "id");
-                inputcdata.Visible = false;
+             
                 inputcdata.ShowDialog();
                 //   Viewtable viewtbl = new Viewtable(q, dc, "List customer có trong VAT out không có trong master customer data !");
 
@@ -258,7 +258,7 @@ namespace arconfirmationletter.Control
 
                 Viewtable viewtbl = new Viewtable(q8, dc, "List các document có trong fbl5n deposit không có trong tblEDLP  ! Please check !", 1, DateTime.Today, DateTime.Today);
 
-                viewtbl.Visible = false;
+          //      viewtbl.Visible = false;
                 viewtbl.ShowDialog();
                 return false;
             }
@@ -280,6 +280,7 @@ namespace arconfirmationletter.Control
             {
 
                 Viewtable viewtbl = new Viewtable(q, dc, "List các document có trong bảng VAT không có trong bảng FBL5N ! Please check ", 1, DateTime.Today, DateTime.Today);
+                viewtbl.ShowDialog();
                 return false;
             }
 
@@ -317,6 +318,7 @@ namespace arconfirmationletter.Control
                     {
 
                         Viewtable viewtbl = new Viewtable(q11, dc, "Data có các list sau có ngày post thuộc các tháng trước đã post ! Please check ", 1, DateTime.Today, DateTime.Today);
+                        viewtbl.ShowDialog();
                         return false;
                     }
 
@@ -347,7 +349,7 @@ namespace arconfirmationletter.Control
                 //var rs = md.fbl5nsetlect_all();
 
                 Viewtable viewtbl = new Viewtable(q2, dc, "List các document có trong bảng FBL5N không có trong bảng VAT ! Please check ", 1, DateTime.Today, DateTime.Today);
-                viewtbl.Visible = false;
+            
                 viewtbl.ShowDialog();
 
                 return false;
@@ -380,8 +382,8 @@ namespace arconfirmationletter.Control
 
                 Viewtable viewtbl = new Viewtable(q3, dc, "List các document có trong tblEDLP không có trong VAT ! Please check !", 1, DateTime.Today, DateTime.Today);
 
-                viewtbl.Visible = false;
                 viewtbl.ShowDialog();
+
                 return false;
             }
 
@@ -400,7 +402,6 @@ namespace arconfirmationletter.Control
 
 
                 Viewtable viewtbl = new Viewtable(q4, dc, "List các document có trong FBL5n đã update trên server ! Please check !", 1, DateTime.Today, DateTime.Today);
-                viewtbl.Visible = false;
                 viewtbl.ShowDialog();
 
                 return false;
@@ -421,7 +422,6 @@ namespace arconfirmationletter.Control
                 // fbl5n_ctrl md = new fbl5n_ctrl();
                 //var rs = md.fbl5nsetlect_all();
                 Viewtable viewtbl = new Viewtable(q5, dc, "List các document có trong bảng EDLP không có trong bảng FBL5n ! Please check ", 1, DateTime.Today, DateTime.Today);
-                viewtbl.Visible = false;
                 viewtbl.ShowDialog();
 
                 return false;
@@ -460,7 +460,6 @@ namespace arconfirmationletter.Control
             {
 
                 Viewtable viewtbl = new Viewtable(q6, dc, "List các doc có số tiền vỏ lệch giữ EDLP/ FBL5n/ VAT ! Please check ", 1, DateTime.Today, DateTime.Today);
-                viewtbl.Visible = false;
                 viewtbl.ShowDialog();
 
                 return false;
@@ -534,9 +533,9 @@ namespace arconfirmationletter.Control
                 var typeff = typeof(tbl_ProductlistTMP);
 
                 VInputchange inputcdata = new VInputchange("PRODUCTS CODE MASTER DATA ", "LIST CUST NOT IN PRODUCT CODE MASTER DATA", dc, "tbl_Productlist", "tbl_ProductlistTMP", typeff, "id", "id");
-
-                inputcdata.Visible = false;
                 inputcdata.ShowDialog();
+
+
                 return false;
             }
 

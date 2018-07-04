@@ -133,7 +133,7 @@ namespace arconfirmationletter.Model
 
 
                     Viewtable viewtbl = new Viewtable(rs, db, "KHÔNG UPDLOAD ĐƯỢC DO LIST CÁC VAT THIẾU DATA  INVOICE AMOUNT & VAT AMOUNT !",1, DateTime.Today, DateTime.Today);
-                    viewtbl.Visible = false;
+                 
                     viewtbl.ShowDialog();
 
                     db.ExecuteCommand("DELETE FROM tblVat");

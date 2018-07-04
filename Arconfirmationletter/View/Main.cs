@@ -769,7 +769,7 @@ namespace arconfirmationletter.View
                                         if (eror.Count() > 0)
                                         {
                                             Viewtable viewtbl = new Viewtable(eror, dc, "List các doc chưa update được do có lệch giữ data FBL5n Và VAT/Edlp về phần vỏ , please check !", 1, DateTime.Today, DateTime.Today);
-                                            viewtbl.Visible = false;
+                                         
                                             viewtbl.ShowDialog();
 
                                         }
@@ -975,7 +975,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_Productlist);
 
             VInputchange inputcdata = new VInputchange("", "LIST PRODUCT AND EMPTY GROUP", dc, "tbl_Productlist", "tbl_Productlist", typeff, "id", "id");
-            inputcdata.Visible = false;
+         
             inputcdata.ShowDialog();
             //View.Inputchange kq = new View.Inputchange
         }
@@ -1263,7 +1263,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_Remark);
 
             VInputchange inputcdata = new VInputchange("", "LIST REMARK TO UPDATE ", dc, "tbl_Remark", "tbl_Remark", typeff, "id", "id");
-            inputcdata.Visible = false;
+         
             inputcdata.ShowDialog();
 
 
@@ -1285,7 +1285,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_FreGlass);
 
             VInputchange inputcdata = new VInputchange("", "LIST FREE GLASS PROGRAM ", dc, "tbl_FreGlass", "tbl_FreGlass", typeff, "id", "id");
-            inputcdata.Visible = false;
+        
             inputcdata.ShowDialog();
         }
 
@@ -1339,7 +1339,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblCustomer);
 
             VInputchange inputcdata = new VInputchange("", "LIST MASTER DATA CUSTOMER ", dc, "tblCustomer", "tblCustomer", typeff, "id", "id");
-            inputcdata.Visible = false;
+      
             inputcdata.ShowDialog();
         }
 
@@ -1356,7 +1356,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_ArletterRpt);
 
             VInputchange inputcdata = new VInputchange("", "DATA ARLETTER REPORTS- CAREFULLY BEFORE CHANGE IT ! ", dc, "tbl_ArletterRpt", "tbl_ArletterRpt", typeff, "id", "id");
-            inputcdata.Visible = false;
+      
             inputcdata.ShowDialog();
 
         }
@@ -1375,7 +1375,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblFBL5N);
 
             VInputchange inputcdata = new VInputchange("", "FBL5N PREPRAIRE TO UP TO DATA  ", dc, "tblFBL5N", "tblFBL5N", typeff, "Fbl5nID", "Fbl5nID");
-            inputcdata.Visible = false;
+      
             inputcdata.ShowDialog();
 
 
@@ -1398,7 +1398,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblVat);
 
             VInputchange inputcdata = new VInputchange("", "VAT PREPRAIRE TO UP TO DATA  ", dc, "tblVat", "tblVat", typeff, "id", "id");
-            inputcdata.Visible = false;
+         
             inputcdata.ShowDialog();
 
         }
@@ -1418,7 +1418,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblEDLP);
 
             VInputchange inputcdata = new VInputchange("", "EDLP PREPRAIRE TO UP TO DATA  ", dc, "tblEDLP", "tblEDLP", typeff, "id", "id");
-            inputcdata.Visible = false;
+      
             inputcdata.ShowDialog();
         }
 
@@ -1453,7 +1453,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblFBL5beginbalace);
 
             VInputchange inputcdata = new VInputchange("", "BEGINNING BALANCE ARCONFIRMATION LETTER", dc, "tblFBL5beginbalace", "tblFBL5beginbalace", typeff, "id", "id");
-            inputcdata.Visible = false;
+        
             inputcdata.ShowDialog();
 
         }
@@ -1473,7 +1473,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_CustomerGroup);
 
             VInputchange inputcdata = new VInputchange("", "LIST CUSTOMER GROUP  ", dc, "tbl_CustomerGroup", "tbl_CustomerGroup", typeff, "id", "id");
-            inputcdata.Visible = false;
+          
             inputcdata.ShowDialog();
 
 
@@ -1939,7 +1939,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_ArletterdetailRpt);
 
             VInputchange inputcdata = new VInputchange("", "DATA Arletter DetailRpt REPORTS- CAREFULLY BEFORE CHANGE IT ! ", dc, "tbl_ArletterdetailRpt", "tbl_ArletterdetailRpt", typeff, "id", "id");
-            inputcdata.Visible = false;
+         
             inputcdata.ShowDialog();
 
         }
@@ -1959,7 +1959,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_ColdetailRpt);
 
             VInputchange inputcdata = new VInputchange("", "DATA Arletter Col Detail Reports- CAREFULLY BEFORE CHANGE IT ! ", dc, "tbl_ColdetailRpt", "tbl_ColdetailRpt", typeff, "id", "id");
-            inputcdata.Visible = false;
+          
             inputcdata.ShowDialog();
         }
 
@@ -2252,7 +2252,7 @@ namespace arconfirmationletter.View
 
 
                         Viewtable viewtbl = new Viewtable(q, db, "Data không close được do có List các document sau đã update lên rồi !", 1, DateTime.Today, DateTime.Today);
-                        viewtbl.Visible = false;
+                  
                         viewtbl.ShowDialog();
                     }
                     if (q.Count() == 0)
@@ -3627,7 +3627,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             var typeff = typeof(tbl_unuserCustomer);
 
             VInputchange inputcdata = new VInputchange("", "CUSTOMER UNSEND LIST", dc, "tbl_unuserCustomer", "tbl_unuserCustomer", typeff, "id", "id");
-            inputcdata.Visible = false;
+         
             inputcdata.ShowDialog();
 
         }
@@ -3854,7 +3854,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
                         Viewtable viewtbl = new Viewtable(q, db, "Data không close được do có List các document sau đã update lên rồi !", 1, DateTime.Today, DateTime.Today);
-                        viewtbl.Visible = false;
+                      
                         viewtbl.ShowDialog();
                     }
                     if (q.Count() == 0)
@@ -4633,7 +4633,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             var typeff = typeof(tblFBL5beginbalace);
 
             VInputchange inputcdata = new VInputchange("", "Begin balance FBL5n", dc, "tblFBL5beginbalace", "tblFBL5beginbalace", typeff, "id", "id");
-            inputcdata.Visible = false;
+        
             inputcdata.ShowDialog();
 
 
