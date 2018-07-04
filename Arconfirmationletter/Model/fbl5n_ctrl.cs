@@ -96,7 +96,13 @@ namespace arconfirmationletter.Model
             int BusinessAreaid = -1;
             int Amountinlocalcurrencyid = -1;
 
-            for (int rowid = 0; rowid < 20; rowid++)
+            int rowseet = sourceData.Rows.Count;
+            if (rowseet >20)
+            {
+                rowseet = 20;
+            }
+
+            for (int rowid = 0; rowid < rowseet; rowid++)
             {
                 // headindex = 1;
                 for (int columid = 0; columid < sourceData.Columns.Count; columid++)

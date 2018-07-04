@@ -211,9 +211,13 @@ namespace arconfirmationletter.Model
             //     int CustomerNumber = -1;
 
 
+            int rowseet = sourceData.Rows.Count;
+            if (rowseet >5 )
+            {
+                rowseet = 5;
+            }
 
-
-            for (int rowid = 0; rowid < 5; rowid++)
+            for (int rowid = 0; rowid < rowseet; rowid++)
             {
                 // headindex = 1;
                 for (int columid = 0; columid < sourceData.Columns.Count; columid++)
