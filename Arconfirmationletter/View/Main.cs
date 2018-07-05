@@ -1680,7 +1680,7 @@ namespace arconfirmationletter.View
                           select tblCustomer;
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Viewtable viewtbl = new Viewtable(rsCust2, dc, "LIST CUSTOMER MAKE REPORTS", 1, DateTime.Today, DateTime.Today);
+            Viewtable viewtbl = new Viewtable(rsCust2, dc, "LIST CUSTOMER MAKE REPORTS", 101, DateTime.Today, DateTime.Today);
             viewtbl.Show();
 
 

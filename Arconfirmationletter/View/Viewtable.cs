@@ -752,7 +752,7 @@ namespace arconfirmationletter.View
             lb_seach.Visible = false;
 
 
-            if (viewcode == 1)//fornname == "LIST CUSTOMER MAKE REPORTS")
+            if (viewcode == 101)//fornname == "LIST CUSTOMER MAKE REPORTS")
             {
 
                 this.bt_listunsend.Visible = true;
@@ -760,10 +760,15 @@ namespace arconfirmationletter.View
 
                 this.bt_sendinggroup.Visible = true;
 
-                //  btSendlistUpdate
 
+            }
+            else
+            {
 
+                this.bt_listunsend.Visible = false;
+                this.btSendlistUpdate.Visible = false;
 
+                this.bt_sendinggroup.Visible = false;
 
             }
 
