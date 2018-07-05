@@ -392,10 +392,16 @@ namespace arconfirmationletter.Control
 
             #region q4 List các document có trong FBL5n đã update data
 
-            var q4 = from tblFBL5N in dc.tblFBL5Ns
-                     from tblFBL5Nnew in dc.tblFBL5Nnews
-                     where (tblFBL5N.Document_Number == tblFBL5Nnew.Document_Number) && (tblFBL5N.Account == tblFBL5Nnew.Account.ToString())
-                     select tblFBL5N;
+            //var q4 = from tblFBL5N in dc.tblFBL5Ns
+            //         from tblFBL5Nnew in dc.tblFBL5Nnews
+            //         where (tblFBL5N.Document_Number == tblFBL5Nnew.Document_Number) && (tblFBL5N.Account == tblFBL5Nnew.Account.ToString())
+            //         select tblFBL5N;
+
+            var q4 = from tblFBL5N in dc.tblFBL5Nnewthisperiods
+                    from tblFBL5Nnew in dc.tblFBL5Nnews
+                    where (tblFBL5N.Document_Number == tblFBL5Nnew.Document_Number) && (from tblFBL5Nnew in dc.tblFBL5Nnews
+                                                                                                     select tblFBL5Nnew.Account).Contains(tblFBL5N.Account)
+                    select tblFBL5N;
 
             if (q4.Count() != 0)
             {

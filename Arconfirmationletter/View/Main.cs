@@ -3840,11 +3840,18 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                     db.CommandTimeout = 0;
 
+
                     var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
-                            where (from tblFBL5Nnew in db.tblFBL5Nnews
-                                   select tblFBL5Nnew.Document_Number).Contains(tblFBL5Nnewthisperiod.Document_Number)
-                            //Tương đương từ khóa NOT IN trong SQL
-                            select tblFBL5Nnewthisperiod;
+                             from tblFBL5Nnew in db.tblFBL5Nnews
+                             where (tblFBL5Nnewthisperiod.Document_Number == tblFBL5Nnew.Document_Number) && (from tblFBL5Nnew in db.tblFBL5Nnews
+                                                                                                              select tblFBL5Nnew.Account).Contains(tblFBL5Nnewthisperiod.Account)
+                             select tblFBL5Nnewthisperiod;
+
+                    //var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
+                    //        where (from tblFBL5Nnew in db.tblFBL5Nnews
+                    //               select tblFBL5Nnew.Document_Number).Contains(tblFBL5Nnewthisperiod.Document_Number)
+                    //        //Tương đương từ khóa NOT IN trong SQL
+                    //        select tblFBL5Nnewthisperiod;
 
 
 
