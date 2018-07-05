@@ -24,7 +24,7 @@ namespace arconfirmationletter.View
         public bool chon { get; set; }
         public double custcode { get; set; }
 
-   
+
         private void button1_Click(object sender, EventArgs e)
         {
             custcode = -1;
@@ -32,22 +32,23 @@ namespace arconfirmationletter.View
             tungay = fromdatePicker.Value;
             denngay = TodateTimePicker.Value;
 
-            if (Utils.IsValidnumber(txtcode.Text) )
+            if (Utils.IsValidnumber(txtcode.Text))
             {
                 custcode = double.Parse(txtcode.Text);
             }
-            if (txtcode.Text == "")
+            else
             {
                 custcode = 0;
             }
+
             if (custcode == -1)
             {
-                MessageBox.Show("Please recheck the customer code !","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please recheck the customer code !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
 
-       
+
 
             if (tungay <= denngay && custcode != -1)
             {
@@ -75,9 +76,9 @@ namespace arconfirmationletter.View
 
         private void txtcode_Leave(object sender, EventArgs e)
         {
-            if (!Utils.IsValidnumber(txtcode.Text) && txtcode.Text != "")
+            if (!Utils.IsValidnumber(txtcode.Text) )
             {
-              //  MessageBox.Show("Code khác hàng phải là số !");
+                //  MessageBox.Show("Code khác hàng phải là số !");
                 MessageBox.Show("Code khác hàng phải là số !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 txtcode.Text = "";
