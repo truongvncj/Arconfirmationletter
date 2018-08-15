@@ -57,7 +57,22 @@ namespace arconfirmationletter.Model
             #endregion
         }
 
+        public void deletelistcustomer()
+        {
 
+            #region // xóa data bảng tblCustomer
+            string connection_string = Utils.getConnectionstr();
+            var db = new LinqtoSQLDataContext(connection_string);
+
+            db.ExecuteCommand("DELETE FROM tblCustomer");
+            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+            db.SubmitChanges();
+
+
+
+            //  return true;
+            #endregion
+        }
 
 
         public bool customerdeleted()
@@ -86,12 +101,12 @@ namespace arconfirmationletter.Model
         }
         private void importsexcel2(object obj)
         {
-            string connection_string = Utils.getConnectionstr();
-            var db = new LinqtoSQLDataContext(connection_string);
+            //string connection_string = Utils.getConnectionstr();
+            //var db = new LinqtoSQLDataContext(connection_string);
 
-            db.ExecuteCommand("DELETE FROM tblCustomer");
-            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
-            db.SubmitChanges();
+            //db.ExecuteCommand("DELETE FROM tblCustomer");
+            ////    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+            //db.SubmitChanges();
 
 
             datainportF inf = (datainportF)obj;
@@ -1022,6 +1037,7 @@ namespace arconfirmationletter.Model
 
         }
 
+     
         public void customerinputunsendlist()
         {
 

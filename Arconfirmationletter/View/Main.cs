@@ -922,7 +922,7 @@ namespace arconfirmationletter.View
                     // this.uploadCustomerToolStripMenuItem.Enabled = false;
 
                     // this.reportsToolStripMenuItem.Enabled = false;
-
+                    md.deletelistcustomer();
 
                     md.customerinput();
 
@@ -942,7 +942,12 @@ namespace arconfirmationletter.View
                 case DialogResult.OK:
                     break;
                 case DialogResult.No:
+                    //  
+
+
+                    md.customerinput();
                     break;
+
                 default:
                     break;
             }
