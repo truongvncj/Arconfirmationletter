@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>7.48835in</Width>
+              <Width>7.43138in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -307,29 +307,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>(Xin quý khách vui lòng tham khảo bảng kê chi tiết công nợ tiền nước đính kèm thư, </Value>
-                                      <Style>
-                                        <FontFamily>Times New Roman</FontFamily>
-                                      </Style>
-                                    </TextRun>
-                                    <TextRun>
-                                      <Value>hiện </Value>
-                                      <Style>
-                                        <FontFamily>times New Roman</FontFamily>
-                                      </Style>
-                                    </TextRun>
-                                    <TextRun>
-                                      <Value>nay công ty chúng tôi đang tiến hành đối chiếu vỏ chai/pallet nên tạm thời ngừng xác nhận số vỏ chai/ pallet. Sau khi hoàn tất việc đối chiếu, chúng tôi sẽ gửi thông tin chính xác đến quý khách hàng </Value>
-                                      <Style>
-                                        <FontStyle>Normal</FontStyle>
-                                        <FontFamily>times New Roman</FontFamily>
-                                        <FontWeight>Normal</FontWeight>
-                                        <TextDecoration>None</TextDecoration>
-                                        <Color>#000000</Color>
-                                      </Style>
-                                    </TextRun>
-                                    <TextRun>
-                                      <Value>)</Value>
+                                      <Value />
                                       <Style>
                                         <FontFamily>Times New Roman</FontFamily>
                                       </Style>
@@ -339,8 +317,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.33472in</Top>
-                              <Height>0.56388in</Height>
+                              <Top>0.79722in</Top>
+                              <Left>0.0775in</Left>
+                              <Height>0.07082in</Height>
                               <Width>7.10333in</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
@@ -357,7 +336,7 @@
                           <KeepTogether>true</KeepTogether>
                           <Top>1.10277in</Top>
                           <Left>0.12499in</Left>
-                          <Height>1.03264in</Height>
+                          <Height>1.00346in</Height>
                           <Width>7.23083in</Width>
                           <Style>
                             <Border>
@@ -1309,10 +1288,10 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
-                          <Top>3.50277in</Top>
-                          <Left>0.1in</Left>
-                          <Height>2.46833in</Height>
-                          <Width>7.33138in</Width>
+                          <Top>3.39027in</Top>
+                          <Left>0.075in</Left>
+                          <Height>2.41417in</Height>
+                          <Width>7.26958in</Width>
                           <ZIndex>18</ZIndex>
                           <Style>
                             <Border>
@@ -1434,9 +1413,9 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>2.10276in</Top>
-                          <Left>0.13624in</Left>
-                          <Height>1.38473in</Height>
+                          <Top>2.17568in</Top>
+                          <Left>0.125in</Left>
+                          <Height>1.10348in</Height>
                           <Width>7.21958in</Width>
                           <ZIndex>20</ZIndex>
                           <Style>
@@ -1546,9 +1525,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0in</Top>
         <Height>9.84582in</Height>
-        <Width>7.48835in</Width>
+        <Width>7.43138in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1559,7 +1537,7 @@
     <Height>9.84582in</Height>
     <Style />
   </Body>
-  <Width>7.48835in</Width>
+  <Width>7.43138in</Width>
   <Page>
     <PageHeader>
       <Height>0.88598in</Height>
