@@ -481,17 +481,31 @@ namespace arconfirmationletter.Model
             int Customerid = -1;
             int Organizationid = -1;
             int Nameid = -1;
-
+            //   int headindex = 0;
 
 
 
             for (int rowid = 0; rowid < 5; rowid++)
             {
-                // headindex = 1;
+
                 for (int columid = 0; columid < sourceData.Columns.Count; columid++)
                 {
                     #region
-                    string value = sourceData.Rows[rowid][columid].ToString();
+                    string value = "";
+
+
+                    try
+                    {
+                        value = sourceData.Rows[rowid][columid].ToString();
+                    }
+                    catch (Exception)
+                    {
+
+                        value = "";
+                    }
+
+
+
 
 
                     if (value != null && value != "")
@@ -501,14 +515,14 @@ namespace arconfirmationletter.Model
                         if (value.Trim() == ("Customer") && Customerid == -1)
                         {
                             Customerid = columid;
-                            //  headindex = rowid;
+                            //         headindex = 1;
                         }
 
                         if (value.Trim() == ("Sorg") && Organizationid == -1)
                         {
 
                             Organizationid = columid;
-                            //    headindex = 0;
+                            //       headindex = 1;
 
                         }
 
@@ -518,7 +532,7 @@ namespace arconfirmationletter.Model
                         {
 
                             Nameid = columid;
-                            //    headindex = 0;
+                            //      headindex = 1;
 
                         }
 
@@ -1037,7 +1051,7 @@ namespace arconfirmationletter.Model
 
         }
 
-     
+
         public void customerinputunsendlist()
         {
 
