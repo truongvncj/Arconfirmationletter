@@ -1623,8 +1623,8 @@ namespace arconfirmationletter.Model
                         DataRow dr = batable.NewRow();
 
 
-                        try
-                        {
+                        //try
+                        //{
 
 
                             dr["Account"] = double.Parse(sourceData.Rows[rowixd][Accountid].ToString());
@@ -1772,12 +1772,12 @@ namespace arconfirmationletter.Model
 
 
 
-                        }
-                        catch (Exception ex)
-                        {
+                     //   }
+                        //catch (Exception ex)
+                        //{
 
-                            MessageBox.Show("Data có đủ cột nhưng lõi,please check" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        //    MessageBox.Show("Data có đủ cột nhưng lõi,please check" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //}
 
 
                         batable.Rows.Add(dr);
