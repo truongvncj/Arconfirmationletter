@@ -1295,7 +1295,31 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Giá đặt cược của một két vỏ chai (gồm 24 chai và một két nhựa) là 38.000 đồng, của một pallet gỗ là 400.000 đồng và của một vỏ bình CO2 là 500.000 đồng. Số tiền đặt cược trên đã bao gồm tiền tạm tính cho số vỏ chai miễn phí tính tới thời điểm nên trên là :  </Value>
+                                  <Value>Giá đặt cược của một két vỏ chai (gồm 24 chai và một két nhựa) là 38.000 đồng, của một pallet gỗ là 400.000 đồng và của một vỏ bình CO2 là 500.000 đồng. </Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>Tổng số vỏ nợ trên đã bao gồm vỏ chai miễn phí 3 năm, vỏ chai miễn phí 3% tính tới thời điểm này tổng số vỏ chai miễn phí là :  (tổng số lượng vỏ miễn phí</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value xml:space="preserve"> </Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>:  </Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
