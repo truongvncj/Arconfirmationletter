@@ -1334,7 +1334,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>   VNĐ và sẽ không được dùng để cấn trừ tiền đặt cược cho lô hàng sắp tới.</Value>
+                                  <Value>   và sẽ không được dùng để cấn trừ tiền đặt cược cho lô hàng sắp tới.</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
