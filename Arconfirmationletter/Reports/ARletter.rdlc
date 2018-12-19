@@ -1302,7 +1302,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>Tổng số vỏ nợ trên đã bao gồm vỏ chai miễn phí 3 năm, vỏ chai miễn phí 3% tính tới thời điểm này tổng số vỏ chai miễn phí là :  (tổng số lượng vỏ miễn phí</Value>
+                                  <Value>Tổng số vỏ nợ trên đã bao gồm vỏ chai miễn phí 3 năm, vỏ chai miễn phí 3% tính tới thời điểm này tổng số vỏ chai miễn phí là : </Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -1311,15 +1311,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value xml:space="preserve"> </Value>
-                                  <Style>
-                                    <FontStyle>Italic</FontStyle>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontWeight>Normal</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>:  </Value>
+                                  <Value xml:space="preserve">  </Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -1334,7 +1326,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>   và sẽ không được dùng để cấn trừ tiền đặt cược cho lô hàng sắp tới.</Value>
+                                  <Value>   két và sẽ không được dùng để cấn trừ tiền đặt cược cho lô hàng sắp tới.</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
