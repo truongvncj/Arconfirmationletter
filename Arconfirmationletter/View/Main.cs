@@ -4596,13 +4596,16 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                           {
                               Account = h.Key,
 
-                              Amount_in_local_currency = h.Sum(m => m.Amount_in_local_currency),
+                       //     Amount_in_local_currency = h.Sum(m => m.Amount_in_local_currency),
                               Payment_amount = h.Sum(m => m.Payment_amount),
                               Adjusted_amount = h.Sum(m => m.Adjusted_amount),
                               Fullgood_amount = h.Sum(m => m.Fullgood_amount),
                               Invoice_Amount = h.Sum(m => m.Invoice_Amount),
 
                               Deposit_amount = h.Sum(m => m.Deposit_amount),
+                              Amount_in_local_currency = h.Sum(m => m.Payment_amount) + h.Sum(m => m.Adjusted_amount) + h.Sum(m => m.Fullgood_amount) +  h.Sum(m => m.Deposit_amount),
+
+
 
                               Ketvothuong = h.Sum(m => m.Ketvothuong),
                               paletnhua = h.Sum(m => m.paletnhua),
