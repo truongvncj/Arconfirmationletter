@@ -271,7 +271,7 @@ namespace arconfirmationletter.Control
             var q = from tblVat in dc.tblVats
                     where !(from tblFBL5N in dc.tblFBL5Ns
                             select tblFBL5N.Document_Number).Contains(tblVat.SAP_Invoice_Number)
-                    //Tương đương từ khóa NOT IN trong SQL
+                    && tblVat.Invoice_Amount_Before_VAT >0
                     select tblVat;
 
 
@@ -414,6 +414,52 @@ namespace arconfirmationletter.Control
                 return false;
             }
             #endregion List các document có trong FBL5n đã update data
+
+
+            #region update bảng có chương trình khuyến mại từ VAT mà không có trong fbl5n ngược vào bản fbl5n
+            //---
+            var qupdatelaij = from tblVat in dc.tblVats
+                    where !(from tblFBL5N in dc.tblFBL5Ns
+                            select tblFBL5N.Document_Number).Contains(tblVat.SAP_Invoice_Number)
+                    && tblVat.Invoice_Amount_Before_VAT == 0
+                    select tblVat;
+
+
+
+            if (qupdatelaij.Count() != 0)
+            {
+
+
+                foreach (var item in qupdatelaij)
+                {
+
+                    tblFBL5N newvalue = new tblFBL5N();
+                    newvalue.Account = item.Customer_Number.ToString();
+                    newvalue.Amount_in_local_currency = 0;
+
+                    newvalue.Assignment = item.SAP_Delivery_Number.ToString();
+                    newvalue.Document_Number = item.SAP_Invoice_Number;
+                    newvalue.Document_Type = "RV";
+                    newvalue.Posting_Date = item.Pro_Forma_Date;
+                    newvalue.Deposit = 0;
+                    newvalue.Business_Area = item.Region;
+                
+
+
+                    dc.tblFBL5Ns.InsertOnSubmit(newvalue);
+                    dc.SubmitChanges();
+
+
+
+
+                }
+
+            }
+
+            #endregion q "List các document có trong bảng VAT không có trong bảng FBL5N !
+
+
+
 
 
             #region  q5 List các document có trong bảng EDLP không có trong bảng FBL5n 
