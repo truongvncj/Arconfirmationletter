@@ -140,7 +140,7 @@ namespace arconfirmationletter.Model
                         }
 
 
-                        if (value.Trim() == ("Pstng Date"))
+                        if (value.Trim() == ("Posting Date"))
                         {
 
                             PostingDateid = columid;
@@ -161,12 +161,12 @@ namespace arconfirmationletter.Model
                         }
 
 
-                        if (value.Trim() == ("Typ"))
+                        if (value.Trim() == ("Document Type"))
                         {
                             DocumentTypeid = columid;
 
                         }
-                        if (value.Trim() == ("DocumentNo"))
+                        if (value.Trim() == ("Document Number"))
                         {
                             DocumentNumberid = columid;
 
@@ -174,12 +174,12 @@ namespace arconfirmationletter.Model
 
 
 
-                        if (value.Trim() == ("Amt in loc.cur."))
+                        if (value.Trim() == ("Amount in local currency"))
                         {
                             Amountinlocalcurrencyid = columid;
 
                         }
-                        if (value.Trim() == ("BusA"))
+                        if (value.Trim() == ("Business Area"))
                         {
                             BusinessAreaid = columid;
 
