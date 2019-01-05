@@ -37,6 +37,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
+                              <Top>0.03333in</Top>
                               <Left>0.01168in</Left>
                               <Height>0.25in</Height>
                               <Width>1.625in</Width>
@@ -68,10 +69,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.39584in</Top>
+                              <Top>1.30417in</Top>
                               <Left>0.06475in</Left>
                               <Height>0.21527in</Height>
-                              <Width>1.54416in</Width>
+                              <Width>1.45818in</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -101,7 +102,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.37917in</Top>
+                              <Top>1.2875in</Top>
                               <Left>3.6414in</Left>
                               <Height>0.26042in</Height>
                               <Width>0.52708in</Width>
@@ -135,8 +136,8 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>1.375in</Top>
-                              <Left>1.67835in</Left>
+                              <Top>1.28333in</Top>
+                              <Left>1.69918in</Left>
                               <Height>0.26042in</Height>
                               <Width>1.88985in</Width>
                               <ZIndex>3</ZIndex>
@@ -169,7 +170,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.29444in</Top>
+                              <Top>0.31527in</Top>
                               <Left>1.67835in</Left>
                               <Height>0.21251in</Height>
                               <Width>5.51416in</Width>
@@ -202,7 +203,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.27639in</Top>
+                              <Top>0.29722in</Top>
                               <Left>0.02349in</Left>
                               <Height>0.19723in</Height>
                               <Width>1.20874in</Width>
@@ -238,7 +239,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.01944in</Top>
+                              <Top>0.05277in</Top>
                               <Left>1.67835in</Left>
                               <Height>0.24445in</Height>
                               <Width>1.92138in</Width>
@@ -271,7 +272,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.0375in</Top>
+                              <Top>0.07083in</Top>
                               <Left>3.6414in</Left>
                               <Height>0.20764in</Height>
                               <Width>0.55861in</Width>
@@ -306,7 +307,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.5514in</Top>
+                              <Top>0.54723in</Top>
                               <Left>1.68698in</Left>
                               <Height>0.19723in</Height>
                               <Width>1.91275in</Width>
@@ -328,10 +329,11 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!StringAmountEmpty.Value</Value>
+                                      <Value>=Fields!free3yearvo.Value</Value>
                                       <Style>
                                         <FontFamily>Times New Roman</FontFamily>
                                         <FontWeight>Normal</FontWeight>
+                                        <Format>#,0;(#,0)</Format>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -340,7 +342,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.53612in</Top>
+                              <Top>0.54445in</Top>
                               <Left>3.85649in</Left>
                               <Height>0.21251in</Height>
                               <Width>1.76416in</Width>
@@ -362,10 +364,11 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!StringAmountEmpty.Value</Value>
+                                      <Value>=Fields!free3phantramvo.Value</Value>
                                       <Style>
                                         <FontFamily>Times New Roman</FontFamily>
                                         <FontWeight>Normal</FontWeight>
+                                        <Format>#,0;(#,0)</Format>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -374,8 +377,8 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.79307in</Top>
-                              <Left>3.85649in</Left>
+                              <Top>0.76252in</Top>
+                              <Left>3.8367in</Left>
                               <Height>0.21251in</Height>
                               <Width>1.76416in</Width>
                               <ZIndex>10</ZIndex>
@@ -409,7 +412,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.80835in</Top>
+                              <Top>0.79168in</Top>
                               <Left>1.68698in</Left>
                               <Height>0.19723in</Height>
                               <Width>1.91275in</Width>
@@ -443,7 +446,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.5514in</Top>
+                              <Top>0.55973in</Top>
                               <Left>0.31419in</Left>
                               <Height>0.19723in</Height>
                               <Width>0.91804in</Width>
@@ -476,9 +479,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.09031in</Top>
+                              <Top>1.01114in</Top>
                               <Left>0.06475in</Left>
-                              <Height>0.19723in</Height>
+                              <Height>0.23609in</Height>
                               <Width>1.20874in</Width>
                               <ZIndex>13</ZIndex>
                               <Style>
@@ -498,7 +501,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!StringAmountEmpty.Value</Value>
+                                      <Value>=Fields!StringbalaceEmpty.Value</Value>
                                       <Style>
                                         <FontFamily>Times New Roman</FontFamily>
                                         <FontWeight>Normal</FontWeight>
@@ -510,7 +513,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>1.07503in</Top>
+                              <Top>1.02086in</Top>
                               <Left>1.65486in</Left>
                               <Height>0.21251in</Height>
                               <Width>5.51416in</Width>
@@ -527,9 +530,9 @@
                             </Textbox>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
-                          <Top>1.10277in</Top>
+                          <Top>0.95694in</Top>
                           <Left>0.11331in</Left>
-                          <Height>1.67709in</Height>
+                          <Height>1.54792in</Height>
                           <Width>7.24251in</Width>
                           <Style>
                             <Border>
@@ -1481,9 +1484,9 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
-                          <Top>3.39027in</Top>
+                          <Top>3.68194in</Top>
                           <Left>0.075in</Left>
-                          <Height>2.41417in</Height>
+                          <Height>2.20765in</Height>
                           <Width>7.26958in</Width>
                           <ZIndex>18</ZIndex>
                           <Style>
@@ -1541,37 +1544,6 @@
                                     <FontFamily>Times New Roman</FontFamily>
                                   </Style>
                                 </TextRun>
-                                <TextRun>
-                                  <Value>Tổng số vỏ nợ trên đã bao gồm vỏ chai miễn phí 3 năm, vỏ chai miễn phí 3% tính tới thời điểm này tổng số vỏ chai miễn phí là : </Value>
-                                  <Style>
-                                    <FontStyle>Italic</FontStyle>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontWeight>Normal</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value xml:space="preserve">  </Value>
-                                  <Style>
-                                    <FontStyle>Italic</FontStyle>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>=Fields!sumoffreeclass.Value</Value>
-                                  <Style>
-                                    <FontStyle>Italic</FontStyle>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <Format>#,0;(#,0)</Format>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>   két và sẽ không được dùng để cấn trừ tiền đặt cược cho lô hàng sắp tới.</Value>
-                                  <Style>
-                                    <FontStyle>Italic</FontStyle>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
                               </TextRuns>
                               <Style>
                                 <TextAlign>Left</TextAlign>
@@ -1622,9 +1594,9 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>2.83193in</Top>
+                          <Top>2.5743in</Top>
                           <Left>0.125in</Left>
-                          <Height>0.44723in</Height>
+                          <Height>1.09374in</Height>
                           <Width>7.21958in</Width>
                           <ZIndex>20</ZIndex>
                           <Style>
@@ -1656,7 +1628,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>, Quý khách hàng còn nợ Công ty TNHH Nước Giải Khát Coca-Cola Việt Nam số tiền nước và tiền vỏ như sau:</Value>
+                                  <Value>, Quý khách hàng còn nợ Công ty TNHH NGK Coca-Cola Việt Nam số tiền nước và vỏ như sau:</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -1671,7 +1643,7 @@
                           <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Top>0.71944in</Top>
                           <Left>0.13624in</Left>
-                          <Height>0.39375in</Height>
+                          <Height>0.20972in</Height>
                           <Width>7.21958in</Width>
                           <ZIndex>21</ZIndex>
                           <Style>
@@ -1913,36 +1885,6 @@
         <DataSourceName>DataSet1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
-      <Fields>
-        <Field Name="contactperson">
-          <DataField>contactperson</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nameofbarnch">
-          <DataField>nameofbarnch</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="phonecontact">
-          <DataField>phonecontact</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="possition">
-          <DataField>possition</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="signoffby">
-          <DataField>signoffby</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="addressofbarnch">
-          <DataField>addressofbarnch</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="imagesign">
-          <DataField>imagesign</DataField>
-          <rd:TypeName>System.Object</rd:TypeName>
-        </Field>
-      </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
         <rd:SchemaPath>E:\Desktop\Developing product\ARdevelop\arconfirmationletter\Reports\dsCallogs.xsd</rd:SchemaPath>
@@ -2014,10 +1956,22 @@
           <DataField>returndate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="free3yearvo">
+          <DataField>free3yearvo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="free3phantramvo">
+          <DataField>free3phantramvo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StringbalaceEmpty">
+          <DataField>StringbalaceEmpty</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\TRUONG\Desktop\Developing product\ARdevelop\arconfirmationletter\Reports\dsCallogs.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\GitHub\Arconfirmationletter\arconfirmationletter\Reports\dsCallogs.xsd</rd:SchemaPath>
         <rd:TableName>Rpt_Arletter</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

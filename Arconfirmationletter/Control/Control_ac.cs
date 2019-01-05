@@ -3067,7 +3067,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region  updateCustgoupinListcustmakeRptVN ra TREN SQL dang viet 
+            #region  updateCustgoupinListcustmakeRptVN ra TREN SQL 
             SqlConnection conn2 = null;
             SqlDataReader rdr1 = null;
 

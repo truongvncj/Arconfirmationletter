@@ -7946,6 +7946,12 @@ namespace arconfirmationletter.Reports {
             
             private global::System.Data.DataColumn columnreturndate;
             
+            private global::System.Data.DataColumn columnfree3yearvo;
+            
+            private global::System.Data.DataColumn columnfree3phantramvo;
+            
+            private global::System.Data.DataColumn columnStringbalaceEmpty;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Rpt_ArletterDataTable() {
@@ -8093,6 +8099,30 @@ namespace arconfirmationletter.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn free3yearvoColumn {
+                get {
+                    return this.columnfree3yearvo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn free3phantramvoColumn {
+                get {
+                    return this.columnfree3phantramvo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StringbalaceEmptyColumn {
+                get {
+                    return this.columnStringbalaceEmpty;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8128,7 +8158,24 @@ namespace arconfirmationletter.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Rpt_ArletterRow AddRpt_ArletterRow(double custcodegRoup, string customername, string address, string phone, double code, string region, double sumAmountfull, double sumEmptydeposit, double StringAmountEmpty, double sumoffreeclass, System.DateTime fromdate, System.DateTime toDate, string No, System.DateTime returndate) {
+            public Rpt_ArletterRow AddRpt_ArletterRow(
+                        double custcodegRoup, 
+                        string customername, 
+                        string address, 
+                        string phone, 
+                        double code, 
+                        string region, 
+                        double sumAmountfull, 
+                        double sumEmptydeposit, 
+                        double StringAmountEmpty, 
+                        double sumoffreeclass, 
+                        System.DateTime fromdate, 
+                        System.DateTime toDate, 
+                        string No, 
+                        System.DateTime returndate, 
+                        string free3yearvo, 
+                        string free3phantramvo, 
+                        string StringbalaceEmpty) {
                 Rpt_ArletterRow rowRpt_ArletterRow = ((Rpt_ArletterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         custcodegRoup,
@@ -8144,7 +8191,10 @@ namespace arconfirmationletter.Reports {
                         fromdate,
                         toDate,
                         No,
-                        returndate};
+                        returndate,
+                        free3yearvo,
+                        free3phantramvo,
+                        StringbalaceEmpty};
                 rowRpt_ArletterRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRpt_ArletterRow);
                 return rowRpt_ArletterRow;
@@ -8181,6 +8231,9 @@ namespace arconfirmationletter.Reports {
                 this.columntoDate = base.Columns["toDate"];
                 this.columnNo = base.Columns["No"];
                 this.columnreturndate = base.Columns["returndate"];
+                this.columnfree3yearvo = base.Columns["free3yearvo"];
+                this.columnfree3phantramvo = base.Columns["free3phantramvo"];
+                this.columnStringbalaceEmpty = base.Columns["StringbalaceEmpty"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8214,6 +8267,12 @@ namespace arconfirmationletter.Reports {
                 base.Columns.Add(this.columnNo);
                 this.columnreturndate = new global::System.Data.DataColumn("returndate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreturndate);
+                this.columnfree3yearvo = new global::System.Data.DataColumn("free3yearvo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfree3yearvo);
+                this.columnfree3phantramvo = new global::System.Data.DataColumn("free3phantramvo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfree3phantramvo);
+                this.columnStringbalaceEmpty = new global::System.Data.DataColumn("StringbalaceEmpty", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStringbalaceEmpty);
                 this.columncustcodegRoup.Caption = "custcodeGRoup";
                 this.columnsumAmountfull.Caption = "dknuoc";
                 this.columnsumEmptydeposit.Caption = "psnuoc";
@@ -16005,6 +16064,54 @@ namespace arconfirmationletter.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string free3yearvo {
+                get {
+                    try {
+                        return ((string)(this[this.tableRpt_Arletter.free3yearvoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'free3yearvo\' in table \'Rpt_Arletter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRpt_Arletter.free3yearvoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string free3phantramvo {
+                get {
+                    try {
+                        return ((string)(this[this.tableRpt_Arletter.free3phantramvoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'free3phantramvo\' in table \'Rpt_Arletter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRpt_Arletter.free3phantramvoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string StringbalaceEmpty {
+                get {
+                    try {
+                        return ((string)(this[this.tableRpt_Arletter.StringbalaceEmptyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StringbalaceEmpty\' in table \'Rpt_Arletter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRpt_Arletter.StringbalaceEmptyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IscustcodegRoupNull() {
                 return this.IsNull(this.tableRpt_Arletter.custcodegRoupColumn);
             }
@@ -16169,6 +16276,42 @@ namespace arconfirmationletter.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetreturndateNull() {
                 this[this.tableRpt_Arletter.returndateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfree3yearvoNull() {
+                return this.IsNull(this.tableRpt_Arletter.free3yearvoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfree3yearvoNull() {
+                this[this.tableRpt_Arletter.free3yearvoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfree3phantramvoNull() {
+                return this.IsNull(this.tableRpt_Arletter.free3phantramvoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfree3phantramvoNull() {
+                this[this.tableRpt_Arletter.free3phantramvoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsStringbalaceEmptyNull() {
+                return this.IsNull(this.tableRpt_Arletter.StringbalaceEmptyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetStringbalaceEmptyNull() {
+                this[this.tableRpt_Arletter.StringbalaceEmptyColumn] = global::System.Convert.DBNull;
             }
         }
         
