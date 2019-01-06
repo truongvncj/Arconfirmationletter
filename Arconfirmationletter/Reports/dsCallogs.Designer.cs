@@ -8173,8 +8173,8 @@ namespace arconfirmationletter.Reports {
                         System.DateTime toDate, 
                         string No, 
                         System.DateTime returndate, 
-                        string free3yearvo, 
-                        string free3phantramvo, 
+                        short free3yearvo, 
+                        short free3phantramvo, 
                         string StringbalaceEmpty) {
                 Rpt_ArletterRow rowRpt_ArletterRow = ((Rpt_ArletterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -8267,9 +8267,9 @@ namespace arconfirmationletter.Reports {
                 base.Columns.Add(this.columnNo);
                 this.columnreturndate = new global::System.Data.DataColumn("returndate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreturndate);
-                this.columnfree3yearvo = new global::System.Data.DataColumn("free3yearvo", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnfree3yearvo = new global::System.Data.DataColumn("free3yearvo", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfree3yearvo);
-                this.columnfree3phantramvo = new global::System.Data.DataColumn("free3phantramvo", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnfree3phantramvo = new global::System.Data.DataColumn("free3phantramvo", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfree3phantramvo);
                 this.columnStringbalaceEmpty = new global::System.Data.DataColumn("StringbalaceEmpty", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStringbalaceEmpty);
@@ -16064,10 +16064,10 @@ namespace arconfirmationletter.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string free3yearvo {
+            public short free3yearvo {
                 get {
                     try {
-                        return ((string)(this[this.tableRpt_Arletter.free3yearvoColumn]));
+                        return ((short)(this[this.tableRpt_Arletter.free3yearvoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'free3yearvo\' in table \'Rpt_Arletter\' is DBNull.", e);
@@ -16080,10 +16080,10 @@ namespace arconfirmationletter.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string free3phantramvo {
+            public short free3phantramvo {
                 get {
                     try {
-                        return ((string)(this[this.tableRpt_Arletter.free3phantramvoColumn]));
+                        return ((short)(this[this.tableRpt_Arletter.free3phantramvoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'free3phantramvo\' in table \'Rpt_Arletter\' is DBNull.", e);

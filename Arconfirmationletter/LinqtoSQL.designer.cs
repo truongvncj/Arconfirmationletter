@@ -111,6 +111,9 @@ namespace arconfirmationletter
     partial void InserttblFBL5Nnew(tblFBL5Nnew instance);
     partial void UpdatetblFBL5Nnew(tblFBL5Nnew instance);
     partial void DeletetblFBL5Nnew(tblFBL5Nnew instance);
+    partial void InserttblFBL5NNewCol3year(tblFBL5NNewCol3year instance);
+    partial void UpdatetblFBL5NNewCol3year(tblFBL5NNewCol3year instance);
+    partial void DeletetblFBL5NNewCol3year(tblFBL5NNewCol3year instance);
     partial void InserttblFBL5NnewRptbalance(tblFBL5NnewRptbalance instance);
     partial void UpdatetblFBL5NnewRptbalance(tblFBL5NnewRptbalance instance);
     partial void DeletetblFBL5NnewRptbalance(tblFBL5NnewRptbalance instance);
@@ -390,6 +393,14 @@ namespace arconfirmationletter
 			get
 			{
 				return this.GetTable<tblFBL5Nnew>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblFBL5NNewCol3year> tblFBL5NNewCol3years
+		{
+			get
+			{
+				return this.GetTable<tblFBL5NNewCol3year>();
 			}
 		}
 		
@@ -1612,6 +1623,12 @@ namespace arconfirmationletter
 		
 		private System.Nullable<bool> _Hideprint;
 		
+		private System.Nullable<int> _free3yearvo;
+		
+		private System.Nullable<int> _free3phantramvo;
+		
+		private string _StringbalaceEmpty;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1650,6 +1667,12 @@ namespace arconfirmationletter
     partial void OnprtChanged();
     partial void OnHideprintChanging(System.Nullable<bool> value);
     partial void OnHideprintChanged();
+    partial void Onfree3yearvoChanging(System.Nullable<int> value);
+    partial void Onfree3yearvoChanged();
+    partial void Onfree3phantramvoChanging(System.Nullable<int> value);
+    partial void Onfree3phantramvoChanged();
+    partial void OnStringbalaceEmptyChanging(string value);
+    partial void OnStringbalaceEmptyChanged();
     #endregion
 		
 		public tbl_ArletterRpt()
@@ -1993,6 +2016,66 @@ namespace arconfirmationletter
 					this._Hideprint = value;
 					this.SendPropertyChanged("Hideprint");
 					this.OnHideprintChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_free3yearvo", DbType="Int")]
+		public System.Nullable<int> free3yearvo
+		{
+			get
+			{
+				return this._free3yearvo;
+			}
+			set
+			{
+				if ((this._free3yearvo != value))
+				{
+					this.Onfree3yearvoChanging(value);
+					this.SendPropertyChanging();
+					this._free3yearvo = value;
+					this.SendPropertyChanged("free3yearvo");
+					this.Onfree3yearvoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_free3phantramvo", DbType="Int")]
+		public System.Nullable<int> free3phantramvo
+		{
+			get
+			{
+				return this._free3phantramvo;
+			}
+			set
+			{
+				if ((this._free3phantramvo != value))
+				{
+					this.Onfree3phantramvoChanging(value);
+					this.SendPropertyChanging();
+					this._free3phantramvo = value;
+					this.SendPropertyChanged("free3phantramvo");
+					this.Onfree3phantramvoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StringbalaceEmpty", DbType="NVarChar(255)")]
+		public string StringbalaceEmpty
+		{
+			get
+			{
+				return this._StringbalaceEmpty;
+			}
+			set
+			{
+				if ((this._StringbalaceEmpty != value))
+				{
+					this.OnStringbalaceEmptyChanging(value);
+					this.SendPropertyChanging();
+					this._StringbalaceEmpty = value;
+					this.SendPropertyChanged("StringbalaceEmpty");
+					this.OnStringbalaceEmptyChanged();
 				}
 			}
 		}
@@ -9784,6 +9867,260 @@ namespace arconfirmationletter
 					this._Tempmark = value;
 					this.SendPropertyChanged("Tempmark");
 					this.OnTempmarkChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFBL5NNewCol3year")]
+	public partial class tblFBL5NNewCol3year : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private double _Customer_code;
+		
+		private string _Region;
+		
+		private System.Nullable<System.DateTime> _Posting_Date;
+		
+		private System.Nullable<double> _AmountFreeglassesValue;
+		
+		private System.Nullable<int> _Freeglass3years;
+		
+		private System.Nullable<int> _Freeglass3phantram;
+		
+		private string _userupdate;
+		
+		private int _id;
+		
+		private System.Nullable<double> _codeGroup;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCustomer_codeChanging(double value);
+    partial void OnCustomer_codeChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
+    partial void OnPosting_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPosting_DateChanged();
+    partial void OnAmountFreeglassesValueChanging(System.Nullable<double> value);
+    partial void OnAmountFreeglassesValueChanged();
+    partial void OnFreeglass3yearsChanging(System.Nullable<int> value);
+    partial void OnFreeglass3yearsChanged();
+    partial void OnFreeglass3phantramChanging(System.Nullable<int> value);
+    partial void OnFreeglass3phantramChanged();
+    partial void OnuserupdateChanging(string value);
+    partial void OnuserupdateChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OncodeGroupChanging(System.Nullable<double> value);
+    partial void OncodeGroupChanged();
+    #endregion
+		
+		public tblFBL5NNewCol3year()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Customer code]", Storage="_Customer_code", DbType="Float NOT NULL")]
+		public double Customer_code
+		{
+			get
+			{
+				return this._Customer_code;
+			}
+			set
+			{
+				if ((this._Customer_code != value))
+				{
+					this.OnCustomer_codeChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_code = value;
+					this.SendPropertyChanged("Customer_code");
+					this.OnCustomer_codeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(255)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Posting Date]", Storage="_Posting_Date", DbType="Date")]
+		public System.Nullable<System.DateTime> Posting_Date
+		{
+			get
+			{
+				return this._Posting_Date;
+			}
+			set
+			{
+				if ((this._Posting_Date != value))
+				{
+					this.OnPosting_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Posting_Date = value;
+					this.SendPropertyChanged("Posting_Date");
+					this.OnPosting_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountFreeglassesValue", DbType="Float")]
+		public System.Nullable<double> AmountFreeglassesValue
+		{
+			get
+			{
+				return this._AmountFreeglassesValue;
+			}
+			set
+			{
+				if ((this._AmountFreeglassesValue != value))
+				{
+					this.OnAmountFreeglassesValueChanging(value);
+					this.SendPropertyChanging();
+					this._AmountFreeglassesValue = value;
+					this.SendPropertyChanged("AmountFreeglassesValue");
+					this.OnAmountFreeglassesValueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Freeglass3years", DbType="Int")]
+		public System.Nullable<int> Freeglass3years
+		{
+			get
+			{
+				return this._Freeglass3years;
+			}
+			set
+			{
+				if ((this._Freeglass3years != value))
+				{
+					this.OnFreeglass3yearsChanging(value);
+					this.SendPropertyChanging();
+					this._Freeglass3years = value;
+					this.SendPropertyChanged("Freeglass3years");
+					this.OnFreeglass3yearsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Freeglass3phantram", DbType="Int")]
+		public System.Nullable<int> Freeglass3phantram
+		{
+			get
+			{
+				return this._Freeglass3phantram;
+			}
+			set
+			{
+				if ((this._Freeglass3phantram != value))
+				{
+					this.OnFreeglass3phantramChanging(value);
+					this.SendPropertyChanging();
+					this._Freeglass3phantram = value;
+					this.SendPropertyChanged("Freeglass3phantram");
+					this.OnFreeglass3phantramChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userupdate", DbType="NVarChar(50)")]
+		public string userupdate
+		{
+			get
+			{
+				return this._userupdate;
+			}
+			set
+			{
+				if ((this._userupdate != value))
+				{
+					this.OnuserupdateChanging(value);
+					this.SendPropertyChanging();
+					this._userupdate = value;
+					this.SendPropertyChanged("userupdate");
+					this.OnuserupdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codeGroup", DbType="Float")]
+		public System.Nullable<double> codeGroup
+		{
+			get
+			{
+				return this._codeGroup;
+			}
+			set
+			{
+				if ((this._codeGroup != value))
+				{
+					this.OncodeGroupChanging(value);
+					this.SendPropertyChanging();
+					this._codeGroup = value;
+					this.SendPropertyChanged("codeGroup");
+					this.OncodeGroupChanged();
 				}
 			}
 		}

@@ -73,6 +73,9 @@
       <Column Name="returndate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="prt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Hideprint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="free3yearvo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="free3phantramvo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StringbalaceEmpty" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_checktemp" Member="tbl_checktemps">
@@ -461,6 +464,19 @@
       <Column Name="[Completed use]" Member="Completed_use" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="name" Type="System.String" DbType="NChar(225)" CanBeNull="true" />
       <Column Name="Tempmark" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFBL5NNewCol3year" Member="tblFBL5NNewCol3years">
+    <Type Name="tblFBL5NNewCol3year">
+      <Column Name="[Customer code]" Member="Customer_code" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Posting Date]" Member="Posting_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AmountFreeglassesValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Freeglass3years" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Freeglass3phantram" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userupdate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codeGroup" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblFBL5NnewRptbalance" Member="tblFBL5NnewRptbalances">
