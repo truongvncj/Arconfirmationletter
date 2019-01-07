@@ -16,14 +16,14 @@ namespace arconfirmationletter.Model
     {
 
 
-        public bool deleteallFreglasses()
+        public bool deleteallFreglassesBEgin()
         {
             string connection_string = Utils.getConnectionstr();
             var db = new LinqtoSQLDataContext(connection_string);
             //    var rs = from tbl_FreGlass in db.tbl_FreGlasses
             //              select tbl_FreGlass;
 
-            db.ExecuteCommand("DELETE FROM tbl_FreGlass");
+            db.ExecuteCommand("DELETE FROM tblFBL5NNewCol3year  where tblFBL5NNewCol3year.TypeDoc =  'Begin' ");
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             db.SubmitChanges();
 
@@ -78,7 +78,7 @@ namespace arconfirmationletter.Model
             //     backgroundWorker1 = new BackgroundWorker();
 
             OpenFileDialog theDialog = new OpenFileDialog();
-            theDialog.Title = "Open Excel File Free Glasses excel";
+            theDialog.Title = "Open Excel File Free Glasses Begin excel";
             theDialog.Filter = "Excel files|*.xlsx; *.xls";
             theDialog.InitialDirectory = @"C:\";
             if (theDialog.ShowDialog() == DialogResult.OK)
@@ -270,7 +270,9 @@ namespace arconfirmationletter.Model
 
             fREEGALSSES_CTRL Rm = new fREEGALSSES_CTRL();
 
-            bool kq = Rm.deleteallFreglasses();
+            string username = Utils.getusername();
+
+            bool kq = Rm.deleteallFreglassesBEgin();
 
             datainportF inf = (datainportF)obj;
 
@@ -289,8 +291,14 @@ namespace arconfirmationletter.Model
 
             batable.Columns.Add("CUSTOMER", typeof(double));
             batable.Columns.Add("SALORG", typeof(string));
-            batable.Columns.Add("PERNO", typeof(string));
-            batable.Columns.Add("COLAMT", typeof(double));
+          //  batable.Columns.Add("PERNO", typeof(string));
+            batable.Columns.Add("Freeglass3years", typeof(int));
+            batable.Columns.Add("Freeglass3phantram", typeof(int));
+            batable.Columns.Add("AmountFreeglassesValue", typeof(double));
+            batable.Columns.Add("TypeDoc", typeof(string));
+            batable.Columns.Add("userupdate", typeof(string));
+            batable.Columns.Add("Posting_Date", typeof(DateTime));
+            //        CUSTOMER SALORG  Freeglass3years Freeglass3phantram  AmountFreeglassesValue
 
 
 
@@ -298,8 +306,9 @@ namespace arconfirmationletter.Model
 
             int CUSTOMERid = -1;
             int SALORGid = -1;
-            int PERNOid = -1;
-            int COLAMTid = -1;
+            int Freeglass3yearsid = -1;
+            int Freeglass3phantramid = -1;
+            int AmountFreeglassesValueid = -1;
 
             int rowseet = sourceData.Rows.Count;
             if (rowseet > 5)
@@ -334,10 +343,10 @@ namespace arconfirmationletter.Model
                         }
 
 
-                        if (value.Trim() == ("PERNO"))
+                        if (value.Trim() == ("Freeglass3years"))
                         {
 
-                            PERNOid = columid;
+                            Freeglass3yearsid = columid;
                             //   headindex = 0;
 
 
@@ -345,12 +354,17 @@ namespace arconfirmationletter.Model
                         }
 
 
-                        if (value.Trim() == ("COLAMT"))
+                        if (value.Trim() == ("Freeglass3phantram"))
                         {
-                            COLAMTid = columid;
+                            Freeglass3phantramid = columid;
 
                         }
 
+                        if (value.Trim() == ("AmountFreeglassesValue"))
+                        {
+                            AmountFreeglassesValueid = columid;
+
+                        }
 
 
 
@@ -375,18 +389,23 @@ namespace arconfirmationletter.Model
                 return;
             }
 
-            if (PERNOid == -1)
+            if (Freeglass3yearsid == -1)
             {
-                MessageBox.Show("Dữ liệu thiếu cột PERNO", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dữ liệu thiếu cột Freeglass3years", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (COLAMTid == -1)
+            if (Freeglass3phantramid == -1)
             {
-                MessageBox.Show("Dữ liệu thiếu cột COLAMT", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dữ liệu thiếu cột Freeglass3phantram", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            if (AmountFreeglassesValueid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột AmountFreeglassesValue", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
 
 
@@ -406,10 +425,46 @@ namespace arconfirmationletter.Model
                         DataRow dr = batable.NewRow();
                         dr["CUSTOMER"] = double.Parse(sourceData.Rows[rowixd][CUSTOMERid].ToString());//.Trim();
                         dr["SALORG"] = sourceData.Rows[rowixd][SALORGid].ToString().Trim();
-                        dr["PERNO"] = sourceData.Rows[rowixd][PERNOid].ToString().Trim();//  Utils.chageExceldatetoData(sourceData.Rows[rowixd][PERNOid].ToString());
-                        dr["COLAMT"] = double.Parse(sourceData.Rows[rowixd][COLAMTid].ToString());//.Trim();//sourceData.Rows[rowixd][COLAMTid].ToString().Trim();
+
+                        if (sourceData.Rows[rowixd][Freeglass3yearsid].ToString() !="")
+                        {
+                            dr["Freeglass3years"] = int.Parse(sourceData.Rows[rowixd][Freeglass3yearsid].ToString().Trim());
+                        }
+                        else
+                        {
+                            dr["Freeglass3years"] = 0;
+                        }
+
+                        //----------------
+                        if (sourceData.Rows[rowixd][Freeglass3phantramid].ToString() != "")
+                        {
+                            dr["Freeglass3phantram"] = int.Parse(sourceData.Rows[rowixd][Freeglass3phantramid].ToString().Trim());
+                        }
+                        else
+                        {
+                            dr["Freeglass3phantram"] = 0;
+                        }
+
+                        ///----
+
+                        if (sourceData.Rows[rowixd][Freeglass3yearsid].ToString() != "")
+                        {
+                            dr["AmountFreeglassesValue"] = int.Parse(sourceData.Rows[rowixd][AmountFreeglassesValueid].ToString().Trim());
+                        }
+                        else
+                        {
+                            dr["AmountFreeglassesValue"] = 0;
+                        }
 
 
+                        
+                        dr["TypeDoc"] = "Begin";//.Trim();//sourceData.Rows[rowixd][COLAMTid].ToString().Trim();
+
+                        dr["userupdate"] = username;
+                        dr["Posting_Date"] = DateTime.Today;
+
+
+                
                         batable.Rows.Add(dr);
 
 
@@ -428,15 +483,17 @@ namespace arconfirmationletter.Model
             using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
             {
 
-                bulkCopy.DestinationTableName = "tbl_FreGlass";
+                bulkCopy.DestinationTableName = "tblFBL5NNewCol3year";
                 // Write from the source to the destination.
-                bulkCopy.ColumnMappings.Add("CUSTOMER", "[CUSTOMER]");
-                bulkCopy.ColumnMappings.Add("SALORG", "[SALORG]");
-                bulkCopy.ColumnMappings.Add("COLAMT", "[COLAMT]");
-                bulkCopy.ColumnMappings.Add("PERNO", "[PERNO]");
+                bulkCopy.ColumnMappings.Add("CUSTOMER", "[Customer code]");
+                bulkCopy.ColumnMappings.Add("SALORG", "[Region]");
+                bulkCopy.ColumnMappings.Add("Freeglass3years", "[Freeglass3years]");
+                bulkCopy.ColumnMappings.Add("Freeglass3phantram", "[Freeglass3phantram]");
+                bulkCopy.ColumnMappings.Add("AmountFreeglassesValue", "[AmountFreeglassesValue]");
+                bulkCopy.ColumnMappings.Add("TypeDoc", "TypeDoc");
+                bulkCopy.ColumnMappings.Add("userupdate", "[userupdate]");
 
-
-
+                bulkCopy.ColumnMappings.Add("Posting_Date", "[Posting Date]");
 
                 try
                 {

@@ -307,7 +307,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>0.5264in</Top>
-                              <Left>1.68698in</Left>
+                              <Left>0.93698in</Left>
                               <Height>0.19723in</Height>
                               <Width>1.58983in</Width>
                               <ZIndex>8</ZIndex>
@@ -337,14 +337,14 @@
                                     </TextRun>
                                   </TextRuns>
                                   <Style>
-                                    <TextAlign>Left</TextAlign>
+                                    <TextAlign>Right</TextAlign>
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.5389in</Top>
-                              <Left>3.33237in</Left>
+                              <Left>2.58237in</Left>
                               <Height>0.21251in</Height>
-                              <Width>1.76416in</Width>
+                              <Width>1.04541in</Width>
                               <ZIndex>9</ZIndex>
                               <Style>
                                 <Border>
@@ -372,14 +372,14 @@
                                     </TextRun>
                                   </TextRuns>
                                   <Style>
-                                    <TextAlign>Left</TextAlign>
+                                    <TextAlign>Right</TextAlign>
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.74307in</Top>
-                              <Left>3.31848in</Left>
+                              <Left>2.56848in</Left>
                               <Height>0.21251in</Height>
-                              <Width>1.76416in</Width>
+                              <Width>1.0593in</Width>
                               <ZIndex>10</ZIndex>
                               <Style>
                                 <Border>
@@ -412,7 +412,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>0.75835in</Top>
-                              <Left>1.68698in</Left>
+                              <Left>0.93698in</Left>
                               <Height>0.19723in</Height>
                               <Width>1.58983in</Width>
                               <ZIndex>11</ZIndex>
@@ -433,7 +433,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Đã bao gồm:</Value>
+                                      <Value>Trong đó:</Value>
                                       <Style>
                                         <FontStyle>Italic</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
@@ -445,10 +445,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.5264in</Top>
-                              <Left>0.31419in</Left>
-                              <Height>0.19723in</Height>
-                              <Width>0.91804in</Width>
+                              <Top>0.5389in</Top>
+                              <Left>0.20449in</Left>
+                              <Height>0.21807in</Height>
+                              <Width>0.67693in</Width>
                               <ZIndex>12</ZIndex>
                               <Style>
                                 <Border>
@@ -545,8 +545,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.52501in</Top>
-                              <Left>5.12431in</Left>
+                              <Top>0.51877in</Top>
+                              <Left>3.65556in</Left>
                               <Height>0.20764in</Height>
                               <Width>0.55861in</Width>
                               <ZIndex>15</ZIndex>
@@ -578,8 +578,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.76042in</Top>
-                              <Left>5.12431in</Left>
+                              <Top>0.76808in</Top>
+                              <Left>3.65556in</Left>
                               <Height>0.20764in</Height>
                               <Width>0.55861in</Width>
                               <ZIndex>16</ZIndex>
@@ -1714,7 +1714,7 @@
                           <Value>=First(Fields!imagesign.Value, "DataSet2")</Value>
                           <MIMEType>image/png</MIMEType>
                           <Sizing>FitProportional</Sizing>
-                          <Top>4.67318in</Top>
+                          <Top>4.87318in</Top>
                           <Left>0.11331in</Left>
                           <Height>0.58333in</Height>
                           <Width>2.07291in</Width>

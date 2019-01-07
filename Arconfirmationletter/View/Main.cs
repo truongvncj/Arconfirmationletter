@@ -414,7 +414,7 @@ namespace arconfirmationletter.View
 
             Viewtable viewtbl = new Viewtable(rs, db, "FBL5n data", 100, DateTime.Today, DateTime.Today);
             //     viewtbl.Visible = false;
-                viewtbl.Show();
+            viewtbl.Show();
         }
 
         private void viewCustomerDataToolStripMenuItem_Click(object sender, EventArgs e)
@@ -434,7 +434,7 @@ namespace arconfirmationletter.View
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER DATA", 100, DateTime.Today, DateTime.Today);
-             viewtbl.Show();
+            viewtbl.Show();
 
         }
 
@@ -769,7 +769,7 @@ namespace arconfirmationletter.View
                                         if (eror.Count() > 0)
                                         {
                                             Viewtable viewtbl = new Viewtable(eror, dc, "List các doc chưa update được do có lệch giữ data FBL5n Và VAT/Edlp về phần vỏ , please check !", 1, DateTime.Today, DateTime.Today);
-                                         
+
                                             viewtbl.ShowDialog();
 
                                         }
@@ -980,7 +980,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_Productlist);
 
             VInputchange inputcdata = new VInputchange("", "LIST PRODUCT AND EMPTY GROUP", dc, "tbl_Productlist", "tbl_Productlist", typeff, "id", "id");
-         
+
             inputcdata.ShowDialog();
             //View.Inputchange kq = new View.Inputchange
         }
@@ -1017,7 +1017,7 @@ namespace arconfirmationletter.View
 
 
             Viewtable viewtbl = new Viewtable(rs, db, "List of product", 100, DateTime.Today, DateTime.Today);
-              viewtbl.Show();
+            viewtbl.Show();
 
 
 
@@ -1113,7 +1113,7 @@ namespace arconfirmationletter.View
 
 
             Viewtable viewtbl = new Viewtable(rs, db, "Letter data reports", 100, DateTime.Today, DateTime.Today);
-             viewtbl.Show();
+            viewtbl.Show();
 
 
 
@@ -1268,7 +1268,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_Remark);
 
             VInputchange inputcdata = new VInputchange("", "LIST REMARK TO UPDATE ", dc, "tbl_Remark", "tbl_Remark", typeff, "id", "id");
-         
+
             inputcdata.ShowDialog();
 
 
@@ -1290,7 +1290,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_FreGlass);
 
             VInputchange inputcdata = new VInputchange("", "LIST FREE GLASS PROGRAM ", dc, "tbl_FreGlass", "tbl_FreGlass", typeff, "id", "id");
-        
+
             inputcdata.ShowDialog();
         }
 
@@ -1344,7 +1344,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblCustomer);
 
             VInputchange inputcdata = new VInputchange("", "LIST MASTER DATA CUSTOMER ", dc, "tblCustomer", "tblCustomer", typeff, "id", "id");
-      
+
             inputcdata.ShowDialog();
         }
 
@@ -1361,7 +1361,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_ArletterRpt);
 
             VInputchange inputcdata = new VInputchange("", "DATA ARLETTER REPORTS- CAREFULLY BEFORE CHANGE IT ! ", dc, "tbl_ArletterRpt", "tbl_ArletterRpt", typeff, "id", "id");
-      
+
             inputcdata.ShowDialog();
 
         }
@@ -1380,7 +1380,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblFBL5N);
 
             VInputchange inputcdata = new VInputchange("", "FBL5N PREPRAIRE TO UP TO DATA  ", dc, "tblFBL5N", "tblFBL5N", typeff, "Fbl5nID", "Fbl5nID");
-      
+
             inputcdata.ShowDialog();
 
 
@@ -1403,7 +1403,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblVat);
 
             VInputchange inputcdata = new VInputchange("", "VAT PREPRAIRE TO UP TO DATA  ", dc, "tblVat", "tblVat", typeff, "id", "id");
-         
+
             inputcdata.ShowDialog();
 
         }
@@ -1423,7 +1423,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblEDLP);
 
             VInputchange inputcdata = new VInputchange("", "EDLP PREPRAIRE TO UP TO DATA  ", dc, "tblEDLP", "tblEDLP", typeff, "id", "id");
-      
+
             inputcdata.ShowDialog();
         }
 
@@ -1458,7 +1458,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tblFBL5beginbalace);
 
             VInputchange inputcdata = new VInputchange("", "BEGINNING BALANCE ARCONFIRMATION LETTER", dc, "tblFBL5beginbalace", "tblFBL5beginbalace", typeff, "id", "id");
-        
+
             inputcdata.ShowDialog();
 
         }
@@ -1478,7 +1478,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_CustomerGroup);
 
             VInputchange inputcdata = new VInputchange("", "LIST CUSTOMER GROUP  ", dc, "tbl_CustomerGroup", "tbl_CustomerGroup", typeff, "id", "id");
-          
+
             inputcdata.ShowDialog();
 
 
@@ -1582,60 +1582,6 @@ namespace arconfirmationletter.View
 
         private void uploadToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
-
-            //  bool kq;
-            fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
-
-            DialogResult kq1 = MessageBox.Show("Xóa FREEGALSSES  thay thế bằng bảng mới ? ", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            switch (kq1)
-            {
-                case DialogResult.None:
-                    break;
-                case DialogResult.OK:
-
-
-                    break;
-                case DialogResult.Cancel:
-                    break;
-                case DialogResult.Abort:
-                    break;
-                case DialogResult.Retry:
-                    break;
-                case DialogResult.Ignore:
-                    break;
-                case DialogResult.Yes:
-
-
-
-                    //this.updateNewAllToolStripMenuItem1.Enabled = false;
-
-                    //this.reportsToolStripMenuItem.Enabled = false;
-                    md.Freglasses_input();
-
-
-                    //      var rs = md.vatsetlect_all();
-                    //        Viewtable viewtbl = new Viewtable(rs, "VAT ZFI data uploaded ");
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    break;
-                case DialogResult.No:
-                    break;
-                default:
-                    break;
-            }
 
 
 
@@ -1810,7 +1756,7 @@ namespace arconfirmationletter.View
                     #endregion chon 1 code
                     Viewtable viewtbl = new Viewtable(rs2, dc, "VIEWLIST DATABASE UPLOADED ON SYSYEM FROM-" + fromdate.Day + "/" + fromdate.Month + "/" + fromdate.Year + " -TO- " + todate.Day + "/" + todate.Month + "/" + todate.Year, 100, fromdate, todate); //view loại 5 là có fromdatetodate
 
-                     viewtbl.Show();
+                    viewtbl.Show();
 
 
                 }
@@ -1883,7 +1829,7 @@ namespace arconfirmationletter.View
                     #endregion chon 1 code
                     Viewtable viewtbl = new Viewtable(rs2, dc, "VIEWLIST DATABASE UPLOADED ON SYSYEM FROM-" + fromdate.Day + "/" + fromdate.Month + "/" + fromdate.Year + " -TO- " + todate.Day + "/" + todate.Month + "/" + todate.Year, 100, fromdate, todate); //view loại 5 là có fromdatetodate
 
-                   viewtbl.Show();
+                    viewtbl.Show();
 
                 }
 
@@ -1925,7 +1871,7 @@ namespace arconfirmationletter.View
 
 
             Viewtable viewtbl = new Viewtable(rs, db, "Letter COL detail reporst", 100, DateTime.Today, DateTime.Today);
-               viewtbl.Show();
+            viewtbl.Show();
 
         }
 
@@ -1944,7 +1890,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_ArletterdetailRpt);
 
             VInputchange inputcdata = new VInputchange("", "DATA Arletter DetailRpt REPORTS- CAREFULLY BEFORE CHANGE IT ! ", dc, "tbl_ArletterdetailRpt", "tbl_ArletterdetailRpt", typeff, "id", "id");
-         
+
             inputcdata.ShowDialog();
 
         }
@@ -1964,7 +1910,7 @@ namespace arconfirmationletter.View
             var typeff = typeof(tbl_ColdetailRpt);
 
             VInputchange inputcdata = new VInputchange("", "DATA Arletter Col Detail Reports- CAREFULLY BEFORE CHANGE IT ! ", dc, "tbl_ColdetailRpt", "tbl_ColdetailRpt", typeff, "id", "id");
-          
+
             inputcdata.ShowDialog();
         }
 
@@ -2139,8 +2085,8 @@ namespace arconfirmationletter.View
 
             IQueryable rsthisperiod = null;
             Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "iNPUT DEPOSIT AMOUNTT !", 100, DateTime.Today, DateTime.Today); // màn hình inpot data có mas2
-       //     viewtbl.Visible = false;
-          viewtbl.ShowDialog();
+                                                                                                                                 //     viewtbl.Visible = false;
+            viewtbl.ShowDialog();
             //    viewtbl.Activate();
             //  }
 
@@ -2244,8 +2190,8 @@ namespace arconfirmationletter.View
                     var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
                             from tblFBL5Nnew in db.tblFBL5Nnews
                             where tblFBL5Nnew.Tempmark == false && (from tblFBL5Nnew in db.tblFBL5Nnews
-                                   where tblFBL5Nnewthisperiod.Document_Number == tblFBL5Nnew.Document_Number
-                                   select tblFBL5Nnew.Account).Contains(tblFBL5Nnewthisperiod.Account)
+                                                                    where tblFBL5Nnewthisperiod.Document_Number == tblFBL5Nnew.Document_Number
+                                                                    select tblFBL5Nnew.Account).Contains(tblFBL5Nnewthisperiod.Account)
                             select tblFBL5Nnewthisperiod;
 
 
@@ -2265,7 +2211,7 @@ namespace arconfirmationletter.View
 
 
                         Viewtable viewtbl = new Viewtable(q, db, "Data không close được do có List các document sau đã update lên rồi !", 1, DateTime.Today, DateTime.Today);
-                  
+
                         viewtbl.ShowDialog();
                     }
                     if (q.Count() == 0)
@@ -2966,7 +2912,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             var typeff = typeof(tbl_Temp);
 
             VInputchange inputcdata = new VInputchange("", "USERNAME AND PASSWORD CONFIG ! ", dc, "tbl_Temp", "tbl_Temp", typeff, "id", "id");
-        //    inputcdata.Visible = false;
+            //    inputcdata.Visible = false;
             inputcdata.ShowDialog();
         }
 
@@ -2986,9 +2932,44 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             //   LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            var rsthisperiod = from tblFBL5beginbalace in dc.tblFBL5beginbalaces
-                               orderby tblFBL5beginbalace.Account
-                               select tblFBL5beginbalace;
+            var rsthisperiod = from pp in dc.tblFBL5beginbalaces
+                               orderby pp.Account
+                               select new
+                               {
+                                   pp.codeGroup,
+                                   pp.Account,
+                                   pp.Business_Area,
+
+
+
+
+                                   Amount_in_local_currency = pp.Amount_in_local_currency.GetValueOrDefault(0),
+
+                                   Fullgood_amount = pp.Fullgood_amount.GetValueOrDefault(0),
+
+                                   Deposit_amount = pp.Deposit_amount.GetValueOrDefault(0),
+                                   Empty_Amount = pp.Empty_Amount.GetValueOrDefault(0),
+                                   Adjusted_amount = pp.Adjusted_amount.GetValueOrDefault(0),
+
+                                   Binhpmicc02 = pp.Binhpmicc02.GetValueOrDefault(0),
+                                   binhpmix9l = pp.binhpmix9l.GetValueOrDefault(0),
+
+                                   Chaivo1lit = pp.Chaivo1lit.GetValueOrDefault(0),
+                                   Chaivothuong = pp.Chaivothuong.GetValueOrDefault(0),
+                               
+                                   joy20l = pp.joy20l.GetValueOrDefault(0),
+                                   Ketnhua1lit = pp.Ketnhua1lit.GetValueOrDefault(0),
+                                   Ketnhuathuong = pp.Ketnhuathuong.GetValueOrDefault(0),
+                                   Ketvolit = pp.Ketvolit.GetValueOrDefault(0),
+                                   Ketvothuong = pp.Ketvothuong.GetValueOrDefault(0),
+                                   paletnhua = pp.paletnhua.GetValueOrDefault(0),
+                                   palletgo = pp.palletgo.GetValueOrDefault(0),
+                                   Payment_amount = pp.Payment_amount.GetValueOrDefault(0),
+
+
+
+
+                               };
 
             if (rsthisperiod.Count() != 0)
             {
@@ -2997,7 +2978,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                 Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "LIST BEGIN BALANCE !", 100, DateTime.Today, DateTime.Today);
                 //   viewtbl.Visible = false;
-               viewtbl.Show();
+                viewtbl.Show();
 
             }
 
@@ -3483,7 +3464,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                 Viewtable viewtbl = new Viewtable(rs, db, "LETTER RETURN STATUS UPDATE", 1, DateTime.Today, DateTime.Today);
                 //      viewtbl.Visible = false;
-                 viewtbl.Show();
+                viewtbl.Show();
 
 
 
@@ -3622,7 +3603,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER UNSEND LIST", 100, DateTime.Today, DateTime.Today);
-               viewtbl.Show();
+            viewtbl.Show();
 
         }
 
@@ -3640,7 +3621,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             var typeff = typeof(tbl_unuserCustomer);
 
             VInputchange inputcdata = new VInputchange("", "CUSTOMER UNSEND LIST", dc, "tbl_unuserCustomer", "tbl_unuserCustomer", typeff, "id", "id");
-         
+
             inputcdata.ShowDialog();
 
         }
@@ -3855,11 +3836,11 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
                     var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
-                             from tblFBL5Nnew in db.tblFBL5Nnews
-                             where (from tblFBL5Nnew in db.tblFBL5Nnews
-                                     where tblFBL5Nnewthisperiod.Document_Number == tblFBL5Nnew.Document_Number
-                                    select tblFBL5Nnew.Account).Contains(tblFBL5Nnewthisperiod.Account)
-                             select tblFBL5Nnewthisperiod;
+                            from tblFBL5Nnew in db.tblFBL5Nnews
+                            where (from tblFBL5Nnew in db.tblFBL5Nnews
+                                   where tblFBL5Nnewthisperiod.Document_Number == tblFBL5Nnew.Document_Number
+                                   select tblFBL5Nnew.Account).Contains(tblFBL5Nnewthisperiod.Account)
+                            select tblFBL5Nnewthisperiod;
 
                     //var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
                     //        where (from tblFBL5Nnew in db.tblFBL5Nnews
@@ -3875,7 +3856,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
                         Viewtable viewtbl = new Viewtable(q, db, "Data không close được do có List các document sau đã update lên rồi !", 1, DateTime.Today, DateTime.Today);
-                      
+
                         viewtbl.ShowDialog();
                     }
                     if (q.Count() == 0)
@@ -3943,7 +3924,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             var typeff = typeof(tblNKACustomer);
 
             VInputchange inputcdata = new VInputchange("", "LIST MASTER DATA CUSTOMER ", dc, "tblNKACustomer", "tblNKACustomer", typeff, "id", "id");
-       //     inputcdata.Visible = false;
+            //     inputcdata.Visible = false;
             inputcdata.ShowDialog();
         }
 
@@ -3997,7 +3978,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER DATA", 1, DateTime.Today, DateTime.Today);
-               viewtbl.Show();
+            viewtbl.Show();
         }
 
         private void vIEWCUSTOMERToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4010,7 +3991,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
             //  MessageBox.Show("Data add/ change Customer done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Viewtable viewtbl = new Viewtable(rs, db, "CUSTOMER DATA", 1, DateTime.Today, DateTime.Today);
-               viewtbl.Show();
+            viewtbl.Show();
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -4597,31 +4578,31 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                               Account = h.Key,
 
                               //     Amount_in_local_currency = h.Sum(m => m.Amount_in_local_currency), h.Sum(m => m.Payment_amount) + h.Sum(m => m.Adjusted_amount) + 
-                              Amount_in_local_currency = h.Sum(m => m.Invoice_Amount) + h.Sum(m => m.Deposit_amount) + h.Sum(m => m.Payment_amount)+ h.Sum(m => m.Adjusted_amount),
-                           //   Adjusted_amount = h.Sum(m => m.Adjusted_amount),
+                              Amount_in_local_currency = h.Sum(m => m.Invoice_Amount.GetValueOrDefault(0)) + h.Sum(m => m.Deposit_amount.GetValueOrDefault(0)) + h.Sum(m => m.Payment_amount.GetValueOrDefault(0)) + h.Sum(m => m.Adjusted_amount.GetValueOrDefault(0)),
+                              //   Adjusted_amount = h.Sum(m => m.Adjusted_amount),
 
                               //  Payment_amount = h.Sum(m => m.Payment_amount),
                               // Adjusted_amount = h.Sum(m => m.Adjusted_amount),
-                              Fullgood_amount = h.Sum(m => m.Invoice_Amount) + h.Sum(m => m.Deposit_amount) + h.Sum(m => m.Payment_amount) + h.Sum(m => m.Adjusted_amount)- h.Sum(m => m.Deposit_amount),
+                              Fullgood_amount = h.Sum(m => m.Invoice_Amount.GetValueOrDefault(0)) + h.Sum(m => m.Deposit_amount.GetValueOrDefault(0)) + h.Sum(m => m.Payment_amount.GetValueOrDefault(0)) + h.Sum(m => m.Adjusted_amount.GetValueOrDefault(0)) - h.Sum(m => m.Deposit_amount.GetValueOrDefault(0)),
                               // Invoice_Amount = h.Sum(m => m.Invoice_Amount),
 
-                              Deposit_amount = h.Sum(m => m.Deposit_amount),
-                          
+                              Deposit_amount = h.Sum(m => m.Deposit_amount).GetValueOrDefault(0),
 
 
-                              Ketvothuong = h.Sum(m => m.Ketvothuong),
-                              paletnhua = h.Sum(m => m.paletnhua),
-                              palletgo = h.Sum(m => m.palletgo),
 
-                              Binhpmicc02 = h.Sum(m => m.Binhpmicc02),
-                              binhpmix9l = h.Sum(m => m.binhpmix9l),
-                              Chaivo1lit = h.Sum(m => m.Chaivo1lit),
-                              Chaivothuong = h.Sum(m => m.Chaivothuong),
+                              Ketvothuong = h.Sum(m => m.Ketvothuong).GetValueOrDefault(0),
+                              paletnhua = h.Sum(m => m.paletnhua).GetValueOrDefault(0),
+                              palletgo = h.Sum(m => m.palletgo).GetValueOrDefault(0),
+
+                              Binhpmicc02 = h.Sum(m => m.Binhpmicc02).GetValueOrDefault(0),
+                              binhpmix9l = h.Sum(m => m.binhpmix9l).GetValueOrDefault(0),
+                              Chaivo1lit = h.Sum(m => m.Chaivo1lit).GetValueOrDefault(0),
+                              Chaivothuong = h.Sum(m => m.Chaivothuong).GetValueOrDefault(0),
                               //    Document_Number = h.Sum(m => m.Document_Number),
-                              joy20l = h.Sum(m => m.joy20l),
-                              Ketvolit = h.Sum(m => m.Ketvolit),
-                              Ketnhua1lit = h.Sum(m => m.Ketnhua1lit),
-                              Ketnhuathuong = h.Sum(m => m.Ketnhuathuong),
+                              joy20l = h.Sum(m => m.joy20l).GetValueOrDefault(0),
+                              Ketvolit = h.Sum(m => m.Ketvolit).GetValueOrDefault(0),
+                              Ketnhua1lit = h.Sum(m => m.Ketnhua1lit).GetValueOrDefault(0),
+                              Ketnhuathuong = h.Sum(m => m.Ketnhuathuong).GetValueOrDefault(0),
 
 
 
@@ -4659,9 +4640,95 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             var typeff = typeof(tblFBL5beginbalace);
 
             VInputchange inputcdata = new VInputchange("", "Begin balance FBL5n", dc, "tblFBL5beginbalace", "tblFBL5beginbalace", typeff, "id", "id");
-        
+
             inputcdata.ShowDialog();
 
+
+
+        }
+
+        private void fREEGLASSESBEGINUPLOADToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //  bool kq;
+            fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
+
+            DialogResult kq1 = MessageBox.Show("Xóa FREEGALSSES Begin thay thế bằng bảng mới ? ", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            switch (kq1)
+            {
+                case DialogResult.None:
+                    break;
+                case DialogResult.OK:
+
+
+                    break;
+                case DialogResult.Cancel:
+                    break;
+                case DialogResult.Abort:
+                    break;
+                case DialogResult.Retry:
+                    break;
+                case DialogResult.Ignore:
+                    break;
+                case DialogResult.Yes:
+
+
+
+                    //this.updateNewAllToolStripMenuItem1.Enabled = false;
+
+                    //this.reportsToolStripMenuItem.Enabled = false;
+                    md.Freglasses_input();
+
+
+                    //      var rs = md.vatsetlect_all();
+                    //        Viewtable viewtbl = new Viewtable(rs, "VAT ZFI data uploaded ");
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    break;
+                case DialogResult.No:
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+
+        private void vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            //  var db = new LinqtoSQLDataContext(connection_string);
+            //   LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            var rsthisperiod = from pp in dc.tblFBL5NNewCol3years
+                               orderby pp.Customer_code
+                               where pp.TypeDoc == "Begin"
+                               select pp;
+
+            if (rsthisperiod.Count() != 0)
+            {
+                // fbl5n_ctrl md = new fbl5n_ctrl();
+                //var rs = md.fbl5nsetlect_all();
+
+                Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "LIST BEGIN FREE GLASSES BEGIN !", 100, DateTime.Today, DateTime.Today);
+                //   viewtbl.Visible = false;
+                viewtbl.Show();
+
+            }
 
 
         }

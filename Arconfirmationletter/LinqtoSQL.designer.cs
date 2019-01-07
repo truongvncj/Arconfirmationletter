@@ -9916,6 +9916,8 @@ namespace arconfirmationletter
 		
 		private System.Nullable<double> _codeGroup;
 		
+		private string _TypeDoc;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -9938,6 +9940,8 @@ namespace arconfirmationletter
     partial void OnidChanged();
     partial void OncodeGroupChanging(System.Nullable<double> value);
     partial void OncodeGroupChanged();
+    partial void OnTypeDocChanging(string value);
+    partial void OnTypeDocChanged();
     #endregion
 		
 		public tblFBL5NNewCol3year()
@@ -10125,6 +10129,26 @@ namespace arconfirmationletter
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeDoc", DbType="NVarChar(50)")]
+		public string TypeDoc
+		{
+			get
+			{
+				return this._TypeDoc;
+			}
+			set
+			{
+				if ((this._TypeDoc != value))
+				{
+					this.OnTypeDocChanging(value);
+					this.SendPropertyChanging();
+					this._TypeDoc = value;
+					this.SendPropertyChanged("TypeDoc");
+					this.OnTypeDocChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -10198,6 +10222,12 @@ namespace arconfirmationletter
 		
 		private int _id;
 		
+		private System.Nullable<int> _freevo3nam;
+		
+		private System.Nullable<int> _free3phantramvo;
+		
+		private System.Nullable<int> _balanceKetvothuong;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -10248,6 +10278,12 @@ namespace arconfirmationletter
     partial void OnusernameChanged();
     partial void OnidChanging(int value);
     partial void OnidChanged();
+    partial void Onfreevo3namChanging(System.Nullable<int> value);
+    partial void Onfreevo3namChanged();
+    partial void Onfree3phantramvoChanging(System.Nullable<int> value);
+    partial void Onfree3phantramvoChanged();
+    partial void OnbalanceKetvothuongChanging(System.Nullable<int> value);
+    partial void OnbalanceKetvothuongChanged();
     #endregion
 		
 		public tblFBL5NnewRptbalance()
@@ -10711,6 +10747,66 @@ namespace arconfirmationletter
 					this._id = value;
 					this.SendPropertyChanged("id");
 					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_freevo3nam", DbType="Int")]
+		public System.Nullable<int> freevo3nam
+		{
+			get
+			{
+				return this._freevo3nam;
+			}
+			set
+			{
+				if ((this._freevo3nam != value))
+				{
+					this.Onfreevo3namChanging(value);
+					this.SendPropertyChanging();
+					this._freevo3nam = value;
+					this.SendPropertyChanged("freevo3nam");
+					this.Onfreevo3namChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_free3phantramvo", DbType="Int")]
+		public System.Nullable<int> free3phantramvo
+		{
+			get
+			{
+				return this._free3phantramvo;
+			}
+			set
+			{
+				if ((this._free3phantramvo != value))
+				{
+					this.Onfree3phantramvoChanging(value);
+					this.SendPropertyChanging();
+					this._free3phantramvo = value;
+					this.SendPropertyChanged("free3phantramvo");
+					this.Onfree3phantramvoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_balanceKetvothuong", DbType="Int")]
+		public System.Nullable<int> balanceKetvothuong
+		{
+			get
+			{
+				return this._balanceKetvothuong;
+			}
+			set
+			{
+				if ((this._balanceKetvothuong != value))
+				{
+					this.OnbalanceKetvothuongChanging(value);
+					this.SendPropertyChanging();
+					this._balanceKetvothuong = value;
+					this.SendPropertyChanged("balanceKetvothuong");
+					this.OnbalanceKetvothuongChanged();
 				}
 			}
 		}

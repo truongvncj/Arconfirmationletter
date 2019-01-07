@@ -477,6 +477,7 @@
       <Column Name="userupdate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="codeGroup" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TypeDoc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblFBL5NnewRptbalance" Member="tblFBL5NnewRptbalances">
@@ -504,6 +505,9 @@
       <Column Name="paletnhua" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="freevo3nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="free3phantramvo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="balanceKetvothuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblFBL5Nnewthisperiod" Member="tblFBL5Nnewthisperiods">
