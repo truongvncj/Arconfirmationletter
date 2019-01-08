@@ -57,21 +57,39 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Tổng tiền đặt cược vỏ:</Value>
+                                      <Value>Tổng tiền vỏ, pallet, CO2</Value>
                                       <Style>
+                                        <FontStyle>Normal</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
                                         <FontWeight>Bold</FontWeight>
+                                        <TextDecoration>None</TextDecoration>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
                                   <Style />
+                                </Paragraph>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value />
+                                      <Style>
+                                        <FontStyle>Normal</FontStyle>
+                                        <FontFamily>Times New Roman</FontFamily>
+                                        <FontWeight>Bold</FontWeight>
+                                        <TextDecoration>None</TextDecoration>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>1.27084in</Top>
                               <Left>0.06475in</Left>
                               <Height>0.21527in</Height>
-                              <Width>1.45818in</Width>
+                              <Width>1.54416in</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -1630,6 +1648,33 @@
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
+                                <TextRun>
+                                  <Value>Số tiền đặt cọc trên đã bao gồm tiền tạm tính cho số vỏ chai miễn phí 3 năm và vỏ chai 3% tính tới thời điểm này là : </Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=Fields!sumoffreeclass.Value</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>  VNĐ và sẽ không được dùng để cấn trừ tiền đặt cược cho lô hàng sắp tới. </Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
                                 <TextRun>
                                   <Value>Giá đặt cược của một két vỏ chai (gồm 24 chai và một két nhựa) là 38.000 đồng, của một pallet gỗ là 400.000 đồng và của một vỏ bình CO2 là 500.000 đồng. </Value>
                                   <Style>
