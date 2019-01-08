@@ -2409,68 +2409,57 @@ namespace arconfirmationletter.View
             //     bool onlycodechoi = fromoptiong.onlycheckbook;
             if (choice == true && onlycode != 0)  // chi tạo báo cáo 1 code
             {
-                #region    // kiểm tra xem có số dư đầu kỳ không nếu không có bật ra bản thêm vào và kết thúc
 
-                //    db.SubmitChanges();
+                #region kiểm tra xem có so du dau ky không
+                SqlConnection conn2 = null;
+                SqlDataReader rdr1 = null;
 
-                //    db.CommandTimeout = 10000;
-                var q13 = from tblCustomer in db.tblCustomers
-                          where tblCustomer.Customer == onlycode && !(from tblFBL5beginbalace in db.tblFBL5beginbalaces
-                                                                      select tblFBL5beginbalace.Account.ToString() + tblFBL5beginbalace.Business_Area).Contains(tblCustomer.Customer.ToString() + tblCustomer.SOrg)
-                          //  orderby tblCustomer.Customer
-                          group tblCustomer by new
-                          {
-                              tblCustomer.Customer,
-                              tblCustomer.SOrg,
-                          }
-                         into g
-                          select g;
-
-
-
-                if (q13.Count() > 0)
-
+                string destConnString = Utils.getConnectionstr();
+                try
                 {
 
+                    conn2 = new SqlConnection(destConnString);
+                    conn2.Open();
+                    SqlCommand cmd1 = new SqlCommand("CheckOnlycodehavenothavebeginbalance", conn2);
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
 
-                    #region mở update số dư dầu kỳ khi codegroupkhoong co trong so du dau ky nếu không có bắn ra bàng không có
-
-
-
-                    foreach (var item in q13)
+                    try
+                    {
+                        rdr1 = cmd1.ExecuteReader();
+                    }
+                    catch (Exception ex)
                     {
 
-
-                        var slqtext = @"insert into  tblFBL5beginbalaceTemp ( Account, [Business Area],[Amount in local currency],
- Binhpmicc02,binhpmix9l,Chaivo1lit,Chaivothuong,[Deposit amount],[Adjusted amount],[Empty Amount],[Empty Amount Notmach],
-[Fullgood amount],joy20l,Ketnhua1lit,Ketnhuathuong,paletnhua,palletgo,[Payment amount] ) 
-
-values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
- 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
-
-
-                        db.CommandTimeout = 0;
-
-                        try
-                        {
-                            db.ExecuteCommand(slqtext);
-                        }
-                        catch (Exception ex)
-                        {
-
-                            MessageBox.Show("ERRor insert : tblFBL5beginbalaceTemp \n" + slqtext + "\n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-
-                        db.SubmitChanges();
-
-
-
+                        MessageBox.Show("error  tạo bang begin temp \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
 
 
 
+
+                    //       rdr1 = cmd1.ExecuteReader();
+
+                }
+                finally
+                {
+                    if (conn2 != null)
+                    {
+                        conn2.Close();
+                    }
+                    if (rdr1 != null)
+                    {
+                        rdr1.Close();
+                    }
+                }
+                //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //    db.CommandTimeout = 10000;
+                var checkqueury = from pp in db.tblFBL5beginbalaceTemps
+                                  select pp.Account;
+
+                if (checkqueury.Count() > 0)
+                {
                     var typeff = typeof(tblFBL5beginbalaceTemp);
 
                     //     LinqtoSQLDataContext dbx = new LinqtoSQLDataContext(connection_string);
@@ -2480,19 +2469,10 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                     inputcdata.Show();// = false;
                     inputcdata.Focus();
                     return;
-
-                    #endregion mở update số dư dầu kỳ khi codegroupkhoong co trong so du dau ky
-
-
-
                 }
-
-                //  MessageBox.Show("ok");
-
-                #endregion  // kiểm tra xem có so du dau ky không
-
-                if (q13.Count() == 0)
+                else
                 {
+
                     #region nếu không có số dư đủ thì thực hiện
 
                     if (regionby == false && choice == true)
@@ -2529,16 +2509,24 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
                     #endregion nếu không có số dư đủ thì thực hiện
+
                 }
+
+
+
+
+                #endregion
+
+
 
 
                 //   make reports luon   eDITLISTCUSTMAKEREPORTSToolStripMenuItem_Click
 
                 #region  updatepriterinvoice grouppriter
-                SqlConnection conn2 = null;
-                SqlDataReader rdr1 = null;
+                //    SqlConnection conn2 = null;
+                //  SqlDataReader rdr1 = null;
 
-                string destConnString = Utils.getConnectionstr();
+                //string destConnString = Utils.getConnectionstr();
                 try
                 {
 
@@ -2686,68 +2674,64 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
             {
 
 
-
-                #region    // kiểm tra xem có số dư đầu kỳ không nếu không có bật ra bản thêm vào và kết thúc
-
-                //    db.SubmitChanges();
-
-                //    db.CommandTimeout = 10000;
-                var q9 = from tblCustomer in db.tblCustomers
-                         where (tblCustomer.Reportsend == true) && !(from tblFBL5beginbalace in db.tblFBL5beginbalaces
-                                                                     select tblFBL5beginbalace.Account.ToString() + tblFBL5beginbalace.Business_Area).Contains(tblCustomer.Customer.ToString() + tblCustomer.SOrg)
-                         //  orderby tblCustomer.Customer
-                         group tblCustomer by new
-                         {
-                             tblCustomer.Customer,
-                             tblCustomer.SOrg,
-                         }
-                         into g
-                         select g;
+                #region checkbegin aoll cus
 
 
 
-                if (q9.Count() > 0)
+                SqlConnection conn2 = null;
+                SqlDataReader rdr1 = null;
 
+                string destConnString = Utils.getConnectionstr();
+                try
                 {
 
+                    conn2 = new SqlConnection(destConnString);
+                    conn2.Open();
+                    SqlCommand cmd1 = new SqlCommand("Checkcodehavenothavebeginbalance", conn2);
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    //  cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
 
-                    #region mở update số dư dầu kỳ khi codegroupkhoong co trong so du dau ky nếu không có bắn ra bàng không có
-
-
-
-                    foreach (var item in q9)
+                    try
+                    {
+                        rdr1 = cmd1.ExecuteReader();
+                    }
+                    catch (Exception ex)
                     {
 
-
-                        var slqtext = @"insert into  tblFBL5beginbalaceTemp ( Account, [Business Area],[Amount in local currency],
- Binhpmicc02,binhpmix9l,Chaivo1lit,Chaivothuong,[Deposit amount],[Adjusted amount],[Empty Amount],[Empty Amount Notmach],
-[Fullgood amount],joy20l,Ketnhua1lit,Ketnhuathuong,paletnhua,palletgo,[Payment amount] ) 
-
-values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
- 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
-
-
-                        db.CommandTimeout = 0;
-
-                        try
-                        {
-                            db.ExecuteCommand(slqtext);
-                        }
-                        catch (Exception ex)
-                        {
-
-                            MessageBox.Show("ERRor insert : tblFBL5beginbalaceTemp \n" + slqtext + "\n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
-
-                        db.SubmitChanges();
-
-
-
+                        MessageBox.Show("error  tạo bang begin temp \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
 
 
 
+
+                    //       rdr1 = cmd1.ExecuteReader();
+
+                }
+                finally
+                {
+                    if (conn2 != null)
+                    {
+                        conn2.Close();
+                    }
+                    if (rdr1 != null)
+                    {
+                        rdr1.Close();
+                    }
+                }
+                //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+
+                #endregion
+
+
+                var checkqueury = from pp in db.tblFBL5beginbalaceTemps
+                                  select pp.Account;
+
+                if (checkqueury.Count() > 0)
+                {
                     var typeff = typeof(tblFBL5beginbalaceTemp);
 
                     //     LinqtoSQLDataContext dbx = new LinqtoSQLDataContext(connection_string);
@@ -2756,22 +2740,14 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                     View.VInputchange inputcdata = new View.VInputchange("MASTER BEGIN BALACE ", "LIST CUST NOT HAVE BEGIN BALACE, PLEASE CHECK ! ", db, "tblFBL5beginbalace", "tblFBL5beginbalaceTemp", typeff, "id", "id");
                     inputcdata.Show();// = false;
                     inputcdata.Focus();
-
-
-                    #endregion mở update số dư dầu kỳ khi codegroupkhoong co trong so du dau ky
-
-
-
+                    return;
                 }
-
-                //  MessageBox.Show("ok");
-
-                #endregion  // kiểm tra xem có so du dau ky không
-
-
-
-                if (q9.Count() == 0)
+                else
                 {
+
+
+
+
                     #region nếu không có số dư đủ thì thực hiện
 
                     if (regionby == false && choice == true)
@@ -2834,17 +2810,29 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                         //  ctrac.ARlettermakebyGroupcodeRegion(db, fromdate, todate);
                     }
                     #endregion nếu không có số dư đủ thì thực hiện
+
+
+
+
+
+
                 }
+
+
+
+
+
+
 
                 #region update cho view heet baso caso
 
                 //     updategroupprintletterChoiceALL
 
                 #region  updatepriterinvoice updategroupprintletterChoiceALL
-                SqlConnection conn2 = null;
-                SqlDataReader rdr1 = null;
+                //       SqlConnection conn2 = null;
+                //     SqlDataReader rdr1 = null;
 
-                string destConnString = Utils.getConnectionstr();
+                //   string destConnString = Utils.getConnectionstr();
                 try
                 {
 
@@ -2956,7 +2944,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                                    Chaivo1lit = pp.Chaivo1lit.GetValueOrDefault(0),
                                    Chaivothuong = pp.Chaivothuong.GetValueOrDefault(0),
-                               
+
                                    joy20l = pp.joy20l.GetValueOrDefault(0),
                                    Ketnhua1lit = pp.Ketnhua1lit.GetValueOrDefault(0),
                                    Ketnhuathuong = pp.Ketnhuathuong.GetValueOrDefault(0),
@@ -4583,7 +4571,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
                               //  Payment_amount = h.Sum(m => m.Payment_amount),
                               // Adjusted_amount = h.Sum(m => m.Adjusted_amount),
-                              Fullgood_amount = h.Sum(m => m.Invoice_Amount.GetValueOrDefault(0)) + h.Sum(m => m.Deposit_amount.GetValueOrDefault(0)) + h.Sum(m => m.Payment_amount.GetValueOrDefault(0)) + h.Sum(m => m.Adjusted_amount.GetValueOrDefault(0)) - h.Sum(m => m.Deposit_amount.GetValueOrDefault(0)),
+                              Fullgood_amount = h.Sum(m => m.Invoice_Amount.GetValueOrDefault(0)) + h.Sum(m => m.Payment_amount.GetValueOrDefault(0)) + h.Sum(m => m.Adjusted_amount.GetValueOrDefault(0)),// + h.Sum(m => m.Deposit_amount.GetValueOrDefault(0)) - h.Sum(m => m.Deposit_amount.GetValueOrDefault(0)),
                               // Invoice_Amount = h.Sum(m => m.Invoice_Amount),
 
                               Deposit_amount = h.Sum(m => m.Deposit_amount).GetValueOrDefault(0),
@@ -4593,7 +4581,7 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
                               Ketvothuong = h.Sum(m => m.Ketvothuong).GetValueOrDefault(0),
                               Vo_chai_3_phan_tram = h.Sum(m => m.free3phantramvo).GetValueOrDefault(0),
                               Vo_chai_mien_phi_3_nam = h.Sum(m => m.freevo3nam).GetValueOrDefault(0),
-                              So_du_vo_thuong = h.Sum(m => m.Ketvothuong).GetValueOrDefault(0)- h.Sum(m => m.free3phantramvo).GetValueOrDefault(0)- h.Sum(m => m.freevo3nam).GetValueOrDefault(0),
+                              So_du_vo_thuong = h.Sum(m => m.Ketvothuong).GetValueOrDefault(0) - h.Sum(m => m.free3phantramvo).GetValueOrDefault(0) - h.Sum(m => m.freevo3nam).GetValueOrDefault(0),
                               paletnhua = h.Sum(m => m.paletnhua).GetValueOrDefault(0),
                               palletgo = h.Sum(m => m.palletgo).GetValueOrDefault(0),
 
