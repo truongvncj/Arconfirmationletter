@@ -136,9 +136,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>1.275in</Top>
-                              <Left>1.69918in</Left>
+                              <Left>1.67835in</Left>
                               <Height>0.21459in</Height>
-                              <Width>1.88985in</Width>
+                              <Width>1.91068in</Width>
                               <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
@@ -293,23 +293,41 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Vỏ chai miễn phí 3 năm</Value>
+                                      <Value>Vỏ chai miễn phí 3 năm </Value>
                                       <Style>
                                         <FontStyle>Italic</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
                                         <FontWeight>Normal</FontWeight>
                                         <TextDecoration>None</TextDecoration>
+                                        <Color>#000000</Color>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
                                   <Style />
                                 </Paragraph>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value />
+                                      <Style>
+                                        <FontStyle>Italic</FontStyle>
+                                        <FontFamily>Times New Roman</FontFamily>
+                                        <FontWeight>Normal</FontWeight>
+                                        <TextDecoration>None</TextDecoration>
+                                        <Color>#000000</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
+                                </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>0.5264in</Top>
-                              <Left>0.93698in</Left>
-                              <Height>0.19723in</Height>
-                              <Width>1.58983in</Width>
+                              <Left>0.81112in</Left>
+                              <Height>0.23195in</Height>
+                              <Width>1.71569in</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
@@ -411,10 +429,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.75835in</Top>
-                              <Left>0.93698in</Left>
+                              <Top>0.77085in</Top>
+                              <Left>0.8071in</Left>
                               <Height>0.19723in</Height>
-                              <Width>1.58983in</Width>
+                              <Width>1.71971in</Width>
                               <ZIndex>11</ZIndex>
                               <Style>
                                 <Border>
@@ -446,7 +464,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>0.5389in</Top>
-                              <Left>0.20449in</Left>
+                              <Left>0.06475in</Left>
                               <Height>0.21807in</Height>
                               <Width>0.67693in</Width>
                               <ZIndex>12</ZIndex>
@@ -467,21 +485,41 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Số dư vỏ nợ vỏ :</Value>
+                                      <Value>Vỏ cược</Value>
                                       <Style>
+                                        <FontStyle>Italic</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
-                                        <FontWeight>Bold</FontWeight>
+                                        <FontWeight>Normal</FontWeight>
+                                        <TextDecoration>None</TextDecoration>
+                                        <Color>#000000</Color>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
                                   <Style />
                                 </Paragraph>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value />
+                                      <Style>
+                                        <FontStyle>Italic</FontStyle>
+                                        <FontFamily>Times New Roman</FontFamily>
+                                        <FontWeight>Normal</FontWeight>
+                                        <TextDecoration>None</TextDecoration>
+                                        <Color>#000000</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
+                                </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.99031in</Top>
-                              <Left>0.06475in</Left>
-                              <Height>0.23609in</Height>
-                              <Width>1.20874in</Width>
+                              <Top>1.0042in</Top>
+                              <Left>0.81112in</Left>
+                              <Height>0.21109in</Height>
+                              <Width>0.67693in</Width>
                               <ZIndex>13</ZIndex>
                               <Style>
                                 <Border>
@@ -513,9 +551,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>1.02503in</Top>
-                              <Left>1.65486in</Left>
+                              <Left>1.67835in</Left>
                               <Height>0.21251in</Height>
-                              <Width>5.51416in</Width>
+                              <Width>5.49067in</Width>
                               <ZIndex>14</ZIndex>
                               <Style>
                                 <Border>
@@ -536,6 +574,7 @@
                                     <TextRun>
                                       <Value>Két</Value>
                                       <Style>
+                                        <FontStyle>Italic</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
                                         <FontWeight>Normal</FontWeight>
                                       </Style>
@@ -569,6 +608,7 @@
                                     <TextRun>
                                       <Value>Két</Value>
                                       <Style>
+                                        <FontStyle>Italic</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
                                         <FontWeight>Normal</FontWeight>
                                       </Style>

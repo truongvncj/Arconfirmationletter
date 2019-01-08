@@ -4591,6 +4591,9 @@ values (" + (double)item.Key.Customer + ",'" + item.Key.SOrg + @"',0,
 
 
                               Ketvothuong = h.Sum(m => m.Ketvothuong).GetValueOrDefault(0),
+                              Vo_chai_3_phan_tram = h.Sum(m => m.free3phantramvo).GetValueOrDefault(0),
+                              Vo_chai_mien_phi_3_nam = h.Sum(m => m.freevo3nam).GetValueOrDefault(0),
+                              So_du_vo_thuong = h.Sum(m => m.Ketvothuong).GetValueOrDefault(0)- h.Sum(m => m.free3phantramvo).GetValueOrDefault(0)- h.Sum(m => m.freevo3nam).GetValueOrDefault(0),
                               paletnhua = h.Sum(m => m.paletnhua).GetValueOrDefault(0),
                               palletgo = h.Sum(m => m.palletgo).GetValueOrDefault(0),
 
