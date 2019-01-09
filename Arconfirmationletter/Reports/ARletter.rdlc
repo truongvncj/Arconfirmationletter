@@ -20,7 +20,6 @@
                         <Rectangle Name="Rectangle2">
                           <ReportItems>
                             <Textbox Name="Textbox7">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -86,7 +85,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.33334in</Top>
+                              <Top>1.30834in</Top>
                               <Left>0.06475in</Left>
                               <Height>0.21527in</Height>
                               <Width>1.54416in</Width>
@@ -119,9 +118,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.34167in</Top>
+                              <Top>1.31667in</Top>
                               <Left>3.6414in</Left>
-                              <Height>0.2243in</Height>
+                              <Height>0.20694in</Height>
                               <Width>0.52708in</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
@@ -153,7 +152,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>1.3375in</Top>
+                              <Top>1.3125in</Top>
                               <Left>1.67835in</Left>
                               <Height>0.21459in</Height>
                               <Width>1.91068in</Width>
@@ -169,7 +168,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="sumofempty">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -187,9 +185,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.28194in</Top>
+                              <Top>0.26944in</Top>
                               <Left>1.67835in</Left>
-                              <Height>0.2014in</Height>
+                              <Height>0.2139in</Height>
                               <Width>5.51416in</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
@@ -203,7 +201,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox9">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -220,9 +217,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.26389in</Top>
+                              <Top>0.29167in</Top>
                               <Left>0.02349in</Left>
-                              <Height>0.19723in</Height>
+                              <Height>0.19168in</Height>
                               <Width>1.20874in</Width>
                               <ZIndex>5</ZIndex>
                               <Style>
@@ -236,7 +233,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="sumoffullamount">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -258,7 +254,7 @@
                               </Paragraphs>
                               <Top>0.01944in</Top>
                               <Left>1.67835in</Left>
-                              <Height>0.24445in</Height>
+                              <Height>0.23611in</Height>
                               <Width>1.92138in</Width>
                               <ZIndex>6</ZIndex>
                               <Style>
@@ -272,7 +268,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox8">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -289,7 +284,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.0375in</Top>
+                              <Top>0.025in</Top>
                               <Left>3.6414in</Left>
                               <Height>0.20764in</Height>
                               <Width>0.55861in</Width>
@@ -375,7 +370,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.5389in</Top>
+                              <Top>0.5264in</Top>
                               <Left>2.4157in</Left>
                               <Height>0.21251in</Height>
                               <Width>1.21208in</Width>
@@ -391,7 +386,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="sumofempty3">
-                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
@@ -410,7 +404,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.77919in</Top>
+                              <Top>0.76669in</Top>
                               <Left>2.4157in</Left>
                               <Height>0.21529in</Height>
                               <Width>1.21208in</Width>
@@ -444,7 +438,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.81529in</Top>
+                              <Top>0.80279in</Top>
                               <Left>0.8071in</Left>
                               <Height>0.17918in</Height>
                               <Width>1.53916in</Width>
@@ -530,7 +524,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.0292in</Top>
+                              <Top>1.0167in</Top>
                               <Left>0.81112in</Left>
                               <Height>0.23053in</Height>
                               <Width>0.67693in</Width>
@@ -563,7 +557,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>1.05003in</Top>
+                              <Top>1.03753in</Top>
                               <Left>1.60626in</Left>
                               <Height>0.2097in</Height>
                               <Width>5.56276in</Width>
@@ -630,7 +624,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.78683in</Top>
+                              <Top>0.77433in</Top>
                               <Left>3.66945in</Left>
                               <Height>0.20764in</Height>
                               <Width>0.55861in</Width>
@@ -649,7 +643,7 @@
                           <KeepTogether>true</KeepTogether>
                           <Top>1.04027in</Top>
                           <Left>0.11331in</Left>
-                          <Height>1.62847in</Height>
+                          <Height>1.5757in</Height>
                           <Width>7.24251in</Width>
                           <Style>
                             <Border>
@@ -953,7 +947,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>7.105in</Top>
+                          <Top>6.98in</Top>
                           <Left>3.16346in</Left>
                           <Height>1.5014in</Height>
                           <Width>4.18112in</Width>
@@ -1025,17 +1019,6 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontWeight>Normal</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
                                   <Value>________________</Value>
                                   <Style>
                                     <FontWeight>Normal</FontWeight>
@@ -1061,7 +1044,7 @@
                           <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Top>8.56751in</Top>
                           <Left>0.03831in</Left>
-                          <Height>1.27831in</Height>
+                          <Height>1.20886in</Height>
                           <Width>7.17682in</Width>
                           <ZIndex>9</ZIndex>
                           <Style>
@@ -1726,8 +1709,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>2.68541in</Top>
-                          <Left>0.125in</Left>
+                          <Top>2.66041in</Top>
+                          <Left>0.1125in</Left>
                           <Height>1.09721in</Height>
                           <Width>7.21958in</Width>
                           <ZIndex>20</ZIndex>

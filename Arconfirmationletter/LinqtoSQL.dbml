@@ -368,9 +368,6 @@
       <Column Name="[Fullgood amount]" Member="Fullgood_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="[Deposit amount]" Member="Deposit_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="[Empty Amount]" Member="Empty_Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Empty Amount Notmach]" Member="Empty_Amount_Notmach" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Adjusted amount]" Member="Adjusted_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Payment amount]" Member="Payment_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="codeGroup" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Ketvothuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -395,9 +392,6 @@
       <Column Name="[Fullgood amount]" Member="Fullgood_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="[Deposit amount]" Member="Deposit_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="[Empty Amount]" Member="Empty_Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Empty Amount Notmach]" Member="Empty_Amount_Notmach" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Adjusted amount]" Member="Adjusted_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Payment amount]" Member="Payment_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="codeGroup" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Ketvothuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -411,6 +405,7 @@
       <Column Name="binhpmix9l" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="palletgo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="paletnhua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblFBL5N" Member="tblFBL5Ns">

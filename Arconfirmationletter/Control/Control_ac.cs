@@ -2682,7 +2682,7 @@ namespace arconfirmationletter.Control
                 foreach (var item in rsdk)
                 {
 
-                    dkbeginnuoc = (double)item.Sum(gr => gr.Fullgood_amount.GetValueOrDefault(0)) + (double)item.Sum(gr => gr.Payment_amount.GetValueOrDefault(0)) + (double)item.Sum(gr => gr.Adjusted_amount.GetValueOrDefault(0)) + (double)item.Sum(gr => gr.Deposit_amount.GetValueOrDefault(0));// chính là amount on local
+                    dkbeginnuoc = (double)item.Sum(gr => gr.Fullgood_amount.GetValueOrDefault(0)) +  (double)item.Sum(gr => gr.Deposit_amount.GetValueOrDefault(0));// (double)item.Sum(gr => gr.Payment_amount.GetValueOrDefault(0)) +chính là amount on local  (double)item.Sum(gr => gr.Adjusted_amount.GetValueOrDefault(0)) +
                     dkbeginvo = (double)item.Sum(gr => gr.Deposit_amount.GetValueOrDefault(0)); // phát sinh trong kỳ
 
                 }

@@ -2404,7 +2404,7 @@ namespace arconfirmationletter.View
             bool regionby = fromoptiong.byregion;
             bool choice = fromoptiong.choice;
             double onlycode = fromoptiong.custcode;
-
+            string userName = Utils.getusername();
 
             //     bool onlycodechoi = fromoptiong.onlycheckbook;
             if (choice == true && onlycode != 0)  // chi tạo báo cáo 1 code
@@ -2423,6 +2423,7 @@ namespace arconfirmationletter.View
                     SqlCommand cmd1 = new SqlCommand("CheckOnlycodehavenothavebeginbalance", conn2);
                     cmd1.CommandType = CommandType.StoredProcedure;
                     cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+                    cmd1.Parameters.Add("@userName", SqlDbType.NVarChar).Value = userName;
 
                     try
                     {
@@ -2456,6 +2457,7 @@ namespace arconfirmationletter.View
 
                 //    db.CommandTimeout = 10000;
                 var checkqueury = from pp in db.tblFBL5beginbalaceTemps
+                                  where pp.userName == userName
                                   select pp.Account;
 
                 if (checkqueury.Count() > 0)
@@ -2535,6 +2537,8 @@ namespace arconfirmationletter.View
                     SqlCommand cmd1 = new SqlCommand("updategroupprintletterOnlycodeChoice", conn2);
                     cmd1.CommandType = CommandType.StoredProcedure;
                     cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+              //      cmd1.Parameters.Add("@userName", SqlDbType.NVarChar).Value = userName;
+
 
                     try
                     {
@@ -2690,6 +2694,7 @@ namespace arconfirmationletter.View
                     SqlCommand cmd1 = new SqlCommand("Checkcodehavenothavebeginbalance", conn2);
                     cmd1.CommandType = CommandType.StoredProcedure;
                     //  cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+                    cmd1.Parameters.Add("@userName", SqlDbType.NVarChar).Value = userName;
 
                     try
                     {
@@ -2728,6 +2733,7 @@ namespace arconfirmationletter.View
 
 
                 var checkqueury = from pp in db.tblFBL5beginbalaceTemps
+                                  where pp.userName == userName
                                   select pp.Account;
 
                 if (checkqueury.Count() > 0)
@@ -2916,8 +2922,30 @@ namespace arconfirmationletter.View
         {
             string connection_string = Utils.getConnectionstr();
 
-            //  var db = new LinqtoSQLDataContext(connection_string);
-            //   LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+            //bulkCopy.ColumnMappings.Add("Account", "Account");
+            //bulkCopy.ColumnMappings.Add("Business_Area", "[Business Area]");
+            //bulkCopy.ColumnMappings.Add("Amount_in_local_currency", "[Amount in local currency]");
+
+            //bulkCopy.ColumnMappings.Add("Deposit_amount", "[Deposit amount]");
+            //bulkCopy.ColumnMappings.Add("Fullgood_amount", "[Fullgood amount]");
+            //bulkCopy.ColumnMappings.Add("Empty_Amount", "[Empty Amount]");
+            ////   bulkCopy.ColumnMappings.Add("Empty_Amount_Notmach", "[Empty Amount Notmach]");
+
+
+            ////        bulkCopy.ColumnMappings.Add("Adjusted_amount", "[Adjusted amount]");
+            ////     bulkCopy.ColumnMappings.Add("Payment_amount", "[Payment amount]");
+
+            //bulkCopy.ColumnMappings.Add("Ketvothuong", "Ketvothuong");
+            //bulkCopy.ColumnMappings.Add("", "Chaivothuong");
+            //bulkCopy.ColumnMappings.Add("", "Ketvolit");
+            //bulkCopy.ColumnMappings.Add("", "Chaivo1lit");
+            //bulkCopy.ColumnMappings.Add("", "Ketnhuathuong");
+            //bulkCopy.ColumnMappings.Add("", "Ketnhua1lit");
+            //bulkCopy.ColumnMappings.Add("", "joy20l");
+            //bulkCopy.ColumnMappings.Add("", "Binhpmicc02");
+            //bulkCopy.ColumnMappings.Add("", "binhpmix9l");
+            //bulkCopy.ColumnMappings.Add("", "palletgo");
+            //bulkCopy.ColumnMappings.Add("", "paletnhua");
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             var rsthisperiod = from pp in dc.tblFBL5beginbalaces
@@ -2927,35 +2955,24 @@ namespace arconfirmationletter.View
                                    pp.codeGroup,
                                    pp.Account,
                                    pp.Business_Area,
-
-
-
-
                                    Amount_in_local_currency = pp.Amount_in_local_currency.GetValueOrDefault(0),
-
-                                   Fullgood_amount = pp.Fullgood_amount.GetValueOrDefault(0),
-
                                    Deposit_amount = pp.Deposit_amount.GetValueOrDefault(0),
+                                   Fullgood_amount = pp.Fullgood_amount.GetValueOrDefault(0),
                                    Empty_Amount = pp.Empty_Amount.GetValueOrDefault(0),
-                                   Adjusted_amount = pp.Adjusted_amount.GetValueOrDefault(0),
 
+                                   Ketvothuong = pp.Ketvothuong.GetValueOrDefault(0),
+                                   Chaivothuong = pp.Chaivothuong.GetValueOrDefault(0),
+                                   Ketvolit = pp.Ketvolit.GetValueOrDefault(0),
+                                   Chaivo1lit = pp.Chaivo1lit.GetValueOrDefault(0),
+                                   Ketnhuathuong = pp.Ketnhuathuong.GetValueOrDefault(0),
+                                   Ketnhua1lit = pp.Ketnhua1lit.GetValueOrDefault(0),
+                                   joy20l = pp.joy20l.GetValueOrDefault(0),
                                    Binhpmicc02 = pp.Binhpmicc02.GetValueOrDefault(0),
                                    binhpmix9l = pp.binhpmix9l.GetValueOrDefault(0),
-
-                                   Chaivo1lit = pp.Chaivo1lit.GetValueOrDefault(0),
-                                   Chaivothuong = pp.Chaivothuong.GetValueOrDefault(0),
-
-                                   joy20l = pp.joy20l.GetValueOrDefault(0),
-                                   Ketnhua1lit = pp.Ketnhua1lit.GetValueOrDefault(0),
-                                   Ketnhuathuong = pp.Ketnhuathuong.GetValueOrDefault(0),
-                                   Ketvolit = pp.Ketvolit.GetValueOrDefault(0),
-                                   Ketvothuong = pp.Ketvothuong.GetValueOrDefault(0),
-                                   paletnhua = pp.paletnhua.GetValueOrDefault(0),
                                    palletgo = pp.palletgo.GetValueOrDefault(0),
-                                   Payment_amount = pp.Payment_amount.GetValueOrDefault(0),
+                                   paletnhua = pp.paletnhua.GetValueOrDefault(0),
 
-
-
+                                   
 
                                };
 
@@ -2966,7 +2983,7 @@ namespace arconfirmationletter.View
 
                 Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "LIST BEGIN BALANCE !", 100, DateTime.Today, DateTime.Today);
                 //   viewtbl.Visible = false;
-                viewtbl.Show();
+                viewtbl.ShowDialog();
 
             }
 

@@ -7598,12 +7598,6 @@ namespace arconfirmationletter
 		
 		private System.Nullable<double> _Empty_Amount;
 		
-		private System.Nullable<double> _Empty_Amount_Notmach;
-		
-		private System.Nullable<double> _Adjusted_amount;
-		
-		private System.Nullable<double> _Payment_amount;
-		
 		private int _id;
 		
 		private System.Nullable<double> _codeGroup;
@@ -7648,12 +7642,6 @@ namespace arconfirmationletter
     partial void OnDeposit_amountChanged();
     partial void OnEmpty_AmountChanging(System.Nullable<double> value);
     partial void OnEmpty_AmountChanged();
-    partial void OnEmpty_Amount_NotmachChanging(System.Nullable<double> value);
-    partial void OnEmpty_Amount_NotmachChanged();
-    partial void OnAdjusted_amountChanging(System.Nullable<double> value);
-    partial void OnAdjusted_amountChanged();
-    partial void OnPayment_amountChanging(System.Nullable<double> value);
-    partial void OnPayment_amountChanged();
     partial void OnidChanging(int value);
     partial void OnidChanged();
     partial void OncodeGroupChanging(System.Nullable<double> value);
@@ -7805,66 +7793,6 @@ namespace arconfirmationletter
 					this._Empty_Amount = value;
 					this.SendPropertyChanged("Empty_Amount");
 					this.OnEmpty_AmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Empty Amount Notmach]", Storage="_Empty_Amount_Notmach", DbType="Float")]
-		public System.Nullable<double> Empty_Amount_Notmach
-		{
-			get
-			{
-				return this._Empty_Amount_Notmach;
-			}
-			set
-			{
-				if ((this._Empty_Amount_Notmach != value))
-				{
-					this.OnEmpty_Amount_NotmachChanging(value);
-					this.SendPropertyChanging();
-					this._Empty_Amount_Notmach = value;
-					this.SendPropertyChanged("Empty_Amount_Notmach");
-					this.OnEmpty_Amount_NotmachChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Adjusted amount]", Storage="_Adjusted_amount", DbType="Float")]
-		public System.Nullable<double> Adjusted_amount
-		{
-			get
-			{
-				return this._Adjusted_amount;
-			}
-			set
-			{
-				if ((this._Adjusted_amount != value))
-				{
-					this.OnAdjusted_amountChanging(value);
-					this.SendPropertyChanging();
-					this._Adjusted_amount = value;
-					this.SendPropertyChanged("Adjusted_amount");
-					this.OnAdjusted_amountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Payment amount]", Storage="_Payment_amount", DbType="Float")]
-		public System.Nullable<double> Payment_amount
-		{
-			get
-			{
-				return this._Payment_amount;
-			}
-			set
-			{
-				if ((this._Payment_amount != value))
-				{
-					this.OnPayment_amountChanging(value);
-					this.SendPropertyChanging();
-					this._Payment_amount = value;
-					this.SendPropertyChanged("Payment_amount");
-					this.OnPayment_amountChanged();
 				}
 			}
 		}
@@ -8188,12 +8116,6 @@ namespace arconfirmationletter
 		
 		private System.Nullable<double> _Empty_Amount;
 		
-		private System.Nullable<double> _Empty_Amount_Notmach;
-		
-		private System.Nullable<double> _Adjusted_amount;
-		
-		private System.Nullable<double> _Payment_amount;
-		
 		private int _id;
 		
 		private System.Nullable<double> _codeGroup;
@@ -8220,6 +8142,8 @@ namespace arconfirmationletter
 		
 		private System.Nullable<int> _paletnhua;
 		
+		private string _userName;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -8236,12 +8160,6 @@ namespace arconfirmationletter
     partial void OnDeposit_amountChanged();
     partial void OnEmpty_AmountChanging(System.Nullable<double> value);
     partial void OnEmpty_AmountChanged();
-    partial void OnEmpty_Amount_NotmachChanging(System.Nullable<double> value);
-    partial void OnEmpty_Amount_NotmachChanged();
-    partial void OnAdjusted_amountChanging(System.Nullable<double> value);
-    partial void OnAdjusted_amountChanged();
-    partial void OnPayment_amountChanging(System.Nullable<double> value);
-    partial void OnPayment_amountChanged();
     partial void OnidChanging(int value);
     partial void OnidChanged();
     partial void OncodeGroupChanging(System.Nullable<double> value);
@@ -8268,6 +8186,8 @@ namespace arconfirmationletter
     partial void OnpalletgoChanged();
     partial void OnpaletnhuaChanging(System.Nullable<int> value);
     partial void OnpaletnhuaChanged();
+    partial void OnuserNameChanging(string value);
+    partial void OnuserNameChanged();
     #endregion
 		
 		public tblFBL5beginbalaceTemp()
@@ -8391,66 +8311,6 @@ namespace arconfirmationletter
 					this._Empty_Amount = value;
 					this.SendPropertyChanged("Empty_Amount");
 					this.OnEmpty_AmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Empty Amount Notmach]", Storage="_Empty_Amount_Notmach", DbType="Float")]
-		public System.Nullable<double> Empty_Amount_Notmach
-		{
-			get
-			{
-				return this._Empty_Amount_Notmach;
-			}
-			set
-			{
-				if ((this._Empty_Amount_Notmach != value))
-				{
-					this.OnEmpty_Amount_NotmachChanging(value);
-					this.SendPropertyChanging();
-					this._Empty_Amount_Notmach = value;
-					this.SendPropertyChanged("Empty_Amount_Notmach");
-					this.OnEmpty_Amount_NotmachChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Adjusted amount]", Storage="_Adjusted_amount", DbType="Float")]
-		public System.Nullable<double> Adjusted_amount
-		{
-			get
-			{
-				return this._Adjusted_amount;
-			}
-			set
-			{
-				if ((this._Adjusted_amount != value))
-				{
-					this.OnAdjusted_amountChanging(value);
-					this.SendPropertyChanging();
-					this._Adjusted_amount = value;
-					this.SendPropertyChanged("Adjusted_amount");
-					this.OnAdjusted_amountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Payment amount]", Storage="_Payment_amount", DbType="Float")]
-		public System.Nullable<double> Payment_amount
-		{
-			get
-			{
-				return this._Payment_amount;
-			}
-			set
-			{
-				if ((this._Payment_amount != value))
-				{
-					this.OnPayment_amountChanging(value);
-					this.SendPropertyChanging();
-					this._Payment_amount = value;
-					this.SendPropertyChanged("Payment_amount");
-					this.OnPayment_amountChanged();
 				}
 			}
 		}
@@ -8711,6 +8571,26 @@ namespace arconfirmationletter
 					this._paletnhua = value;
 					this.SendPropertyChanged("paletnhua");
 					this.OnpaletnhuaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="NVarChar(50)")]
+		public string userName
+		{
+			get
+			{
+				return this._userName;
+			}
+			set
+			{
+				if ((this._userName != value))
+				{
+					this.OnuserNameChanging(value);
+					this.SendPropertyChanging();
+					this._userName = value;
+					this.SendPropertyChanged("userName");
+					this.OnuserNameChanged();
 				}
 			}
 		}

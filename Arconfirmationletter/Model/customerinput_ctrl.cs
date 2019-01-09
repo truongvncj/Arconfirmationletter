@@ -1255,9 +1255,9 @@ namespace arconfirmationletter.Model
 
             batable.Columns.Add("Empty_Amount", typeof(double));
 
-            batable.Columns.Add("Empty_Amount_Notmach", typeof(double));
-            batable.Columns.Add("Adjusted_amount", typeof(double));
-            batable.Columns.Add("Payment_amount", typeof(double));
+       //     batable.Columns.Add("Empty_Amount_Notmach", typeof(double));
+      //      batable.Columns.Add("Adjusted_amount", typeof(double));
+           // batable.Columns.Add("Payment_amount", typeof(double));
 
             batable.Columns.Add("Ketvothuong", typeof(int));
             batable.Columns.Add("Chaivothuong", typeof(int));
@@ -1285,9 +1285,9 @@ namespace arconfirmationletter.Model
             int Deposit_amountid = -1;
             int Empty_Amountid = -1;
 
-            int Empty_Amount_Notmachid = -1;
-            int Adjusted_amountid = -1;
-            int Payment_amountid = -1;
+       //     int Empty_Amount_Notmachid = -1;
+       //     int Adjusted_amountid = -1;
+      //      int Payment_amountid = -1;
             int Ketvothuongid = -1;
 
             int Chaivothuongid = -1;
@@ -1337,14 +1337,6 @@ namespace arconfirmationletter.Model
 
 
 
-                        if (value.Trim() == ("Amount_in_local_currency") && Amount_in_local_currencyid == -1)
-                        {
-
-                            Amount_in_local_currencyid = columid;
-                            //    headindex = 0;
-
-                        }
-
 
                         if (value.Trim() == ("Fullgood_amount") && Fullgood_amountid == -1)
                         {
@@ -1369,27 +1361,17 @@ namespace arconfirmationletter.Model
                             //    headindex = 0;
 
                         }
-                        if (value.Trim() == ("Empty_Amount_Notmach") && Empty_Amount_Notmachid == -1)
+
+                        if (value.Trim() == ("Amount_in_local_currency") && Empty_Amountid == -1)
                         {
 
-                            Empty_Amount_Notmachid = columid;
+                            Amount_in_local_currencyid = columid;
                             //    headindex = 0;
 
                         }
-                        if (value.Trim() == ("Adjusted_amount") && Adjusted_amountid == -1)
-                        {
 
-                            Adjusted_amountid = columid;
-                            //    headindex = 0;
+                        
 
-                        }
-                        if (value.Trim() == ("Payment_amount") && Payment_amountid == -1)
-                        {
-
-                            Payment_amountid = columid;
-                            //    headindex = 0;
-
-                        }
                         if (value.Trim() == ("Ketvothuong") && Ketvothuongid == -1)
                         {
 
@@ -1522,17 +1504,8 @@ namespace arconfirmationletter.Model
                 return;
             }
 
-            if (Empty_Amount_Notmachid == -1)
-            {
-                MessageBox.Show("Dữ liệu thiếu cột Empty_Amount_Notmach", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (Adjusted_amountid == -1)
-            {
-                MessageBox.Show("Dữ liệu thiếu cột Adjusted_amount", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+         
+       
 
             if (Ketvothuongid == -1)
             {
@@ -1661,34 +1634,17 @@ namespace arconfirmationletter.Model
                             }
 
                             DocumentNoVal = sourceData.Rows[rowixd][Amount_in_local_currencyid].ToString();
-                            if (Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != "")
+
+
+                        if (Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != "")
                             {
 
                                 dr["Amount_in_local_currency"] = double.Parse(sourceData.Rows[rowixd][Amount_in_local_currencyid].ToString());
                             }
 
-                            DocumentNoVal = sourceData.Rows[rowixd][Empty_Amount_Notmachid].ToString();
-                            if (Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != "")
-                            {
-
-                                dr["Empty_Amount_Notmach"] = double.Parse(sourceData.Rows[rowixd][Empty_Amount_Notmachid].ToString());
-                            }
+                    
 
 
-
-                            DocumentNoVal = sourceData.Rows[rowixd][Adjusted_amountid].ToString();
-                            if (Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != "")
-                            {
-                                dr["Adjusted_amount"] = double.Parse(sourceData.Rows[rowixd][Adjusted_amountid].ToString());
-                            }
-
-                            DocumentNoVal = sourceData.Rows[rowixd][Payment_amountid].ToString();
-                            if (Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != "")
-                            {
-                                dr["Payment_amount"] = double.Parse(sourceData.Rows[rowixd][Payment_amountid].ToString());
-
-
-                            }
 
                             DocumentNoVal = sourceData.Rows[rowixd][Ketvothuongid].ToString();
                             if (Utils.IsValidnumber(DocumentNoVal) && DocumentNoVal != "")
@@ -1815,11 +1771,11 @@ namespace arconfirmationletter.Model
                 bulkCopy.ColumnMappings.Add("Deposit_amount", "[Deposit amount]");
                 bulkCopy.ColumnMappings.Add("Fullgood_amount", "[Fullgood amount]");
                 bulkCopy.ColumnMappings.Add("Empty_Amount", "[Empty Amount]");
-                bulkCopy.ColumnMappings.Add("Empty_Amount_Notmach", "[Empty Amount Notmach]");
+             //   bulkCopy.ColumnMappings.Add("Empty_Amount_Notmach", "[Empty Amount Notmach]");
 
 
-                bulkCopy.ColumnMappings.Add("Adjusted_amount", "[Adjusted amount]");
-                bulkCopy.ColumnMappings.Add("Payment_amount", "[Payment amount]");
+        //        bulkCopy.ColumnMappings.Add("Adjusted_amount", "[Adjusted amount]");
+           //     bulkCopy.ColumnMappings.Add("Payment_amount", "[Payment amount]");
                 bulkCopy.ColumnMappings.Add("Ketvothuong", "Ketvothuong");
                 bulkCopy.ColumnMappings.Add("Chaivothuong", "Chaivothuong");
                 bulkCopy.ColumnMappings.Add("Ketvolit", "Ketvolit");
