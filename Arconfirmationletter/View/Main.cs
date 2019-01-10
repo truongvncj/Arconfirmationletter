@@ -545,7 +545,8 @@ namespace arconfirmationletter.View
 
             //dc.ExecuteCommand("DELETE FROM tblFBL5Nnew  WHERE  tblFBL5Nnew.[Tempmark] = 1");  // xóa các tem
             //dc.SubmitChanges();
-
+            Control_ac ct = new Control_ac();
+            ct.UpdateVATregionFromFBL5Nregion();
 
 
 
@@ -628,7 +629,7 @@ namespace arconfirmationletter.View
                 return;
             }
 
-            Control_ac ct = new Control_ac();
+      
             DialogResult Kq = MessageBox.Show("Bạn xóa workingdata bởi bản mới hay chỉ add thêm ?" + "\n" + "                 Xóa->Yes/ Add thêm->No !", "Thông báo !", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
 
@@ -706,7 +707,7 @@ namespace arconfirmationletter.View
 
                                     #endregion
 
-
+                           
 
                                     bool kq1 = ct.checkVATandFBL5n();
 
@@ -714,8 +715,7 @@ namespace arconfirmationletter.View
                                     if (kq1)
                                     {
 
-                                        ct.UpdateVATregionFromFBL5Nregion();
-
+                                   
                                         bool kq2 = ct.checkVATnameanddtodata();
                                         // nếu không ok data khong có data trong  fbl5new
 
@@ -849,6 +849,7 @@ namespace arconfirmationletter.View
 
                         #region udapte vào this priod
 
+              ///          ct.UpdateVATregionFromFBL5Nregion();
 
                         bool kq1 = ct.checkVATandFBL5n();
 
@@ -856,7 +857,7 @@ namespace arconfirmationletter.View
                         if (kq1)
                         {
 
-                            ct.UpdateVATregionFromFBL5Nregion();
+                         
 
                             bool kq2 = ct.checkVATnameanddtodata();
 
@@ -2462,7 +2463,7 @@ namespace arconfirmationletter.View
 
                 if (checkqueury.Count() > 0)
                 {
-                    var typeff = typeof(tblFBL5beginbalaceTemp);
+                    var typeff = typeof(tblFBL5beginbalace);
 
                     //     LinqtoSQLDataContext dbx = new LinqtoSQLDataContext(connection_string);
 
@@ -2738,7 +2739,7 @@ namespace arconfirmationletter.View
 
                 if (checkqueury.Count() > 0)
                 {
-                    var typeff = typeof(tblFBL5beginbalaceTemp);
+                    var typeff = typeof(tblFBL5beginbalace);
 
                     //     LinqtoSQLDataContext dbx = new LinqtoSQLDataContext(connection_string);
 

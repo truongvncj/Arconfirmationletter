@@ -122,7 +122,7 @@ namespace arconfirmationletter.Control
 
 
 
-                var typeff = typeof(tblCustomerTmp);
+                var typeff = typeof(tblCustomer);
 
                 //     LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
                 View.VInputchange inputcdata = new View.VInputchange("MASTER DATA CUSTOMER ", "LIST CUST IN VATOUT BUT NOT IN CUST MASTER", db, "tblCustomer", "tblCustomerTmp", typeff, "id", "id");
@@ -581,7 +581,7 @@ namespace arconfirmationletter.Control
 
 
 
-
+                
 
                 var typeff = typeof(tbl_ProductlistTMP);
 
