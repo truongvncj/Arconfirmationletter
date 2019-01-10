@@ -7624,7 +7624,7 @@ namespace arconfirmationletter
 		
 		private System.Nullable<int> _paletnhua;
 		
-		private System.Nullable<int> _cal;
+		private string _userName;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -7668,8 +7668,8 @@ namespace arconfirmationletter
     partial void OnpalletgoChanged();
     partial void OnpaletnhuaChanging(System.Nullable<int> value);
     partial void OnpaletnhuaChanged();
-    partial void OncalChanging(System.Nullable<int> value);
-    partial void OncalChanged();
+    partial void OnuserNameChanging(string value);
+    partial void OnuserNameChanged();
     #endregion
 		
 		public tblFBL5beginbalace()
@@ -8057,22 +8057,22 @@ namespace arconfirmationletter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cal", DbType="Int")]
-		public System.Nullable<int> cal
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="NVarChar(50)")]
+		public string userName
 		{
 			get
 			{
-				return this._cal;
+				return this._userName;
 			}
 			set
 			{
-				if ((this._cal != value))
+				if ((this._userName != value))
 				{
-					this.OncalChanging(value);
+					this.OnuserNameChanging(value);
 					this.SendPropertyChanging();
-					this._cal = value;
-					this.SendPropertyChanged("cal");
-					this.OncalChanged();
+					this._userName = value;
+					this.SendPropertyChanged("userName");
+					this.OnuserNameChanged();
 				}
 			}
 		}

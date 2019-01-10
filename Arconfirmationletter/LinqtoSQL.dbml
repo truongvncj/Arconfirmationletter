@@ -381,7 +381,7 @@
       <Column Name="binhpmix9l" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="palletgo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="paletnhua" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="cal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblFBL5beginbalaceTemp" Member="tblFBL5beginbalaceTemps">

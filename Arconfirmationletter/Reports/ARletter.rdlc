@@ -406,7 +406,7 @@
                               </Paragraphs>
                               <Top>0.76669in</Top>
                               <Left>2.4157in</Left>
-                              <Height>0.21529in</Height>
+                              <Height>0.21528in</Height>
                               <Width>1.21208in</Width>
                               <ZIndex>10</ZIndex>
                               <Style>
@@ -438,9 +438,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.80279in</Top>
+                              <Top>0.78613in</Top>
                               <Left>0.8071in</Left>
-                              <Height>0.17918in</Height>
+                              <Height>0.21668in</Height>
                               <Width>1.53916in</Width>
                               <ZIndex>11</ZIndex>
                               <Style>
@@ -557,7 +557,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>1.03753in</Top>
+                              <Top>1.02503in</Top>
                               <Left>1.60626in</Left>
                               <Height>0.2097in</Height>
                               <Width>5.56276in</Width>
@@ -1626,7 +1626,26 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Số tiền đặt cọc trên đã bao gồm tiền tạm tính cho số vỏ chai miễn phí 3 năm và vỏ chai 3% tính tới thời điểm này là : </Value>
+                                  <Value>Tổng tiền vỏ,pallet,CO2</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value xml:space="preserve"> </Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>trên đã bao gồm tiền tạm tính cho số vỏ chai miễn phí 3 năm và vỏ chai 3% tính tới thời điểm này là : </Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>

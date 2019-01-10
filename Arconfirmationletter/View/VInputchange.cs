@@ -104,52 +104,7 @@ namespace arconfirmationletter.View
        //     #region right setup
             this.lbseachedit.Visible = false;
             this.Bt_uploadbegin.Visible = false;
-            // this.lbusername.Text = Utils.getusername();
-
-            //int rightnumber = Utils.getrightnumber();
-
-            //if (rightnumber == 0) // không ró quyền/ đóng luôn
-            //{
-            //    this.Close();
-
-
-
-            //}
-            //if (rightnumber == 1) // super user
-            //{
-
-
-
-
-
-            //}
-            //if (rightnumber == 2) // admin  user
-            //{
-
-            //    //  dELETEALLDATABASEEDITToolStripMenuItem.Visible = false;
-            //    //   beginingBalanceToolStripMenuItem1.Visible = false;
-            //    //      eDITALLDATABASEToolStripMenuItem.Visible = false;
-
-            //    //       systemConfigToolStripMenuItem.Visible = false;
-            //    //   uploadCustomerToolStripMenuItem.Visible = false;
-            //    //    eDITCUSTOMERDATAToolStripMenuItem.Visible = false;
-
-
-            //}
-            //if (rightnumber == 3) // nomal user
-            //{
-
-            //    this.bt_detletedsetlectmain.Visible = false;
-
-            //}
-            //if (rightnumber == 4) // display user
-            //{
-
-            //    this.bt_detletedsetlectmain.Visible = false;
-
-            //}
-            //#endregion
-
+           
 
 
 
@@ -1331,10 +1286,10 @@ namespace arconfirmationletter.View
                     db.ExecuteCommand(slqtext);
                     db.CommandTimeout = 100;
                 }
-                catch // (Exception ex)
+                catch  (Exception ex)
                 {
                     // this.dataGridView1.Rows[0].Cells["Status"].Value = ex.ToString();
-                    //   MessageBox.Show(ex.ToString());
+                 MessageBox.Show(ex.ToString());
                     //  /     //   throw;
                 }
 
@@ -1345,9 +1300,9 @@ namespace arconfirmationletter.View
                 source2.DataSource = results;
 
 
-                slqtext = "delete from " + tblnamesub;
+             string        slqtext2 = "delete from " + tblnamesub;
 
-                db.ExecuteCommand(slqtext);
+                db.ExecuteCommand(slqtext2);
                 db.SubmitChanges();
 
 
