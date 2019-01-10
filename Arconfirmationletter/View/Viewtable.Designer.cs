@@ -48,7 +48,6 @@ namespace arconfirmationletter.View
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btpostclear = new System.Windows.Forms.Button();
-            this.btAutoUpdatedepo = new System.Windows.Forms.Button();
             this.bt_sendinggroup = new System.Windows.Forms.Button();
             this.btSendlistUpdate = new System.Windows.Forms.Button();
             this.lb_seach = new System.Windows.Forms.Label();
@@ -264,18 +263,6 @@ namespace arconfirmationletter.View
             this.btpostclear.UseVisualStyleBackColor = true;
             this.btpostclear.Click += new System.EventHandler(this.btpostclear_Click);
             // 
-            // btAutoUpdatedepo
-            // 
-            this.btAutoUpdatedepo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btAutoUpdatedepo.Location = new System.Drawing.Point(131, 10);
-            this.btAutoUpdatedepo.Name = "btAutoUpdatedepo";
-            this.btAutoUpdatedepo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btAutoUpdatedepo.Size = new System.Drawing.Size(119, 21);
-            this.btAutoUpdatedepo.TabIndex = 8;
-            this.btAutoUpdatedepo.Text = "Auto Update Deposit";
-            this.btAutoUpdatedepo.UseVisualStyleBackColor = true;
-            this.btAutoUpdatedepo.Click += new System.EventHandler(this.btAutoUpdatedepo_Click);
-            // 
             // bt_sendinggroup
             // 
             this.bt_sendinggroup.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -346,7 +333,6 @@ namespace arconfirmationletter.View
             this.Controls.Add(this.btpostclear);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lb_seach);
-            this.Controls.Add(this.btAutoUpdatedepo);
             this.Controls.Add(this.bt_sendinggroup);
             this.Controls.Add(this.bt_exporttoex);
             this.Controls.Add(this.btSendlistUpdate);
@@ -398,7 +384,6 @@ namespace arconfirmationletter.View
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lb_seach;
         private System.Windows.Forms.Button bt_sendinggroup;
-        private System.Windows.Forms.Button btAutoUpdatedepo;
         private System.Windows.Forms.Button btpostclear;
     }
 }

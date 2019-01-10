@@ -40,13 +40,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbnamecode = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cb_groupprit
             // 
             this.cb_groupprit.AutoSize = true;
-            this.cb_groupprit.Location = new System.Drawing.Point(2, 95);
+            this.cb_groupprit.Location = new System.Drawing.Point(2, 111);
             this.cb_groupprit.Name = "cb_groupprit";
             this.cb_groupprit.Size = new System.Drawing.Size(119, 17);
             this.cb_groupprit.TabIndex = 3;
@@ -59,9 +60,9 @@
             this.cb_onlycode.AutoSize = true;
             this.cb_onlycode.Location = new System.Drawing.Point(2, 21);
             this.cb_onlycode.Name = "cb_onlycode";
-            this.cb_onlycode.Size = new System.Drawing.Size(104, 17);
+            this.cb_onlycode.Size = new System.Drawing.Size(99, 17);
             this.cb_onlycode.TabIndex = 1;
-            this.cb_onlycode.Text = "Print Only Comer";
+            this.cb_onlycode.Text = "Print Only Code";
             this.cb_onlycode.UseVisualStyleBackColor = true;
             this.cb_onlycode.CheckedChanged += new System.EventHandler(this.cb_onlycode_CheckedChanged);
             // 
@@ -89,8 +90,9 @@
             // 
             // input_groupcode
             // 
+            this.input_groupcode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.input_groupcode.FormattingEnabled = true;
-            this.input_groupcode.Location = new System.Drawing.Point(19, 118);
+            this.input_groupcode.Location = new System.Drawing.Point(19, 134);
             this.input_groupcode.Name = "input_groupcode";
             this.input_groupcode.Size = new System.Drawing.Size(289, 21);
             this.input_groupcode.TabIndex = 4;
@@ -99,6 +101,7 @@
             // 
             // input_onlycode
             // 
+            this.input_onlycode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.input_onlycode.FormattingEnabled = true;
             this.input_onlycode.Location = new System.Drawing.Point(19, 44);
             this.input_onlycode.Name = "input_onlycode";
@@ -149,6 +152,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbnamecode);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.input_tocode);
@@ -165,6 +169,15 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
+            // 
+            // lbnamecode
+            // 
+            this.lbnamecode.AutoSize = true;
+            this.lbnamecode.Location = new System.Drawing.Point(17, 72);
+            this.lbnamecode.Name = "lbnamecode";
+            this.lbnamecode.Size = new System.Drawing.Size(105, 13);
+            this.lbnamecode.TabIndex = 12;
+            this.lbnamecode.Text = "82183344: Hòa Bình";
             // 
             // PrintLetterOption
             // 
@@ -198,5 +211,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lbnamecode;
     }
 }

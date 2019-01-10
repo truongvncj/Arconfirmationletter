@@ -744,7 +744,7 @@ namespace arconfirmationletter.View
 
 
             this.Text = fornname;
-            this.btAutoUpdatedepo.Visible = false;
+          //  this.btAutoUpdatedepo.Visible = false;
 
             this.btSendlistUpdate.Visible = false;
             this.bt_listunsend.Visible = false;
@@ -901,7 +901,7 @@ namespace arconfirmationletter.View
                 #region       // update lai data
                 this.lb_seach.Visible = true;
                 this.Pl_endview.Visible = true;
-                this.btAutoUpdatedepo.Visible = true;
+         //       this.btAutoUpdatedepo.Visible = true;
 
                 this.lb_seach.Text = "F5-DETAIL/ F11-SUM/ F3-SEACH";
                 List<ComboboxItem> dataCollectionaccount = new List<ComboboxItem>();
@@ -5709,175 +5709,175 @@ namespace arconfirmationletter.View
 
 
 
-            // btAutoUpdatedepo
-            string connection_string = Utils.getConnectionstr();
-            //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //// btAutoUpdatedepo
+            //string connection_string = Utils.getConnectionstr();
+            ////   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            #region  autoupdatedepositthismonth ra TREN SQL dang viet 
-            SqlConnection conn2 = null;
-            SqlDataReader rdr1 = null;
+            //#region  autoupdatedepositthismonth ra TREN SQL dang viet 
+            //SqlConnection conn2 = null;
+            //SqlDataReader rdr1 = null;
 
-            //   string destConnString = Utils.getConnectionstr();
-            try
-            {
+            ////   string destConnString = Utils.getConnectionstr();
+            //try
+            //{
 
-                conn2 = new SqlConnection(connection_string);
-                conn2.Open();
-                SqlCommand cmd1 = new SqlCommand("autoupdatedepositthismonth", conn2);
-                cmd1.CommandType = CommandType.StoredProcedure;
-                //      cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
-                try
-                {
-                    rdr1 = cmd1.ExecuteReader();
-                }
-                catch (Exception ex)
-                {
+            //    conn2 = new SqlConnection(connection_string);
+            //    conn2.Open();
+            //    SqlCommand cmd1 = new SqlCommand("autoupdatedepositthismonth", conn2);
+            //    cmd1.CommandType = CommandType.StoredProcedure;
+            //    //      cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
+            //    try
+            //    {
+            //        rdr1 = cmd1.ExecuteReader();
+            //    }
+            //    catch (Exception ex)
+            //    {
 
-                    MessageBox.Show("Can not auto update deposit \n" + ex.ToString(), "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    return;
+            //        MessageBox.Show("Can not auto update deposit \n" + ex.ToString(), "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //        return;
 
-                }
-
-
+            //    }
 
 
-                //       rdr1 = cmd1.ExecuteReader();
-
-            }
-            finally
-            {
-                if (conn2 != null)
-                {
-                    conn2.Close();
-                }
-                if (rdr1 != null)
-                {
-                    rdr1.Close();
-                }
-            }
-            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            #endregion
-
-            MessageBox.Show("Auto update deposit done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            #region // show all
-            System.Data.DataTable dt = new System.Data.DataTable();
+            //    //       rdr1 = cmd1.ExecuteReader();
+
+            //}
+            //finally
+            //{
+            //    if (conn2 != null)
+            //    {
+            //        conn2.Close();
+            //    }
+            //    if (rdr1 != null)
+            //    {
+            //        rdr1.Close();
+            //    }
+            //}
+            ////     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //#endregion
+
+            //MessageBox.Show("Auto update deposit done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            //      string connection_string = Utils.getConnectionstr();
-
-            //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            var rsthisperiod = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
-
-                               select new
+            //#region // show all
+            //System.Data.DataTable dt = new System.Data.DataTable();
 
 
-                               {
+            ////      string connection_string = Utils.getConnectionstr();
 
-                                   tblFBL5Nnewthisperiod.codeGroup,
-                                   Sorg = tblFBL5Nnewthisperiod.Business_Area,
-                                   tblFBL5Nnewthisperiod.Account,
-                                   Customer_Name = tblFBL5Nnewthisperiod.name,
+            ////      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //var rsthisperiod = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
 
-                                   //     tblFBL5Nnewthisperiod.COL_value,
-
-                                   tblFBL5Nnewthisperiod.Posting_Date,
-                                   tblFBL5Nnewthisperiod.Assignment,
-                                   tblFBL5Nnewthisperiod.Document_Number,
-
-                                   FBL5N_amount = tblFBL5Nnewthisperiod.Amount_in_local_currency,
+            //                   select new
 
 
-                                   tblFBL5Nnewthisperiod.Payment_amount,
-                                   Adj_amount = tblFBL5Nnewthisperiod.Adjusted_amount,
+            //                   {
 
-                                   //       tblFBL5Nnewthisperiod.Invoice_Amount,
-                                   tblFBL5Nnewthisperiod.Fullgood_amount,
-                                   tblFBL5Nnewthisperiod.Empty_Amount,
-                                   tblFBL5Nnewthisperiod.Deposit_amount,
+            //                       tblFBL5Nnewthisperiod.codeGroup,
+            //                       Sorg = tblFBL5Nnewthisperiod.Business_Area,
+            //                       tblFBL5Nnewthisperiod.Account,
+            //                       Customer_Name = tblFBL5Nnewthisperiod.name,
 
+            //                       //     tblFBL5Nnewthisperiod.COL_value,
 
-                                   Invoice_date = tblFBL5Nnewthisperiod.Formula_invoice_date,
-                                   //   Invoice = tblFBL5Nnewthisperiod.Invoice_Registration + " " + tblFBL5Nnewthisperiod.Invoice_Number,
-                                   tblFBL5Nnewthisperiod.Invoice,
+            //                       tblFBL5Nnewthisperiod.Posting_Date,
+            //                       tblFBL5Nnewthisperiod.Assignment,
+            //                       tblFBL5Nnewthisperiod.Document_Number,
 
-                                   //    tblFBL5Nnewthisperiod.Vat_amount,
-                                   Type = tblFBL5Nnewthisperiod.Document_Type,
-                                   tblFBL5Nnewthisperiod.Binhpmicc02,
-                                   tblFBL5Nnewthisperiod.binhpmix9l,
-                                   tblFBL5Nnewthisperiod.Chaivothuong,
-                                   tblFBL5Nnewthisperiod.Chaivo1lit,
-                                   tblFBL5Nnewthisperiod.joy20l,
-                                   tblFBL5Nnewthisperiod.Ketnhua1lit,
-                                   tblFBL5Nnewthisperiod.Ketnhuathuong,
-                                   tblFBL5Nnewthisperiod.Ketvolit,
-                                   tblFBL5Nnewthisperiod.Ketvothuong,
-                                   tblFBL5Nnewthisperiod.paletnhua,
-                                   tblFBL5Nnewthisperiod.palletgo,
-                                   tblFBL5Nnewthisperiod.userupdate,
-                                   tblFBL5Nnewthisperiod.id,
-                                   //      tblFBL5Nnewthisperiod.Empty_Amount_Notmach,
+            //                       FBL5N_amount = tblFBL5Nnewthisperiod.Amount_in_local_currency,
 
 
-                               };
+            //                       tblFBL5Nnewthisperiod.Payment_amount,
+            //                       Adj_amount = tblFBL5Nnewthisperiod.Adjusted_amount,
 
-            //  Utils ut = new Utils();
-            dt = Utils.ToDataTable(db, rsthisperiod);
-
-            this.dataGridView1.DataSource = dt;
-
-
-            //    this.db = dc;
-
-            this.rs = rsthisperiod;
-
-            //   dc = new LinqtoSQLDataContext(connection_string);
-            this.Dtgridview = dataGridView1;
-            this.Status.Text = "Caculating ...";
-            Thread tt1 = new Thread(sumtitleGrid);
-
-            tt1.IsBackground = true;
-            tt1.Start(new datatoExport() { dataGrid1 = dataGridView1 });
-            #endregion // show all
-
-            this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Format = "N0";
-            this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Format = "N0";
-            this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
-            this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Format = "N0";
-            this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Format = "N0";
-            this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Format = "N0";
-            //      this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
-
-            this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-            this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-            this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-            this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-            this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
-            this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+            //                       //       tblFBL5Nnewthisperiod.Invoice_Amount,
+            //                       tblFBL5Nnewthisperiod.Fullgood_amount,
+            //                       tblFBL5Nnewthisperiod.Empty_Amount,
+            //                       tblFBL5Nnewthisperiod.Deposit_amount,
 
 
-            this.dataGridView1.Columns["codeGroup"].DisplayIndex = 1;
-            this.dataGridView1.Columns["Sorg"].DisplayIndex = 0;
-            this.dataGridView1.Columns["Account"].DisplayIndex = 2;
-            this.dataGridView1.Columns["Customer_Name"].DisplayIndex = 3;
-            this.dataGridView1.Columns["Document_Number"].DisplayIndex = 4;
-            this.dataGridView1.Columns["Assignment"].DisplayIndex = 5;
-            this.dataGridView1.Columns["Posting_Date"].DisplayIndex = 6;
-            this.dataGridView1.Columns["Invoice_date"].DisplayIndex = 7;
-            this.dataGridView1.Columns["Invoice"].DisplayIndex = 8;
-            this.dataGridView1.Columns["Payment_amount"].DisplayIndex = 9;
-            this.dataGridView1.Columns["Fullgood_amount"].DisplayIndex = 10;
-            this.dataGridView1.Columns["Adj_amount"].DisplayIndex = 11;
-            this.dataGridView1.Columns["Empty_Amount"].DisplayIndex = 12;
-            this.dataGridView1.Columns["Deposit_amount"].DisplayIndex = 13;
-            this.dataGridView1.Columns["FBL5N_amount"].DisplayIndex = 14;
-            this.dataGridView1.Columns["Type"].DisplayIndex = 15;
+            //                       Invoice_date = tblFBL5Nnewthisperiod.Formula_invoice_date,
+            //                       //   Invoice = tblFBL5Nnewthisperiod.Invoice_Registration + " " + tblFBL5Nnewthisperiod.Invoice_Number,
+            //                       tblFBL5Nnewthisperiod.Invoice,
+
+            //                       //    tblFBL5Nnewthisperiod.Vat_amount,
+            //                       Type = tblFBL5Nnewthisperiod.Document_Type,
+            //                       tblFBL5Nnewthisperiod.Binhpmicc02,
+            //                       tblFBL5Nnewthisperiod.binhpmix9l,
+            //                       tblFBL5Nnewthisperiod.Chaivothuong,
+            //                       tblFBL5Nnewthisperiod.Chaivo1lit,
+            //                       tblFBL5Nnewthisperiod.joy20l,
+            //                       tblFBL5Nnewthisperiod.Ketnhua1lit,
+            //                       tblFBL5Nnewthisperiod.Ketnhuathuong,
+            //                       tblFBL5Nnewthisperiod.Ketvolit,
+            //                       tblFBL5Nnewthisperiod.Ketvothuong,
+            //                       tblFBL5Nnewthisperiod.paletnhua,
+            //                       tblFBL5Nnewthisperiod.palletgo,
+            //                       tblFBL5Nnewthisperiod.userupdate,
+            //                       tblFBL5Nnewthisperiod.id,
+            //                       //      tblFBL5Nnewthisperiod.Empty_Amount_Notmach,
 
 
-            //shoall
-            //   }
+            //                   };
+
+            ////  Utils ut = new Utils();
+            //dt = Utils.ToDataTable(db, rsthisperiod);
+
+            //this.dataGridView1.DataSource = dt;
+
+
+            ////    this.db = dc;
+
+            //this.rs = rsthisperiod;
+
+            ////   dc = new LinqtoSQLDataContext(connection_string);
+            //this.Dtgridview = dataGridView1;
+            //this.Status.Text = "Caculating ...";
+            //Thread tt1 = new Thread(sumtitleGrid);
+
+            //tt1.IsBackground = true;
+            //tt1.Start(new datatoExport() { dataGrid1 = dataGridView1 });
+            //#endregion // show all
+
+            //this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Format = "N0";
+            //this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Format = "N0";
+            //this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
+            //this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Format = "N0";
+            //this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Format = "N0";
+            //this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Format = "N0";
+            ////      this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Format = "N0";
+
+            //this.dataGridView1.Columns["Payment_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+            //this.dataGridView1.Columns["Adj_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+            //this.dataGridView1.Columns["Deposit_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+            //this.dataGridView1.Columns["FBL5N_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+            //this.dataGridView1.Columns["Empty_Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+            //this.dataGridView1.Columns["Fullgood_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;// = "N0";
+
+
+            //this.dataGridView1.Columns["codeGroup"].DisplayIndex = 1;
+            //this.dataGridView1.Columns["Sorg"].DisplayIndex = 0;
+            //this.dataGridView1.Columns["Account"].DisplayIndex = 2;
+            //this.dataGridView1.Columns["Customer_Name"].DisplayIndex = 3;
+            //this.dataGridView1.Columns["Document_Number"].DisplayIndex = 4;
+            //this.dataGridView1.Columns["Assignment"].DisplayIndex = 5;
+            //this.dataGridView1.Columns["Posting_Date"].DisplayIndex = 6;
+            //this.dataGridView1.Columns["Invoice_date"].DisplayIndex = 7;
+            //this.dataGridView1.Columns["Invoice"].DisplayIndex = 8;
+            //this.dataGridView1.Columns["Payment_amount"].DisplayIndex = 9;
+            //this.dataGridView1.Columns["Fullgood_amount"].DisplayIndex = 10;
+            //this.dataGridView1.Columns["Adj_amount"].DisplayIndex = 11;
+            //this.dataGridView1.Columns["Empty_Amount"].DisplayIndex = 12;
+            //this.dataGridView1.Columns["Deposit_amount"].DisplayIndex = 13;
+            //this.dataGridView1.Columns["FBL5N_amount"].DisplayIndex = 14;
+            //this.dataGridView1.Columns["Type"].DisplayIndex = 15;
+
+
+            ////shoall
+            ////   }
 
 
         }

@@ -748,6 +748,7 @@ namespace arconfirmationletter.View
                                             }
 
 
+
                                         }
 
                                         //---kiểm tra data nếu khác thì showmessage/ deleted toadn bộ các dòng đó trên thispreriod
@@ -773,7 +774,56 @@ namespace arconfirmationletter.View
                                             viewtbl.ShowDialog();
 
                                         }
+                                        else
+                                        {
 
+                                            #region  autoupdatedepositthismonth ra TREN SQL dang viet 
+                                            //    SqlConnection conn2 = null;
+                                            //      SqlDataReader rdr1 = null;
+
+                                            //   string destConnString = Utils.getConnectionstr();
+                                            try
+                                            {
+
+                                                conn2 = new SqlConnection(connection_string);
+                                                conn2.Open();
+                                                SqlCommand cmd1 = new SqlCommand("autoupdatedepositthismonth", conn2);
+                                                cmd1.CommandType = CommandType.StoredProcedure;
+                                                //      cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
+                                                try
+                                                {
+                                                    rdr1 = cmd1.ExecuteReader();
+                                                }
+                                                catch (Exception ex)
+                                                {
+
+                                                    MessageBox.Show("Can not auto update deposit \n" + ex.ToString(), "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                                    return;
+
+                                                }
+
+
+
+
+                                                //       rdr1 = cmd1.ExecuteReader();
+
+                                            }
+                                            finally
+                                            {
+                                                if (conn2 != null)
+                                                {
+                                                    conn2.Close();
+                                                }
+                                                if (rdr1 != null)
+                                                {
+                                                    rdr1.Close();
+                                                }
+                                            }
+                                            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                            #endregion
+
+                                        }
 
 
 
@@ -885,6 +935,85 @@ namespace arconfirmationletter.View
 
 
                             }
+
+
+
+                            //---kiểm tra data nếu khác thì showmessage/ deleted toadn bộ các dòng đó trên thispreriod
+                            dc.CommandTimeout = 0;
+
+                            var eror = from tblFBL5Nnewthisperiod in dc.tblFBL5Nnewthisperiods
+                                       where tblFBL5Nnewthisperiod.COL_value != tblFBL5Nnewthisperiod.Empty_Amount
+                                       select new
+                                       {
+                                           Account_Group = tblFBL5Nnewthisperiod.codeGroup,
+                                           Account = tblFBL5Nnewthisperiod.Account,
+                                           Doc_Number = tblFBL5Nnewthisperiod.Document_Number,
+                                           Customer_Name = tblFBL5Nnewthisperiod.name,
+                                           coL_EDLP_Value = tblFBL5Nnewthisperiod.COL_value,
+                                           Empty_AmountinVAT = tblFBL5Nnewthisperiod.Empty_Amount,
+
+
+                                       };
+                            if (eror.Count() > 0)
+                            {
+                                Viewtable viewtbl = new Viewtable(eror, dc, "List các doc chưa update được do có lệch giữ data FBL5n Và VAT/Edlp về phần vỏ , please check !", 1, DateTime.Today, DateTime.Today);
+
+                                viewtbl.ShowDialog();
+
+                            }
+                            else
+                            {
+
+                                #region  autoupdatedepositthismonth ra TREN SQL dang viet 
+                                //    SqlConnection conn2 = null;
+                                //      SqlDataReader rdr1 = null;
+
+                                //   string destConnString = Utils.getConnectionstr();
+                                try
+                                {
+
+                                    conn2 = new SqlConnection(connection_string);
+                                    conn2.Open();
+                                    SqlCommand cmd1 = new SqlCommand("autoupdatedepositthismonth", conn2);
+                                    cmd1.CommandType = CommandType.StoredProcedure;
+                                    //      cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
+                                    try
+                                    {
+                                        rdr1 = cmd1.ExecuteReader();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                        MessageBox.Show("Can not auto update deposit \n" + ex.ToString(), "Thông báo !", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                        return;
+
+                                    }
+
+
+
+
+                                    //       rdr1 = cmd1.ExecuteReader();
+
+                                }
+                                finally
+                                {
+                                    if (conn2 != null)
+                                    {
+                                        conn2.Close();
+                                    }
+                                    if (rdr1 != null)
+                                    {
+                                        rdr1.Close();
+                                    }
+                                }
+                                //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                #endregion
+
+                            }
+
+
+
 
 
 
@@ -1280,19 +1409,6 @@ namespace arconfirmationletter.View
         {
 
 
-            string connection_string = Utils.getConnectionstr();
-
-            //  var db = new LinqtoSQLDataContext(connection_string);
-            //    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            var typeff = typeof(tbl_FreGlass);
-
-            VInputchange inputcdata = new VInputchange("", "LIST FREE GLASS PROGRAM ", dc, "tbl_FreGlass", "tbl_FreGlass", typeff, "id", "id");
-
-            inputcdata.ShowDialog();
         }
 
         private void lETTERCOLREPORTSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1564,16 +1680,16 @@ namespace arconfirmationletter.View
         private void vIEWREMARKSLISTToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            string connection_string = Utils.getConnectionstr();
+            //string connection_string = Utils.getConnectionstr();
 
-            //  var db = new LinqtoSQLDataContext(connection_string);
-            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+            ////  var db = new LinqtoSQLDataContext(connection_string);
+            //LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
 
-            fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
-            var rs = md.Fregalssessetlect_all(db);
-            Viewtable viewtbl = new Viewtable(rs, db, "LIST OF REEGALSSES TABLE ", 100, DateTime.Today, DateTime.Today);
-            viewtbl.Show();
+            //fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
+            //var rs = md.Fregalssessetlect_all(db);
+            //Viewtable viewtbl = new Viewtable(rs, db, "LIST OF REEGALSSES TABLE ", 100, DateTime.Today, DateTime.Today);
+            //viewtbl.Show();
 
 
 
@@ -2081,8 +2197,9 @@ namespace arconfirmationletter.View
             //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             #endregion
-
-
+            // btAutoUpdatedepo
+       //     string connection_string = Utils.getConnectionstr();
+      //      //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             IQueryable rsthisperiod = null;
             Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "iNPUT DEPOSIT AMOUNTT !", 100, DateTime.Today, DateTime.Today); // màn hình inpot data có mas2
@@ -4230,65 +4347,7 @@ namespace arconfirmationletter.View
         private void uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            //  bool kq;
-            fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
-
-            DialogResult kq1 = MessageBox.Show("Update file clear glasses ? ", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            switch (kq1)
-            {
-                case DialogResult.None:
-                    break;
-                case DialogResult.OK:
-
-
-                    break;
-                case DialogResult.Cancel:
-                    break;
-                case DialogResult.Abort:
-                    break;
-                case DialogResult.Retry:
-                    break;
-                case DialogResult.Ignore:
-                    break;
-                case DialogResult.Yes:
-
-
-
-                    //this.updateNewAllToolStripMenuItem1.Enabled = false;
-
-                    //this.reportsToolStripMenuItem.Enabled = false;
-                    md.clearFeeglasseeinputtemp();
-
-
-                    // var rs = md.vatsetlect_all();
-                    //        Viewtable viewtbl = new Viewtable(rs, "VAT ZFI data uploaded ");
-
-                    string connection_string = Utils.getConnectionstr();
-
-                    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-                    var rs = from FreGlassClear in db.tbl_FreGlassCleartemps
-                             select FreGlassClear;
-
-
-                    Viewtable Viewtable = new Viewtable(rs, db, "Clear FressGlasses Progarme upload ", 11, DateTime.Today, DateTime.Today);
-
-                    Viewtable.Show();
-
-
-
-
-
-
-
-
-
-                    break;
-                case DialogResult.No:
-                    break;
-                default:
-                    break;
-            }
+        
 
 
 
@@ -4365,66 +4424,7 @@ namespace arconfirmationletter.View
 
         private void deleteWrongClearFreeGalassToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //  bool kq;
-            fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
-
-            DialogResult kq1 = MessageBox.Show("Delete wrong clear glasses ? ", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            switch (kq1)
-            {
-                case DialogResult.None:
-                    break;
-                case DialogResult.OK:
-
-
-                    break;
-                case DialogResult.Cancel:
-                    break;
-                case DialogResult.Abort:
-                    break;
-                case DialogResult.Retry:
-                    break;
-                case DialogResult.Ignore:
-                    break;
-                case DialogResult.Yes:
-
-
-
-                    //this.updateNewAllToolStripMenuItem1.Enabled = false;
-
-                    //this.reportsToolStripMenuItem.Enabled = false;
-                    md.deletewrongclearFeeglasseeinput();
-
-
-                    // var rs = md.vatsetlect_all();
-                    //        Viewtable viewtbl = new Viewtable(rs, "VAT ZFI data uploaded ");
-
-                    //string connection_string = Utils.getConnectionstr();
-
-                    //LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-                    //var rs = from FreGlassClear in db.tbl_FreGlassCleartemps
-                    //         select FreGlassClear;
-
-
-                    //Viewtable Viewtable = new Viewtable(rs, db, "Clear FressGlasses Progarme upload ", 11, DateTime.Today, DateTime.Today);
-
-
-
-
-
-
-
-
-
-
-
-                    break;
-                case DialogResult.No:
-                    break;
-                default:
-                    break;
-            }
-
+        
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)

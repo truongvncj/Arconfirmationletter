@@ -1339,7 +1339,7 @@
                           <Top>0.0375in</Top>
                           <Left>0.92041in</Left>
                           <Height>0.2118in</Height>
-                          <Width>5.96141in</Width>
+                          <Width>5.67223in</Width>
                           <ZIndex>15</ZIndex>
                           <Style>
                             <Border>
@@ -1618,14 +1618,14 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox21</rd:DefaultName>
-                          <Left>6.93738in</Left>
+                          <Left>6.66208in</Left>
                           <Height>0.25in</Height>
-                          <Width>0.39678in</Width>
+                          <Width>0.67208in</Width>
                           <ZIndex>19</ZIndex>
                           <Style>
                             <Border>

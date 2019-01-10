@@ -59,6 +59,9 @@
             this.bEGINBALANCEVIEWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beginingBalanceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eDITBEGINBALANCEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
+            this.fREEGLASSESBEGINUPLOADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.yEARENDPACKDATAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,16 +81,6 @@
             this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vIEWREMARKLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewChangeDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadFreeGlassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.vIEWREMARKSLISTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewChangeDataToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
-            this.uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteWrongClearFreeGalassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dataCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNPUTPERIODDEPOSITAMOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,9 +144,6 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.lblocate = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.fREEGLASSESBEGINUPLOADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
-            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -384,6 +374,25 @@
             this.eDITBEGINBALANCEToolStripMenuItem.Text = "eDIT BEGIN BALANCE";
             this.eDITBEGINBALANCEToolStripMenuItem.Click += new System.EventHandler(this.eDITBEGINBALANCEToolStripMenuItem_Click);
             // 
+            // toolStripSeparator19
+            // 
+            this.toolStripSeparator19.Name = "toolStripSeparator19";
+            this.toolStripSeparator19.Size = new System.Drawing.Size(273, 6);
+            // 
+            // fREEGLASSESBEGINUPLOADToolStripMenuItem
+            // 
+            this.fREEGLASSESBEGINUPLOADToolStripMenuItem.Name = "fREEGLASSESBEGINUPLOADToolStripMenuItem";
+            this.fREEGLASSESBEGINUPLOADToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.fREEGLASSESBEGINUPLOADToolStripMenuItem.Text = "FREEGLASSES BEGIN UPLOAD";
+            this.fREEGLASSESBEGINUPLOADToolStripMenuItem.Click += new System.EventHandler(this.fREEGLASSESBEGINUPLOADToolStripMenuItem_Click);
+            // 
+            // vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem
+            // 
+            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem.Name = "vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem";
+            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem.Text = "VIEW FREEGLASSES BEGIN ";
+            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem.Click += new System.EventHandler(this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
@@ -402,7 +411,6 @@
             this.vATInputToolStripMenuItem,
             this.eDLPInputToolStripMenuItem,
             this.remarkUploadToolStripMenuItem,
-            this.uploadFreeGlassToolStripMenuItem,
             this.toolStripSeparator1,
             this.dataCheckToolStripMenuItem,
             this.iNPUTPERIODDEPOSITAMOUNTToolStripMenuItem,
@@ -561,84 +569,6 @@
             this.viewChangeDataToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.viewChangeDataToolStripMenuItem.Text = "EDIT REMARK ";
             this.viewChangeDataToolStripMenuItem.Click += new System.EventHandler(this.viewChangeDataToolStripMenuItem_Click);
-            // 
-            // uploadFreeGlassToolStripMenuItem
-            // 
-            this.uploadFreeGlassToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uploadToolStripMenuItem1,
-            this.vIEWREMARKSLISTToolStripMenuItem,
-            this.viewChangeDataToolStripMenuItem1,
-            this.toolStripSeparator17,
-            this.toolStripMenuItem14,
-            this.toolStripSeparator18,
-            this.uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem,
-            this.toolStripMenuItem15,
-            this.deleteWrongClearFreeGalassToolStripMenuItem});
-            this.uploadFreeGlassToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadFreeGlassToolStripMenuItem.Name = "uploadFreeGlassToolStripMenuItem";
-            this.uploadFreeGlassToolStripMenuItem.Size = new System.Drawing.Size(304, 26);
-            this.uploadFreeGlassToolStripMenuItem.Text = "FREEGLASSES UPLOAD";
-            this.uploadFreeGlassToolStripMenuItem.Visible = false;
-            this.uploadFreeGlassToolStripMenuItem.Click += new System.EventHandler(this.uploadFreeGlassToolStripMenuItem_Click);
-            // 
-            // uploadToolStripMenuItem1
-            // 
-            this.uploadToolStripMenuItem1.Name = "uploadToolStripMenuItem1";
-            this.uploadToolStripMenuItem1.Size = new System.Drawing.Size(279, 22);
-            this.uploadToolStripMenuItem1.Text = "UPLOAD FREEGLASSES ";
-            this.uploadToolStripMenuItem1.Click += new System.EventHandler(this.uploadToolStripMenuItem1_Click);
-            // 
-            // vIEWREMARKSLISTToolStripMenuItem
-            // 
-            this.vIEWREMARKSLISTToolStripMenuItem.Name = "vIEWREMARKSLISTToolStripMenuItem";
-            this.vIEWREMARKSLISTToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
-            this.vIEWREMARKSLISTToolStripMenuItem.Text = "VIEW REMARKS ";
-            this.vIEWREMARKSLISTToolStripMenuItem.Click += new System.EventHandler(this.vIEWREMARKSLISTToolStripMenuItem_Click);
-            // 
-            // viewChangeDataToolStripMenuItem1
-            // 
-            this.viewChangeDataToolStripMenuItem1.Name = "viewChangeDataToolStripMenuItem1";
-            this.viewChangeDataToolStripMenuItem1.Size = new System.Drawing.Size(279, 22);
-            this.viewChangeDataToolStripMenuItem1.Text = "EDIT FREEGLASSES  ";
-            this.viewChangeDataToolStripMenuItem1.Click += new System.EventHandler(this.viewChangeDataToolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(276, 6);
-            // 
-            // toolStripMenuItem14
-            // 
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(279, 22);
-            this.toolStripMenuItem14.Text = " ";
-            // 
-            // toolStripSeparator18
-            // 
-            this.toolStripSeparator18.Name = "toolStripSeparator18";
-            this.toolStripSeparator18.Size = new System.Drawing.Size(276, 6);
-            // 
-            // uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem
-            // 
-            this.uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem.Name = "uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem";
-            this.uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
-            this.uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem.Text = "UPLOAD CLEAR FREEGLASSES";
-            this.uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem.Click += new System.EventHandler(this.uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem15
-            // 
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(279, 22);
-            this.toolStripMenuItem15.Text = "EDIT CLEAR FREEGLASS";
-            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
-            // 
-            // deleteWrongClearFreeGalassToolStripMenuItem
-            // 
-            this.deleteWrongClearFreeGalassToolStripMenuItem.Name = "deleteWrongClearFreeGalassToolStripMenuItem";
-            this.deleteWrongClearFreeGalassToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
-            this.deleteWrongClearFreeGalassToolStripMenuItem.Text = "Delete Wrong ClearFreeGalass";
-            this.deleteWrongClearFreeGalassToolStripMenuItem.Click += new System.EventHandler(this.deleteWrongClearFreeGalassToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -1166,25 +1096,6 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Region: ";
             // 
-            // fREEGLASSESBEGINUPLOADToolStripMenuItem
-            // 
-            this.fREEGLASSESBEGINUPLOADToolStripMenuItem.Name = "fREEGLASSESBEGINUPLOADToolStripMenuItem";
-            this.fREEGLASSESBEGINUPLOADToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
-            this.fREEGLASSESBEGINUPLOADToolStripMenuItem.Text = "FREEGLASSES BEGIN UPLOAD";
-            this.fREEGLASSESBEGINUPLOADToolStripMenuItem.Click += new System.EventHandler(this.fREEGLASSESBEGINUPLOADToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator19
-            // 
-            this.toolStripSeparator19.Name = "toolStripSeparator19";
-            this.toolStripSeparator19.Size = new System.Drawing.Size(273, 6);
-            // 
-            // vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem
-            // 
-            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem.Name = "vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem";
-            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
-            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem.Text = "VIEW FREEGLASSES BEGIN ";
-            this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem.Click += new System.EventHandler(this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1236,7 +1147,6 @@
         private System.Windows.Forms.ToolStripMenuItem updateNewAllToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addUpdateAndReplaceToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem remarkUploadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uploadFreeGlassToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewFBL5NToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewVATDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewEdlpDataToolStripMenuItem;
@@ -1251,8 +1161,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewDataLetterReportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uploadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewChangeDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uploadToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem viewChangeDataToolStripMenuItem1;
         private ToolStripMenuItem editFBL5NDataToolStripMenuItem;
         private ToolStripMenuItem eDITVATDATAToolStripMenuItem;
         private ToolStripMenuItem eDITEDLPDATAToolStripMenuItem;
@@ -1261,7 +1169,6 @@
         private ToolStripMenuItem eDITCUSTOMERDATAToolStripMenuItem;
         private ToolStripMenuItem eDITPRODUCTSGROUPToolStripMenuItem;
         private ToolStripMenuItem vIEWREMARKLISTToolStripMenuItem;
-        private ToolStripMenuItem vIEWREMARKSLISTToolStripMenuItem;
         private ToolStripMenuItem sETLISTCUSTOMERMAKEREPORTSToolStripMenuItem;
         private ToolStripMenuItem vIEWLISTCUSTMAKEREPORTSToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
@@ -1324,12 +1231,6 @@
         private ToolStripMenuItem toolStripMenuItem9;
         private Label lblocate;
         private Label label2;
-        private ToolStripSeparator toolStripSeparator17;
-        private ToolStripMenuItem toolStripMenuItem14;
-        private ToolStripSeparator toolStripSeparator18;
-        private ToolStripMenuItem uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem;
-        private ToolStripMenuItem toolStripMenuItem15;
-        private ToolStripMenuItem deleteWrongClearFreeGalassToolStripMenuItem;
         private ToolStripMenuItem eDITBEGINBALANCEToolStripMenuItem;
         private ToolStripMenuItem fREEGLASSESBEGINUPLOADToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator19;

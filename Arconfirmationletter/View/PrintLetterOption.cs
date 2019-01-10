@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace arconfirmationletter.View
@@ -18,194 +19,65 @@ namespace arconfirmationletter.View
 
         public string groupsending { get; set; }
 
-        public List<Viewtable.ComboboxItem> Getcomboudata()
-        {
 
-
-
-
-            List<Viewtable.ComboboxItem> dataCollection = new List<Viewtable.ComboboxItem>();
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            var rs1 = from tbl_CustomerGroup in dc.tbl_CustomerGroups
-                      select tbl_CustomerGroup.Customercode;
-
-
-
-
-            #region lấy từ customer không có trong group
-
-
-            var rs = from tblCustomer in dc.tblCustomers
-                         //  from tbl_CustomerGroup in dc.tbl_CustomerGroups
-                     where tblCustomer.Reportsend == true && !(from tbl_CustomerGroup in dc.tbl_CustomerGroups
-                                                               select tbl_CustomerGroup.Customercode).Contains(tblCustomer.Customer)
-                     group tblCustomer by tblCustomer.Customer into g
-                     select new
-                     {
-                         Customer = g.Key,
-                         Name_1 = g.Select(gg => gg.Name_1).FirstOrDefault()
-
-                     };
-
-            if (rs.Count() > 0)
-            {
-
-
-                foreach (var item in rs)
-                {
-                    string drowdowvalue = "";
-
-                    drowdowvalue = item.Customer.ToString() + " " + item.Name_1;
-
-
-                    Viewtable.ComboboxItem itemcb = new Viewtable.ComboboxItem();
-                    itemcb.Text = drowdowvalue;
-                    itemcb.Value = item.Customer.ToString();
-
-
-
-                    dataCollection.Add(itemcb);
-
-                }
-
-
-            }
-
-
-            #endregion  c khách ahfng nếu nhóm group koong có dat
-
-   
-
-            #region lấy tên từ customer grop
-            var rs2 = from tbl_CustomerGroup in dc.tbl_CustomerGroups
-                          //  from tbl_CustomerGroup in dc.tbl_CustomerGroups
-                      where (from tblCustomer in dc.tblCustomers
-                             where tblCustomer.Reportsend == true
-                             select tblCustomer.Customer).Contains(tbl_CustomerGroup.Customercode)
-                      group tbl_CustomerGroup by tbl_CustomerGroup.Customergropcode into g2
-                      select new
-                      {
-                          Customer = g2.Key,
-                          Name_1 = g2.Select(gg => gg.Group_Name).FirstOrDefault()
-
-                      };
-
-
-
-            if (rs2.Count() > 0)
-            {
-
-
-                foreach (var item in rs2)
-                {
-                    string drowdowvalue = "";
-
-                    drowdowvalue = item.Customer.ToString() + " " + item.Name_1;
-
-
-                    Viewtable.ComboboxItem itemcb = new Viewtable.ComboboxItem();
-                    itemcb.Text = drowdowvalue;
-                    itemcb.Value = item.Customer.ToString();
-                    dataCollection.Add(itemcb);
-
-                }
-
-            }
-            #endregion
-
-            return dataCollection;
-            //  return null;
-
-        }
-
+  
         public PrintLetterOption()
         {
             InitializeComponent();
+            lbnamecode.Text = "";
             this.choice = 0;
-         //   this.cb_printall.CheckState = CheckState.Checked;
+            //   this.cb_printall.CheckState = CheckState.Checked;
             this.cb_groupprit.CheckState = CheckState.Unchecked;
             this.cb_onlycode.CheckState = CheckState.Unchecked;
             this.cb_fromcodetocode.CheckState = CheckState.Unchecked;
 
 
-            #region tạo datafileter cho code group
-
-            //  List<Viewtable.ComboboxItem> dataCollection = new List<Viewtable.ComboboxItem>();
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs = from tblCustomer in dc.tblCustomers
-                         //    where tblCustomer.Reportsend == true
-                  
-                     group tblCustomer by tblCustomer.SendingGroup into g
-                     orderby g.Key
-                     select new
-                     {
-                         SendingGroup = g.Key,
-                         //       Customer = g.Select(gg => gg.Customer).FirstOrDefault(),
+            #region  customer senđing grup data
 
 
 
-
-
-                     };
-
-
-            //   string drowdowvalue = "";
-            if (rs.Count() > 0)
+            try
             {
+                List<Viewtable.ComboboxItem> dataCollection = new List<Viewtable.ComboboxItem>();
+
+             
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+                db.CommandTimeout = 0;
+
+                var ListCustomre = db.ExecuteQuery<tblCustomer>("SELECT* FROM tblCustomer WHERE Cusromergroup IN (SELECT DISTINCT SendingGroup FROM tblCustomer WHERE tblCustomer.Reportsend = 'True')").ToList();
 
 
-                foreach (var item in rs)
+
+
+                foreach (var item in ListCustomre)
                 {
 
+                    Viewtable.ComboboxItem itemcb = new Viewtable.ComboboxItem();
 
-                    if (item.SendingGroup != null)
-                    {
-                        this.input_groupcode.Items.Add(item.SendingGroup.Trim());
-                    }
+                    itemcb.Value = item.SendingGroup;
+                    itemcb.Text = item.SendingGroup;
 
+                    dataCollection.Add(itemcb);
 
-                    // dataCollection.Add(itemcb);
 
                 }
 
-                //  return dataCollection;
-            }
-            //    return null;
 
-
-
-            #endregion
-
-
-            #region tạo  only customer fill
-
-            List<Viewtable.ComboboxItem> lisdat = Getcomboudata();
-            if (lisdat != null)
-            {
-                this.input_onlycode.DropDownStyle = ComboBoxStyle.DropDown;
-
-                //      int i = -1;
-                foreach (var item in lisdat)
-                {
-
-                    this.input_onlycode.Items.Add(item);
-                    //i = i + 1;
-                    //if (item.Value.ToString() == cb_cust.Text)
-                    //{
-                    //    cb_cust.SelectedIndex = i;
-
-                    //}
-                }
-
+                input_groupcode.DataSource = dataCollection;
 
 
 
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
             #endregion
+
 
 
         }
@@ -216,7 +88,7 @@ namespace arconfirmationletter.View
             {
                 this.cb_onlycode.CheckState = CheckState.Unchecked;
                 this.cb_fromcodetocode.CheckState = CheckState.Unchecked;
-             //   this.cb_printall.CheckState = CheckState.Unchecked;
+                //   this.cb_printall.CheckState = CheckState.Unchecked;
             }
 
 
@@ -236,7 +108,7 @@ namespace arconfirmationletter.View
             {
                 this.cb_groupprit.CheckState = CheckState.Unchecked;
                 this.cb_fromcodetocode.CheckState = CheckState.Unchecked;
-      //          this.cb_printall.CheckState = CheckState.Unchecked;
+                //          this.cb_printall.CheckState = CheckState.Unchecked;
             }
 
 
@@ -250,7 +122,7 @@ namespace arconfirmationletter.View
             {
                 this.cb_onlycode.CheckState = CheckState.Unchecked;
                 this.cb_groupprit.CheckState = CheckState.Unchecked;
-      //          this.cb_printall.CheckState = CheckState.Unchecked;
+                //          this.cb_printall.CheckState = CheckState.Unchecked;
             }
 
 
@@ -285,6 +157,76 @@ namespace arconfirmationletter.View
         {
 
             this.cb_onlycode.CheckState = CheckState.Checked;
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+            
+
+                    #region  onlycode data
+
+                    string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                dc.CommandTimeout = 0;
+
+                try
+                {
+                 //   List<Viewtable.ComboboxItem> dataCollection = new List<Viewtable.ComboboxItem>();
+
+                    //     tblCustomer t = new tblCustomer();
+                    //  t.Name_1
+                    List<Viewtable.ComboboxItem> dataCollection2 = new List<Viewtable.ComboboxItem>();
+
+                    //var ListCustomre = db.ExecuteQuery<tblCustomer>(@"SELECT * FROM tblCustomer WHERE Cusromergroup IN (SELECT DISTINCT Cusromergroup 
+                    //                                                                                               FROM tblCustomer
+                    //                                                                                                WHERE tblCustomer.Reportsend = 'True'
+                    //                                                                                                 And  Customer like {0}
+                    //                                                                                                       )", input_onlycode.Text).AsQueryable();
+
+                    var ListCustomre = from pp in dc.tblCustomers
+                                   where pp.Reportsend == true
+                                         && Convert.ToInt32(pp.Cusromergroup) .ToString().Contains( input_onlycode.Text)
+                                   select pp;
+
+
+                    Selectcodechoice view = new Selectcodechoice(ListCustomre, dc, "PLEASE SELECT CODE !");
+
+
+                    view.ShowDialog();
+                    //  int id = view.id;
+                    if (view.Customer > 0)
+                    {
+                        Viewtable.ComboboxItem itemcb = new Viewtable.ComboboxItem();
+
+                        itemcb.Value = view.Customer;
+                        itemcb.Text = view.Customer.ToString();
+
+                        dataCollection2.Add(itemcb);
+                        input_onlycode.DataSource = dataCollection2;
+                         input_onlycode.SelectedIndex = 0;
+                        lbnamecode.Text = view.Customer + ": " + view.Name_1;
+                    }
+
+
+
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+                #endregion
+
+
+            }
+
+
+
 
         }
 
