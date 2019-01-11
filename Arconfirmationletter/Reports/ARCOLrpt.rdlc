@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.78461in</Width>
+              <Width>6.92708in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -241,7 +241,7 @@
                           <Top>0.68818in</Top>
                           <Left>0.87689in</Left>
                           <Height>0.25277in</Height>
-                          <Width>5.88563in</Width>
+                          <Width>6.05019in</Width>
                           <ZIndex>6</ZIndex>
                           <Style>
                             <Border>
@@ -305,7 +305,7 @@
                           <Top>0.4486in</Top>
                           <Left>2.8273in</Left>
                           <Height>0.23819in</Height>
-                          <Width>0.93874in</Width>
+                          <Width>0.68874in</Width>
                           <ZIndex>8</ZIndex>
                           <Style>
                             <Border>
@@ -336,8 +336,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>0.4472in</Top>
-                          <Left>3.83549in</Left>
+                          <Top>0.43679in</Top>
+                          <Left>3.58548in</Left>
                           <Height>0.23959in</Height>
                           <Width>1.29162in</Width>
                           <ZIndex>9</ZIndex>
@@ -369,7 +369,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Top>0.43679in</Top>
-                          <Left>5.20178in</Left>
+                          <Left>4.94655in</Left>
                           <Height>0.25in</Height>
                           <Width>0.75125in</Width>
                           <ZIndex>10</ZIndex>
@@ -403,9 +403,9 @@
                           </Paragraphs>
                           <rd:DefaultName>region</rd:DefaultName>
                           <Top>0.45415in</Top>
-                          <Left>6.04378in</Left>
+                          <Left>5.76724in</Left>
                           <Height>0.23264in</Height>
-                          <Width>0.74083in</Width>
+                          <Width>0.65984in</Width>
                           <ZIndex>11</ZIndex>
                           <Style>
                             <Border>
@@ -437,8 +437,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>0.01041in</Top>
-                          <Left>6.16878in</Left>
+                          <Top>0.01873in</Top>
+                          <Left>5.81125in</Left>
                           <Height>0.22848in</Height>
                           <Width>0.61583in</Width>
                           <ZIndex>12</ZIndex>
@@ -801,74 +801,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <Textbox Name="phone18">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Két vỏ 1 litre</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.16179in</Top>
-                          <Left>0.12736in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>7</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="phone22">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Chai vỏ 1 litre</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.41179in</Top>
-                          <Left>0.12736in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>8</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
                         <Textbox Name="phone26">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -886,11 +818,11 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.66318in</Top>
-                          <Left>0.12736in</Left>
+                          <Top>1.18818in</Top>
+                          <Left>0.11347in</Left>
                           <Height>0.25in</Height>
                           <Width>1.47098in</Width>
-                          <ZIndex>9</ZIndex>
+                          <ZIndex>7</ZIndex>
                           <Style>
                             <Border>
                               <Color>Silver</Color>
@@ -922,83 +854,11 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.66457in</Top>
-                          <Left>1.59834in</Left>
+                          <Top>1.18957in</Top>
+                          <Left>1.58445in</Left>
                           <Height>0.25in</Height>
                           <Width>1.47098in</Width>
-                          <ZIndex>10</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="phone21">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>2.000 VNĐ</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.41318in</Top>
-                          <Left>1.59834in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>11</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="phone17">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>36.000 VNĐ</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.16318in</Top>
-                          <Left>1.59834in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>12</ZIndex>
+                          <ZIndex>8</ZIndex>
                           <Style>
                             <Border>
                               <Color>Silver</Color>
@@ -1034,7 +894,7 @@
                           <Left>1.59834in</Left>
                           <Height>0.25in</Height>
                           <Width>1.47098in</Width>
-                          <ZIndex>13</ZIndex>
+                          <ZIndex>9</ZIndex>
                           <Style>
                             <Border>
                               <Color>Silver</Color>
@@ -1070,75 +930,7 @@
                           <Left>1.59834in</Left>
                           <Height>0.25in</Height>
                           <Width>1.47098in</Width>
-                          <ZIndex>14</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="phone8">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Két nhựa 1 litre</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>0.65901in</Top>
-                          <Left>3.06932in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>15</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="phone12">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Bình Joy 20 litre</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>0.91179in</Top>
-                          <Left>3.06932in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>16</ZIndex>
+                          <ZIndex>10</ZIndex>
                           <Style>
                             <Border>
                               <Color>Silver</Color>
@@ -1168,11 +960,11 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.16179in</Top>
-                          <Left>3.06932in</Left>
+                          <Top>0.9229in</Top>
+                          <Left>3.08321in</Left>
                           <Height>0.25in</Height>
                           <Width>1.47098in</Width>
-                          <ZIndex>17</ZIndex>
+                          <ZIndex>11</ZIndex>
                           <Style>
                             <Border>
                               <Color>Silver</Color>
@@ -1202,81 +994,11 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.41179in</Top>
-                          <Left>3.06932in</Left>
-                          <Height>0.25in</Height>
+                          <Top>0.68401in</Top>
+                          <Left>3.07071in</Left>
+                          <Height>0.22222in</Height>
                           <Width>1.47098in</Width>
-                          <ZIndex>18</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="phone24">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Pallet nhựa</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.65207in</Top>
-                          <Left>3.05543in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>19</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="phone23">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>450.000 VNĐ</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.65207in</Top>
-                          <Left>4.52641in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>20</ZIndex>
+                          <ZIndex>12</ZIndex>
                           <Style>
                             <Border>
                               <Color>Silver</Color>
@@ -1308,11 +1030,11 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.40068in</Top>
-                          <Left>4.52641in</Left>
+                          <Top>0.6729in</Top>
+                          <Left>4.5403in</Left>
                           <Height>0.25in</Height>
                           <Width>1.47098in</Width>
-                          <ZIndex>21</ZIndex>
+                          <ZIndex>13</ZIndex>
                           <Style>
                             <Border>
                               <Color>Silver</Color>
@@ -1344,83 +1066,11 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>1.16179in</Top>
-                          <Left>4.52641in</Left>
+                          <Top>0.9354in</Top>
+                          <Left>4.5528in</Left>
                           <Height>0.25in</Height>
                           <Width>1.47098in</Width>
-                          <ZIndex>22</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="phone11">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>30.000 VNĐ</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>0.91179in</Top>
-                          <Left>4.52641in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>23</ZIndex>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="phone7">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>12.000 VNĐ</Value>
-                                  <Style>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>phone</rd:DefaultName>
-                          <Top>0.65901in</Top>
-                          <Left>4.52641in</Left>
-                          <Height>0.25in</Height>
-                          <Width>1.47098in</Width>
-                          <ZIndex>24</ZIndex>
+                          <ZIndex>14</ZIndex>
                           <Style>
                             <Border>
                               <Color>Silver</Color>
@@ -1472,7 +1122,7 @@
                           <Left>0.0951in</Left>
                           <Height>0.25in</Height>
                           <Width>5.4021in</Width>
-                          <ZIndex>25</ZIndex>
+                          <ZIndex>15</ZIndex>
                           <Style>
                             <Border>
                               <Color>Silver</Color>
@@ -1564,7 +1214,7 @@
         <Top>0.02709in</Top>
         <Left>0.03752in</Left>
         <Height>3.54871in</Height>
-        <Width>6.81586in</Width>
+        <Width>6.95833in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1572,13 +1222,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.5758in</Height>
+    <Height>9.08253cm</Height>
     <Style />
   </Body>
-  <Width>6.85338in</Width>
+  <Width>17.76946cm</Width>
   <Page>
     <PageHeader>
-      <Height>0.845in</Height>
+      <Height>2.1463cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1636,7 +1286,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.22569in</Height>
+      <Height>0.57325cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1657,6 +1307,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>UserID</rd:DefaultName>
+          <Top>0in</Top>
           <Height>0.17361in</Height>
           <Width>2.62624in</Width>
           <Style>
@@ -1686,9 +1337,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>0in</Top>
           <Left>5.38337in</Left>
           <Height>0.16319in</Height>
-          <Width>1.44792in</Width>
+          <Width>0.85417in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -1707,12 +1359,13 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>11.69in</PageHeight>
-    <PageWidth>8.27in</PageWidth>
-    <LeftMargin>0.3in</LeftMargin>
-    <RightMargin>0.15in</RightMargin>
-    <TopMargin>0.25in</TopMargin>
-    <BottomMargin>0.25in</BottomMargin>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>0.5cm</RightMargin>
+    <TopMargin>0.5cm</TopMargin>
+    <BottomMargin>0.5cm</BottomMargin>
+    <ColumnSpacing>1.27cm</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1826,6 +1479,6 @@ o2ut4k/sy31a7hN/fmJ4jNcSrIJJTsfA3N8oVAMBQK+rKKLDuzw/4t/8E4vgx8cPiH4A8TeJPBGn3uof
 j9GcZpMVhXwtGvHlqxTPWyfPsxyur7bL60qcv7rtf16M/DzxD/wak+M7a+k/sz4yeE7yAucz3vhx4pMdsgTOCevcf4dr8Iv+DVbStGv4JPG/xd1TWLSJlllsdA0hNO8wjPCyTSSrjk8hQR2PNfsdijaM9B+VcFPIMDB35Ln11TxY4nafJiOVy3ajFN/NJNPzPB/2Qf2B/hR+xPoLWfw58JaZozXKg3eoSg3Gp3zjP+unYl3xlsDOBubAGTn2y1xvwp8sAfcK7SD71cxRivTp04U48sEkj4HE4qviKrrV5ucpPVybk/veoyE/O3zZ6fhUlGMUVZiFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB//2Q==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>4afafd71-8c5e-4388-bc8f-c2b3cac1d849</rd:ReportID>
 </Report>
