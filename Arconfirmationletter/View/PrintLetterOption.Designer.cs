@@ -90,7 +90,8 @@
             // 
             // input_groupcode
             // 
-            this.input_groupcode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.input_groupcode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.input_groupcode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.input_groupcode.FormattingEnabled = true;
             this.input_groupcode.Location = new System.Drawing.Point(19, 134);
             this.input_groupcode.Name = "input_groupcode";

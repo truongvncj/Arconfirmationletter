@@ -36,8 +36,8 @@ namespace arconfirmationletter.View
 
 
 
-            try
-            {
+            //try
+            //{
                 List<Viewtable.ComboboxItem> dataCollection = new List<Viewtable.ComboboxItem>();
 
              
@@ -45,7 +45,7 @@ namespace arconfirmationletter.View
                 LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
                 db.CommandTimeout = 0;
 
-                var ListCustomre = db.ExecuteQuery<tblCustomer>("SELECT* FROM tblCustomer WHERE Cusromergroup IN (SELECT DISTINCT SendingGroup FROM tblCustomer WHERE tblCustomer.Reportsend = 'True')").ToList();
+                var ListCustomre = db.ExecuteQuery<string>("SELECT DISTINCT SendingGroup FROM tblCustomer WHERE tblCustomer.Reportsend = 'true'").ToList();
 
 
 
@@ -53,12 +53,17 @@ namespace arconfirmationletter.View
                 foreach (var item in ListCustomre)
                 {
 
+                if (item != null)
+                {
                     Viewtable.ComboboxItem itemcb = new Viewtable.ComboboxItem();
 
-                    itemcb.Value = item.SendingGroup;
-                    itemcb.Text = item.SendingGroup;
+                    itemcb.Value = item;
+                    itemcb.Text = item;
 
                     dataCollection.Add(itemcb);
+                }
+
+                   
 
 
                 }
@@ -68,13 +73,13 @@ namespace arconfirmationletter.View
 
 
 
-            }
-            catch (Exception ex)
-            {
+         //   }
+            //catch (Exception ex)
+            //{
 
-                MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }
+            //}
 
             #endregion
 
@@ -194,7 +199,7 @@ namespace arconfirmationletter.View
 
                     view.ShowDialog();
                     //  int id = view.id;
-                    if (view.Customer > 0)
+                    if (view.Customer > 0 )
                     {
                         Viewtable.ComboboxItem itemcb = new Viewtable.ComboboxItem();
 
