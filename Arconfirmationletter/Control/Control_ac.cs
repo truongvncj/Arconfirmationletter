@@ -399,9 +399,9 @@ namespace arconfirmationletter.Control
 
             var q4 = from tblFBL5N in dc.tblFBL5Nnewthisperiods
                     from tblFBL5Nnew in dc.tblFBL5Nnews
-                    where  (from tblFBL5Nnew in dc.tblFBL5Nnews
-                            where tblFBL5N.Document_Number == tblFBL5Nnew.Document_Number
-                                   select tblFBL5Nnew.Account).Contains(tblFBL5N.Account)
+                    where  (from p in dc.tblFBL5Nnews
+                            where tblFBL5N.Document_Number == p.Document_Number
+                                   select p.Account).Contains(tblFBL5N.Account)
                     select tblFBL5N;
 
             if (q4.Count() != 0)

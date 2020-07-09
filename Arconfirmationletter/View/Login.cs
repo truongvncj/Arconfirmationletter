@@ -118,7 +118,7 @@ namespace arconfirmationletter.View
                         int Ver = user.Version;
 
 
-                        if (Ver == 19)
+                        if (Ver == 20)
                         {
 
 

@@ -2307,9 +2307,9 @@ namespace arconfirmationletter.View
 
                     var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
                             from tblFBL5Nnew in db.tblFBL5Nnews
-                            where tblFBL5Nnew.Tempmark == false && (from tblFBL5Nnew in db.tblFBL5Nnews
-                                                                    where tblFBL5Nnewthisperiod.Document_Number == tblFBL5Nnew.Document_Number
-                                                                    select tblFBL5Nnew.Account).Contains(tblFBL5Nnewthisperiod.Account)
+                            where tblFBL5Nnew.Tempmark == false && (from p in db.tblFBL5Nnews
+                                                                    where tblFBL5Nnewthisperiod.Document_Number == p.Document_Number
+                                                                    select p.Account).Contains(tblFBL5Nnewthisperiod.Account)
                             select tblFBL5Nnewthisperiod;
 
 
@@ -3960,9 +3960,9 @@ namespace arconfirmationletter.View
 
                     var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
                             from tblFBL5Nnew in db.tblFBL5Nnews
-                            where (from tblFBL5Nnew in db.tblFBL5Nnews
-                                   where tblFBL5Nnewthisperiod.Document_Number == tblFBL5Nnew.Document_Number
-                                   select tblFBL5Nnew.Account).Contains(tblFBL5Nnewthisperiod.Account)
+                            where (from p in db.tblFBL5Nnews
+                                   where tblFBL5Nnewthisperiod.Document_Number == p.Document_Number
+                                   select p.Account).Contains(tblFBL5Nnewthisperiod.Account)
                             select tblFBL5Nnewthisperiod;
 
                     //var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods

@@ -22,7 +22,7 @@ namespace arconfirmationletter
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ARconfirmationletter")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="HCMARconfirmationletter")]
 	public partial class LinqtoSQLDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,12 +30,12 @@ namespace arconfirmationletter
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Inserttbl_ARdetalheaderRpt(tbl_ARdetalheaderRpt instance);
-    partial void Updatetbl_ARdetalheaderRpt(tbl_ARdetalheaderRpt instance);
-    partial void Deletetbl_ARdetalheaderRpt(tbl_ARdetalheaderRpt instance);
     partial void InserttblVat(tblVat instance);
     partial void UpdatetblVat(tblVat instance);
     partial void DeletetblVat(tblVat instance);
+    partial void Inserttbl_ARdetalheaderRpt(tbl_ARdetalheaderRpt instance);
+    partial void Updatetbl_ARdetalheaderRpt(tbl_ARdetalheaderRpt instance);
+    partial void Deletetbl_ARdetalheaderRpt(tbl_ARdetalheaderRpt instance);
     partial void Inserttbl_ArletterdetailRpt(tbl_ArletterdetailRpt instance);
     partial void Updatetbl_ArletterdetailRpt(tbl_ArletterdetailRpt instance);
     partial void Deletetbl_ArletterdetailRpt(tbl_ArletterdetailRpt instance);
@@ -129,13 +129,10 @@ namespace arconfirmationletter
     partial void InserttblNKAArletterRpt(tblNKAArletterRpt instance);
     partial void UpdatetblNKAArletterRpt(tblNKAArletterRpt instance);
     partial void DeletetblNKAArletterRpt(tblNKAArletterRpt instance);
-    partial void InserttblNKAdetailDirectUp(tblNKAdetailDirectUp instance);
-    partial void UpdatetblNKAdetailDirectUp(tblNKAdetailDirectUp instance);
-    partial void DeletetblNKAdetailDirectUp(tblNKAdetailDirectUp instance);
     #endregion
 		
 		public LinqtoSQLDataContext() : 
-				base(global::arconfirmationletter.Properties.Settings.Default.ARconfirmationletterConnectionString3, mappingSource)
+				base(global::arconfirmationletter.Properties.Settings.Default.HCMARconfirmationletterConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -164,11 +161,11 @@ namespace arconfirmationletter
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<tbl_ARdetalheaderRpt> tbl_ARdetalheaderRpts
+		public System.Data.Linq.Table<Sheet2> Sheet2s
 		{
 			get
 			{
-				return this.GetTable<tbl_ARdetalheaderRpt>();
+				return this.GetTable<Sheet2>();
 			}
 		}
 		
@@ -177,6 +174,14 @@ namespace arconfirmationletter
 			get
 			{
 				return this.GetTable<tblVat>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_ARdetalheaderRpt> tbl_ARdetalheaderRpts
+		{
+			get
+			{
+				return this.GetTable<tbl_ARdetalheaderRpt>();
 			}
 		}
 		
@@ -313,6 +318,14 @@ namespace arconfirmationletter
 			get
 			{
 				return this.GetTable<tbl_Temp>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Tempdeposit> tbl_Tempdeposits
+		{
+			get
+			{
+				return this.GetTable<tbl_Tempdeposit>();
 			}
 		}
 		
@@ -457,6 +470,401 @@ namespace arconfirmationletter
 			get
 			{
 				return this.GetTable<tblNKAdetailDirectUp>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sheet2")]
+	public partial class Sheet2
+	{
+		
+		private string _Document_Number;
+		
+		private string _Deposit_amount;
+		
+		public Sheet2()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Document_Number", DbType="NVarChar(255)")]
+		public string Document_Number
+		{
+			get
+			{
+				return this._Document_Number;
+			}
+			set
+			{
+				if ((this._Document_Number != value))
+				{
+					this._Document_Number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deposit_amount", DbType="NVarChar(255)")]
+		public string Deposit_amount
+		{
+			get
+			{
+				return this._Deposit_amount;
+			}
+			set
+			{
+				if ((this._Deposit_amount != value))
+				{
+					this._Deposit_amount = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblVat")]
+	public partial class tblVat : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Invoice_Registration_Number;
+		
+		private string _Invoice_Number;
+		
+		private System.Nullable<double> _SAP_Delivery_Number;
+		
+		private System.Nullable<double> _SAP_Invoice_Number;
+		
+		private System.Nullable<System.DateTime> _Pro_Forma_Date;
+		
+		private System.Nullable<double> _Invoice_Amount_Before_VAT;
+		
+		private System.Nullable<double> _VAT_Amount;
+		
+		private System.Nullable<double> _Customer_Number;
+		
+		private string _Customer_Name;
+		
+		private string _Street_Address;
+		
+		private string _Region;
+		
+		private System.Nullable<bool> _Statuscheck;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnInvoice_Registration_NumberChanging(string value);
+    partial void OnInvoice_Registration_NumberChanged();
+    partial void OnInvoice_NumberChanging(string value);
+    partial void OnInvoice_NumberChanged();
+    partial void OnSAP_Delivery_NumberChanging(System.Nullable<double> value);
+    partial void OnSAP_Delivery_NumberChanged();
+    partial void OnSAP_Invoice_NumberChanging(System.Nullable<double> value);
+    partial void OnSAP_Invoice_NumberChanged();
+    partial void OnPro_Forma_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPro_Forma_DateChanged();
+    partial void OnInvoice_Amount_Before_VATChanging(System.Nullable<double> value);
+    partial void OnInvoice_Amount_Before_VATChanged();
+    partial void OnVAT_AmountChanging(System.Nullable<double> value);
+    partial void OnVAT_AmountChanged();
+    partial void OnCustomer_NumberChanging(System.Nullable<double> value);
+    partial void OnCustomer_NumberChanged();
+    partial void OnCustomer_NameChanging(string value);
+    partial void OnCustomer_NameChanged();
+    partial void OnStreet_AddressChanging(string value);
+    partial void OnStreet_AddressChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
+    partial void OnStatuscheckChanging(System.Nullable<bool> value);
+    partial void OnStatuscheckChanged();
+    #endregion
+		
+		public tblVat()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Invoice Registration Number]", Storage="_Invoice_Registration_Number", DbType="NVarChar(255)")]
+		public string Invoice_Registration_Number
+		{
+			get
+			{
+				return this._Invoice_Registration_Number;
+			}
+			set
+			{
+				if ((this._Invoice_Registration_Number != value))
+				{
+					this.OnInvoice_Registration_NumberChanging(value);
+					this.SendPropertyChanging();
+					this._Invoice_Registration_Number = value;
+					this.SendPropertyChanged("Invoice_Registration_Number");
+					this.OnInvoice_Registration_NumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Invoice Number]", Storage="_Invoice_Number", DbType="NVarChar(255)")]
+		public string Invoice_Number
+		{
+			get
+			{
+				return this._Invoice_Number;
+			}
+			set
+			{
+				if ((this._Invoice_Number != value))
+				{
+					this.OnInvoice_NumberChanging(value);
+					this.SendPropertyChanging();
+					this._Invoice_Number = value;
+					this.SendPropertyChanged("Invoice_Number");
+					this.OnInvoice_NumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[SAP Delivery Number]", Storage="_SAP_Delivery_Number", DbType="Float")]
+		public System.Nullable<double> SAP_Delivery_Number
+		{
+			get
+			{
+				return this._SAP_Delivery_Number;
+			}
+			set
+			{
+				if ((this._SAP_Delivery_Number != value))
+				{
+					this.OnSAP_Delivery_NumberChanging(value);
+					this.SendPropertyChanging();
+					this._SAP_Delivery_Number = value;
+					this.SendPropertyChanged("SAP_Delivery_Number");
+					this.OnSAP_Delivery_NumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[SAP Invoice Number]", Storage="_SAP_Invoice_Number", DbType="Float")]
+		public System.Nullable<double> SAP_Invoice_Number
+		{
+			get
+			{
+				return this._SAP_Invoice_Number;
+			}
+			set
+			{
+				if ((this._SAP_Invoice_Number != value))
+				{
+					this.OnSAP_Invoice_NumberChanging(value);
+					this.SendPropertyChanging();
+					this._SAP_Invoice_Number = value;
+					this.SendPropertyChanged("SAP_Invoice_Number");
+					this.OnSAP_Invoice_NumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pro Forma Date]", Storage="_Pro_Forma_Date", DbType="Date")]
+		public System.Nullable<System.DateTime> Pro_Forma_Date
+		{
+			get
+			{
+				return this._Pro_Forma_Date;
+			}
+			set
+			{
+				if ((this._Pro_Forma_Date != value))
+				{
+					this.OnPro_Forma_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Pro_Forma_Date = value;
+					this.SendPropertyChanged("Pro_Forma_Date");
+					this.OnPro_Forma_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Invoice Amount Before VAT]", Storage="_Invoice_Amount_Before_VAT", DbType="Float")]
+		public System.Nullable<double> Invoice_Amount_Before_VAT
+		{
+			get
+			{
+				return this._Invoice_Amount_Before_VAT;
+			}
+			set
+			{
+				if ((this._Invoice_Amount_Before_VAT != value))
+				{
+					this.OnInvoice_Amount_Before_VATChanging(value);
+					this.SendPropertyChanging();
+					this._Invoice_Amount_Before_VAT = value;
+					this.SendPropertyChanged("Invoice_Amount_Before_VAT");
+					this.OnInvoice_Amount_Before_VATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[VAT Amount]", Storage="_VAT_Amount", DbType="Float")]
+		public System.Nullable<double> VAT_Amount
+		{
+			get
+			{
+				return this._VAT_Amount;
+			}
+			set
+			{
+				if ((this._VAT_Amount != value))
+				{
+					this.OnVAT_AmountChanging(value);
+					this.SendPropertyChanging();
+					this._VAT_Amount = value;
+					this.SendPropertyChanged("VAT_Amount");
+					this.OnVAT_AmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Customer Number]", Storage="_Customer_Number", DbType="Float")]
+		public System.Nullable<double> Customer_Number
+		{
+			get
+			{
+				return this._Customer_Number;
+			}
+			set
+			{
+				if ((this._Customer_Number != value))
+				{
+					this.OnCustomer_NumberChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_Number = value;
+					this.SendPropertyChanged("Customer_Number");
+					this.OnCustomer_NumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Customer Name]", Storage="_Customer_Name", DbType="NVarChar(255)")]
+		public string Customer_Name
+		{
+			get
+			{
+				return this._Customer_Name;
+			}
+			set
+			{
+				if ((this._Customer_Name != value))
+				{
+					this.OnCustomer_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_Name = value;
+					this.SendPropertyChanged("Customer_Name");
+					this.OnCustomer_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Street Address]", Storage="_Street_Address", DbType="NVarChar(255)")]
+		public string Street_Address
+		{
+			get
+			{
+				return this._Street_Address;
+			}
+			set
+			{
+				if ((this._Street_Address != value))
+				{
+					this.OnStreet_AddressChanging(value);
+					this.SendPropertyChanging();
+					this._Street_Address = value;
+					this.SendPropertyChanged("Street_Address");
+					this.OnStreet_AddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Statuscheck", DbType="Bit")]
+		public System.Nullable<bool> Statuscheck
+		{
+			get
+			{
+				return this._Statuscheck;
+			}
+			set
+			{
+				if ((this._Statuscheck != value))
+				{
+					this.OnStatuscheckChanging(value);
+					this.SendPropertyChanging();
+					this._Statuscheck = value;
+					this.SendPropertyChanged("Statuscheck");
+					this.OnStatuscheckChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -906,356 +1314,6 @@ namespace arconfirmationletter
 					this._Hideprint = value;
 					this.SendPropertyChanged("Hideprint");
 					this.OnHideprintChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblVat")]
-	public partial class tblVat : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Invoice_Registration_Number;
-		
-		private string _Invoice_Number;
-		
-		private System.Nullable<double> _SAP_Delivery_Number;
-		
-		private System.Nullable<double> _SAP_Invoice_Number;
-		
-		private System.Nullable<System.DateTime> _Pro_Forma_Date;
-		
-		private System.Nullable<double> _Invoice_Amount_Before_VAT;
-		
-		private System.Nullable<double> _VAT_Amount;
-		
-		private System.Nullable<double> _Customer_Number;
-		
-		private string _Customer_Name;
-		
-		private string _Street_Address;
-		
-		private string _Region;
-		
-		private System.Nullable<bool> _Statuscheck;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnInvoice_Registration_NumberChanging(string value);
-    partial void OnInvoice_Registration_NumberChanged();
-    partial void OnInvoice_NumberChanging(string value);
-    partial void OnInvoice_NumberChanged();
-    partial void OnSAP_Delivery_NumberChanging(System.Nullable<double> value);
-    partial void OnSAP_Delivery_NumberChanged();
-    partial void OnSAP_Invoice_NumberChanging(System.Nullable<double> value);
-    partial void OnSAP_Invoice_NumberChanged();
-    partial void OnPro_Forma_DateChanging(System.Nullable<System.DateTime> value);
-    partial void OnPro_Forma_DateChanged();
-    partial void OnInvoice_Amount_Before_VATChanging(System.Nullable<double> value);
-    partial void OnInvoice_Amount_Before_VATChanged();
-    partial void OnVAT_AmountChanging(System.Nullable<double> value);
-    partial void OnVAT_AmountChanged();
-    partial void OnCustomer_NumberChanging(System.Nullable<double> value);
-    partial void OnCustomer_NumberChanged();
-    partial void OnCustomer_NameChanging(string value);
-    partial void OnCustomer_NameChanged();
-    partial void OnStreet_AddressChanging(string value);
-    partial void OnStreet_AddressChanged();
-    partial void OnRegionChanging(string value);
-    partial void OnRegionChanged();
-    partial void OnStatuscheckChanging(System.Nullable<bool> value);
-    partial void OnStatuscheckChanged();
-    #endregion
-		
-		public tblVat()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Invoice Registration Number]", Storage="_Invoice_Registration_Number", DbType="NVarChar(255)")]
-		public string Invoice_Registration_Number
-		{
-			get
-			{
-				return this._Invoice_Registration_Number;
-			}
-			set
-			{
-				if ((this._Invoice_Registration_Number != value))
-				{
-					this.OnInvoice_Registration_NumberChanging(value);
-					this.SendPropertyChanging();
-					this._Invoice_Registration_Number = value;
-					this.SendPropertyChanged("Invoice_Registration_Number");
-					this.OnInvoice_Registration_NumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Invoice Number]", Storage="_Invoice_Number", DbType="NVarChar(255)")]
-		public string Invoice_Number
-		{
-			get
-			{
-				return this._Invoice_Number;
-			}
-			set
-			{
-				if ((this._Invoice_Number != value))
-				{
-					this.OnInvoice_NumberChanging(value);
-					this.SendPropertyChanging();
-					this._Invoice_Number = value;
-					this.SendPropertyChanged("Invoice_Number");
-					this.OnInvoice_NumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[SAP Delivery Number]", Storage="_SAP_Delivery_Number", DbType="Float")]
-		public System.Nullable<double> SAP_Delivery_Number
-		{
-			get
-			{
-				return this._SAP_Delivery_Number;
-			}
-			set
-			{
-				if ((this._SAP_Delivery_Number != value))
-				{
-					this.OnSAP_Delivery_NumberChanging(value);
-					this.SendPropertyChanging();
-					this._SAP_Delivery_Number = value;
-					this.SendPropertyChanged("SAP_Delivery_Number");
-					this.OnSAP_Delivery_NumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[SAP Invoice Number]", Storage="_SAP_Invoice_Number", DbType="Float")]
-		public System.Nullable<double> SAP_Invoice_Number
-		{
-			get
-			{
-				return this._SAP_Invoice_Number;
-			}
-			set
-			{
-				if ((this._SAP_Invoice_Number != value))
-				{
-					this.OnSAP_Invoice_NumberChanging(value);
-					this.SendPropertyChanging();
-					this._SAP_Invoice_Number = value;
-					this.SendPropertyChanged("SAP_Invoice_Number");
-					this.OnSAP_Invoice_NumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pro Forma Date]", Storage="_Pro_Forma_Date", DbType="Date")]
-		public System.Nullable<System.DateTime> Pro_Forma_Date
-		{
-			get
-			{
-				return this._Pro_Forma_Date;
-			}
-			set
-			{
-				if ((this._Pro_Forma_Date != value))
-				{
-					this.OnPro_Forma_DateChanging(value);
-					this.SendPropertyChanging();
-					this._Pro_Forma_Date = value;
-					this.SendPropertyChanged("Pro_Forma_Date");
-					this.OnPro_Forma_DateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Invoice Amount Before VAT]", Storage="_Invoice_Amount_Before_VAT", DbType="Float")]
-		public System.Nullable<double> Invoice_Amount_Before_VAT
-		{
-			get
-			{
-				return this._Invoice_Amount_Before_VAT;
-			}
-			set
-			{
-				if ((this._Invoice_Amount_Before_VAT != value))
-				{
-					this.OnInvoice_Amount_Before_VATChanging(value);
-					this.SendPropertyChanging();
-					this._Invoice_Amount_Before_VAT = value;
-					this.SendPropertyChanged("Invoice_Amount_Before_VAT");
-					this.OnInvoice_Amount_Before_VATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[VAT Amount]", Storage="_VAT_Amount", DbType="Float")]
-		public System.Nullable<double> VAT_Amount
-		{
-			get
-			{
-				return this._VAT_Amount;
-			}
-			set
-			{
-				if ((this._VAT_Amount != value))
-				{
-					this.OnVAT_AmountChanging(value);
-					this.SendPropertyChanging();
-					this._VAT_Amount = value;
-					this.SendPropertyChanged("VAT_Amount");
-					this.OnVAT_AmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Customer Number]", Storage="_Customer_Number", DbType="Float")]
-		public System.Nullable<double> Customer_Number
-		{
-			get
-			{
-				return this._Customer_Number;
-			}
-			set
-			{
-				if ((this._Customer_Number != value))
-				{
-					this.OnCustomer_NumberChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_Number = value;
-					this.SendPropertyChanged("Customer_Number");
-					this.OnCustomer_NumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Customer Name]", Storage="_Customer_Name", DbType="NVarChar(255)")]
-		public string Customer_Name
-		{
-			get
-			{
-				return this._Customer_Name;
-			}
-			set
-			{
-				if ((this._Customer_Name != value))
-				{
-					this.OnCustomer_NameChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_Name = value;
-					this.SendPropertyChanged("Customer_Name");
-					this.OnCustomer_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Street Address]", Storage="_Street_Address", DbType="NVarChar(255)")]
-		public string Street_Address
-		{
-			get
-			{
-				return this._Street_Address;
-			}
-			set
-			{
-				if ((this._Street_Address != value))
-				{
-					this.OnStreet_AddressChanging(value);
-					this.SendPropertyChanging();
-					this._Street_Address = value;
-					this.SendPropertyChanged("Street_Address");
-					this.OnStreet_AddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
-		public string Region
-		{
-			get
-			{
-				return this._Region;
-			}
-			set
-			{
-				if ((this._Region != value))
-				{
-					this.OnRegionChanging(value);
-					this.SendPropertyChanging();
-					this._Region = value;
-					this.SendPropertyChanged("Region");
-					this.OnRegionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Statuscheck", DbType="Bit")]
-		public System.Nullable<bool> Statuscheck
-		{
-			get
-			{
-				return this._Statuscheck;
-			}
-			set
-			{
-				if ((this._Statuscheck != value))
-				{
-					this.OnStatuscheckChanging(value);
-					this.SendPropertyChanging();
-					this._Statuscheck = value;
-					this.SendPropertyChanged("Statuscheck");
-					this.OnStatuscheckChanged();
 				}
 			}
 		}
@@ -6205,6 +6263,51 @@ namespace arconfirmationletter
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Tempdeposit")]
+	public partial class tbl_Tempdeposit
+	{
+		
+		private System.Nullable<double> _Document_Number;
+		
+		private System.Nullable<double> _Deposit_amount;
+		
+		public tbl_Tempdeposit()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Document_Number", DbType="Float")]
+		public System.Nullable<double> Document_Number
+		{
+			get
+			{
+				return this._Document_Number;
+			}
+			set
+			{
+				if ((this._Document_Number != value))
+				{
+					this._Document_Number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deposit_amount", DbType="Float")]
+		public System.Nullable<double> Deposit_amount
+		{
+			get
+			{
+				return this._Deposit_amount;
+			}
+			set
+			{
+				if ((this._Deposit_amount != value))
+				{
+					this._Deposit_amount = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Unsendlist")]
 	public partial class tbl_Unsendlist
 	{
@@ -6648,6 +6751,8 @@ namespace arconfirmationletter
 		
 		private string _SendingGroup;
 		
+		private System.Nullable<double> _Cusromergroup;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -6668,6 +6773,8 @@ namespace arconfirmationletter
     partial void OnReportsendChanged();
     partial void OnSendingGroupChanging(string value);
     partial void OnSendingGroupChanged();
+    partial void OnCusromergroupChanging(System.Nullable<double> value);
+    partial void OnCusromergroupChanged();
     #endregion
 		
 		public tblCustomerTmp()
@@ -6831,6 +6938,26 @@ namespace arconfirmationletter
 					this._SendingGroup = value;
 					this.SendPropertyChanged("SendingGroup");
 					this.OnSendingGroupChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cusromergroup", DbType="Float")]
+		public System.Nullable<double> Cusromergroup
+		{
+			get
+			{
+				return this._Cusromergroup;
+			}
+			set
+			{
+				if ((this._Cusromergroup != value))
+				{
+					this.OnCusromergroupChanging(value);
+					this.SendPropertyChanging();
+					this._Cusromergroup = value;
+					this.SendPropertyChanged("Cusromergroup");
+					this.OnCusromergroupChanged();
 				}
 			}
 		}
@@ -14702,10 +14829,8 @@ namespace arconfirmationletter
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblNKAdetailDirectUp")]
-	public partial class tblNKAdetailDirectUp : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class tblNKAdetailDirectUp
 	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Nullable<double> _Account;
 		
@@ -14741,53 +14866,8 @@ namespace arconfirmationletter
 		
 		private string _REMARK;
 		
-		private int _id;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAccountChanging(System.Nullable<double> value);
-    partial void OnAccountChanged();
-    partial void OnGroupChanging(string value);
-    partial void OnGroupChanged();
-    partial void OnGroup_LetterChanging(string value);
-    partial void OnGroup_LetterChanged();
-    partial void OnName_letterChanging(string value);
-    partial void OnName_letterChanged();
-    partial void OnAssignmentChanging(string value);
-    partial void OnAssignmentChanged();
-    partial void OnDocument_TypeChanging(string value);
-    partial void OnDocument_TypeChanged();
-    partial void OnDocument_NumberChanging(System.Nullable<double> value);
-    partial void OnDocument_NumberChanged();
-    partial void OnDocument_DateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDocument_DateChanged();
-    partial void OnBusiness_AreaChanging(string value);
-    partial void OnBusiness_AreaChanged();
-    partial void OnPF_Inv_DateChanging(System.Nullable<System.DateTime> value);
-    partial void OnPF_Inv_DateChanged();
-    partial void OnInvoice_Registration_No_Changing(string value);
-    partial void OnInvoice_Registration_No_Changed();
-    partial void OnPF_Inv_NumberChanging(string value);
-    partial void OnPF_Inv_NumberChanged();
-    partial void OnContent___VATChanging(System.Nullable<double> value);
-    partial void OnContent___VATChanged();
-    partial void OnExtended_ReferenceChanging(string value);
-    partial void OnExtended_ReferenceChanged();
-    partial void OnNet_due_dateChanging(System.Nullable<System.DateTime> value);
-    partial void OnNet_due_dateChanged();
-    partial void OnArrears_after_net_due_dateChanging(System.Nullable<double> value);
-    partial void OnArrears_after_net_due_dateChanged();
-    partial void OnREMARKChanging(string value);
-    partial void OnREMARKChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    #endregion
-		
 		public tblNKAdetailDirectUp()
 		{
-			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account", DbType="Float")]
@@ -14801,11 +14881,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Account != value))
 				{
-					this.OnAccountChanging(value);
-					this.SendPropertyChanging();
 					this._Account = value;
-					this.SendPropertyChanged("Account");
-					this.OnAccountChanged();
 				}
 			}
 		}
@@ -14821,11 +14897,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Group != value))
 				{
-					this.OnGroupChanging(value);
-					this.SendPropertyChanging();
 					this._Group = value;
-					this.SendPropertyChanged("Group");
-					this.OnGroupChanged();
 				}
 			}
 		}
@@ -14841,11 +14913,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Group_Letter != value))
 				{
-					this.OnGroup_LetterChanging(value);
-					this.SendPropertyChanging();
 					this._Group_Letter = value;
-					this.SendPropertyChanged("Group_Letter");
-					this.OnGroup_LetterChanged();
 				}
 			}
 		}
@@ -14861,11 +14929,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Name_letter != value))
 				{
-					this.OnName_letterChanging(value);
-					this.SendPropertyChanging();
 					this._Name_letter = value;
-					this.SendPropertyChanged("Name_letter");
-					this.OnName_letterChanged();
 				}
 			}
 		}
@@ -14881,11 +14945,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Assignment != value))
 				{
-					this.OnAssignmentChanging(value);
-					this.SendPropertyChanging();
 					this._Assignment = value;
-					this.SendPropertyChanged("Assignment");
-					this.OnAssignmentChanged();
 				}
 			}
 		}
@@ -14901,11 +14961,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Document_Type != value))
 				{
-					this.OnDocument_TypeChanging(value);
-					this.SendPropertyChanging();
 					this._Document_Type = value;
-					this.SendPropertyChanged("Document_Type");
-					this.OnDocument_TypeChanged();
 				}
 			}
 		}
@@ -14921,11 +14977,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Document_Number != value))
 				{
-					this.OnDocument_NumberChanging(value);
-					this.SendPropertyChanging();
 					this._Document_Number = value;
-					this.SendPropertyChanged("Document_Number");
-					this.OnDocument_NumberChanged();
 				}
 			}
 		}
@@ -14941,11 +14993,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Document_Date != value))
 				{
-					this.OnDocument_DateChanging(value);
-					this.SendPropertyChanging();
 					this._Document_Date = value;
-					this.SendPropertyChanged("Document_Date");
-					this.OnDocument_DateChanged();
 				}
 			}
 		}
@@ -14961,11 +15009,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Business_Area != value))
 				{
-					this.OnBusiness_AreaChanging(value);
-					this.SendPropertyChanging();
 					this._Business_Area = value;
-					this.SendPropertyChanged("Business_Area");
-					this.OnBusiness_AreaChanged();
 				}
 			}
 		}
@@ -14981,11 +15025,7 @@ namespace arconfirmationletter
 			{
 				if ((this._PF_Inv_Date != value))
 				{
-					this.OnPF_Inv_DateChanging(value);
-					this.SendPropertyChanging();
 					this._PF_Inv_Date = value;
-					this.SendPropertyChanged("PF_Inv_Date");
-					this.OnPF_Inv_DateChanged();
 				}
 			}
 		}
@@ -15001,11 +15041,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Invoice_Registration_No_ != value))
 				{
-					this.OnInvoice_Registration_No_Changing(value);
-					this.SendPropertyChanging();
 					this._Invoice_Registration_No_ = value;
-					this.SendPropertyChanged("Invoice_Registration_No_");
-					this.OnInvoice_Registration_No_Changed();
 				}
 			}
 		}
@@ -15021,11 +15057,7 @@ namespace arconfirmationletter
 			{
 				if ((this._PF_Inv_Number != value))
 				{
-					this.OnPF_Inv_NumberChanging(value);
-					this.SendPropertyChanging();
 					this._PF_Inv_Number = value;
-					this.SendPropertyChanged("PF_Inv_Number");
-					this.OnPF_Inv_NumberChanged();
 				}
 			}
 		}
@@ -15041,11 +15073,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Content___VAT != value))
 				{
-					this.OnContent___VATChanging(value);
-					this.SendPropertyChanging();
 					this._Content___VAT = value;
-					this.SendPropertyChanged("Content___VAT");
-					this.OnContent___VATChanged();
 				}
 			}
 		}
@@ -15061,11 +15089,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Extended_Reference != value))
 				{
-					this.OnExtended_ReferenceChanging(value);
-					this.SendPropertyChanging();
 					this._Extended_Reference = value;
-					this.SendPropertyChanged("Extended_Reference");
-					this.OnExtended_ReferenceChanged();
 				}
 			}
 		}
@@ -15081,11 +15105,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Net_due_date != value))
 				{
-					this.OnNet_due_dateChanging(value);
-					this.SendPropertyChanging();
 					this._Net_due_date = value;
-					this.SendPropertyChanged("Net_due_date");
-					this.OnNet_due_dateChanged();
 				}
 			}
 		}
@@ -15101,11 +15121,7 @@ namespace arconfirmationletter
 			{
 				if ((this._Arrears_after_net_due_date != value))
 				{
-					this.OnArrears_after_net_due_dateChanging(value);
-					this.SendPropertyChanging();
 					this._Arrears_after_net_due_date = value;
-					this.SendPropertyChanged("Arrears_after_net_due_date");
-					this.OnArrears_after_net_due_dateChanged();
 				}
 			}
 		}
@@ -15121,52 +15137,8 @@ namespace arconfirmationletter
 			{
 				if ((this._REMARK != value))
 				{
-					this.OnREMARKChanging(value);
-					this.SendPropertyChanging();
 					this._REMARK = value;
-					this.SendPropertyChanged("REMARK");
-					this.OnREMARKChanged();
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

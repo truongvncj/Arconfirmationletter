@@ -12,7 +12,7 @@ namespace arconfirmationletter.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -75,6 +75,28 @@ namespace arconfirmationletter.Properties {
         public string ARconfirmationletterConnectionString3 {
             get {
                 return ((string)(this["ARconfirmationletterConnectionString3"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-UVMCLH1;Initial Catalog=ARconfirmationletter;Integrated Secur" +
+            "ity=True")]
+        public string ARconfirmationletterConnectionString4 {
+            get {
+                return ((string)(this["ARconfirmationletterConnectionString4"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-UVMCLH1;Initial Catalog=HCMARconfirmationletter;Integrated Se" +
+            "curity=True")]
+        public string HCMARconfirmationletterConnectionString {
+            get {
+                return ((string)(this["HCMARconfirmationletterConnectionString"]));
             }
         }
     }
