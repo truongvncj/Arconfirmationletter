@@ -629,7 +629,7 @@ namespace arconfirmationletter.View
                 return;
             }
 
-      
+
             DialogResult Kq = MessageBox.Show("Bạn xóa workingdata bởi bản mới hay chỉ add thêm ?" + "\n" + "                 Xóa->Yes/ Add thêm->No !", "Thông báo !", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
 
@@ -707,7 +707,7 @@ namespace arconfirmationletter.View
 
                                     #endregion
 
-                           
+
 
                                     bool kq1 = ct.checkVATandFBL5n();
 
@@ -715,7 +715,7 @@ namespace arconfirmationletter.View
                                     if (kq1)
                                     {
 
-                                   
+
                                         bool kq2 = ct.checkVATnameanddtodata();
                                         // nếu không ok data khong có data trong  fbl5new
 
@@ -777,7 +777,7 @@ namespace arconfirmationletter.View
                                         else
                                         {
 
-                                            #region  autoupdatedepositthismonth ra TREN SQL dang viet 
+                                            #region  autoupdatedepositthismonth ra TREN SQL dang viet
                                             //    SqlConnection conn2 = null;
                                             //      SqlDataReader rdr1 = null;
 
@@ -845,7 +845,6 @@ namespace arconfirmationletter.View
 
                     }
                 case DialogResult.No:
-
                     {
 
 
@@ -899,7 +898,7 @@ namespace arconfirmationletter.View
 
                         #region udapte vào this priod
 
-              ///          ct.UpdateVATregionFromFBL5Nregion();
+                        ///          ct.UpdateVATregionFromFBL5Nregion();
 
                         bool kq1 = ct.checkVATandFBL5n();
 
@@ -907,7 +906,7 @@ namespace arconfirmationletter.View
                         if (kq1)
                         {
 
-                         
+
 
                             bool kq2 = ct.checkVATnameanddtodata();
 
@@ -964,7 +963,7 @@ namespace arconfirmationletter.View
                             else
                             {
 
-                                #region  autoupdatedepositthismonth ra TREN SQL dang viet 
+                                #region  autoupdatedepositthismonth ra TREN SQL dang viet
                                 //    SqlConnection conn2 = null;
                                 //      SqlDataReader rdr1 = null;
 
@@ -2198,12 +2197,12 @@ namespace arconfirmationletter.View
 
             #endregion
             // btAutoUpdatedepo
-       //     string connection_string = Utils.getConnectionstr();
-      //      //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //     string connection_string = Utils.getConnectionstr();
+            //      //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             IQueryable rsthisperiod = null;
             Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "iNPUT DEPOSIT AMOUNTT !", 100, DateTime.Today, DateTime.Today); // màn hình inpot data có mas2
-                                                                                                                                 //     viewtbl.Visible = false;
+            //     viewtbl.Visible = false;
             viewtbl.ShowDialog();
             //    viewtbl.Activate();
             //  }
@@ -2607,7 +2606,6 @@ namespace arconfirmationletter.View
 
                         t1.Join();
                         if (t1.ThreadState != ThreadState.Running)
-
                         {
 
 
@@ -2655,7 +2653,7 @@ namespace arconfirmationletter.View
                     SqlCommand cmd1 = new SqlCommand("updategroupprintletterOnlycodeChoice", conn2);
                     cmd1.CommandType = CommandType.StoredProcedure;
                     cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
-              //      cmd1.Parameters.Add("@userName", SqlDbType.NVarChar).Value = userName;
+                    //      cmd1.Parameters.Add("@userName", SqlDbType.NVarChar).Value = userName;
 
 
                     try
@@ -2886,7 +2884,6 @@ namespace arconfirmationletter.View
 
                         t1.Join();
                         if (t1.ThreadState != ThreadState.Running)
-
                         {
 
 
@@ -3090,7 +3087,7 @@ namespace arconfirmationletter.View
                                    palletgo = pp.palletgo.GetValueOrDefault(0),
                                    paletnhua = pp.paletnhua.GetValueOrDefault(0),
 
-                                   
+
 
                                };
 
@@ -4012,7 +4009,7 @@ namespace arconfirmationletter.View
 
 
                     }
-                    #endregion 
+                    #endregion
 
 
 
@@ -4347,7 +4344,7 @@ namespace arconfirmationletter.View
         private void uPLOADCLEARFREEGLASSESPROGARMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        
+
 
 
 
@@ -4424,7 +4421,7 @@ namespace arconfirmationletter.View
 
         private void deleteWrongClearFreeGalassToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -4740,6 +4737,40 @@ namespace arconfirmationletter.View
             }
 
 
+        }
+
+        private void uploadWritterOffFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+              DatePicker datepick = new DatePicker("CHỌN NGÀY WRITTER OFF FREEGLASSES");
+
+                    datepick.ShowDialog();
+                    DateTime witteroffdate = datepick.valuedate;
+                   // string headfi = datepick.field;
+
+                    bool kq2 = datepick.kq;
+                    bool kq = true;
+
+                    if (kq2)
+                    {
+                        fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
+                        try
+                        {
+                            md.witteroffFreglasses_input(witteroffdate);
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.ToString());
+
+                            kq = false;
+                            //throw;
+                        }
+
+
+                    
+
+                    }// chonj ngay writter of date
         }
     }
 

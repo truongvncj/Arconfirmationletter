@@ -39,19 +39,19 @@
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.CustomFormat = "dd.MM.yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(100, 39);
+            this.dateTimePicker1.Location = new System.Drawing.Point(113, 70);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(139, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(139, 29);
             this.dateTimePicker1.TabIndex = 0;
-            this.dateTimePicker1.Value = new System.DateTime(2015, 11, 12, 0, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2020, 7, 21, 0, 0, 0, 0);
             this.dateTimePicker1.Enter += new System.EventHandler(this.dateTimePicker1_Enter);
             this.dateTimePicker1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker1_KeyDown);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(147, 85);
+            this.button1.Location = new System.Drawing.Point(266, 148);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 25);
             this.button1.TabIndex = 1;
@@ -70,7 +70,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(63, 86);
+            this.button2.Location = new System.Drawing.Point(195, 148);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(57, 24);
             this.button2.TabIndex = 5;
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 123);
+            this.ClientSize = new System.Drawing.Size(370, 185);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.lbtext);
             this.Controls.Add(this.button1);

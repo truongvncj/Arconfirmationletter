@@ -64,6 +64,9 @@
             this.vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.yEARENDPACKDATAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadWritterOffFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteWritterOffFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fBL5nInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateNewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -195,7 +198,8 @@
             this.inputDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customerToolStripMenuItem,
             this.productToolStripMenuItem,
-            this.dataConfigurationToolStripMenuItem});
+            this.dataConfigurationToolStripMenuItem,
+            this.depositToolStripMenuItem});
             this.inputDataToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputDataToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("inputDataToolStripMenuItem.Image")));
             this.inputDataToolStripMenuItem.Name = "inputDataToolStripMenuItem";
@@ -220,7 +224,7 @@
             this.eDITLISTUNUSECUSTOMERToolStripMenuItem});
             this.customerToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
             this.customerToolStripMenuItem.Text = "CUSTOMER";
             // 
             // uploadCustomerToolStripMenuItem
@@ -320,7 +324,7 @@
             this.productCodeToolStripMenuItem});
             this.productToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
             this.productToolStripMenuItem.Text = "PRODUCT";
             // 
             // viewProductsListToolStripMenuItem
@@ -350,7 +354,7 @@
             this.yEARENDPACKDATAToolStripMenuItem});
             this.dataConfigurationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataConfigurationToolStripMenuItem.Name = "dataConfigurationToolStripMenuItem";
-            this.dataConfigurationToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.dataConfigurationToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
             this.dataConfigurationToolStripMenuItem.Text = "BEGIN CONFIG";
             // 
             // bEGINBALANCEVIEWToolStripMenuItem
@@ -403,6 +407,28 @@
             this.yEARENDPACKDATAToolStripMenuItem.Name = "yEARENDPACKDATAToolStripMenuItem";
             this.yEARENDPACKDATAToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
             this.yEARENDPACKDATAToolStripMenuItem.Text = "YEAR END PACK DATA";
+            // 
+            // depositToolStripMenuItem
+            // 
+            this.depositToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uploadWritterOffFileToolStripMenuItem,
+            this.deleteWritterOffFileToolStripMenuItem});
+            this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
+            this.depositToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
+            this.depositToolStripMenuItem.Text = "Deposit Writte Off";
+            // 
+            // uploadWritterOffFileToolStripMenuItem
+            // 
+            this.uploadWritterOffFileToolStripMenuItem.Name = "uploadWritterOffFileToolStripMenuItem";
+            this.uploadWritterOffFileToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
+            this.uploadWritterOffFileToolStripMenuItem.Text = "Upload Writter Off file";
+            this.uploadWritterOffFileToolStripMenuItem.Click += new System.EventHandler(this.uploadWritterOffFileToolStripMenuItem_Click);
+            // 
+            // deleteWritterOffFileToolStripMenuItem
+            // 
+            this.deleteWritterOffFileToolStripMenuItem.Name = "deleteWritterOffFileToolStripMenuItem";
+            this.deleteWritterOffFileToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
+            this.deleteWritterOffFileToolStripMenuItem.Text = "Delete Writter Off file";
             // 
             // masterDataToolStripMenuItem
             // 
@@ -1235,6 +1261,9 @@
         private ToolStripMenuItem fREEGLASSESBEGINUPLOADToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator19;
         private ToolStripMenuItem vIEWFREEGLASSESBEGINUPLOADToolStripMenuItem;
+        private ToolStripMenuItem depositToolStripMenuItem;
+        private ToolStripMenuItem uploadWritterOffFileToolStripMenuItem;
+        private ToolStripMenuItem deleteWritterOffFileToolStripMenuItem;
     }
 }
 
