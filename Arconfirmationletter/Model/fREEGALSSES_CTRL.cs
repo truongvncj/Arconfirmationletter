@@ -271,7 +271,7 @@ namespace arconfirmationletter.Model
 
             string username = Utils.getusername();
 
-         //   bool kq = Rm.deleteallwitreroffFreeglassestable();
+            //   bool kq = Rm.deleteallwitreroffFreeglassestable();
 
             datainportF inf = (datainportF)obj;
 
@@ -293,13 +293,14 @@ namespace arconfirmationletter.Model
 
             batable.Columns.Add("CUSTOMER", typeof(double));
             batable.Columns.Add("SALORG", typeof(string));
-          //  batable.Columns.Add("PERNO", typeof(string));
+            //  batable.Columns.Add("PERNO", typeof(string));
             batable.Columns.Add("QuantityGlassesWritteroff", typeof(int));
             batable.Columns.Add("AmountWritteroffglassesValue", typeof(double));
+            batable.Columns.Add("AmountWritteroffglassesValue2", typeof(double));
             batable.Columns.Add("TypeDoc", typeof(string));
             batable.Columns.Add("userupdate", typeof(string));
             batable.Columns.Add("Posting_Date", typeof(DateTime));
-            
+
 
 
 
@@ -307,7 +308,7 @@ namespace arconfirmationletter.Model
             int CUSTOMERid = -1;
             int SALORGid = -1;
             int QuantityGlassesWritteroffid = -1;
-            
+
             int AmountWritteroffglassesValueid = -1;
 
             int rowseet = sourceData.Rows.Count;
@@ -354,7 +355,7 @@ namespace arconfirmationletter.Model
                         }
 
 
-                      
+
 
                         if (value.Trim() == ("AmountWritteroffglassesValue"))
                         {
@@ -391,7 +392,7 @@ namespace arconfirmationletter.Model
                 return;
             }
 
-          
+
             if (AmountWritteroffglassesValueid == -1)
             {
                 MessageBox.Show("Dữ liệu thiếu cột AmountFreeglassesValue", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -426,20 +427,24 @@ namespace arconfirmationletter.Model
                             dr["QuantityGlassesWritteroff"] = 0;
                         }
 
-                       
+
 
                         if (sourceData.Rows[rowixd][AmountWritteroffglassesValueid].ToString() != "")
                         {
-                            dr["AmountWritteroffglassesValue"] =- int.Parse(sourceData.Rows[rowixd][AmountWritteroffglassesValueid].ToString().Trim());
+                            dr["AmountWritteroffglassesValue"] = int.Parse(sourceData.Rows[rowixd][AmountWritteroffglassesValueid].ToString().Trim());
+                            dr["AmountWritteroffglassesValue2"] = -int.Parse(sourceData.Rows[rowixd][AmountWritteroffglassesValueid].ToString().Trim());
+
+
                         }
                         else
                         {
                             dr["AmountWritteroffglassesValue"] = 0;
+                            dr["AmountWritteroffglassesValue2"] = 0;
                         }
 
 
-                        
-                         dr["TypeDoc"] = "WF";//.Trim();//sourceData.Rows[rowixd][COLAMTid].ToString().Trim();
+
+                        dr["TypeDoc"] = "WF";//.Trim();//sourceData.Rows[rowixd][COLAMTid].ToString().Trim();
 
                         dr["userupdate"] = username;
 
@@ -447,7 +452,7 @@ namespace arconfirmationletter.Model
                         dr["Posting_Date"] = witteroffdate;
 
 
-                
+
                         batable.Rows.Add(dr);
 
 
@@ -475,10 +480,11 @@ namespace arconfirmationletter.Model
                 bulkCopy.ColumnMappings.Add("SALORG", "[Business Area]");
                 bulkCopy.ColumnMappings.Add("QuantityGlassesWritteroff", "[Ketvothuong]");
 
-        //        bulkCopy.ColumnMappings.Add("AmountWritteroffglassesValue", "[Amount in local currency]");
-                bulkCopy.ColumnMappings.Add("AmountWritteroffglassesValue", "[Deposit amount]");
+                //   bulkCopy.ColumnMappings.Add("AmountWritteroffglassesValue", "[Amount in local currency]");
+                bulkCopy.ColumnMappings.Add("AmountWritteroffglassesValue2", "[Deposit amount]");
+                bulkCopy.ColumnMappings.Add("AmountWritteroffglassesValue", "[Adjusted amount]");
 
-            
+
                 try
                 {
                     bulkCopy.WriteToServer(batable);
@@ -522,7 +528,7 @@ namespace arconfirmationletter.Model
 
             batable.Columns.Add("CUSTOMER", typeof(double));
             batable.Columns.Add("SALORG", typeof(string));
-          //  batable.Columns.Add("PERNO", typeof(string));
+            //  batable.Columns.Add("PERNO", typeof(string));
             batable.Columns.Add("Freeglass3years", typeof(int));
             batable.Columns.Add("Freeglass3phantram", typeof(int));
             batable.Columns.Add("AmountFreeglassesValue", typeof(double));
@@ -657,7 +663,7 @@ namespace arconfirmationletter.Model
                         dr["CUSTOMER"] = double.Parse(sourceData.Rows[rowixd][CUSTOMERid].ToString());//.Trim();
                         dr["SALORG"] = sourceData.Rows[rowixd][SALORGid].ToString().Trim();
 
-                        if (sourceData.Rows[rowixd][Freeglass3yearsid].ToString() !="")
+                        if (sourceData.Rows[rowixd][Freeglass3yearsid].ToString() != "")
                         {
                             dr["Freeglass3years"] = int.Parse(sourceData.Rows[rowixd][Freeglass3yearsid].ToString().Trim());
                         }
@@ -688,14 +694,14 @@ namespace arconfirmationletter.Model
                         }
 
 
-                        
+
                         dr["TypeDoc"] = "Begin";//.Trim();//sourceData.Rows[rowixd][COLAMTid].ToString().Trim();
 
                         dr["userupdate"] = username;
                         dr["Posting_Date"] = DateTime.Today;
 
 
-                
+
                         batable.Rows.Add(dr);
 
 
@@ -1024,7 +1030,7 @@ namespace arconfirmationletter.Model
 
 
 
-         //   throw new NotImplementedException();
+            //   throw new NotImplementedException();
         }
     }
 }
