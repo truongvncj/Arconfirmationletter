@@ -475,7 +475,7 @@ namespace arconfirmationletter.Model
                 bulkCopy.ColumnMappings.Add("SALORG", "[Business Area]");
                 bulkCopy.ColumnMappings.Add("QuantityGlassesWritteroff", "[Ketvothuong]");
 
-                bulkCopy.ColumnMappings.Add("AmountWritteroffglassesValue", "[Amount in local currency]");
+        //        bulkCopy.ColumnMappings.Add("AmountWritteroffglassesValue", "[Amount in local currency]");
                 bulkCopy.ColumnMappings.Add("AmountWritteroffglassesValue", "[Deposit amount]");
 
             

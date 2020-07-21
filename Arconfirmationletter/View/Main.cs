@@ -4741,36 +4741,79 @@ namespace arconfirmationletter.View
 
         private void uploadWritterOffFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-              DatePicker datepick = new DatePicker("CHỌN NGÀY WRITTER OFF FREEGLASSES");
+            DatePicker datepick = new DatePicker("CHỌN NGÀY WRITTER OFF FREEGLASSES");
 
-                    datepick.ShowDialog();
-                    DateTime witteroffdate = datepick.valuedate;
-                   // string headfi = datepick.field;
+            datepick.ShowDialog();
+            DateTime witteroffdate = datepick.valuedate;
+            // string headfi = datepick.field;
 
-                    bool kq2 = datepick.kq;
-                    bool kq = true;
+            bool kq2 = datepick.kq;
 
-                    if (kq2)
-                    {
-                        fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
-                        try
-                        {
-                            md.witteroffFreglasses_input(witteroffdate);
+            if (kq2)
+            {
+                fREEGALSSES_CTRL md = new fREEGALSSES_CTRL();
+                try
+                {
+                    md.witteroffFreglasses_input(witteroffdate);
 
-                        }
-                        catch (Exception ex)
-                        {
+                }
+                catch (Exception ex)
+                {
 
-                            MessageBox.Show(ex.ToString());
-
-                            kq = false;
-                            //throw;
-                        }
+                    MessageBox.Show(ex.ToString());
 
 
-                    
+                    //throw;
+                }
 
-                    }// chonj ngay writter of date
+                MessageBox.Show("OK Upload Done ! ", "AR Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }// chonj ngay writter of date
+        }
+
+        private void deleteWritterOffFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DatePicker datepick = new DatePicker("XÓA WRITTER OFF CỦA NGÀY ?");
+
+            datepick.ShowDialog();
+            DateTime witteroffdate = datepick.valuedate;
+            // string headfi = datepick.field;
+
+            bool kq2 = datepick.kq;
+
+            if (kq2)
+            {
+
+                string connection_string = Utils.getConnectionstr();
+                var db = new LinqtoSQLDataContext(connection_string);
+                var rs = from pp in db.tblFBL5Nnews
+                         where pp.Posting_Date == witteroffdate
+                         && pp.Document_Type == "WF"
+                         select pp;
+
+                if (rs.Count() > 0)
+                {
+                    db.tblFBL5Nnews.DeleteAllOnSubmit(rs);
+                    db.SubmitChanges();
+
+                    MessageBox.Show("OK Deleted Done ! ", "AR Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //  DialogResult kq1 = MessageBox.Show("OK Done ! ", "AR Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
+
+
+
+
+
+
+            }
+
+
+
+
+
         }
     }
 
