@@ -38,7 +38,7 @@ namespace arconfirmationletter.View
             string st4 = "";
 
 
-            //        string st4 = "";
+         
             const Int32 BufferSize = 128;
             using (var fileStream = File.OpenRead(fileName))
             using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
@@ -56,11 +56,9 @@ namespace arconfirmationletter.View
 
 
 
-                    //   if (st4 =="cn")
-                    //   {
+                  
                     connection_string = ("Data Source =" + st1 + "; Initial Catalog = " + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
-                    //    }
-                    // /
+                   
                     //       connection_string = "Data Source = DESKTOP-8D4F853\\SQLEXPRESS; Initial Catalog = ARconfirmationletter; User Id = SA; Password = 123123";
 
 
@@ -79,10 +77,10 @@ namespace arconfirmationletter.View
                     {
                         cn.Open();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
 
-                        MessageBox.Show("Lỗi đường truyền dữ liệu !", "Connection !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.ToString()+ "Lỗi đường truyền dữ liệu !", "Connection !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -136,21 +134,6 @@ namespace arconfirmationletter.View
 
                         }
 
-
-                        #region// read file xml và sửa app. config
-
-                        /// connection_string = connection_string + "111";
-                        //LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
-                        //var rs = from tblCustomer in db.tblCustomers
-                        //         select tblCustomer;
-
-                        //if (rs!= null)
-                        //{
-                        //    MessageBox.Show(rs.Count().ToString() + "   ok");
-                        //}
-                        ////   string conString = ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
-                        #endregion//read file xml và sửa app. config
 
 
                     }
