@@ -355,6 +355,7 @@ namespace arconfirmationletter.View
 
 
                     md.Fbl5n_input2();
+                    Username.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
 
                     break;
@@ -467,6 +468,7 @@ namespace arconfirmationletter.View
 
 
                     md.vat_input();
+                    Username.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
 
                     break;
@@ -621,25 +623,26 @@ namespace arconfirmationletter.View
                 return;
             }
 
-            var rs22 = (from pp in dc.tblVats
-                        where  pp.Invoice_Registration_Number !=""
-                        && pp.Pro_Forma_Date == null
+            var rs22 = (from pp in dc.tblFBL5Ns
+                        where pp.PFInvNumber != ""
+                        && pp.PFInvDate == null
                         select pp
 
                         ).Take(5);
-            if (rs22.Count() <= 0)
+
+            if (rs22.Count() > 0)
             {
-               // MessageBox.Show("Ban chưa up load bảng data VAT , please check again !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                // MessageBox.Show("Ban chưa up load bảng data VAT , please check again !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
                 Viewtable viewtbl = new Viewtable(rs22, dc, "List các doc sai format ngày tháng, please check !", 1000, DateTime.Today, DateTime.Today);
 
                 viewtbl.ShowDialog();
 
-                
+
                 return;
             }
-         
-           
+
+
 
 
 
@@ -792,7 +795,7 @@ namespace arconfirmationletter.View
                                         if (eror.Count() > 0)
                                         {
 
-                                       
+
                                             Viewtable viewtbl = new Viewtable(eror, dc, "List các doc chưa update được do có lệch giữ data FBL5n Và VAT/Edlp về phần vỏ , please check !", 1, DateTime.Today, DateTime.Today);
 
                                             viewtbl.ShowDialog();
@@ -801,7 +804,7 @@ namespace arconfirmationletter.View
                                         else
                                         {
 
-                                            #region  autoupdatedepositthismonth ra TREN SQL dang viet
+                                            #region  autoupdatedepositthismonth
                                             //    SqlConnection conn2 = null;
                                             //      SqlDataReader rdr1 = null;
 
@@ -846,6 +849,10 @@ namespace arconfirmationletter.View
                                             //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                             #endregion
+
+                                            Username.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+                                            MessageBox.Show("Reconcile OK done ! ", "AR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                                         }
 
@@ -914,10 +921,7 @@ namespace arconfirmationletter.View
                         #endregion
 
 
-                        //      bool kqo = true;
-
-                        //    if (kqo)
-                        //    {
+                      
 
 
                         #region udapte vào this priod
@@ -1033,6 +1037,12 @@ namespace arconfirmationletter.View
 
                                 #endregion
 
+                                Username.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+                                MessageBox.Show("Reconcile OK done ! ", "AR", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+
+                    
+
                             }
 
 
@@ -1044,7 +1054,8 @@ namespace arconfirmationletter.View
 
                         #endregion update
 
-                        ///  }
+
+
 
 
                         break;
@@ -1342,6 +1353,7 @@ namespace arconfirmationletter.View
                     //    this.reportsToolStripMenuItem.Enabled = false;
 
                     md.edlpinput();
+                    Username.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
 
 
@@ -2182,54 +2194,61 @@ namespace arconfirmationletter.View
 
 
             dc.CommandTimeout = 0;
-
-
-
-
-            #region update codegroup from code group
-            //updateCustgoupThistable
-            SqlConnection conn2 = null;
-            SqlDataReader rdr1 = null;
-            try
+            if (Username.getStatus() == 0)
             {
+                #region   //  thwcuj hien view verifir datata
 
-                conn2 = new SqlConnection(connection_string);
-                conn2.Open();
-                SqlCommand cmd1 = new SqlCommand("updateCustgoupThistable", conn2);
-                cmd1.CommandType = CommandType.StoredProcedure;
-                //  cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
+                #region update codegroup from code group
+                //updateCustgoupThistable
+                SqlConnection conn2 = null;
+                SqlDataReader rdr1 = null;
+                try
+                {
 
-                rdr1 = cmd1.ExecuteReader();
+                    conn2 = new SqlConnection(connection_string);
+                    conn2.Open();
+                    SqlCommand cmd1 = new SqlCommand("updateCustgoupThistable", conn2);
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    //  cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
+
+                    rdr1 = cmd1.ExecuteReader();
 
 
 
-                //       rdr1 = cmd1.ExecuteReader();
+                    //       rdr1 = cmd1.ExecuteReader();
+
+                }
+                finally
+                {
+                    if (conn2 != null)
+                    {
+                        conn2.Close();
+                    }
+                    if (rdr1 != null)
+                    {
+                        rdr1.Close();
+                    }
+                }
+                //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                #endregion
+
+                IQueryable rsthisperiod = null;
+                Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "iNPUT DEPOSIT AMOUNTT !", 100, DateTime.Today, DateTime.Today); // màn hình inpot data có mas2
+                viewtbl.ShowDialog();
+
+
+                #endregion
+
+
+
 
             }
-            finally
+            else
             {
-                if (conn2 != null)
-                {
-                    conn2.Close();
-                }
-                if (rdr1 != null)
-                {
-                    rdr1.Close();
-                }
+                MessageBox.Show("Bạn chưa reconcile data, please reconcile data trước ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+          
             }
-            //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            #endregion
-            // btAutoUpdatedepo
-            //     string connection_string = Utils.getConnectionstr();
-            //      //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            IQueryable rsthisperiod = null;
-            Viewtable viewtbl = new Viewtable(rsthisperiod, dc, "iNPUT DEPOSIT AMOUNTT !", 100, DateTime.Today, DateTime.Today); // màn hình inpot data có mas2
-            //     viewtbl.Visible = false;
-            viewtbl.ShowDialog();
-            //    viewtbl.Activate();
-            //  }
 
 
 
@@ -2266,7 +2285,13 @@ namespace arconfirmationletter.View
                 case DialogResult.Ignore:
                     break;
                 case DialogResult.Yes:
+                    
+                    if (Username.getStatus() != 0)
+                    {
 
+                        MessageBox.Show("Bạn chưa reconcile data, please reconcile data trước ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
 
                     #region  DeleteTempFBL5nnew DeleteTempFBL5nnew
                     SqlConnection conn2 = null;
@@ -2337,14 +2362,7 @@ namespace arconfirmationletter.View
 
 
                     //var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
-                    //        where (from tblFBL5Nnew in db.tblFBL5Nnews
-                    //               where tblFBL5Nnew.Tempmark == false  // false  == 0; true == 1
-
-                    //               select tblFBL5Nnew.Document_Number).Contains(tblFBL5Nnewthisperiod.Document_Number)
-                    //        //Tương đương từ khóa NOT IN trong SQL
-                    //        select tblFBL5Nnewthisperiod;
-
-
+               
 
                     if (q.Count() != 0)
                     {
@@ -2381,6 +2399,7 @@ namespace arconfirmationletter.View
                         }
 
 
+                        MessageBox.Show("Close OK done ! ", "AR", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
@@ -3914,9 +3933,12 @@ namespace arconfirmationletter.View
                     break;
                 case DialogResult.Yes:
 
-                    //   string filename = theDialog.FileName.ToString();updatetoFBL5nnew
-                    //    updatetoFBL5nnew(); // teo xoa sau
+                    if (Username.getStatus() != 0)
+                    {
 
+                        MessageBox.Show("Bạn chưa reconcile data, please reconcile data trước ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
 
                     #region  DeleteTempFBL5nnew DeleteTempFBL5nnew
                     SqlConnection conn2 = null;
@@ -3987,13 +4009,7 @@ namespace arconfirmationletter.View
                                    select p.Account).Contains(tblFBL5Nnewthisperiod.Account)
                             select tblFBL5Nnewthisperiod;
 
-                    //var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
-                    //        where (from tblFBL5Nnew in db.tblFBL5Nnews
-                    //               select tblFBL5Nnew.Document_Number).Contains(tblFBL5Nnewthisperiod.Document_Number)
-                    //        //Tương đương từ khóa NOT IN trong SQL
-                    //        select tblFBL5Nnewthisperiod;
-
-
+                   
 
                     if (q.Count() != 0)
                     {
@@ -4030,6 +4046,7 @@ namespace arconfirmationletter.View
                         }
 
 
+                        MessageBox.Show("Tempclose OK done ! ", "AR", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 

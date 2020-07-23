@@ -120,6 +120,9 @@ namespace arconfirmationletter
     partial void InserttblFBL5Nnewthisperiod(tblFBL5Nnewthisperiod instance);
     partial void UpdatetblFBL5Nnewthisperiod(tblFBL5Nnewthisperiod instance);
     partial void DeletetblFBL5Nnewthisperiod(tblFBL5Nnewthisperiod instance);
+    partial void InserttblFBL5NNewWritteroff(tblFBL5NNewWritteroff instance);
+    partial void UpdatetblFBL5NNewWritteroff(tblFBL5NNewWritteroff instance);
+    partial void DeletetblFBL5NNewWritteroff(tblFBL5NNewWritteroff instance);
     partial void InserttblFBL5NTempRPtview(tblFBL5NTempRPtview instance);
     partial void UpdatetblFBL5NTempRPtview(tblFBL5NTempRPtview instance);
     partial void DeletetblFBL5NTempRPtview(tblFBL5NTempRPtview instance);
@@ -433,6 +436,14 @@ namespace arconfirmationletter
 			}
 		}
 		
+		public System.Data.Linq.Table<tblFBL5NNewWritteroff> tblFBL5NNewWritteroffs
+		{
+			get
+			{
+				return this.GetTable<tblFBL5NNewWritteroff>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tblFBL5NTempRPtview> tblFBL5NTempRPtviews
 		{
 			get
@@ -527,15 +538,11 @@ namespace arconfirmationletter
 		
 		private int _ID;
 		
-		private string _Invoice_Registration_Number;
-		
 		private string _Invoice_Number;
 		
 		private System.Nullable<double> _SAP_Delivery_Number;
 		
 		private System.Nullable<double> _SAP_Invoice_Number;
-		
-		private System.Nullable<System.DateTime> _Pro_Forma_Date;
 		
 		private System.Nullable<double> _Invoice_Amount_Before_VAT;
 		
@@ -557,16 +564,12 @@ namespace arconfirmationletter
     partial void OnCreated();
     partial void OnIDChanging(int value);
     partial void OnIDChanged();
-    partial void OnInvoice_Registration_NumberChanging(string value);
-    partial void OnInvoice_Registration_NumberChanged();
     partial void OnInvoice_NumberChanging(string value);
     partial void OnInvoice_NumberChanged();
     partial void OnSAP_Delivery_NumberChanging(System.Nullable<double> value);
     partial void OnSAP_Delivery_NumberChanged();
     partial void OnSAP_Invoice_NumberChanging(System.Nullable<double> value);
     partial void OnSAP_Invoice_NumberChanged();
-    partial void OnPro_Forma_DateChanging(System.Nullable<System.DateTime> value);
-    partial void OnPro_Forma_DateChanged();
     partial void OnInvoice_Amount_Before_VATChanging(System.Nullable<double> value);
     partial void OnInvoice_Amount_Before_VATChanged();
     partial void OnVAT_AmountChanging(System.Nullable<double> value);
@@ -604,26 +607,6 @@ namespace arconfirmationletter
 					this._ID = value;
 					this.SendPropertyChanged("ID");
 					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Invoice Registration Number]", Storage="_Invoice_Registration_Number", DbType="NVarChar(255)")]
-		public string Invoice_Registration_Number
-		{
-			get
-			{
-				return this._Invoice_Registration_Number;
-			}
-			set
-			{
-				if ((this._Invoice_Registration_Number != value))
-				{
-					this.OnInvoice_Registration_NumberChanging(value);
-					this.SendPropertyChanging();
-					this._Invoice_Registration_Number = value;
-					this.SendPropertyChanged("Invoice_Registration_Number");
-					this.OnInvoice_Registration_NumberChanged();
 				}
 			}
 		}
@@ -684,26 +667,6 @@ namespace arconfirmationletter
 					this._SAP_Invoice_Number = value;
 					this.SendPropertyChanged("SAP_Invoice_Number");
 					this.OnSAP_Invoice_NumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pro Forma Date]", Storage="_Pro_Forma_Date", DbType="Date")]
-		public System.Nullable<System.DateTime> Pro_Forma_Date
-		{
-			get
-			{
-				return this._Pro_Forma_Date;
-			}
-			set
-			{
-				if ((this._Pro_Forma_Date != value))
-				{
-					this.OnPro_Forma_DateChanging(value);
-					this.SendPropertyChanging();
-					this._Pro_Forma_Date = value;
-					this.SendPropertyChanged("Pro_Forma_Date");
-					this.OnPro_Forma_DateChanged();
 				}
 			}
 		}
@@ -5615,6 +5578,8 @@ namespace arconfirmationletter
 		
 		private bool _nationKA;
 		
+		private System.Nullable<int> _status;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5675,6 +5640,8 @@ namespace arconfirmationletter
     partial void OnimagesignChanged();
     partial void OnnationKAChanging(bool value);
     partial void OnnationKAChanged();
+    partial void OnstatusChanging(System.Nullable<int> value);
+    partial void OnstatusChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -6238,6 +6205,26 @@ namespace arconfirmationletter
 					this._nationKA = value;
 					this.SendPropertyChanged("nationKA");
 					this.OnnationKAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
+		public System.Nullable<int> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
 				}
 			}
 		}
@@ -8769,6 +8756,12 @@ namespace arconfirmationletter
 		
 		private bool _Completed_use;
 		
+		private System.Nullable<System.DateTime> _PFInvDate;
+		
+		private string _PFInvNumber;
+		
+		private string _InvoiceRegistration;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -8793,6 +8786,12 @@ namespace arconfirmationletter
     partial void OnDepositChanged();
     partial void OnCompleted_useChanging(bool value);
     partial void OnCompleted_useChanged();
+    partial void OnPFInvDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPFInvDateChanged();
+    partial void OnPFInvNumberChanging(string value);
+    partial void OnPFInvNumberChanged();
+    partial void OnInvoiceRegistrationChanging(string value);
+    partial void OnInvoiceRegistrationChanged();
     #endregion
 		
 		public tblFBL5N()
@@ -8996,6 +8995,66 @@ namespace arconfirmationletter
 					this._Completed_use = value;
 					this.SendPropertyChanged("Completed_use");
 					this.OnCompleted_useChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PFInvDate", DbType="Date")]
+		public System.Nullable<System.DateTime> PFInvDate
+		{
+			get
+			{
+				return this._PFInvDate;
+			}
+			set
+			{
+				if ((this._PFInvDate != value))
+				{
+					this.OnPFInvDateChanging(value);
+					this.SendPropertyChanging();
+					this._PFInvDate = value;
+					this.SendPropertyChanged("PFInvDate");
+					this.OnPFInvDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PFInvNumber", DbType="NVarChar(50)")]
+		public string PFInvNumber
+		{
+			get
+			{
+				return this._PFInvNumber;
+			}
+			set
+			{
+				if ((this._PFInvNumber != value))
+				{
+					this.OnPFInvNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PFInvNumber = value;
+					this.SendPropertyChanged("PFInvNumber");
+					this.OnPFInvNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceRegistration", DbType="NVarChar(50)")]
+		public string InvoiceRegistration
+		{
+			get
+			{
+				return this._InvoiceRegistration;
+			}
+			set
+			{
+				if ((this._InvoiceRegistration != value))
+				{
+					this.OnInvoiceRegistrationChanging(value);
+					this.SendPropertyChanging();
+					this._InvoiceRegistration = value;
+					this.SendPropertyChanged("InvoiceRegistration");
+					this.OnInvoiceRegistrationChanged();
 				}
 			}
 		}
@@ -11692,6 +11751,212 @@ namespace arconfirmationletter
 					this._COL_value = value;
 					this.SendPropertyChanged("COL_value");
 					this.OnCOL_valueChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFBL5NNewWritteroff")]
+	public partial class tblFBL5NNewWritteroff : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private double _Customer_code;
+		
+		private string _Region;
+		
+		private System.Nullable<System.DateTime> _Posting_Date;
+		
+		private System.Nullable<double> _AmountValuewritteroff;
+		
+		private System.Nullable<int> _Quntitywritteroff;
+		
+		private string _userupdate;
+		
+		private int _id;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCustomer_codeChanging(double value);
+    partial void OnCustomer_codeChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
+    partial void OnPosting_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPosting_DateChanged();
+    partial void OnAmountValuewritteroffChanging(System.Nullable<double> value);
+    partial void OnAmountValuewritteroffChanged();
+    partial void OnQuntitywritteroffChanging(System.Nullable<int> value);
+    partial void OnQuntitywritteroffChanged();
+    partial void OnuserupdateChanging(string value);
+    partial void OnuserupdateChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
+		
+		public tblFBL5NNewWritteroff()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Customer code]", Storage="_Customer_code", DbType="Float NOT NULL")]
+		public double Customer_code
+		{
+			get
+			{
+				return this._Customer_code;
+			}
+			set
+			{
+				if ((this._Customer_code != value))
+				{
+					this.OnCustomer_codeChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_code = value;
+					this.SendPropertyChanged("Customer_code");
+					this.OnCustomer_codeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(255)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Posting Date]", Storage="_Posting_Date", DbType="Date")]
+		public System.Nullable<System.DateTime> Posting_Date
+		{
+			get
+			{
+				return this._Posting_Date;
+			}
+			set
+			{
+				if ((this._Posting_Date != value))
+				{
+					this.OnPosting_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Posting_Date = value;
+					this.SendPropertyChanged("Posting_Date");
+					this.OnPosting_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountValuewritteroff", DbType="Float")]
+		public System.Nullable<double> AmountValuewritteroff
+		{
+			get
+			{
+				return this._AmountValuewritteroff;
+			}
+			set
+			{
+				if ((this._AmountValuewritteroff != value))
+				{
+					this.OnAmountValuewritteroffChanging(value);
+					this.SendPropertyChanging();
+					this._AmountValuewritteroff = value;
+					this.SendPropertyChanged("AmountValuewritteroff");
+					this.OnAmountValuewritteroffChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quntitywritteroff", DbType="Int")]
+		public System.Nullable<int> Quntitywritteroff
+		{
+			get
+			{
+				return this._Quntitywritteroff;
+			}
+			set
+			{
+				if ((this._Quntitywritteroff != value))
+				{
+					this.OnQuntitywritteroffChanging(value);
+					this.SendPropertyChanging();
+					this._Quntitywritteroff = value;
+					this.SendPropertyChanged("Quntitywritteroff");
+					this.OnQuntitywritteroffChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userupdate", DbType="NVarChar(50)")]
+		public string userupdate
+		{
+			get
+			{
+				return this._userupdate;
+			}
+			set
+			{
+				if ((this._userupdate != value))
+				{
+					this.OnuserupdateChanging(value);
+					this.SendPropertyChanging();
+					this._userupdate = value;
+					this.SendPropertyChanged("userupdate");
+					this.OnuserupdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}

@@ -11,7 +11,7 @@ namespace arconfirmationletter.View
 {
     public partial class Selectcodechoice : Form
     {
-         public double Customer;
+         public double Customernumber;
         public string Name_1;
         // , 
         //    public VInputchange Fromeditable;
@@ -29,7 +29,7 @@ namespace arconfirmationletter.View
             InitializeComponent();
             label1.Text = fornname;
             dataGridView1.DataSource = rs;
-            this.Customer = -1;
+            this.Customernumber = -1;
 
             this.Name_1 = "";
     }
@@ -98,7 +98,7 @@ namespace arconfirmationletter.View
                     {
                         if (Utils.IsValidnumber(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Customer"].Value.ToString()))
                         {
-                            this.Customer = (double)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Customer"].Value;
+                            this.Customernumber = (double)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Customer"].Value;
 
                             this.Name_1 = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Name_1"].Value;
 
@@ -149,7 +149,7 @@ namespace arconfirmationletter.View
                         {
                             if (Utils.IsValidnumber(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex-1].Cells["Customer"].Value.ToString()))
                             {
-                                this.Customer = (double)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex-1].Cells["Customer"].Value;
+                                this.Customernumber = (double)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex - 1].Cells["Customer"].Value;
 
                                 this.Name_1 = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex-1].Cells["Name_1"].Value;
 

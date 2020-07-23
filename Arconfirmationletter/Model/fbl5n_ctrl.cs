@@ -78,15 +78,26 @@ namespace arconfirmationletter.Model
             batable.Columns.Add("Account", typeof(double));
             batable.Columns.Add("Assignment", typeof(string));
             batable.Columns.Add("PostingDate", typeof(DateTime));
+            //     PF Inv Date
+            batable.Columns.Add("PFInvDate", typeof(DateTime));
+            
+      //      PF Inv Number
+            batable.Columns.Add("PFInvNumber", typeof(string));
+            //  Invoice Registration No.
+            batable.Columns.Add("InvoiceRegistration", typeof(string));
+
+
             batable.Columns.Add("DocumentType", typeof(string));
             batable.Columns.Add("BusinessArea", typeof(string));
             batable.Columns.Add("DocumentNumber", typeof(double));
             batable.Columns.Add("Amountinlocalcurrency", typeof(double));
             batable.Columns.Add("Deposit", typeof(double));
 
+           
 
-
-
+            int InvoiceRegistrationid = -1;
+            int PFInvDateid = -1;
+            int PFInvNumberid = -1;
             int Depositid = -1;
             int Accountid = -1;
             int Assignmentid = -1;
@@ -184,7 +195,29 @@ namespace arconfirmationletter.Model
                             BusinessAreaid = columid;
 
                         }
+                        ////     PF Inv Date
+                        // batable.Columns.Add("PFInvDate", typeof(DateTime));
 
+                        if (value.Trim() == ("PF Inv Date"))
+                        {
+                            PFInvDateid = columid;
+
+                        }
+
+                        if (value.Trim() == ("PF Inv Number"))
+                        {
+                            PFInvNumberid = columid;
+
+                        }
+
+                        if (value.Trim() == ("Invoice Registration No."))
+                        {
+                            InvoiceRegistrationid = columid;
+
+                        }
+
+                       
+                      
                     }
                     #endregion
 
@@ -199,7 +232,14 @@ namespace arconfirmationletter.Model
                 MessageBox.Show("Dữ liệu thiếu cột Account", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (InvoiceRegistrationid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột Invoice Registration No.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+
+         
             if (Depositid == -1)
             {
                 MessageBox.Show("Dữ liệu thiếu cột Deposit", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -241,6 +281,18 @@ namespace arconfirmationletter.Model
                 MessageBox.Show("Dữ liệu thiếu cột Posting Date", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (PFInvDateid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột PF Inv Date", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (PFInvNumberid == -1)
+            {
+                MessageBox.Show("Dữ liệu thiếu cột PF Inv Number", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+         
 
             for (int rowixd = 0; rowixd < sourceData.Rows.Count; rowixd++)
             {
@@ -259,6 +311,11 @@ namespace arconfirmationletter.Model
                         dr["Account"] = double.Parse(sourceData.Rows[rowixd][Accountid].ToString());//.Trim();
                         dr["Assignment"] = sourceData.Rows[rowixd][Assignmentid].ToString().Truncate(225).Trim();
 
+                        dr["PFInvNumber"] = sourceData.Rows[rowixd][PFInvNumberid].ToString().Truncate(50).Trim();
+
+                        dr["InvoiceRegistration"] = sourceData.Rows[rowixd][InvoiceRegistrationid].ToString().Truncate(50).Trim();
+
+
 
                         try
                         {
@@ -269,7 +326,24 @@ namespace arconfirmationletter.Model
 
                             dr["PostingDate"] = "";
                         }
-                    
+
+                     
+
+                        try
+                        {
+                            dr["PFInvDate"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][PFInvDateid].ToString());
+                        }
+                        catch (Exception )
+                        {
+                          
+                          
+                            dr["PFInvDate"] = "";
+                        }
+
+
+
+
+
                         dr["DocumentType"] = sourceData.Rows[rowixd][DocumentTypeid].ToString().Truncate(225).Trim();
 
                         if (Utils.IsValidnumber(sourceData.Rows[rowixd][DocumentNumberid].ToString()))
@@ -334,7 +408,19 @@ namespace arconfirmationletter.Model
                 bulkCopy.ColumnMappings.Add("[BusinessArea]", "[Business Area]");
                 bulkCopy.ColumnMappings.Add("[Amountinlocalcurrency]", "[Amount in local currency]");
                 bulkCopy.ColumnMappings.Add("[Deposit]", "[Deposit]");
+                bulkCopy.ColumnMappings.Add("[PFInvDate]", "[PFInvDate]");
+                bulkCopy.ColumnMappings.Add("[PFInvNumber]", "[PFInvNumber]");
+                bulkCopy.ColumnMappings.Add("[InvoiceRegistration]", "[InvoiceRegistration]");
 
+
+
+                //  Invoice Registration No.
+            //    batable.Columns.Add("InvoiceRegistration", typeof(string));
+
+                
+                ////      PF Inv Number
+                //batable.Columns.Add("PFInvNumber", typeof(string));
+                //PFInvNumberid = columid;
 
                 try
                 {

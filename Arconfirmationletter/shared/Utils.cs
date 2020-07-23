@@ -543,20 +543,20 @@ namespace arconfirmationletter
         //Phương thức check xem có workbook excel nào đang được mở hay k?
 
 
-        public static DateTime chageExceldatetoData(string exceldatedotstring)  // dd.MM.YYYY to date
+        public static DateTime chageExceldatetoData2(string exceldatedotstring)  // dd.MM.YYYY to date
         {
-            CultureInfo cultureInfo = CultureInfo.InvariantCulture;
+            // CultureInfo cultureInfo = CultureInfo.InvariantCulture;
 
             //      var cultureInfo = new CultureInfo("de-DE");
             string dateString = exceldatedotstring;
-            var dateTime = DateTime.Parse(dateString, cultureInfo);
+            var dateTime = DateTime.Parse(dateString);
             return dateTime;
 
 
 
         }
 
-        public static DateTime chageExceldatetoData3(string get_data)
+        public static DateTime chageExceldatetoData(string get_data)
         {
             //   DateTime result_date;
             CultureInfo provider = CultureInfo.InvariantCulture;
@@ -1126,6 +1126,57 @@ namespace arconfirmationletter
 
         public Boolean nationKA { get; set; }
 
+        public static int status { get; set; }
+
+        public static void setStatus(int statusid)
+        {
+            string Name = Utils.getusername();
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = (from pp in dc.tbl_Temps
+                      where pp.username == Name
+
+                      select pp).FirstOrDefault();
+            if (rs != null)
+            {
+
+                rs.status = statusid;
+                dc.SubmitChanges();
+
+            }
+        }
+        public static int getStatus()
+        {
+            string Name = Utils.getusername();
+            int kq = -1;
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = (from pp in dc.tbl_Temps
+                      where pp.username == Name
+
+                      select pp).FirstOrDefault();
+            if (rs.status != null)
+            {
+                kq = (int)rs.status;
+            }
+            else
+            {
+                Username.setStatus(-1);
+            }
+            return kq;
+
+
+        }
+
         public Username()
         {
 
@@ -1141,6 +1192,8 @@ namespace arconfirmationletter
                       where tbl_Temp.username == Name
 
                       select tbl_Temp).FirstOrDefault();
+
+
             if (rs != null)
             {
                 right = true;
@@ -1149,6 +1202,15 @@ namespace arconfirmationletter
                 deleteAlldate = rs.DeleteData;
                 editOlddatabase = rs.EditReportsaffter;
 
+                if (rs.status != null)
+                {
+                    status = (int)rs.status;
+                }
+                else
+                {
+                    status = -1;
+                }
+             
 
                 Depositintput = rs.Depositintput;
 

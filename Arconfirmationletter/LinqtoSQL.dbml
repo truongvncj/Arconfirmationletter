@@ -9,11 +9,9 @@
   <Table Name="dbo.tblVat" Member="tblVats">
     <Type Name="tblVat">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="[Invoice Registration Number]" Member="Invoice_Registration_Number" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="[Invoice Number]" Member="Invoice_Number" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="[SAP Delivery Number]" Member="SAP_Delivery_Number" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="[SAP Invoice Number]" Member="SAP_Invoice_Number" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Pro Forma Date]" Member="Pro_Forma_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="[Invoice Amount Before VAT]" Member="Invoice_Amount_Before_VAT" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="[VAT Amount]" Member="VAT_Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="[Customer Number]" Member="Customer_Number" Type="System.Double" DbType="Float" CanBeNull="true" />
@@ -290,6 +288,7 @@
       <Column Name="uploadpriviousPriod" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="imagesign" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="nationKA" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Tempdeposit" Member="tbl_Tempdeposits">
@@ -433,6 +432,9 @@
       <Column Name="[Amount in local currency]" Member="Amount_in_local_currency" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Deposit" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="[Completed use]" Member="Completed_use" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PFInvDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PFInvNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InvoiceRegistration" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblFBL5Nnew" Member="tblFBL5Nnews">
@@ -555,6 +557,17 @@
       <Column Name="[Completed use]" Member="Completed_use" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="[COL value]" Member="COL_value" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFBL5NNewWritteroff" Member="tblFBL5NNewWritteroffs">
+    <Type Name="tblFBL5NNewWritteroff">
+      <Column Name="[Customer code]" Member="Customer_code" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Posting Date]" Member="Posting_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AmountValuewritteroff" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Quntitywritteroff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userupdate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tblFBL5NTempRPtview" Member="tblFBL5NTempRPtviews">

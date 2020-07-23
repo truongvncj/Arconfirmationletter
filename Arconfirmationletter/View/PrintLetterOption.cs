@@ -20,7 +20,7 @@ namespace arconfirmationletter.View
         public string groupsending { get; set; }
 
 
-  
+
         public PrintLetterOption()
         {
             InitializeComponent();
@@ -38,20 +38,20 @@ namespace arconfirmationletter.View
 
             //try
             //{
-                List<Viewtable.ComboboxItem> dataCollection = new List<Viewtable.ComboboxItem>();
-
-             
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-                db.CommandTimeout = 0;
-
-                var ListCustomre = db.ExecuteQuery<string>("SELECT DISTINCT SendingGroup FROM tblCustomer WHERE tblCustomer.Reportsend = 'true'").ToList();
+            List<Viewtable.ComboboxItem> dataCollection = new List<Viewtable.ComboboxItem>();
 
 
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+            db.CommandTimeout = 0;
+
+            var ListCustomre = db.ExecuteQuery<string>("SELECT DISTINCT SendingGroup FROM tblCustomer WHERE tblCustomer.Reportsend = 'true'").ToList();
 
 
-                foreach (var item in ListCustomre)
-                {
+
+
+            foreach (var item in ListCustomre)
+            {
 
                 if (item != null)
                 {
@@ -63,17 +63,17 @@ namespace arconfirmationletter.View
                     dataCollection.Add(itemcb);
                 }
 
-                   
-
-
-                }
-
-
-                input_groupcode.DataSource = dataCollection;
 
 
 
-         //   }
+            }
+
+
+            input_groupcode.DataSource = dataCollection;
+
+
+
+            //   }
             //catch (Exception ex)
             //{
 
@@ -166,17 +166,17 @@ namespace arconfirmationletter.View
             if (e.KeyChar == (char)Keys.Enter)
             {
 
-            
 
-                    #region  onlycode data
 
-                    string connection_string = Utils.getConnectionstr();
+                #region  onlycode data
+
+                string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
                 dc.CommandTimeout = 0;
 
                 try
                 {
-                 //   List<Viewtable.ComboboxItem> dataCollection = new List<Viewtable.ComboboxItem>();
+                    //   List<Viewtable.ComboboxItem> dataCollection = new List<Viewtable.ComboboxItem>();
 
                     //     tblCustomer t = new tblCustomer();
                     //  t.Name_1
@@ -189,27 +189,27 @@ namespace arconfirmationletter.View
                     //                                                                                                       )", input_onlycode.Text).AsQueryable();
 
                     var ListCustomre = from pp in dc.tblCustomers
-                                   where pp.Reportsend == true
-                                         && Convert.ToInt32(pp.Cusromergroup) .ToString().Contains( input_onlycode.Text)
-                                   select pp;
+                                       where pp.Reportsend == true
+                                             && Convert.ToInt32(pp.Cusromergroup).ToString().Contains(input_onlycode.Text)
+                                       select pp;
 
 
-                    Selectcodechoice view = new Selectcodechoice(ListCustomre, dc, "PLEASE SELECT CODE !");
+                    Selectcodechoice hh = new Selectcodechoice(ListCustomre, dc, "PLEASE SELECT CODE !");
 
 
-                    view.ShowDialog();
+                    hh.ShowDialog();
                     //  int id = view.id;
-                    if (view.Customer > 0 )
+                    if (hh.Customernumber > 0)
                     {
                         Viewtable.ComboboxItem itemcb = new Viewtable.ComboboxItem();
 
-                        itemcb.Value = view.Customer;
-                        itemcb.Text = view.Customer.ToString();
+                        itemcb.Value = hh.Customernumber;
+                        itemcb.Text = hh.Customernumber.ToString();
 
                         dataCollection2.Add(itemcb);
                         input_onlycode.DataSource = dataCollection2;
-                         input_onlycode.SelectedIndex = 0;
-                        lbnamecode.Text = view.Customer + ": " + view.Name_1;
+                        input_onlycode.SelectedIndex = 0;
+                        lbnamecode.Text = hh.Customernumber + ": " + hh.Name_1;
                     }
 
 

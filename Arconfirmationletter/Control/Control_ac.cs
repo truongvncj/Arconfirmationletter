@@ -440,7 +440,7 @@ namespace arconfirmationletter.Control
                     newvalue.Assignment = item.SAP_Delivery_Number.ToString();
                     newvalue.Document_Number = item.SAP_Invoice_Number;
                     newvalue.Document_Type = "RV";
-                    newvalue.Posting_Date = item.Pro_Forma_Date;
+                 
                     newvalue.Deposit = 0;
                     newvalue.Business_Area = item.Region;
                 

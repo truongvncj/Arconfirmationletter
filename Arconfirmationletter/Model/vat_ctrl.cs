@@ -198,11 +198,11 @@ namespace arconfirmationletter.Model
             batable.Columns.Add("StreetAddress", typeof(string));
 
 
-            int InvoiceRegistrationNumber = -1;
+          //  int InvoiceRegistrationNumber = -1;
             int InvoiceNumber = -1;
             int SAPDeliveryNumber = -1;
             int SAPInvoiceNumber = -1;
-            int ProFormaDate = -1;
+         //   int ProFormaDate = -1;
             int InvoiceAmountBeforeVAT = -1;
             int VATAmount = -1;
             int CustomerNumber = -1;
@@ -238,11 +238,11 @@ namespace arconfirmationletter.Model
                     {
 
                         //    #region setcolum
-                        if (value.Trim() == ("Invoice Registration Number"))
-                        {
-                            InvoiceRegistrationNumber = columid;
-                            //  headindex = rowid;
-                        }
+                        //if (value.Trim() == ("Invoice Registration Number"))
+                        //{
+                        //    InvoiceRegistrationNumber = columid;
+                        //    //  headindex = rowid;
+                        //}
 
                         if (value.Trim() == ("Invoice Number"))
                         {
@@ -278,11 +278,12 @@ namespace arconfirmationletter.Model
                             CustomerName = columid;
 
                         }
-                        if (value.Trim()==("Pro Forma Date"))
-                        {
-                            ProFormaDate = columid;
+                      
+                        //if (value.Trim()==("Pro Forma Date"))
+                        //{
+                        //    ProFormaDate = columid;
 
-                        }
+                        //}
 
 
 
@@ -319,11 +320,11 @@ namespace arconfirmationletter.Model
             }// roww off heatder
 
 
-            if (InvoiceRegistrationNumber == -1)
-            {
-                MessageBox.Show("Dữ liệu thiếu cột Invoice Registration Number", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (InvoiceRegistrationNumber == -1)
+            //{
+            //    MessageBox.Show("Dữ liệu thiếu cột Invoice Registration Number", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
             if (InvoiceNumber == -1)
             {
@@ -343,11 +344,11 @@ namespace arconfirmationletter.Model
                 return;
             }
 
-            if (ProFormaDate == -1)
-            {
-                MessageBox.Show("Dữ liệu thiếu cột Pro Forma Date ngày hóa đơn in", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (ProFormaDate == -1)
+            //{
+            //    MessageBox.Show("Dữ liệu thiếu cột Pro Forma Date ngày hóa đơn in", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
             if (InvoiceAmountBeforeVAT == -1)
             {
@@ -392,20 +393,11 @@ namespace arconfirmationletter.Model
                     if (double.Parse(SAPInvoiceNumberv) > 0)
                     {
 
-                        //batable.Columns.Add("InvoiceRegistrationNumber", typeof(string));
-                        //batable.Columns.Add("InvoiceNumber", typeof(double));
-                        //batable.Columns.Add("SAPDeliveryNumber", typeof(double));
-                        //batable.Columns.Add("SAPInvoiceNumber", typeof(double));
-                        //batable.Columns.Add("ProFormaDate", typeof(DateTime));
-                        //batable.Columns.Add("InvoiceAmountBeforeVAT", typeof(double));
-                        //batable.Columns.Add("VATAmount", typeof(double));
-                        //batable.Columns.Add("CustomerNumber", typeof(double));
-                        //batable.Columns.Add("CustomerName", typeof(string));
-                        //batable.Columns.Add("StreetAddress", typeof(string));
+                 
 
                         DataRow dr = batable.NewRow();
 
-                        dr["InvoiceRegistrationNumber"] = sourceData.Rows[rowixd][InvoiceRegistrationNumber].ToString().Truncate(225).Trim();
+                 //       dr["InvoiceRegistrationNumber"] = sourceData.Rows[rowixd][InvoiceRegistrationNumber].ToString().Truncate(225).Trim();
                     
                         if (sourceData.Rows[rowixd][InvoiceNumber].ToString()!="" && Utils.IsValidnumber(sourceData.Rows[rowixd][InvoiceNumber].ToString()))
                         {
@@ -419,17 +411,17 @@ namespace arconfirmationletter.Model
 
                             dr["SAPInvoiceNumber"] = double.Parse(sourceData.Rows[rowixd][SAPInvoiceNumber].ToString());
                        
-                            try
-                            {
-                                dr["ProFormaDate"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][ProFormaDate].ToString());
+                            //try
+                            //{
+                            //    dr["ProFormaDate"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][ProFormaDate].ToString());
                           
-                            }
-                            catch (Exception)
-                            {
+                            //}
+                            //catch (Exception)
+                            //{
 
-                                dr["ProFormaDate"] = "";
+                            //    dr["ProFormaDate"] = "";
 
-                            }
+                            //}
                          
                             
                             dr["InvoiceAmountBeforeVAT"] = double.Parse(sourceData.Rows[rowixd][InvoiceAmountBeforeVAT].ToString());//.Trim();
@@ -471,11 +463,11 @@ namespace arconfirmationletter.Model
                 bulkCopy.BulkCopyTimeout = 0;
                 bulkCopy.DestinationTableName = "tblVat";
                 // Write from the source to the destination.
-                bulkCopy.ColumnMappings.Add("[InvoiceRegistrationNumber]", "[Invoice Registration Number]");
+             //   bulkCopy.ColumnMappings.Add("[InvoiceRegistrationNumber]", "[Invoice Registration Number]");
                 bulkCopy.ColumnMappings.Add("[InvoiceNumber]", "[Invoice Number]");
                 bulkCopy.ColumnMappings.Add("[SAPDeliveryNumber]", "[SAP Delivery Number]");
                 bulkCopy.ColumnMappings.Add("[SAPInvoiceNumber]", "[SAP Invoice Number]");
-                bulkCopy.ColumnMappings.Add("[ProFormaDate]", "[Pro Forma Date]");
+            //    bulkCopy.ColumnMappings.Add("[ProFormaDate]", "[Pro Forma Date]");
                 bulkCopy.ColumnMappings.Add("[InvoiceAmountBeforeVAT]", "[Invoice Amount Before VAT]");//-sua am
                 bulkCopy.ColumnMappings.Add("[VATAmount]", "[VAT Amount]");
                 bulkCopy.ColumnMappings.Add("[CustomerNumber]", "[Customer Number]");
