@@ -21,8 +21,11 @@ namespace arconfirmationletter.Model
             var db = new LinqtoSQLDataContext(connection_string);
             //  var rs = from tblEDLP in db.tblEDLPs
             //          select tblEDLP;
-            db.CommandTimeout = 0;
+         
             db.ExecuteCommand("DELETE FROM tblEDLP");
+           
+            
+            db.CommandTimeout = 0;
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             db.SubmitChanges();
 
@@ -384,6 +387,7 @@ namespace arconfirmationletter.Model
 
             using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
             {
+                bulkCopy.BulkCopyTimeout = 0;
                 bulkCopy.DestinationTableName = "tblEDLP";
                 // Write from the source to the destination.
                 bulkCopy.ColumnMappings.Add("[Soldto]", "[Sold-to]");

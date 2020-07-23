@@ -352,11 +352,12 @@ namespace arconfirmationletter.View
 
                     //   this.updateNewAllToolStripMenuItem.Enabled = false;
                     //   this.reportsToolStripMenuItem.Enabled = false;
-
+                    Username user = new Username();
+                  
+                    user.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
                     md.Fbl5n_input2();
-                    Username.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
-
+                 
 
                     break;
                 case DialogResult.No:
@@ -466,11 +467,13 @@ namespace arconfirmationletter.View
                     break;
                 case DialogResult.Yes:
 
+                  Username user = new Username();
+                  
+                    user.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
                     md.vat_input();
-                    Username.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
-
-
+                 
+                 
                     break;
                 case DialogResult.No:
                     break;
@@ -724,8 +727,7 @@ namespace arconfirmationletter.View
                                             rdr1.Close();
                                         }
                                     }
-                                    //     MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                
 
 
 
@@ -850,7 +852,9 @@ namespace arconfirmationletter.View
 
                                             #endregion
 
-                                            Username.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+                                            Username user = new Username();
+
+                                            user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
                                             MessageBox.Show("Reconcile OK done ! ", "AR", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -1037,7 +1041,10 @@ namespace arconfirmationletter.View
 
                                 #endregion
 
-                                Username.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+                                Username user = new Username();
+
+                                user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+
                                 MessageBox.Show("Reconcile OK done ! ", "AR", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
 
@@ -1351,11 +1358,13 @@ namespace arconfirmationletter.View
 
                     //     this.addUpdateAndReplaceToolStripMenuItem1.Enabled = false;
                     //    this.reportsToolStripMenuItem.Enabled = false;
+                Username user = new Username();
+
+                                user.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+
 
                     md.edlpinput();
-                    Username.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
-
-
+                
 
                     break;
                 case DialogResult.No:
@@ -2190,11 +2199,14 @@ namespace arconfirmationletter.View
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
+            Username user = new Username();
+
+       //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
 
 
             dc.CommandTimeout = 0;
-            if (Username.getStatus() == 0)
+            if (user.status == 0)
             {
                 #region   //  thwcuj hien view verifir datata
 
@@ -2285,8 +2297,11 @@ namespace arconfirmationletter.View
                 case DialogResult.Ignore:
                     break;
                 case DialogResult.Yes:
-                    
-                    if (Username.getStatus() != 0)
+                           Username user = new Username();
+
+       //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+
+                           if (user.status != 0)
                     {
 
                         MessageBox.Show("Bạn chưa reconcile data, please reconcile data trước ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -3932,8 +3947,11 @@ namespace arconfirmationletter.View
                 case DialogResult.Ignore:
                     break;
                 case DialogResult.Yes:
+                                          Username user = new Username();
 
-                    if (Username.getStatus() != 0)
+       //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+
+                                          if (user.status== 0)
                     {
 
                         MessageBox.Show("Bạn chưa reconcile data, please reconcile data trước ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);

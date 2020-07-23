@@ -1126,9 +1126,9 @@ namespace arconfirmationletter
 
         public Boolean nationKA { get; set; }
 
-        public static int status { get; set; }
+        public int status { get; set; }
 
-        public static void setStatus(int statusid)
+        public  void setStatus(int statusid)
         {
             string Name = Utils.getusername();
 
@@ -1150,32 +1150,39 @@ namespace arconfirmationletter
 
             }
         }
-        public static int getStatus()
-        {
-            string Name = Utils.getusername();
-            int kq = -1;
+        //public  int getStatus()
+        //{
+        //    string Name = Utils.getusername();
+        //    int kq = -1;
 
 
-            string connection_string = Utils.getConnectionstr();
+        //    string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs = (from pp in dc.tbl_Temps
-                      where pp.username == Name
+        //    var rs = (from pp in dc.tbl_Temps
+        //              where pp.username == Name
 
-                      select pp).FirstOrDefault();
-            if (rs.status != null)
-            {
-                kq = (int)rs.status;
-            }
-            else
-            {
-                Username.setStatus(-1);
-            }
-            return kq;
+        //              select pp).FirstOrDefault();
+
+        //    if (rs != null)
+        //    {
+        //        if (rs.status != null)
+        //        {
+        //            kq = rs.status.Value;
+        //        }
+        //        else
+        //        {
+        //            rs.status = -1;
+        //            dc.SubmitChanges();
+        //        //    Username.setStatus(-1);
+        //        }
+        //    }
+           
+        //    return kq;
 
 
-        }
+        //}
 
         public Username()
         {
@@ -1198,18 +1205,21 @@ namespace arconfirmationletter
             {
                 right = true;
 
-                Version = (int)rs.Version;
+                Version = rs.Version.Value;
                 deleteAlldate = rs.DeleteData;
                 editOlddatabase = rs.EditReportsaffter;
 
                 if (rs.status != null)
                 {
-                    status = (int)rs.status;
+                    status = rs.status.Value;
                 }
                 else
                 {
-                    status = -1;
+                  status =  -1;
+                  //  dc.SubmitChanges();
                 }
+
+                
              
 
                 Depositintput = rs.Depositintput;

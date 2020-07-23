@@ -1068,7 +1068,7 @@ namespace arconfirmationletter.Control
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-
+            dc.CommandTimeout = 0;
             dc.ExecuteCommand("DELETE FROM tbl_Comboundtemp");
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             dc.SubmitChanges();
@@ -1168,7 +1168,7 @@ namespace arconfirmationletter.Control
                 SqlCommand cmd1 = new SqlCommand("UpdateFbl5n", conn2);
                 cmd1.CommandType = CommandType.StoredProcedure;
                 cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
-
+                cmd1.CommandTimeout = 0;
                 rdr1 = cmd1.ExecuteReader();
 
 

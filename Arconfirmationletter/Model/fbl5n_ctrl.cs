@@ -397,7 +397,7 @@ namespace arconfirmationletter.Model
 
             using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
             {
-
+                bulkCopy.BulkCopyTimeout = 0;
                 bulkCopy.DestinationTableName = "tblFBL5N";
                 // Write from the source to the destination.
                 bulkCopy.ColumnMappings.Add("[Account]", "[Account]");
