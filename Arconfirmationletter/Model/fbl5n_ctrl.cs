@@ -258,7 +258,18 @@ namespace arconfirmationletter.Model
                         DataRow dr = batable.NewRow();
                         dr["Account"] = double.Parse(sourceData.Rows[rowixd][Accountid].ToString());//.Trim();
                         dr["Assignment"] = sourceData.Rows[rowixd][Assignmentid].ToString().Truncate(225).Trim();
-                        dr["PostingDate"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][PostingDateid].ToString());
+
+
+                        try
+                        {
+                            dr["PostingDate"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][PostingDateid].ToString());
+                        }
+                        catch (Exception)
+                        {
+
+                            dr["PostingDate"] = "";
+                        }
+                    
                         dr["DocumentType"] = sourceData.Rows[rowixd][DocumentTypeid].ToString().Truncate(225).Trim();
 
                         if (Utils.IsValidnumber(sourceData.Rows[rowixd][DocumentNumberid].ToString()))

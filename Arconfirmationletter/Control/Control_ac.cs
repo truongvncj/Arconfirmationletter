@@ -4114,8 +4114,8 @@ namespace arconfirmationletter.Control
             #region copy kiểu sql vao sql
 
 
-            var rsfbl5n = from tblFBL5Nnewthisperiod in dc.tblFBL5Nnewthisperiods
-                          select tblFBL5Nnewthisperiod;
+            var rsfbl5n = from pp in dc.tblFBL5Nnewthisperiods
+                          select pp;
 
             #region // neeys lớn hơn o có da ta thì updae
             if (rsfbl5n.Count() > 0)

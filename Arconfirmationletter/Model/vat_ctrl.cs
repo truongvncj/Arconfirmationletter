@@ -418,8 +418,20 @@ namespace arconfirmationletter.Model
                             dr["SAPDeliveryNumber"] = double.Parse(sourceData.Rows[rowixd][SAPDeliveryNumber].ToString());
 
                             dr["SAPInvoiceNumber"] = double.Parse(sourceData.Rows[rowixd][SAPInvoiceNumber].ToString());
+                       
+                            try
+                            {
+                                dr["ProFormaDate"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][ProFormaDate].ToString());
+                          
+                            }
+                            catch (Exception)
+                            {
 
-                            dr["ProFormaDate"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][ProFormaDate].ToString());
+                                dr["ProFormaDate"] = "";
+
+                            }
+                         
+                            
                             dr["InvoiceAmountBeforeVAT"] = double.Parse(sourceData.Rows[rowixd][InvoiceAmountBeforeVAT].ToString());//.Trim();
                             dr["VATAmount"] = double.Parse(sourceData.Rows[rowixd][VATAmount].ToString());
 

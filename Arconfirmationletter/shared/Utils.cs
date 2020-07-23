@@ -70,7 +70,6 @@ namespace arconfirmationletter
                 string line;
                 string st5;
                 while ((line = streamReader.ReadLine()) != null)
-
                 {
                     string[] parts = line.Split(';');
                     if (parts.Count() >= 5)
@@ -114,7 +113,6 @@ namespace arconfirmationletter
                 string line;
                 string st5;
                 while ((line = streamReader.ReadLine()) != null)
-
                 {
                     string[] parts = line.Split(';');
                     if (parts.Count() >= 5)
@@ -182,7 +180,6 @@ namespace arconfirmationletter
             {
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
-
                 {
                     string[] parts = line.Split(';');
 
@@ -546,62 +543,20 @@ namespace arconfirmationletter
         //Phương thức check xem có workbook excel nào đang được mở hay k?
 
 
-        public static DateTime chageExceldatetoData2(string exceldatedotstring)  // dd.MM.YYYY to date
+        public static DateTime chageExceldatetoData(string exceldatedotstring)  // dd.MM.YYYY to date
         {
+            CultureInfo cultureInfo = CultureInfo.InvariantCulture;
 
-            string get_data = exceldatedotstring;//.Replace("9999",(DateTime.Now.Year +1).ToString());
-            char spl2 = '.';
-            //get_data
-            if (get_data.Contains("/"))
-            {
-
-                spl2 = '/';
-            }
-            else
-            {
-                if (get_data.Contains("-"))
-                {
-                    spl2 = '-';
-
-                }
-                else
-                {
-                    spl2 = '.';
-
-                }
-
-            }
-
-            List<string> lst_get_data = get_data.Split(spl2).ToList();
-            // cmd.Parameters.AddWithValue("?", GetDateWithoutMilliseconds(DateTime.Now));
-
-            //private DateTime GetDateWithoutMilliseconds(DateTime d)
-            //        {
-            //            return new DateTime(d.Year, d.Month, d.Day, d.Hour, d.Minute, d.Second);
-            //        }
-            DateTime kq;
-            try
-            {
-                kq = new DateTime(int.Parse(lst_get_data[2]), int.Parse(lst_get_data[1]), int.Parse(lst_get_data[0]));
-
-            }
-            catch (Exception) //DateTime year, month, day
-            {
-                kq = new DateTime(9999, 12, 31);
+            //      var cultureInfo = new CultureInfo("de-DE");
+            string dateString = exceldatedotstring;
+            var dateTime = DateTime.Parse(dateString, cultureInfo);
+            return dateTime;
 
 
-                //  throw;
-            }
 
-            //     DateTime result = new DateTime(kq.Year, kq.Month, kq.Day, kq.Hour, kq.Minute, kq.Second);
-            // string result =  lst_get_data[2] + "-" + lst_get_data[1] + "-" + lst_get_data[0] ;
-            return kq;
-            //throw new NotImplementedException();
         }
 
-        public static DateTime chageExceldatetoData(string get_data)
-
-
+        public static DateTime chageExceldatetoData3(string get_data)
         {
             //   DateTime result_date;
             CultureInfo provider = CultureInfo.InvariantCulture;
@@ -609,17 +564,18 @@ namespace arconfirmationletter
 
 
             DateTime result_date;//= DateTime.Now;
-                                 //   get_data = "";
-                                 //   if (excelDate != "")
-                                 // {
-                                 //    string get_data = excelDate;
-                                 //  }
+            //   get_data = "";
+            //   if (excelDate != "")
+            // {
+            //    string get_data = excelDate;
+            //  }
 
             #region // lấy format hệ thống , kiểm tra xem ngày ở số i; tháng ở bản j ; năm ở bản k byte
 
 
             DateTime check_date = DateTime.Now;
             string sysFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
+
             char spl = '.';
             if (sysFormat.Contains("/"))
             {
@@ -703,7 +659,6 @@ namespace arconfirmationletter
 
 
             if (lst_get_data.Count == 3)
-
             {
                 if (lst_get_data[dayid].Length == 1)
                 {
@@ -746,7 +701,7 @@ namespace arconfirmationletter
 
 
                 //return result_date;
-               // DateTime kq;
+                // DateTime kq;
                 try
                 {
                     result_date = new DateTime(int.Parse(lst_get_data[yearid]), int.Parse(lst_get_data[monthid]), int.Parse(lst_get_data[dayid]));
@@ -912,9 +867,9 @@ namespace arconfirmationletter
             xlWorkBook.SaveAs(filename, cExcel.XlFileFormat.xlWorkbookDefault, misValue, misValue, misValue, misValue, cExcel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             //  xlWorkBook.SaveAs(filename,cExcel.XlFileFormat.xlWorkbookDefault,)
             xlWorkBook.Close(true, misValue, misValue);
-           // xlApp.Quit();
+            // xlApp.Quit();
             Close_File_Excel();
-          //  Utils ut = new Utils();
+            //  Utils ut = new Utils();
 
             Utils.ReleaseObject(xlWorkSheet);
             Utils.ReleaseObject(xlWorkBook);
@@ -1090,53 +1045,53 @@ namespace arconfirmationletter
 
         // doc file excel va so sanh vơi cac fied của data và update vào sql
 
-            // doc file excel va so sanh vơi cac fied của data và update vào sql
-         public static bool CopyFolder(string sourcePath, string targetPath)
+        // doc file excel va so sanh vơi cac fied của data và update vào sql
+        public static bool CopyFolder(string sourcePath, string targetPath)
+        {
+            try
             {
-                try
+                if (System.IO.Directory.GetDirectories(sourcePath).Count() > 0)
                 {
-                    if (System.IO.Directory.GetDirectories(sourcePath).Count() > 0)
+                    foreach (string d in System.IO.Directory.GetDirectories(sourcePath))
                     {
-                        foreach (string d in System.IO.Directory.GetDirectories(sourcePath))
-                        {
-                            //chặt string lấy tên folder cuối cùng cộng thêm vào tên folder đích
-                            string[] lst_folder = d.Split('\\');
-                            targetPath = targetPath + "\\" + lst_folder[lst_folder.Count() - 1];
-                            System.IO.Directory.CreateDirectory(targetPath);
-                            CopyFolder(d, targetPath);
+                        //chặt string lấy tên folder cuối cùng cộng thêm vào tên folder đích
+                        string[] lst_folder = d.Split('\\');
+                        targetPath = targetPath + "\\" + lst_folder[lst_folder.Count() - 1];
+                        System.IO.Directory.CreateDirectory(targetPath);
+                        CopyFolder(d, targetPath);
 
-                            //sau khi copy file -> trả lại đường dẫn đến folder đích
-                            string[] target_fdn_lst = targetPath.Split('\\');
-                            int start_Index = targetPath.IndexOf(target_fdn_lst[target_fdn_lst.Count() - 1]);
-                            targetPath = targetPath.Remove(start_Index - 1);
-                        }
+                        //sau khi copy file -> trả lại đường dẫn đến folder đích
+                        string[] target_fdn_lst = targetPath.Split('\\');
+                        int start_Index = targetPath.IndexOf(target_fdn_lst[target_fdn_lst.Count() - 1]);
+                        targetPath = targetPath.Remove(start_Index - 1);
                     }
-
-                    if (System.IO.Directory.Exists(sourcePath))
-                    {
-                        string[] files = System.IO.Directory.GetFiles(sourcePath);
-
-                        // Copy the files and overwrite destination files if they already exist.
-                        foreach (string s in files)
-                        {
-                            // Use static Path methods to extract only the file name from the path.
-                            string fileName = System.IO.Path.GetFileName(s);
-                            string destFile = System.IO.Path.Combine(targetPath, fileName);
-                            System.IO.File.Copy(s, destFile, true);
-                        }
-                    }
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi copy file" + ex);
-                    return false;
                 }
 
+                if (System.IO.Directory.Exists(sourcePath))
+                {
+                    string[] files = System.IO.Directory.GetFiles(sourcePath);
+
+                    // Copy the files and overwrite destination files if they already exist.
+                    foreach (string s in files)
+                    {
+                        // Use static Path methods to extract only the file name from the path.
+                        string fileName = System.IO.Path.GetFileName(s);
+                        string destFile = System.IO.Path.Combine(targetPath, fileName);
+                        System.IO.File.Copy(s, destFile, true);
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi copy file" + ex);
+                return false;
             }
 
-
         }
+
+
+    }
 
 
 

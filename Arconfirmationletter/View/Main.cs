@@ -621,6 +621,28 @@ namespace arconfirmationletter.View
                 return;
             }
 
+            var rs22 = (from pp in dc.tblVats
+                        where  pp.Invoice_Registration_Number !=""
+                        && pp.Pro_Forma_Date == null
+                        select pp
+
+                        ).Take(5);
+            if (rs22.Count() <= 0)
+            {
+               // MessageBox.Show("Ban chưa up load bảng data VAT , please check again !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+                Viewtable viewtbl = new Viewtable(rs22, dc, "List các doc sai format ngày tháng, please check !", 1000, DateTime.Today, DateTime.Today);
+
+                viewtbl.ShowDialog();
+
+                
+                return;
+            }
+         
+           
+
+
+
             var rs3 = (from tblFBL5N in dc.tblFBL5Ns
                        select tblFBL5N).Take(5);
             if (rs3.Count() <= 0)
@@ -769,6 +791,8 @@ namespace arconfirmationletter.View
                                                    };
                                         if (eror.Count() > 0)
                                         {
+
+                                       
                                             Viewtable viewtbl = new Viewtable(eror, dc, "List các doc chưa update được do có lệch giữ data FBL5n Và VAT/Edlp về phần vỏ , please check !", 1, DateTime.Today, DateTime.Today);
 
                                             viewtbl.ShowDialog();
@@ -3906,6 +3930,7 @@ namespace arconfirmationletter.View
                         conn2.Open();
                         SqlCommand cmd1 = new SqlCommand("DeleteTempFBL5nnew", conn2);
                         cmd1.CommandType = CommandType.StoredProcedure;
+                        cmd1.CommandTimeout = 0;
 
                         ////     cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
                         ///     cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
