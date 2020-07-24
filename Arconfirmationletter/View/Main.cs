@@ -548,7 +548,7 @@ namespace arconfirmationletter.View
             dc.ExecuteCommand("DELETE FROM tblFBL5N  WHERE  tblFBL5N.[Account] IN (SELECT  tbl_unuserCustomer.Customer FROM tbl_unuserCustomer )");
             dc.SubmitChanges();
 
- 
+
 
 
             Control_ac ct = new Control_ac();
@@ -629,7 +629,7 @@ namespace arconfirmationletter.View
 
             var rs22 = (from pp in dc.tblFBL5Ns
                         where pp.PFInvNumber != ""
-                        && pp.PFInvDate == null
+                        && (pp.PFInvDate == null || pp.Posting_Date == null)
                         select pp
 
                         ).Take(5);
@@ -2310,7 +2310,7 @@ namespace arconfirmationletter.View
                         break;
                     }
 
-       
+
 
 
                     #region q List các document có trong bảng  FBL5Nnew rồi !
@@ -2321,17 +2321,16 @@ namespace arconfirmationletter.View
                     //  var db = new LinqtoSQLDataContext(connection_string);
                     LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
-                    db.CommandTimeout = 0;
 
-                    var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
-                            from tblFBL5Nnew in db.tblFBL5Nnews
-                            where tblFBL5Nnew.Tempmark == false && (from p in db.tblFBL5Nnews
-                                                                    where tblFBL5Nnewthisperiod.Document_Number == p.Document_Number
-                                                                    select p.Account).Contains(tblFBL5Nnewthisperiod.Account)
-                            select tblFBL5Nnewthisperiod;
+                    //    db.CommandTimeout = 0;
+                    var q = from fbl5n in db.tblFBL5Nnews
+                            where fbl5n.Document_Number != 0 && (from pp in db.tblFBL5Nnewthisperiods
+                                                                  select pp.Document_Number
+                                    ).Contains(fbl5n.Document_Number)
+
+                            select fbl5n;
 
 
-                    //var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
 
 
                     if (q.Count() != 0)
@@ -3913,7 +3912,7 @@ namespace arconfirmationletter.View
                         break;
                     }
 
-                 
+
 
 
                     #region q List các document có trong bảng  FBL5Nnew rồi !
@@ -3924,15 +3923,15 @@ namespace arconfirmationletter.View
                     //  var db = new LinqtoSQLDataContext(connection_string);
                     LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
-                    db.CommandTimeout = 0;
+                    //    db.CommandTimeout = 0;
+                    var q = from fbl5n in db.tblFBL5Nnews
+                            where fbl5n.Document_Number != 0 && (from pp in db.tblFBL5Nnewthisperiods
+                                                                  select pp.Document_Number
+                                    ).Contains(fbl5n.Document_Number)
+
+                            select fbl5n;
 
 
-                    var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
-                            from tblFBL5Nnew in db.tblFBL5Nnews
-                            where (from p in db.tblFBL5Nnews
-                                   where tblFBL5Nnewthisperiod.Document_Number == p.Document_Number
-                                   select p.Account).Contains(tblFBL5Nnewthisperiod.Account)
-                            select tblFBL5Nnewthisperiod;
 
 
 
@@ -3945,6 +3944,7 @@ namespace arconfirmationletter.View
 
                         viewtbl.ShowDialog();
                     }
+
                     if (q.Count() == 0)
                     {
 
@@ -4779,6 +4779,36 @@ namespace arconfirmationletter.View
 
 
 
+
+
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Control_ac ct = new Control_ac();
+
+            Thread t1 = new Thread(ct.inputthisisperiodtoFBL5nnewTEMP);
+            //   t1.IsBackground = true;
+            t1.Start();
+
+
+            Thread t2 = new Thread(showwait);
+            t2.Start();
+
+            t1.Join();
+
+
+            if (t1.ThreadState != ThreadState.Running)
+            {
+
+                Thread.Sleep(1299);
+
+                t2.Abort();
+
+            }
+
+
+            MessageBox.Show("Tempclose OK done ! ", "AR", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
