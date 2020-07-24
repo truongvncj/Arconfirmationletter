@@ -9148,13 +9148,13 @@ namespace arconfirmationletter
 		
 		private string _userupdate;
 		
-		private int _id;
+		private long _id;
 		
 		private System.Nullable<bool> _Completed_use;
 		
-		private string _name;
-		
 		private bool _Tempmark;
+		
+		private string _name;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -9222,14 +9222,14 @@ namespace arconfirmationletter
     partial void OnpaletnhuaChanged();
     partial void OnuserupdateChanging(string value);
     partial void OnuserupdateChanged();
-    partial void OnidChanging(int value);
+    partial void OnidChanging(long value);
     partial void OnidChanged();
     partial void OnCompleted_useChanging(System.Nullable<bool> value);
     partial void OnCompleted_useChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
     partial void OnTempmarkChanging(bool value);
     partial void OnTempmarkChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
     #endregion
 		
 		public tblFBL5Nnew()
@@ -9857,8 +9857,8 @@ namespace arconfirmationletter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long id
 		{
 			get
 			{
@@ -9897,26 +9897,6 @@ namespace arconfirmationletter
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NChar(225)")]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tempmark", DbType="Bit NOT NULL")]
 		public bool Tempmark
 		{
@@ -9933,6 +9913,26 @@ namespace arconfirmationletter
 					this._Tempmark = value;
 					this.SendPropertyChanged("Tempmark");
 					this.OnTempmarkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
 				}
 			}
 		}

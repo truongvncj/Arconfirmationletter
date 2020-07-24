@@ -44,7 +44,7 @@ namespace arconfirmationletter.Control
                 //      cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
                 cmd1.CommandTimeout = 0;
                 rdr1 = cmd1.ExecuteReader();
-               
+
 
 
                 //       rdr1 = cmd1.ExecuteReader();
@@ -126,7 +126,7 @@ namespace arconfirmationletter.Control
 
                 //     LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
                 View.VInputchange inputcdata = new View.VInputchange("MASTER DATA CUSTOMER ", "LIST CUST IN VATOUT BUT NOT IN CUST MASTER", db, "tblCustomer", "tblCustomerTmp", typeff, "id", "id");
-             
+
                 inputcdata.ShowDialog();
                 //   Viewtable viewtbl = new Viewtable(q, dc, "List customer có trong VAT out không có trong master customer data !");
 
@@ -149,7 +149,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region  updateCustgoupinListcustmakeRptVN ra TREN SQL dang viet 
+            #region  updateCustgoupinListcustmakeRptVN ra TREN SQL dang viet
             SqlConnection conn2 = null;
             SqlDataReader rdr1 = null;
 
@@ -204,7 +204,7 @@ namespace arconfirmationletter.Control
             //     updatetblFBL5NnewthisperiodFromOM
 
 
-            #region  updatetblFBL5NnewthisperiodFromOM ra TREN SQL dang viet 
+            #region  updatetblFBL5NnewthisperiodFromOM ra TREN SQL dang viet
             SqlConnection conn2 = null;
             SqlDataReader rdr1 = null;
 
@@ -258,7 +258,7 @@ namespace arconfirmationletter.Control
 
                 Viewtable viewtbl = new Viewtable(q8, dc, "List các document có trong fbl5n deposit không có trong tblEDLP  ! Please check !", 1, DateTime.Today, DateTime.Today);
 
-          //      viewtbl.Visible = false;
+                //      viewtbl.Visible = false;
                 viewtbl.ShowDialog();
                 return false;
             }
@@ -271,7 +271,7 @@ namespace arconfirmationletter.Control
             var q = from tblVat in dc.tblVats
                     where !(from tblFBL5N in dc.tblFBL5Ns
                             select tblFBL5N.Document_Number).Contains(tblVat.SAP_Invoice_Number)
-                    && tblVat.Invoice_Amount_Before_VAT >0
+                    && tblVat.Invoice_Amount_Before_VAT > 0
                     select tblVat;
 
 
@@ -290,7 +290,7 @@ namespace arconfirmationletter.Control
             // CHIR NGUOI CO QUYEN MOI DUOC MAKE CUAR 
 
             Username user = new Username();
-          //  Boolean right = user.right;
+            //  Boolean right = user.right;
 
 
             //int rightnumber = Utils.getrightnumber();
@@ -313,7 +313,7 @@ namespace arconfirmationletter.Control
                               where tblFBL5N.Posting_Date <= maxpotingdate
                               //Tương đương từ khóa NOT IN trog SQL
                               select tblFBL5N;
-                    
+
                     if (q11.Count() != 0)
                     {
 
@@ -322,7 +322,7 @@ namespace arconfirmationletter.Control
                         return false;
                     }
 
-                
+
                 }
 
 
@@ -335,7 +335,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region q2 List các document có trong bảng FBL5N không có trong bảng VAT 
+            #region q2 List các document có trong bảng FBL5N không có trong bảng VAT
 
             var q2 = from tblFBL5N in dc.tblFBL5Ns
                      where !(from tblVat in dc.tblVats
@@ -349,13 +349,13 @@ namespace arconfirmationletter.Control
                 //var rs = md.fbl5nsetlect_all();
 
                 Viewtable viewtbl = new Viewtable(q2, dc, "List các document có trong bảng FBL5N không có trong bảng VAT ! Please check ", 1, DateTime.Today, DateTime.Today);
-            
+
                 viewtbl.ShowDialog();
 
                 return false;
             }
 
-            #endregion List các document có trong bảng FBL5N không có trong bảng VAT 
+            #endregion List các document có trong bảng FBL5N không có trong bảng VAT
 
 
             #region q3 List các document có trong tblEDLP không có trong VAT
@@ -398,11 +398,11 @@ namespace arconfirmationletter.Control
             //         select tblFBL5N;
 
             var q4 = from tblFBL5N in dc.tblFBL5Nnewthisperiods
-                    from tblFBL5Nnew in dc.tblFBL5Nnews
-                    where  (from p in dc.tblFBL5Nnews
+                     from tblFBL5Nnew in dc.tblFBL5Nnews
+                     where (from p in dc.tblFBL5Nnews
                             where tblFBL5N.Document_Number == p.Document_Number
-                                   select p.Account).Contains(tblFBL5N.Account)
-                    select tblFBL5N;
+                            select p.Account).Contains(tblFBL5N.Account)
+                     select tblFBL5N;
 
             if (q4.Count() != 0)
             {
@@ -419,10 +419,10 @@ namespace arconfirmationletter.Control
             #region update bảng có chương trình khuyến mại từ VAT mà không có trong fbl5n ngược vào bản fbl5n
             //---
             var qupdatelaij = from tblVat in dc.tblVats
-                    where !(from tblFBL5N in dc.tblFBL5Ns
-                            select tblFBL5N.Document_Number).Contains(tblVat.SAP_Invoice_Number)
-                    && tblVat.Invoice_Amount_Before_VAT == 0
-                    select tblVat;
+                              where !(from tblFBL5N in dc.tblFBL5Ns
+                                      select tblFBL5N.Document_Number).Contains(tblVat.SAP_Invoice_Number)
+                              && tblVat.Invoice_Amount_Before_VAT == 0
+                              select tblVat;
 
 
 
@@ -440,10 +440,10 @@ namespace arconfirmationletter.Control
                     newvalue.Assignment = item.SAP_Delivery_Number.ToString();
                     newvalue.Document_Number = item.SAP_Invoice_Number;
                     newvalue.Document_Type = "RV";
-                 
+
                     newvalue.Deposit = 0;
                     newvalue.Business_Area = item.Region;
-                
+
 
 
                     dc.tblFBL5Ns.InsertOnSubmit(newvalue);
@@ -462,7 +462,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region  q5 List các document có trong bảng EDLP không có trong bảng FBL5n 
+            #region  q5 List các document có trong bảng EDLP không có trong bảng FBL5n
             var q5 = from tblEDLP in dc.tblEDLPs
                      where !(from tblFBL5N in dc.tblFBL5Ns
                              where tblFBL5N.Document_Type == "RV"
@@ -581,7 +581,7 @@ namespace arconfirmationletter.Control
 
 
 
-                
+
 
                 var typeff = typeof(tbl_ProductlistTMP);
 
@@ -682,8 +682,8 @@ namespace arconfirmationletter.Control
 
             #region    deposit da save
 
-                  SqlConnection conn2 = null;
-                SqlDataReader rdr1 = null;
+            SqlConnection conn2 = null;
+            SqlDataReader rdr1 = null;
             //  string destConnString = Utils.getConnectionstr();
             try
             {
@@ -694,7 +694,7 @@ namespace arconfirmationletter.Control
                 cmd1.CommandType = CommandType.StoredProcedure;
                 cmd1.CommandTimeout = 0;
                 //  cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
-            //    cmd1.CommandTimeout = 0;
+                //    cmd1.CommandTimeout = 0;
                 rdr1 = cmd1.ExecuteReader();
 
 
@@ -776,8 +776,8 @@ namespace arconfirmationletter.Control
 
             #region insert fBL5N BY PRODUCE EXCEUTE
 
-        //    SqlConnection conn2 = null;
-        //    SqlDataReader rdr1 = null;
+            //    SqlConnection conn2 = null;
+            //    SqlDataReader rdr1 = null;
 
             try
             {
@@ -818,8 +818,8 @@ namespace arconfirmationletter.Control
             #region update fbl5n
 
             string userupdate = Utils.getusername();
-              //    SqlConnection conn2 = null;
-                //  SqlDataReader rdr1 = null;
+            //    SqlConnection conn2 = null;
+            //  SqlDataReader rdr1 = null;
             try
             {
 
@@ -1081,7 +1081,7 @@ namespace arconfirmationletter.Control
 
             #region update remark from remak to FBL5N
             SqlConnection conn2 = null;
-                SqlDataReader rdr1 = null;
+            SqlDataReader rdr1 = null;
             try
             {
 
@@ -1118,8 +1118,8 @@ namespace arconfirmationletter.Control
 
             #region insert fBL5N BY PRODUCE EXCEUTE
 
-       //     SqlConnection conn2 = null;
-       //     SqlDataReader rdr1 = null;
+            //     SqlConnection conn2 = null;
+            //     SqlDataReader rdr1 = null;
 
             try
             {
@@ -1374,13 +1374,6 @@ namespace arconfirmationletter.Control
             #region copy kiểu sql vao sql
 
 
-            var rsfbl5n = from tblFBL5Nnewthisperiod in dc.tblFBL5Nnewthisperiods
-                          select tblFBL5Nnewthisperiod;
-
-            #region // neeys lớn hơn o có da ta thì updae
-            if (rsfbl5n.Count() > 0)
-            {
-
 
                 #region insert thismonth to fbl5new
 
@@ -1423,7 +1416,10 @@ namespace arconfirmationletter.Control
 
 
 
-            }
+
+
+
+
 
             #endregion
 
@@ -1431,14 +1427,7 @@ namespace arconfirmationletter.Control
 
 
 
-
-            #endregion
-
-
-
-
-
-            #endregion update to fbl5n 
+            #endregion update to fbl5n
 
         }
 
@@ -1459,7 +1448,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region  updateCustgoupinListcustmakeRptVN ra TREN SQL dang viet 
+            #region  updateCustgoupinListcustmakeRptVN ra TREN SQL dang viet
             SqlConnection conn2 = null;
             SqlDataReader rdr1 = null;
 
@@ -1482,7 +1471,7 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor run: updateCustgoupinListcustmakeRptVN \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
 
 
 
@@ -1517,8 +1506,8 @@ namespace arconfirmationletter.Control
             {
                 MessageBox.Show("ERRor run: tblFBL5beginbalaceTemp \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            
+
+
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             dc.SubmitChanges();
             #endregion
@@ -1545,10 +1534,10 @@ namespace arconfirmationletter.Control
             catch (Exception ex)
             {
 
-                 MessageBox.Show("ERRor run: tblFBL5beginbalaceTemp \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ERRor run: tblFBL5beginbalaceTemp \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            
+
+
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
 
             dc.SubmitChanges();
@@ -1575,8 +1564,8 @@ namespace arconfirmationletter.Control
 
                 MessageBox.Show("ERRor delete: tbl_ARdetalheaderRpt \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            
+
+
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             dc.SubmitChanges();
             #endregion
@@ -1601,8 +1590,8 @@ namespace arconfirmationletter.Control
 
                 MessageBox.Show("ERRor delete: tbl_ColdetailRpt \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
-            
+
+
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             dc.SubmitChanges();
             #endregion
@@ -1634,8 +1623,8 @@ namespace arconfirmationletter.Control
 
                 MessageBox.Show("ERRor delete: tbl_ArletterdetailRpt \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-          
-           
+
+
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             dc.SubmitChanges();
             #endregion
@@ -1643,7 +1632,7 @@ namespace arconfirmationletter.Control
             #endregion// xóa ddataa cũ sau do update data mới
 
 
-            #region update beginbalece  customer group để lọc ra TREN SQL dang viet 
+            #region update beginbalece  customer group để lọc ra TREN SQL dang viet
             //   SqlConnection conn2 = null;
             //   SqlDataReader rdr1 = null;
 
@@ -1668,7 +1657,7 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor make: updatebeginBalacegruop \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            
+
 
 
 
@@ -1693,7 +1682,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region update update Fbl5nnew  customer group để lọc ra để lọc ra TREN SQL dang viet 
+            #region update update Fbl5nnew  customer group để lọc ra để lọc ra TREN SQL dang viet
             //   SqlConnection conn2 = null;
             //   SqlDataReader rdr1 = null;
 
@@ -1727,7 +1716,7 @@ namespace arconfirmationletter.Control
 
                         MessageBox.Show("ERRor make: updatebeginBalacegruop \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                  
+
                 }
             }
 
@@ -1767,7 +1756,7 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor make: updateFreglasessgroupVN \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-              
+
 
 
 
@@ -1816,7 +1805,7 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor make: tbl_ArletterRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
 
 
 
@@ -1864,7 +1853,7 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor make: tbl_ArletterdetailRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-               
+
 
 
                 //       rdr1 = cmd1.ExecuteReader();
@@ -1900,7 +1889,7 @@ namespace arconfirmationletter.Control
                 cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
                 cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
                 cmd1.Parameters.Add("@byregion", SqlDbType.Int).Value = 0;
-                 cmd1.CommandTimeout = 0;
+                cmd1.CommandTimeout = 0;
 
                 try
                 {
@@ -1911,7 +1900,7 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor make: tbl_ARdetalheaderRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-              
+
 
 
 
@@ -1957,9 +1946,9 @@ namespace arconfirmationletter.Control
                 catch (Exception ex)
                 {
 
-                        MessageBox.Show("ERRor make: tbl_ColdetailRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("ERRor make: tbl_ColdetailRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-           
+
 
 
                 //       rdr1 = cmd1.ExecuteReader();
@@ -1999,7 +1988,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region  updateCustgoupinListcustmakeRptregion ra TREN SQL dang viet 
+            #region  updateCustgoupinListcustmakeRptregion ra TREN SQL dang viet
             SqlConnection conn2 = null;
             SqlDataReader rdr1 = null;
 
@@ -2137,7 +2126,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region update beginbalece  customer group region để lọc ra TREN SQL dang viet 
+            #region update beginbalece  customer group region để lọc ra TREN SQL dang viet
             //   SqlConnection conn2 = null;
             //   SqlDataReader rdr1 = null;
 
@@ -2177,7 +2166,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region update update Fbl5nnew  customer group để lọc ra để lọc ra TREN SQL dang viet 
+            #region update update Fbl5nnew  customer group để lọc ra để lọc ra TREN SQL dang viet
             //   SqlConnection conn2 = null;
             //   SqlDataReader rdr1 = null;
 
@@ -2300,7 +2289,7 @@ namespace arconfirmationletter.Control
                 rptleter.sumEmptydeposit = 0;  // tính em ty
                 rptleter.sumoffreeclass = 0;  // tính fress glasesse
 
-                #region //tính freeglasses vào 
+                #region //tính freeglasses vào
 
                 var rsgl = from tbl_FreGlass in dc.tbl_FreGlasses
                            where tbl_FreGlass.CUSTOMERgroupcode == tblCustomerv.Cusromergroup
@@ -2317,7 +2306,7 @@ namespace arconfirmationletter.Control
                 #endregion // tính freeglasses vào
 
 
-                #region //tính sumEmptydeposit ps cộng đầu kỳ + số dư đầu vào 
+                #region //tính sumEmptydeposit ps cộng đầu kỳ + số dư đầu vào
 
                 var rsemp = from tblFBL5Nnew in dc.tblFBL5Nnews
                             where tblFBL5Nnew.codeGroup == tblCustomerv.Cusromergroup && tblFBL5Nnew.Posting_Date <= todate // && tblFBL5Nnew.Posting_Date >= fromdate
@@ -2682,7 +2671,7 @@ namespace arconfirmationletter.Control
                 foreach (var item in rsdk)
                 {
 
-                    dkbeginnuoc = (double)item.Sum(gr => gr.Fullgood_amount.GetValueOrDefault(0)) +  (double)item.Sum(gr => gr.Deposit_amount.GetValueOrDefault(0));// (double)item.Sum(gr => gr.Payment_amount.GetValueOrDefault(0)) +chính là amount on local  (double)item.Sum(gr => gr.Adjusted_amount.GetValueOrDefault(0)) +
+                    dkbeginnuoc = (double)item.Sum(gr => gr.Fullgood_amount.GetValueOrDefault(0)) + (double)item.Sum(gr => gr.Deposit_amount.GetValueOrDefault(0));// (double)item.Sum(gr => gr.Payment_amount.GetValueOrDefault(0)) +chính là amount on local  (double)item.Sum(gr => gr.Adjusted_amount.GetValueOrDefault(0)) +
                     dkbeginvo = (double)item.Sum(gr => gr.Deposit_amount.GetValueOrDefault(0)); // phát sinh trong kỳ
 
                 }
@@ -3067,7 +3056,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region  updateCustgoupinListcustmakeRptVN ra TREN SQL 
+            #region  updateCustgoupinListcustmakeRptVN ra TREN SQL
             SqlConnection conn2 = null;
             SqlDataReader rdr1 = null;
 
@@ -3080,7 +3069,7 @@ namespace arconfirmationletter.Control
                 SqlCommand cmd1 = new SqlCommand("updateCustgoupinListcustmakeRptVNO_Onlycode", conn2);
                 cmd1.CommandType = CommandType.StoredProcedure;
                 cmd1.CommandTimeout = 0;
-                   cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+                cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
                 try
                 {
                     rdr1 = cmd1.ExecuteReader();
@@ -3351,7 +3340,7 @@ namespace arconfirmationletter.Control
             #endregion
 
 
-     
+
 
             #region update  update Freglasess  customer group để lọc ra trên sql ok
             //    SqlConnection conn2 = null;
@@ -3366,7 +3355,7 @@ namespace arconfirmationletter.Control
                 SqlCommand cmd1 = new SqlCommand("updateFreglasessgroupVN_onlycode", conn2);
                 cmd1.CommandTimeout = 0;
                 cmd1.CommandType = CommandType.StoredProcedure;
-                    cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
+                cmd1.Parameters.Add("@onlycode", SqlDbType.Float).Value = onlycode;
                 try
                 {
                     rdr1 = cmd1.ExecuteReader();
@@ -3618,7 +3607,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region  updateCustgoupinListcustmakeRptregion ra TREN SQL dang viet 
+            #region  updateCustgoupinListcustmakeRptregion ra TREN SQL dang viet
             SqlConnection conn2 = null;
             SqlDataReader rdr1 = null;
 
@@ -3760,7 +3749,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region update beginbalece  customer group region để lọc ra TREN SQL dang viet 
+            #region update beginbalece  customer group region để lọc ra TREN SQL dang viet
             //   SqlConnection conn2 = null;
             //   SqlDataReader rdr1 = null;
 
@@ -3780,9 +3769,9 @@ namespace arconfirmationletter.Control
                 catch (Exception ex)
                 {
                     MessageBox.Show("ERRor run: updatebeginBalacegruopRegion \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                   // throw;
+                    // throw;
                 }
-          
+
 
 
 
@@ -3808,7 +3797,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region update update Fbl5nnew  customer group để lọc ra để lọc ra TREN SQL dang viet 
+            #region update update Fbl5nnew  customer group để lọc ra để lọc ra TREN SQL dang viet
             //   SqlConnection conn2 = null;
             //   SqlDataReader rdr1 = null;
 
@@ -3843,7 +3832,7 @@ namespace arconfirmationletter.Control
 
                         MessageBox.Show("ERRor run: updaFBL5nreportsBalacegroupRegion \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
+
                 }
             }
 
@@ -3881,9 +3870,9 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor run: updateFreglasessgroupREgion \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-          
-                
-           
+
+
+
 
 
                 //       rdr1 = cmd1.ExecuteReader();
@@ -3976,7 +3965,7 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor run: tbl_ArletterdetailRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-             
+
 
 
                 //       rdr1 = cmd1.ExecuteReader();
@@ -4023,7 +4012,7 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor run: tbl_ARdetalheaderRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-          
+
 
 
 
@@ -4060,7 +4049,7 @@ namespace arconfirmationletter.Control
                 cmd1.Parameters.Add("@returndate", SqlDbType.Date).Value = returndate;
                 cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
                 cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
-                 cmd1.CommandTimeout = 0;
+                cmd1.CommandTimeout = 0;
 
                 try
                 {
@@ -4071,7 +4060,7 @@ namespace arconfirmationletter.Control
 
                     MessageBox.Show("ERRor run: tbl_ColdetailRptcaculationinserts \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-             
+
 
 
 
@@ -4101,84 +4090,56 @@ namespace arconfirmationletter.Control
 
         internal void inputthisisperiodtoFBL5nnewTEMP()
         {
-            //   Thread.Sleep(5000);
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            #region update to fbl5n new
-            // kiểm tra nếu doc tblFBL5Nnewthisperiod đã có trong tblFBL5Nnew thì thoát luôn
+            
 
 
+            #region insert thismonth to fbl5new
 
+            SqlConnection conn2 = null;
+            SqlDataReader rdr1 = null;
+            string destConnString = Utils.getConnectionstr();
 
-
-            #region copy kiểu sql vao sql
-
-
-            var rsfbl5n = from pp in dc.tblFBL5Nnewthisperiods
-                          select pp;
-
-            #region // neeys lớn hơn o có da ta thì updae
-            if (rsfbl5n.Count() > 0)
+            try
             {
 
+                conn2 = new SqlConnection(destConnString);
+                conn2.Open();
+                SqlCommand cmd1 = new SqlCommand("copyfromThismonthtoFbl5newtEMP", conn2);
+                cmd1.CommandType = CommandType.StoredProcedure;
+                cmd1.CommandTimeout = 0;
+                //   cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
 
-                #region insert thismonth to fbl5new
-
-                SqlConnection conn2 = null;
-                SqlDataReader rdr1 = null;
-                string destConnString = Utils.getConnectionstr();
-
-                try
-                {
-
-                    conn2 = new SqlConnection(destConnString);
-                    conn2.Open();
-                    SqlCommand cmd1 = new SqlCommand("copyfromThismonthtoFbl5newtEMP", conn2);
-                    cmd1.CommandType = CommandType.StoredProcedure;
-                    cmd1.CommandTimeout = 0;
-                    //   cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
-
-                    rdr1 = cmd1.ExecuteReader();
+                rdr1 = cmd1.ExecuteReader();
 
 
 
-                    //       rdr1 = cmd1.ExecuteReader();
-
-                }
-                finally
-                {
-                    if (conn2 != null)
-                    {
-                        conn2.Close();
-                    }
-                    if (rdr1 != null)
-                    {
-                        rdr1.Close();
-                    }
-                }
-                //   MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                #endregion UPDATE FBL5N
-
-
-
+                //       rdr1 = cmd1.ExecuteReader();
 
             }
+            finally
+            {
+                if (conn2 != null)
+                {
+                    conn2.Close();
+                }
+                if (rdr1 != null)
+                {
+                    rdr1.Close();
+                }
+            }
+            //   MessageBox.Show("ok", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            #endregion
+            #endregion UPDATE FBL5N
 
 
 
 
 
 
-            #endregion
 
 
 
 
-
-            #endregion update to fbl5n 
 
 
 
@@ -4192,7 +4153,7 @@ namespace arconfirmationletter.Control
         public IQueryable letterdetaildataset2(LinqtoSQLDataContext db)
         {
 
-            #region lấy dữ liệu ra để cho vào báo cáo 
+            #region lấy dữ liệu ra để cho vào báo cáo
 
 
             var rs = from tbl_ARdetalheaderRpt in db.tbl_ARdetalheaderRpts
@@ -4209,7 +4170,7 @@ namespace arconfirmationletter.Control
 
 
 
-            #region lấy dữ liệu ra để cho vào báo cáo 
+            #region lấy dữ liệu ra để cho vào báo cáo
 
 
             var rs = from tbl_Arletterdetail in db.tbl_ArletterdetailRpts
@@ -4304,7 +4265,7 @@ namespace arconfirmationletter.Control
 
 
             var rs = from P in db.tblNKAArletterRpts
-                  //       where P.prt == true
+                     //       where P.prt == true
                      orderby P.stt
                      select P;
 
@@ -4338,7 +4299,7 @@ namespace arconfirmationletter.Control
         public IQueryable ARcoldataset2(LinqtoSQLDataContext db)
         {
 
-            #region lấy dữ liệu ra để cho vào báo cáo 
+            #region lấy dữ liệu ra để cho vào báo cáo
 
 
             var rs = from tbl_ARdetalheaderRpt in db.tbl_ARdetalheaderRpts
@@ -4354,7 +4315,7 @@ namespace arconfirmationletter.Control
         public IQueryable ARcoldataset1(LinqtoSQLDataContext db)
         {
 
-            #region lấy dữ liệu ra để cho vào báo cáo 
+            #region lấy dữ liệu ra để cho vào báo cáo
 
 
             var rs = from tbl_ColdetailRpt in db.tbl_ColdetailRpts
@@ -4604,7 +4565,7 @@ namespace arconfirmationletter.Control
             System.Data.DataTable datatable1 = new System.Data.DataTable();
             //
 
-          //  Utils ul = new Utils();
+            //  Utils ul = new Utils();
 
             datatable1 = Utils.ToDataTable(db, IQuery);
 

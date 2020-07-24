@@ -353,11 +353,11 @@ namespace arconfirmationletter.View
                     //   this.updateNewAllToolStripMenuItem.Enabled = false;
                     //   this.reportsToolStripMenuItem.Enabled = false;
                     Username user = new Username();
-                  
+
                     user.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
                     md.Fbl5n_input2();
-                 
+
 
                     break;
                 case DialogResult.No:
@@ -467,13 +467,13 @@ namespace arconfirmationletter.View
                     break;
                 case DialogResult.Yes:
 
-                  Username user = new Username();
-                  
+                    Username user = new Username();
+
                     user.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
                     md.vat_input();
-                 
-                 
+
+
                     break;
                 case DialogResult.No:
                     break;
@@ -548,8 +548,9 @@ namespace arconfirmationletter.View
             dc.ExecuteCommand("DELETE FROM tblFBL5N  WHERE  tblFBL5N.[Account] IN (SELECT  tbl_unuserCustomer.Customer FROM tbl_unuserCustomer )");
             dc.SubmitChanges();
 
-            //dc.ExecuteCommand("DELETE FROM tblFBL5Nnew  WHERE  tblFBL5Nnew.[Tempmark] = 1");  // xóa các tem
-            //dc.SubmitChanges();
+ 
+
+
             Control_ac ct = new Control_ac();
             ct.UpdateVATregionFromFBL5Nregion();
 
@@ -567,7 +568,7 @@ namespace arconfirmationletter.View
                 conn2.Open();
                 SqlCommand cmd1 = new SqlCommand("DeleteTempFBL5nnew", conn2);
                 cmd1.CommandType = CommandType.StoredProcedure;
-
+                cmd1.CommandTimeout = 0;
                 ////     cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
                 ///     cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
                 //  System.Data.SqlDbType.DateTime
@@ -727,7 +728,7 @@ namespace arconfirmationletter.View
                                             rdr1.Close();
                                         }
                                     }
-                                
+
 
 
 
@@ -818,6 +819,7 @@ namespace arconfirmationletter.View
                                                 conn2.Open();
                                                 SqlCommand cmd1 = new SqlCommand("autoupdatedepositthismonth", conn2);
                                                 cmd1.CommandType = CommandType.StoredProcedure;
+                                                cmd1.CommandTimeout = 0;
                                                 //      cmd1.Parameters.Add("@name", SqlDbType.VarChar).Value = userupdate;
                                                 try
                                                 {
@@ -925,7 +927,7 @@ namespace arconfirmationletter.View
                         #endregion
 
 
-                      
+
 
 
                         #region udapte vào this priod
@@ -1048,7 +1050,7 @@ namespace arconfirmationletter.View
                                 MessageBox.Show("Reconcile OK done ! ", "AR", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
 
-                    
+
 
                             }
 
@@ -1358,13 +1360,13 @@ namespace arconfirmationletter.View
 
                     //     this.addUpdateAndReplaceToolStripMenuItem1.Enabled = false;
                     //    this.reportsToolStripMenuItem.Enabled = false;
-                Username user = new Username();
+                    Username user = new Username();
 
-                                user.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+                    user.setStatus(1); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
 
                     md.edlpinput();
-                
+
 
                     break;
                 case DialogResult.No:
@@ -2201,12 +2203,12 @@ namespace arconfirmationletter.View
 
             Username user = new Username();
 
-       //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+            //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
 
 
             dc.CommandTimeout = 0;
-            if (user.status == 0)
+            if (user.getStatus() == 0)
             {
                 #region   //  thwcuj hien view verifir datata
 
@@ -2259,7 +2261,7 @@ namespace arconfirmationletter.View
             else
             {
                 MessageBox.Show("Bạn chưa reconcile data, please reconcile data trước ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-          
+
             }
 
 
@@ -2297,65 +2299,18 @@ namespace arconfirmationletter.View
                 case DialogResult.Ignore:
                     break;
                 case DialogResult.Yes:
-                           Username user = new Username();
+                    Username user = new Username();
 
-       //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+                    //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
-                           if (user.status != 0)
+                    if (user.getStatus() != 0)
                     {
 
                         MessageBox.Show("Bạn chưa reconcile data, please reconcile data trước ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                     }
 
-                    #region  DeleteTempFBL5nnew DeleteTempFBL5nnew
-                    SqlConnection conn2 = null;
-                    SqlDataReader rdr1 = null;
-
-                    string destConnString = Utils.getConnectionstr();
-                    try
-                    {
-
-                        conn2 = new SqlConnection(destConnString);
-                        conn2.Open();
-                        SqlCommand cmd1 = new SqlCommand("DeleteTempFBL5nnew", conn2);
-                        cmd1.CommandType = CommandType.StoredProcedure;
-
-                        ////     cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
-                        ///     cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
-                        //  System.Data.SqlDbType.DateTime
-                        try
-                        {
-                            rdr1 = cmd1.ExecuteReader();
-                            //  MessageBox.Show("OK, please go to Input verify to reinput !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception ex)
-                        {
-
-                            MessageBox.Show("Error  Delete TempFBL5n new \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
-
-
-
-                        //       rdr1 = cmd1.ExecuteReader();
-
-                    }
-                    finally
-                    {
-                        if (conn2 != null)
-                        {
-                            conn2.Close();
-                        }
-                        if (rdr1 != null)
-                        {
-                            rdr1.Close();
-                        }
-                    }
-
-                    #endregion
-
-
+       
 
 
                     #region q List các document có trong bảng  FBL5Nnew rồi !
@@ -2377,7 +2332,7 @@ namespace arconfirmationletter.View
 
 
                     //var q = from tblFBL5Nnewthisperiod in db.tblFBL5Nnewthisperiods
-               
+
 
                     if (q.Count() != 0)
                     {
@@ -3873,7 +3828,7 @@ namespace arconfirmationletter.View
                             conn2.Open();
                             SqlCommand cmd1 = new SqlCommand("RedoDEPOSITverify", conn2);
                             cmd1.CommandType = CommandType.StoredProcedure;
-
+                            cmd1.CommandTimeout = 0;
                             cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
                             cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
                             //  System.Data.SqlDbType.DateTime
@@ -3947,66 +3902,18 @@ namespace arconfirmationletter.View
                 case DialogResult.Ignore:
                     break;
                 case DialogResult.Yes:
-                                          Username user = new Username();
+                    Username user = new Username();
 
-       //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
+                    //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
 
-                                          if (user.status== 0)
+                    if (user.getStatus() != 0)
                     {
 
                         MessageBox.Show("Bạn chưa reconcile data, please reconcile data trước ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                     }
 
-                    #region  DeleteTempFBL5nnew DeleteTempFBL5nnew
-                    SqlConnection conn2 = null;
-                    SqlDataReader rdr1 = null;
-
-                    string destConnString = Utils.getConnectionstr();
-                    try
-                    {
-
-                        conn2 = new SqlConnection(destConnString);
-                        conn2.Open();
-                        SqlCommand cmd1 = new SqlCommand("DeleteTempFBL5nnew", conn2);
-                        cmd1.CommandType = CommandType.StoredProcedure;
-                        cmd1.CommandTimeout = 0;
-
-                        ////     cmd1.Parameters.Add("@fromdate", SqlDbType.Date).Value = fromdate;
-                        ///     cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
-                        //  System.Data.SqlDbType.DateTime
-                        try
-                        {
-                            rdr1 = cmd1.ExecuteReader();
-                            //  MessageBox.Show("OK, please go to Input verify to reinput !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception ex)
-                        {
-
-                            MessageBox.Show("Error  Delete TempFBL5n new \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
-
-
-
-                        //       rdr1 = cmd1.ExecuteReader();
-
-                    }
-                    finally
-                    {
-                        if (conn2 != null)
-                        {
-                            conn2.Close();
-                        }
-                        if (rdr1 != null)
-                        {
-                            rdr1.Close();
-                        }
-                    }
-
-                    #endregion
-
-
+                 
 
 
                     #region q List các document có trong bảng  FBL5Nnew rồi !
@@ -4027,7 +3934,7 @@ namespace arconfirmationletter.View
                                    select p.Account).Contains(tblFBL5Nnewthisperiod.Account)
                             select tblFBL5Nnewthisperiod;
 
-                   
+
 
                     if (q.Count() != 0)
                     {

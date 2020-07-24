@@ -73,6 +73,7 @@ namespace arconfirmationletter.View
                 using (SqlConnection cn = new SqlConnection(connection_string))
                 using (SqlCommand cmd = new SqlCommand(queryText, cn))
                 {
+                    cmd.CommandTimeout = 60;
                     try
                     {
                         cn.Open();
