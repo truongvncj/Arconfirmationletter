@@ -67,6 +67,7 @@
             this.depositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadWritterOffFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteWritterOffFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fBL5nInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateNewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,7 +148,6 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.lblocate = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -226,7 +226,7 @@
             this.eDITLISTUNUSECUSTOMERToolStripMenuItem});
             this.customerToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
             this.customerToolStripMenuItem.Text = "CUSTOMER";
             // 
             // uploadCustomerToolStripMenuItem
@@ -326,7 +326,7 @@
             this.productCodeToolStripMenuItem});
             this.productToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
             this.productToolStripMenuItem.Text = "PRODUCT";
             // 
             // viewProductsListToolStripMenuItem
@@ -356,7 +356,7 @@
             this.yEARENDPACKDATAToolStripMenuItem});
             this.dataConfigurationToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataConfigurationToolStripMenuItem.Name = "dataConfigurationToolStripMenuItem";
-            this.dataConfigurationToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
+            this.dataConfigurationToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
             this.dataConfigurationToolStripMenuItem.Text = "BEGIN CONFIG";
             // 
             // bEGINBALANCEVIEWToolStripMenuItem
@@ -416,7 +416,7 @@
             this.uploadWritterOffFileToolStripMenuItem,
             this.deleteWritterOffFileToolStripMenuItem});
             this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
-            this.depositToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
+            this.depositToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
             this.depositToolStripMenuItem.Text = "Deposit Writte Off";
             // 
             // uploadWritterOffFileToolStripMenuItem
@@ -432,6 +432,13 @@
             this.deleteWritterOffFileToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
             this.deleteWritterOffFileToolStripMenuItem.Text = "Delete Writter Off file";
             this.deleteWritterOffFileToolStripMenuItem.Click += new System.EventHandler(this.deleteWritterOffFileToolStripMenuItem_Click);
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.testToolStripMenuItem.Text = "Check dataReconcile ";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // masterDataToolStripMenuItem
             // 
@@ -1124,13 +1131,6 @@
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 26;
             this.label2.Text = "Region: ";
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
-            this.testToolStripMenuItem.Text = "test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // Main
             // 

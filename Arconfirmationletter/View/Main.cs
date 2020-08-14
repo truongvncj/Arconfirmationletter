@@ -2324,7 +2324,7 @@ namespace arconfirmationletter.View
 
                     //    db.CommandTimeout = 0;
                     var q = from fbl5n in db.tblFBL5Nnews
-                            where fbl5n.Document_Number != 0 && (from pp in db.tblFBL5Nnewthisperiods
+                            where fbl5n.Document_Number != 0 && fbl5n.Tempmark == false && (from pp in db.tblFBL5Nnewthisperiods
                                                                   select pp.Document_Number
                                     ).Contains(fbl5n.Document_Number)
 
@@ -3925,7 +3925,7 @@ namespace arconfirmationletter.View
 
                     //    db.CommandTimeout = 0;
                     var q = from fbl5n in db.tblFBL5Nnews
-                            where fbl5n.Document_Number != 0 && (from pp in db.tblFBL5Nnewthisperiods
+                            where fbl5n.Document_Number != 0 && fbl5n.Tempmark == false && (from pp in db.tblFBL5Nnewthisperiods
                                                                   select pp.Document_Number
                                     ).Contains(fbl5n.Document_Number)
 
@@ -4785,30 +4785,46 @@ namespace arconfirmationletter.View
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Control_ac ct = new Control_ac();
 
-            Thread t1 = new Thread(ct.inputthisisperiodtoFBL5nnewTEMP);
-            //   t1.IsBackground = true;
-            t1.Start();
+            #region q List các document có trong bảng  FBL5Nnew rồi !
+            //---
 
+            string connection_string = Utils.getConnectionstr();
 
-            Thread t2 = new Thread(showwait);
-            t2.Start();
-
-            t1.Join();
+            //  var db = new LinqtoSQLDataContext(connection_string);
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
 
-            if (t1.ThreadState != ThreadState.Running)
+            //    db.CommandTimeout = 0;
+            var q = from fbl5n in db.tblFBL5Nnews
+                    where fbl5n.Document_Number != 0 && (from pp in db.tblFBL5Nnewthisperiods
+                                                         select pp.Document_Number
+                            ).Contains(fbl5n.Document_Number)
+
+                    select fbl5n;
+
+
+
+
+            if (q.Count() != 0)
             {
 
-                Thread.Sleep(1299);
 
-                t2.Abort();
+
+                Viewtable viewtbl = new Viewtable(q, db, "Data không close được do có List các document sau đã update lên rồi !", 1, DateTime.Today, DateTime.Today);
+
+                viewtbl.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Data reconcile ok done ! ", "AR Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //  DialogResult kq1 = MessageBox.Show("OK Done ! ", "AR Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+           
+            #endregion q "List các document có trong bảng VAT không có trong bảng FBL5N !
 
 
-            MessageBox.Show("Tempclose OK done ! ", "AR", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
