@@ -11,10 +11,11 @@ namespace arconfirmationletter.View
 {
     public partial class fromdate : Form
     {
-        public fromdate()
+        public fromdate(string tieude)
         {
             InitializeComponent();
 
+            Text = tieude;
 
             chon = false;
         }

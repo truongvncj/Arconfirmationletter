@@ -2313,19 +2313,81 @@ namespace arconfirmationletter.View
 
 
 
-                    #region q List các document có trong bảng  FBL5Nnew rồi !
-                    //---
+                    #region q List các document không có trong kỳ  !
+
+
+                    fromdate fromtochoice = new View.fromdate("Chọn kỳ từ ngày đến ngày !");
+                    //   Control_ac ctrac = new Control_ac();
+
+                    fromtochoice.ShowDialog();
+
 
                     string connection_string = Utils.getConnectionstr();
 
                     //  var db = new LinqtoSQLDataContext(connection_string);
+                    //      LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
                     LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+
+
+
+                    DateTime fromdate = fromtochoice.tungay;
+                    DateTime todate = fromtochoice.denngay;
+                    bool choice = fromtochoice.chon;
+
+
+
+
+                    if (choice == true)
+                    {
+                        var q1 = from pp in db.tblFBL5Nnewthisperiods
+                                 where pp.Posting_Date > todate || pp.Posting_Date < fromdate
+
+
+                                 select pp;
+
+
+                        if (q1.Count() != 0)
+                        {
+
+
+                            Viewtable viewtbl = new Viewtable(q1, db, "Danh sách các doc có posting date không trong kỳ đóng số, please check ! ", 1, DateTime.Today, DateTime.Today);
+
+                            viewtbl.ShowDialog();
+
+
+
+                            break;
+                        }
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Bạn phải chọn kỳ đóng sổ từ ngày nào đến ngày nào ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        break;
+                    }
+
+
+                    #endregion q List các document không có trong kỳ  !
+
+
+
+                    #region q List các document có trong bảng  FBL5Nnew rồi !
+                    //---
+
+                    //  string connection_string = Utils.getConnectionstr();
+
+                    //      var db = new LinqtoSQLDataContext(connection_string);
+                    //  LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
 
                     //    db.CommandTimeout = 0;
                     var q = from fbl5n in db.tblFBL5Nnews
                             where fbl5n.Document_Number != 0 && fbl5n.Tempmark == false && (from pp in db.tblFBL5Nnewthisperiods
-                                                                  select pp.Document_Number
+                                                                                            select pp.Document_Number
                                     ).Contains(fbl5n.Document_Number)
 
                             select fbl5n;
@@ -3138,7 +3200,7 @@ namespace arconfirmationletter.View
                 case DialogResult.Yes:
 
 
-                    fromdate fromtochoice = new View.fromdate();
+                    fromdate fromtochoice = new View.fromdate("Fromdate to date:");
                     Control_ac ctrac = new Control_ac();
 
                     fromtochoice.ShowDialog();
@@ -3562,7 +3624,7 @@ namespace arconfirmationletter.View
 
 
 
-            fromdate fromtochoice = new View.fromdate();
+            fromdate fromtochoice = new View.fromdate("Fromdate to date :");
             Control_ac ctrac = new Control_ac();
 
             fromtochoice.ShowDialog();
@@ -3625,7 +3687,7 @@ namespace arconfirmationletter.View
             //---
 
 
-            fromdate fromtochoice = new View.fromdate();
+            fromdate fromtochoice = new View.fromdate("Fromdate to date:");
             Control_ac ctrac = new Control_ac();
 
             fromtochoice.ShowDialog();
@@ -3789,7 +3851,7 @@ namespace arconfirmationletter.View
                 case DialogResult.Yes:
 
 
-                    fromdate fromtochoice = new View.fromdate();
+                    fromdate fromtochoice = new View.fromdate("Fromdate to date:");
                     //   Control_ac ctrac = new Control_ac();
 
                     fromtochoice.ShowDialog();
@@ -3926,7 +3988,7 @@ namespace arconfirmationletter.View
                     //    db.CommandTimeout = 0;
                     var q = from fbl5n in db.tblFBL5Nnews
                             where fbl5n.Document_Number != 0 && fbl5n.Tempmark == false && (from pp in db.tblFBL5Nnewthisperiods
-                                                                  select pp.Document_Number
+                                                                                            select pp.Document_Number
                                     ).Contains(fbl5n.Document_Number)
 
                             select fbl5n;
@@ -4821,7 +4883,7 @@ namespace arconfirmationletter.View
                 //  DialogResult kq1 = MessageBox.Show("OK Done ! ", "AR Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
-           
+
             #endregion q "List các document có trong bảng VAT không có trong bảng FBL5N !
 
 
