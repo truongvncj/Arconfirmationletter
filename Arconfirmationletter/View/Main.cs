@@ -3974,16 +3974,77 @@ namespace arconfirmationletter.View
                         break;
                     }
 
+                    
+                    #region q List các document không có trong kỳ  !
+
+
+                    fromdate fromtochoice = new View.fromdate("Chọn kỳ từ ngày đến ngày !");
+                    //   Control_ac ctrac = new Control_ac();
+
+                    fromtochoice.ShowDialog();
+
+
+                    string connection_string = Utils.getConnectionstr();
+
+                    //  var db = new LinqtoSQLDataContext(connection_string);
+                    //      LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+                    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+
+
+
+                    DateTime fromdate = fromtochoice.tungay;
+                    DateTime todate = fromtochoice.denngay;
+                    bool choice = fromtochoice.chon;
+
+
+
+
+                    if (choice == true)
+                    {
+                        var q1 = from pp in db.tblFBL5Nnewthisperiods
+                                 where pp.Posting_Date > todate || pp.Posting_Date < fromdate
+
+
+                                 select pp;
+
+
+                        if (q1.Count() != 0)
+                        {
+
+
+                            Viewtable viewtbl = new Viewtable(q1, db, "Danh sách các doc có posting date không trong kỳ đóng số, please check ! ", 1, DateTime.Today, DateTime.Today);
+
+                            viewtbl.ShowDialog();
+
+
+
+                            break;
+                        }
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Bạn phải chọn kỳ đóng sổ từ ngày nào đến ngày nào ! ", "AR Confirmation ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        break;
+                    }
+
+
+                    #endregion q List các document không có trong kỳ  !
+
 
 
 
                     #region q List các document có trong bảng  FBL5Nnew rồi !
                     //---
 
-                    string connection_string = Utils.getConnectionstr();
+              //      string connection_string = Utils.getConnectionstr();
 
                     //  var db = new LinqtoSQLDataContext(connection_string);
-                    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+               //     LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
                     //    db.CommandTimeout = 0;
                     var q = from fbl5n in db.tblFBL5Nnews
