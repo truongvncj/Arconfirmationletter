@@ -3965,8 +3965,7 @@ namespace arconfirmationletter.View
                 case DialogResult.Yes:
                     Username user = new Username();
 
-                    //     user.setStatus(0); //1  lad udpate chuea reconcile   // 0 là đã recoecile ok 
-
+                
                     if (user.getStatus() != 0)
                     {
 
