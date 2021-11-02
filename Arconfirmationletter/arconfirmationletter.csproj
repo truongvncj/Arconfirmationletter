@@ -130,7 +130,9 @@
     <Compile Include="Model\NKA.cs" />
     <Compile Include="Model\Remarks.cs" />
     <Compile Include="Model\vat_ctrl.cs" />
-    <Compile Include="Model\fbl5n_ctrl.cs" />
+    <Compile Include="Model\fbl5n_ctrl.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -435,6 +437,11 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
