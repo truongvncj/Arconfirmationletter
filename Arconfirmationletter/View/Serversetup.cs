@@ -24,24 +24,43 @@ namespace arconfirmationletter.View
 
             string fileName = current + "\\Connectstring.txt";
 
-            if (textBox1.Text != "" && textBox3.Text != "" && textBox2.Text != "")
+            if (txtservername.Text != "" && txtusername.Text != "" && txtpassword.Text != "" && txt_dbname.Text != "")
             {
 
 
                 //   string[] names = new string[] { "Zara Ali", "Nuha Ali" };
-                string s = textBox1.Text + ";" + textBox3.Text + ";" + textBox2.Text+";"+ txt_dbname.Text;
+                string s = txtservername.Text + ";" + txtusername.Text + ";" + txtpassword.Text+";"+ txt_dbname.Text;
             
             using (StreamWriter sw = new StreamWriter(fileName))
             {
 
                     try
                     {
-                        sw.WriteLine(s);
+                        #region ghi vao data pass, user, connectstring
+
+
+                     //   string s1 = st1 + ";" + st2 + ";" + st3 + ";" + st4;
+
+                        //   string s1 = st1 + ";" + st2 + ";" + st3 + ";" + st4 + ";" + textBox1.Text;
+
+                        Model.SercurityFucntion bm = new Model.SercurityFucntion();
+                        string s2 = bm.Encryption(s);
+
+
+                        sw.WriteLine(s2);
+                        //  bm.WritestringtoFile(fileName, s2);
+
+                        #endregion
+
+
+
+
+                   
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
 
-                        MessageBox.Show("Không ghi được, file server lost !","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Không ghi được !" +ex.ToString(),"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                    
             }

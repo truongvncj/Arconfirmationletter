@@ -71,7 +71,18 @@ namespace arconfirmationletter
                 string st5;
                 while ((line = streamReader.ReadLine()) != null)
                 {
-                    string[] parts = line.Split(';');
+
+                    Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
+                    //  line = bm2.Readtextfromfile(fileName);
+                    string line2 = bm2.Decryption(line);
+
+                    //    string s1 = st1 + ";" + st2 + ";" + st3 + ";" + st4 + ";" + txtusername.Text;
+
+
+
+                    string[] parts = line2.Split(';');
+
+                  
                     if (parts.Count() >= 5)
                     {
                         st5 = parts[3].Trim();
@@ -114,7 +125,16 @@ namespace arconfirmationletter
                 string st5;
                 while ((line = streamReader.ReadLine()) != null)
                 {
-                    string[] parts = line.Split(';');
+
+                    Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
+                  //  line = bm2.Readtextfromfile(fileName);
+                    string line2 = bm2.Decryption(line);
+
+                //    string s1 = st1 + ";" + st2 + ";" + st3 + ";" + st4 + ";" + txtusername.Text;
+
+
+
+                    string[] parts = line2.Split(';');
                     if (parts.Count() >= 5)
                     {
                         st5 = parts[4].Trim();
@@ -175,30 +195,34 @@ namespace arconfirmationletter
             string connection_string = "";
             const Int32 BufferSize = 128;
 
-            using (var fileStream = File.OpenRead(fileName))
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
-            {
-                string line;
-                while ((line = streamReader.ReadLine()) != null)
-                {
-                    string[] parts = line.Split(';');
 
-                    string st1 = parts[0].Trim();
-                    string st2 = parts[1].Trim();
-                    string st3 = parts[2].Trim();
-                    string st4 = parts[3].Trim();
-                    connection_string = ("Data Source =" + st1 + "; Initial Catalog = " + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
-                    //  connection_string = ("Data Source =" + st1 + "; Initial Catalog = ARconfirmationletter; User Id =" + st2 + "; Password =" + st3).Trim();
-                    return connection_string;
+
+            string line;
 
 
 
-                }
+            Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
+            line = bm2.Readtextfromfile(fileName);
+            string line2 = bm2.Decryption(line);
 
-                return "";
 
 
-            }
+
+
+
+            string[] parts = line2.Split(';');
+
+            string st1 = parts[0].Trim();
+            string st2 = parts[1].Trim();
+            string st3 = parts[2].Trim();
+            string st4 = parts[3].Trim();
+
+            connection_string = ("Data Source =" + st1 + "; Initial Catalog = " + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
+            //  connection_string = ("Data Source =" + st1 + "; Initial Catalog = ARconfirmationletter; User Id =" + st2 + "; Password =" + st3).Trim();
+            return connection_string;
+
+
+
 
         }
 

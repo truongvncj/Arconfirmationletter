@@ -40,14 +40,19 @@ namespace arconfirmationletter.View
 
          
             const Int32 BufferSize = 128;
-            using (var fileStream = File.OpenRead(fileName))
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
-            {
+           
                 string line;
-                while ((line = streamReader.ReadLine()) != null)
+             
 
-                {
-                    string[] parts = line.Split(';');
+
+                    Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
+                    line = bm2.Readtextfromfile(fileName);
+                    string line2 = bm2.Decryption(line);
+
+
+
+
+                    string[] parts = line2.Split(';');
 
                     st1 = parts[0].Trim();
                     st2 = parts[1].Trim();
@@ -55,7 +60,16 @@ namespace arconfirmationletter.View
                     st4 = parts[3].Trim();
 
 
+                    //string[] parts = line.Split(';');
 
+                    //st1 = parts[0].Trim();
+                    //st2 = parts[1].Trim();
+                    //st3 = parts[2].Trim();
+                    //st4 = parts[3].Trim();
+
+
+                   // string s = txtservername.Text + ";" + txtusername.Text + ";" + txtpassword.Text + ";" + txt_dbname.Text;
+            
                   
                     connection_string = ("Data Source =" + st1 + "; Initial Catalog = " + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
                    
@@ -63,10 +77,10 @@ namespace arconfirmationletter.View
 
 
 
-                }
-            }
+              
+            
 
-            if (textBox1.Text != "" & textBox2.Text != "")
+            if (txtusername.Text != "" & txtpassword.Text != "")
             {
                 string queryText = @"SELECT Count(*) FROM tbl_Temp 
                              WHERE username = @Username AND password = @Password";
@@ -85,33 +99,30 @@ namespace arconfirmationletter.View
                         return;
                     }
 
-                    cmd.Parameters.AddWithValue("@Username", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@Password", textBox2.Text);
+                    cmd.Parameters.AddWithValue("@Username", txtusername.Text);
+                    cmd.Parameters.AddWithValue("@Password", txtpassword.Text);
                     int result = (int)cmd.ExecuteScalar();
                     if (result > 0)
                     {
 
+                     
+
                         #region ghi vao data pass, user, connectstring
 
 
-                        string s1 = st1 + ";" + st2 + ";" + st3 + ";" + st4 + ";" + textBox1.Text;
+                        string s1 = st1 + ";" + st2 + ";" + st3 + ";" + st4 + ";" + txtusername.Text ;
 
-                        using (StreamWriter sw = new StreamWriter(fileName))
-                        {
+                       
+                        Model.SercurityFucntion bm = new Model.SercurityFucntion();
+                        string s2 = bm.Encryption(s1);
 
-                            try
-                            {
-                                sw.WriteLine(s1);
-                            }
-                            catch (Exception)
-                            {
+                        bm.WritestringtoFile(fileName, s2);
 
-                                //  MessageBox.Show("Không ghi được, file server lost !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-
-
-                        }
                         #endregion
+
+
+
+
 
                         Username user = new Username();
                         int Ver = user.Version;
@@ -171,7 +182,7 @@ namespace arconfirmationletter.View
         {
             if (e.KeyCode == Keys.Enter)
             {
-                this.button1.Focus();
+                this.btlogin.Focus();
             }
         }
 
@@ -179,7 +190,7 @@ namespace arconfirmationletter.View
         {
             if (e.KeyCode == Keys.Enter)
             {
-                this.textBox2.Focus();
+                this.txtpassword.Focus();
             }
         }
     }

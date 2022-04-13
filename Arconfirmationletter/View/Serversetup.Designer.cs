@@ -32,11 +32,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_dbname = new System.Windows.Forms.TextBox();
             this.DatabaseName = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtusername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtpassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtservername = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -46,11 +46,11 @@
             // 
             this.panel1.Controls.Add(this.txt_dbname);
             this.panel1.Controls.Add(this.DatabaseName);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.txtusername);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtpassword);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtservername);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -75,13 +75,13 @@
             this.DatabaseName.TabIndex = 7;
             this.DatabaseName.Text = "DB Name";
             // 
-            // textBox3
+            // txtusername
             // 
-            this.textBox3.Location = new System.Drawing.Point(87, 62);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(210, 20);
-            this.textBox3.TabIndex = 6;
-            this.textBox3.Text = "sa";
+            this.txtusername.Location = new System.Drawing.Point(87, 62);
+            this.txtusername.Name = "txtusername";
+            this.txtusername.Size = new System.Drawing.Size(210, 20);
+            this.txtusername.TabIndex = 6;
+            this.txtusername.Text = "Ketoan99";
             // 
             // label3
             // 
@@ -92,15 +92,15 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "User ID";
             // 
-            // textBox2
+            // txtpassword
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(87, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(210, 23);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.Text = "Abcd!234";
+            this.txtpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpassword.Location = new System.Drawing.Point(87, 95);
+            this.txtpassword.Name = "txtpassword";
+            this.txtpassword.PasswordChar = '*';
+            this.txtpassword.Size = new System.Drawing.Size(210, 23);
+            this.txtpassword.TabIndex = 4;
+            this.txtpassword.Text = "!Niceworking$%IT2022";
             // 
             // label2
             // 
@@ -111,13 +111,13 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
             // 
-            // textBox1
+            // txtservername
             // 
-            this.textBox1.Location = new System.Drawing.Point(87, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "VNHANM04";
+            this.txtservername.Location = new System.Drawing.Point(87, 28);
+            this.txtservername.Name = "txtservername";
+            this.txtservername.Size = new System.Drawing.Size(210, 20);
+            this.txtservername.TabIndex = 2;
+            this.txtservername.Text = "VNHANM04";
             // 
             // button1
             // 
@@ -157,11 +157,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtusername;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtpassword;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtservername;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_dbname;
