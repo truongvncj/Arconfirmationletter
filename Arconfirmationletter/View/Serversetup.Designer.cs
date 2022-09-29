@@ -100,7 +100,7 @@
             this.txtpassword.PasswordChar = '*';
             this.txtpassword.Size = new System.Drawing.Size(210, 23);
             this.txtpassword.TabIndex = 4;
-            this.txtpassword.Text = "!Niceworking$%IT2022";
+            this.txtpassword.Text = "#$%Niceworking*2022";
             // 
             // label2
             // 
@@ -117,7 +117,7 @@
             this.txtservername.Name = "txtservername";
             this.txtservername.Size = new System.Drawing.Size(210, 20);
             this.txtservername.TabIndex = 2;
-            this.txtservername.Text = "VNHANM04";
+            this.txtservername.Text = "ZWPKAMI1004";
             // 
             // button1
             // 
